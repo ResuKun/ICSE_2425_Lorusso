@@ -1,0 +1,260 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1267pt" height="446pt" viewBox="0.00 0.00 1266.59 445.80">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 441.8)">
+<title>G</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-441.8 1262.59,-441.8 1262.59,4 -4,4"/>
+<!-- Card -->
+<g id="node1" class="node">
+<title>Card</title>
+<polygon fill="lightyellow" stroke="black" points="965.58,-168.1 965.58,-226.5 1128.59,-226.5 1128.59,-168.1 965.58,-168.1"/>
+<text text-anchor="middle" x="987.18" y="-193.1" font-family="Times,serif" font-size="14.00">Card</text>
+<polyline fill="none" stroke="black" points="1008.79,-168.1 1008.79,-226.5"/>
+<text text-anchor="start" x="1016.79" y="-209.9" font-family="Times,serif" font-size="14.00">numeroCarta: int</text>
+<text text-anchor="start" x="1016.79" y="-193.1" font-family="Times,serif" font-size="14.00">valoreCarta: int</text>
+<text text-anchor="start" x="1016.79" y="-176.3" font-family="Times,serif" font-size="14.00">cartaVisibile: bool</text>
+</g>
+<!-- Seme -->
+<g id="node7" class="node">
+<title>Seme</title>
+<polygon fill="lightyellow" stroke="black" points="1204.59,-10.3 1204.59,-46.3 1258.59,-46.3 1258.59,-10.3 1204.59,-10.3"/>
+<text text-anchor="middle" x="1231.15" y="-24.2" font-family="Times,serif" font-size="14.00">Seme</text>
+</g>
+<!-- Card&#45;&gt;Seme -->
+<g id="edge11" class="edge">
+<title>Card-&gt;Seme</title>
+<path fill="none" stroke="black" d="M1079.88,-167.86C1114.47,-135.83 1169.26,-85.1 1202.38,-54.43"/>
+<polygon fill="black" stroke="black" points="1204.64,-57.1 1209.6,-47.74 1199.88,-51.97 1204.64,-57.1"/>
+<text text-anchor="middle" x="1166.59" y="-105.68" font-family="Arial" font-size="10.00">seme (F)</text>
+</g>
+<!-- FaceCard -->
+<g id="node2" class="node">
+<title>FaceCard</title>
+<polygon fill="lightyellow" stroke="black" points="729.38,-207.3 729.38,-243.3 799.02,-243.3 799.02,-207.3 729.38,-207.3"/>
+<text text-anchor="middle" x="764.2" y="-221.2" font-family="Times,serif" font-size="14.00">FaceCard</text>
+</g>
+<!-- FaceCard&#45;&gt;Card -->
+<g id="edge1" class="edge">
+<title>FaceCard-&gt;Card</title>
+<path fill="none" stroke="black" d="M799.36,-221.89C837.58,-218.08 901.08,-211.75 954.09,-206.47"/>
+<polygon fill="none" stroke="black" points="954.13,-209.98 963.73,-205.51 953.43,-203.02 954.13,-209.98"/>
+<text text-anchor="middle" x="915.07" y="-215.98" font-family="Arial" font-size="10.00">is_a</text>
+</g>
+<!-- Numbered -->
+<g id="node3" class="node">
+<title>Numbered</title>
+<polygon fill="lightyellow" stroke="black" points="726.65,-152.3 726.65,-188.3 801.74,-188.3 801.74,-152.3 726.65,-152.3"/>
+<text text-anchor="middle" x="764.2" y="-166.2" font-family="Times,serif" font-size="14.00">Numbered</text>
+</g>
+<!-- Numbered&#45;&gt;Card -->
+<g id="edge2" class="edge">
+<title>Numbered-&gt;Card</title>
+<path fill="none" stroke="black" d="M802.21,-173.86C840.65,-177.55 902.3,-183.48 953.99,-188.45"/>
+<polygon fill="none" stroke="black" points="953.4,-191.91 963.69,-189.38 954.07,-184.94 953.4,-191.91"/>
+<text text-anchor="middle" x="915.07" y="-190.8" font-family="Arial" font-size="10.00">is_a</text>
+</g>
+<!-- Special -->
+<g id="node4" class="node">
+<title>Special</title>
+<polygon fill="lightyellow" stroke="black" points="735.59,-262.3 735.59,-298.3 792.8,-298.3 792.8,-262.3 735.59,-262.3"/>
+<text text-anchor="middle" x="764.2" y="-276.2" font-family="Times,serif" font-size="14.00">Special</text>
+</g>
+<!-- Special&#45;&gt;Card -->
+<g id="edge3" class="edge">
+<title>Special-&gt;Card</title>
+<path fill="none" stroke="black" d="M793.07,-272.85C813.01,-267.5 840.46,-260.06 864.56,-253.3 901.54,-242.93 910.86,-240.57 947.58,-229.3 949.83,-228.61 952.1,-227.91 954.4,-227.19"/>
+<polygon fill="none" stroke="black" points="955.31,-230.58 963.8,-224.25 953.21,-223.9 955.31,-230.58"/>
+<text text-anchor="middle" x="915.07" y="-250.9" font-family="Arial" font-size="10.00">is_a</text>
+</g>
+<!-- Jolly -->
+<g id="node5" class="node">
+<title>Jolly</title>
+<polygon fill="lightyellow" stroke="black" points="496.32,-245.3 496.32,-281.3 550.32,-281.3 550.32,-245.3 496.32,-245.3"/>
+<text text-anchor="middle" x="522.93" y="-259.2" font-family="Times,serif" font-size="14.00">Jolly</text>
+</g>
+<!-- Jolly&#45;&gt;Special -->
+<g id="edge4" class="edge">
+<title>Jolly-&gt;Special</title>
+<path fill="none" stroke="black" d="M550.79,-265.18C592.77,-268.17 674.82,-274.01 723.74,-277.49"/>
+<polygon fill="none" stroke="black" points="723.39,-280.98 733.61,-278.19 723.89,-273.99 723.39,-280.98"/>
+<text text-anchor="middle" x="636.66" y="-274.8" font-family="Arial" font-size="10.00">is_a</text>
+</g>
+<!-- Pinella -->
+<g id="node6" class="node">
+<title>Pinella</title>
+<polygon fill="lightyellow" stroke="black" points="495.88,-190.3 495.88,-226.3 550.76,-226.3 550.76,-190.3 495.88,-190.3"/>
+<text text-anchor="middle" x="523.32" y="-204.2" font-family="Times,serif" font-size="14.00">Pinella</text>
+</g>
+<!-- Pinella&#45;&gt;Special -->
+<g id="edge5" class="edge">
+<title>Pinella-&gt;Special</title>
+<path fill="none" stroke="black" d="M550.97,-217.06C585.13,-228.26 642.48,-246.96 663.83,-253.3 683.7,-259.2 705.95,-265.29 724.35,-270.2"/>
+<polygon fill="none" stroke="black" points="723.23,-273.52 733.79,-272.69 725.02,-266.75 723.23,-273.52"/>
+<text text-anchor="middle" x="636.66" y="-250.07" font-family="Arial" font-size="10.00">is_a</text>
+</g>
+<!-- Mazzo -->
+<g id="node8" class="node">
+<title>Mazzo</title>
+<polygon fill="lightyellow" stroke="black" points="737.15,-336.3 737.15,-372.3 791.24,-372.3 791.24,-336.3 737.15,-336.3"/>
+<text text-anchor="middle" x="764.2" y="-350.2" font-family="Times,serif" font-size="14.00">Mazzo</text>
+</g>
+<!-- Mazzo&#45;&gt;Card -->
+<g id="edge13" class="edge">
+<title>Mazzo-&gt;Card</title>
+<path fill="none" stroke="black" d="M791.53,-342.57C811.66,-333.5 840.04,-320.46 864.56,-308.3 901.97,-289.74 911.81,-285.85 947.58,-264.3 963.57,-254.66 980.53,-243.49 995.79,-233.07"/>
+<polygon fill="black" stroke="black" points="997.55,-236.11 1003.8,-227.55 993.58,-230.34 997.55,-236.11"/>
+<text text-anchor="middle" x="915.07" y="-301.67" font-family="Arial" font-size="10.00">mazzo</text>
+</g>
+<!-- Monte -->
+<g id="node9" class="node">
+<title>Monte</title>
+<polygon fill="lightyellow" stroke="black" points="358.81,-401.3 358.81,-437.3 412.81,-437.3 412.81,-401.3 358.81,-401.3"/>
+<text text-anchor="middle" x="385.58" y="-415.2" font-family="Times,serif" font-size="14.00">Monte</text>
+</g>
+<!-- Monte&#45;&gt;Mazzo -->
+<g id="edge6" class="edge">
+<title>Monte-&gt;Mazzo</title>
+<path fill="none" stroke="black" d="M413.29,-416.09C455.11,-410.89 538.94,-399.93 609.49,-387.3 649.39,-380.16 694.73,-370.2 725.77,-363.09"/>
+<polygon fill="none" stroke="black" points="726.49,-366.51 735.45,-360.86 724.92,-359.69 726.49,-366.51"/>
+<text text-anchor="middle" x="523.32" y="-415.69" font-family="Arial" font-size="10.00">is_a</text>
+</g>
+<!-- Scarto -->
+<g id="node10" class="node">
+<title>Scarto</title>
+<polygon fill="lightyellow" stroke="black" points="358.81,-356.3 358.81,-392.3 412.81,-392.3 412.81,-356.3 358.81,-356.3"/>
+<text text-anchor="middle" x="385.69" y="-370.2" font-family="Times,serif" font-size="14.00">Scarto</text>
+</g>
+<!-- Scarto&#45;&gt;Mazzo -->
+<g id="edge7" class="edge">
+<title>Scarto-&gt;Mazzo</title>
+<path fill="none" stroke="black" d="M413.27,-372.89C478.87,-369.41 649.16,-360.36 725.37,-356.31"/>
+<polygon fill="none" stroke="black" points="725.45,-359.81 735.25,-355.79 725.07,-352.82 725.45,-359.81"/>
+<text text-anchor="middle" x="523.32" y="-374.33" font-family="Arial" font-size="10.00">is_a</text>
+</g>
+<!-- Mano -->
+<g id="node11" class="node">
+<title>Mano</title>
+<polygon fill="lightyellow" stroke="black" points="496.32,-300.3 496.32,-336.3 550.32,-336.3 550.32,-300.3 496.32,-300.3"/>
+<text text-anchor="middle" x="523.15" y="-314.2" font-family="Times,serif" font-size="14.00">Mano</text>
+</g>
+<!-- Mano&#45;&gt;Mazzo -->
+<g id="edge8" class="edge">
+<title>Mano-&gt;Mazzo</title>
+<path fill="none" stroke="black" d="M550.79,-322.29C593.33,-328.7 677.02,-341.31 725.68,-348.65"/>
+<polygon fill="none" stroke="black" points="725.06,-352.09 735.47,-350.12 726.1,-345.17 725.06,-352.09"/>
+<text text-anchor="middle" x="636.66" y="-339.3" font-family="Arial" font-size="10.00">is_a</text>
+</g>
+<!-- Canasta -->
+<g id="node12" class="node">
+<title>Canasta</title>
+<polygon fill="lightyellow" stroke="black" points="663.83,-41.3 663.83,-133.3 864.56,-133.3 864.56,-41.3 663.83,-41.3"/>
+<text text-anchor="middle" x="693.99" y="-83.1" font-family="Times,serif" font-size="14.00">Canasta</text>
+<polyline fill="none" stroke="black" points="724.15,-41.3 724.15,-133.3"/>
+<text text-anchor="start" x="732.15" y="-116.7" font-family="Times,serif" font-size="14.00">is_burraco()</text>
+<text text-anchor="start" x="732.15" y="-99.9" font-family="Times,serif" font-size="14.00">has_jolly_or_pinella()</text>
+<text text-anchor="start" x="732.15" y="-83.1" font-family="Times,serif" font-size="14.00">is_burraco_pulito()</text>
+<text text-anchor="start" x="732.15" y="-66.3" font-family="Times,serif" font-size="14.00">is_burraco_sporco()</text>
+<text text-anchor="start" x="732.15" y="-49.5" font-family="Times,serif" font-size="14.00">isClosed: bool</text>
+</g>
+<!-- Canasta&#45;&gt;Card -->
+<g id="edge14" class="edge">
+<title>Canasta-&gt;Card</title>
+<path fill="none" stroke="black" d="M865.02,-126.39C896.05,-138.54 929.98,-151.83 959.99,-163.58"/>
+<polygon fill="black" stroke="black" points="958.43,-166.73 969.02,-167.12 960.99,-160.22 958.43,-166.73"/>
+<text text-anchor="middle" x="915.07" y="-161.58" font-family="Arial" font-size="10.00">hasCards</text>
+</g>
+<!-- Scala -->
+<g id="node13" class="node">
+<title>Scala</title>
+<polygon fill="lightyellow" stroke="black" points="437.15,-0.5 437.15,-42.1 609.49,-42.1 609.49,-0.5 437.15,-0.5"/>
+<text text-anchor="middle" x="460.31" y="-17.1" font-family="Times,serif" font-size="14.00">Scala</text>
+<polyline fill="none" stroke="black" points="483.47,-0.5 483.47,-42.1"/>
+<text text-anchor="start" x="491.47" y="-25.5" font-family="Times,serif" font-size="14.00">minValueScala: int</text>
+<text text-anchor="start" x="491.47" y="-8.7" font-family="Times,serif" font-size="14.00">maxValueScala: int</text>
+</g>
+<!-- Scala&#45;&gt;Seme -->
+<g id="edge12" class="edge">
+<title>Scala-&gt;Seme</title>
+<path fill="none" stroke="black" d="M609.86,-22.15C764.2,-23.68 1083.37,-26.84 1192.8,-27.93"/>
+<polygon fill="black" stroke="black" points="1192.66,-31.42 1202.69,-28.02 1192.73,-24.42 1192.66,-31.42"/>
+<text text-anchor="middle" x="915.07" y="-28.44" font-family="Arial" font-size="10.00">semeScala (F)</text>
+</g>
+<!-- Scala&#45;&gt;Canasta -->
+<g id="edge9" class="edge">
+<title>Scala-&gt;Canasta</title>
+<path fill="none" stroke="black" d="M601.22,-42.55C617.71,-47.1 635.44,-52 652.91,-56.83"/>
+<polygon fill="none" stroke="black" points="651.71,-60.13 662.29,-59.42 653.58,-53.38 651.71,-60.13"/>
+<text text-anchor="middle" x="636.66" y="-57.3" font-family="Arial" font-size="10.00">is_a</text>
+</g>
+<!-- Tris -->
+<g id="node14" class="node">
+<title>Tris</title>
+<polygon fill="lightyellow" stroke="black" points="459.3,-118.3 459.3,-154.3 587.34,-154.3 587.34,-118.3 459.3,-118.3"/>
+<text text-anchor="middle" x="478.57" y="-132.2" font-family="Times,serif" font-size="14.00">Tris</text>
+<polyline fill="none" stroke="black" points="497.85,-118.5 497.85,-154.3"/>
+<text text-anchor="start" x="505.85" y="-132.2" font-family="Times,serif" font-size="14.00">trisValue: int</text>
+</g>
+<!-- Tris&#45;&gt;Canasta -->
+<g id="edge10" class="edge">
+<title>Tris-&gt;Canasta</title>
+<path fill="none" stroke="black" d="M587.71,-123.3C607.57,-119.22 630.11,-114.6 652.26,-110.06"/>
+<polygon fill="none" stroke="black" points="652.86,-113.51 661.95,-108.07 651.45,-106.65 652.86,-113.51"/>
+<text text-anchor="middle" x="636.66" y="-117.73" font-family="Arial" font-size="10.00">is_a</text>
+</g>
+<!-- Game -->
+<g id="node15" class="node">
+<title>Game</title>
+<polygon fill="lightyellow" stroke="black" points="0,-340.3 0,-376.3 54,-376.3 54,-340.3 0,-340.3"/>
+<text text-anchor="middle" x="26.71" y="-354.2" font-family="Times,serif" font-size="14.00">Game</text>
+</g>
+<!-- Game&#45;&gt;Monte -->
+<g id="edge20" class="edge">
+<title>Game-&gt;Monte</title>
+<path fill="none" stroke="black" d="M54.04,-371.66C59.83,-374.2 66.03,-376.59 72,-378.3 168.56,-405.91 287.28,-415 346.87,-417.94"/>
+<polygon fill="black" stroke="black" points="346.66,-421.43 356.81,-418.39 346.98,-414.44 346.66,-421.43"/>
+<text text-anchor="middle" x="93.67" y="-391.81" font-family="Arial" font-size="10.00">monte (F)</text>
+</g>
+<!-- Game&#45;&gt;Scarto -->
+<g id="edge19" class="edge">
+<title>Game-&gt;Scarto</title>
+<path fill="none" stroke="black" d="M54.24,-359.48C116.74,-362.28 274.63,-369.36 347.23,-372.62"/>
+<polygon fill="black" stroke="black" points="346.87,-376.1 357.02,-373.05 347.19,-369.11 346.87,-376.1"/>
+<text text-anchor="middle" x="93.67" y="-365.05" font-family="Arial" font-size="10.00">scarto (F)</text>
+</g>
+<!-- Player -->
+<g id="node16" class="node">
+<title>Player</title>
+<polygon fill="lightyellow" stroke="black" points="133.34,-289.5 133.34,-331.1 334.46,-331.1 334.46,-289.5 133.34,-289.5"/>
+<text text-anchor="middle" x="159.22" y="-306.1" font-family="Times,serif" font-size="14.00">Player</text>
+<polyline fill="none" stroke="black" points="185.11,-289.5 185.11,-331.1"/>
+<text text-anchor="start" x="193.11" y="-314.5" font-family="Times,serif" font-size="14.00">nomeGiocatore: str</text>
+<text text-anchor="start" x="193.11" y="-297.7" font-family="Times,serif" font-size="14.00">punteggioGiocatore: int</text>
+</g>
+<!-- Game&#45;&gt;Player -->
+<g id="edge17" class="edge">
+<title>Game-&gt;Player</title>
+<path fill="none" stroke="black" d="M38.24,-339.81C45.86,-328.11 57.43,-313.97 72,-307.3 87.42,-300.24 104.57,-296.69 121.77,-295.4"/>
+<polygon fill="black" stroke="black" points="121.73,-298.9 131.55,-294.93 121.39,-291.91 121.73,-298.9"/>
+<text text-anchor="middle" x="93.67" y="-310.3" font-family="Arial" font-size="10.00">players</text>
+</g>
+<!-- Game&#45;&gt;Player -->
+<g id="edge18" class="edge">
+<title>Game-&gt;Player</title>
+<path fill="none" stroke="black" d="M54.31,-347.99C60.09,-345.94 66.21,-343.92 72,-342.3 88.09,-337.8 105.25,-333.69 122.15,-330.01"/>
+<polygon fill="black" stroke="black" points="122.67,-333.48 131.72,-327.98 121.21,-326.63 122.67,-333.48"/>
+<text text-anchor="middle" x="93.67" y="-345.3" font-family="Arial" font-size="10.00">turnOf (F)</text>
+</g>
+<!-- Player&#45;&gt;Mano -->
+<g id="edge15" class="edge">
+<title>Player-&gt;Mano</title>
+<path fill="none" stroke="black" d="M334.62,-313.08C386.63,-314.52 447.16,-316.21 485.11,-317.26"/>
+<polygon fill="black" stroke="black" points="484.52,-320.75 494.61,-317.53 484.71,-313.75 484.52,-320.75"/>
+<text text-anchor="middle" x="385.81" y="-318.25" font-family="Arial" font-size="10.00">playerHand (F)</text>
+</g>
+<!-- Player&#45;&gt;Canasta -->
+<g id="edge16" class="edge">
+<title>Player-&gt;Canasta</title>
+<path fill="none" stroke="black" d="M246.94,-289.15C274.05,-243.94 344.77,-138.66 437.15,-97.3 474.42,-80.61 573.17,-79.55 652.31,-81.81"/>
+<polygon fill="black" stroke="black" points="651.72,-85.29 661.82,-82.1 651.93,-78.3 651.72,-85.29"/>
+<text text-anchor="middle" x="523.32" y="-100.3" font-family="Arial" font-size="10.00">canasta</text>
+</g>
+</g>
+</svg>
