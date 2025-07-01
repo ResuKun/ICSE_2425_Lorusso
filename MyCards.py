@@ -1,43 +1,47 @@
 from owlready2 import *
+from Ontologia.OntoManager import OntologyResource
 
 # Crea una nuova ontologia. L'IRI (Internationalized Resource Identifier) è l'identificatore unico
 # dell'ontologia.
 onto = get_ontology("http://www.semanticweb.org/les/ontologies/2025/Cards#")
-ontology_file = "Cards_Ontology.owl"
+ontology_file = OntologyResource.CARD.value
 
 with onto:
     # Definizione delle Classi (OWL Classes)
 
     class Card(Thing):
-        pass
+        pass# Questa classe conterrà le carte generiche
 
     # Sottoclassi di Card.
     class FaceCard(Card):
-        pass
+        pass# Questa classe conterrà la classe carte con figura
 
     class Numbered(Card):
-        pass
+        pass# Questa classe conterrà le carte numerate
 
     class Special(Card):
-        pass
+        pass# Questa classe conterrà speciali (Jolly/Pinelle)
 
     class Jolly(Special):
-        pass
+        pass# Questa classe conterrà i Jolly
 
     class Pinella(Special): # La Pinella è il 2 di qualsiasi seme
         pass
     
     class Game(Thing):
-        pass
+        pass# Questa classe conterrà una rappresentazione della partita
 
     class Player(Thing):
-        pass
+        pass# Questa classe conterrà una rappresentazione del giocatore
 
     class Seme(Thing):
         pass # Questa classe conterrà gli individui per i semi (Cuori, Fiori, ecc.).
 
     class Mazzo(Thing):
-        pass # Questa classe conterrà i due mazzi (Mazzo_Rosso, Mazzo_Blue).
+        #pass # Questa classe conterrà i due mazzi (Mazzo_Rosso, Mazzo_Blue).
+        @property
+        def numeroCarte(self):
+            return len(self.mazzo)
 
     class Monte(Mazzo):
         pass # Questa classe conterrà il mazzo da cui pescare.
@@ -49,7 +53,7 @@ with onto:
         pass # Questa classe conterrà il mazzo della mano del giocatore.
 
     class Canasta(Thing):
-       # pass # Questa classe rappresenta le canaste (Scale e Tris).
+       # Questa classe rappresenta le canaste (Scale e Tris).
         @property
         def isBurraco(self):
             return len(self.hasCards) >= 7
@@ -68,18 +72,27 @@ with onto:
         @property
         def isBurracoSporco(self):
             return self.isBurraco and self.hasJollyOrPinella
+        
+        @property
+        def numeroCarte(self):
+            return len(self.hasCards)
    
     class Scala(onto.Canasta):
-        pass
+        pass #Questa classe rappresenta le Scale.
     
     class Tris(onto.Canasta):
-        pass
+        pass #Questa classe rappresenta i Tris.
 
 
     # Definizione delle Proprietà Oggetto
     # Le Proprietà Oggetto definiscono le relazioni tra due individui (istanze di classi).
     # Es. "un giocatore ha una carta" (relazione tra un individuo Player e un individuo Card).
 
+    # Proprietà 'hasCards'
+    class hasCards(ObjectProperty): 
+        domain = [onto.Canasta] 
+        range = [onto.Card]
+        
     # Proprietà 'players'
     class players(ObjectProperty):
         domain = [onto.Game]
@@ -100,10 +113,15 @@ with onto:
         domain = [onto.Game] 
         range = [onto.Monte]
 
-    # Proprietà 'canasta'
-    class canasta(ObjectProperty):
+    # Proprietà 'scala'
+    class scala(ObjectProperty):
         domain = [onto.Player]
-        range = [onto.Canasta] 
+        range = [onto.Scala] 
+
+    # Proprietà 'tris'
+    class tris(ObjectProperty):
+        domain = [onto.Player]
+        range = [onto.Tris] 
 
     # Proprietà 'playerHand'
     class playerHand(ObjectProperty, FunctionalProperty):
@@ -125,10 +143,7 @@ with onto:
         domain = [onto.Mazzo]
         range = [onto.Card]
 
-    # Proprietà 'hasCards'
-    class hasCards(ObjectProperty): 
-        domain = [onto.Canasta] 
-        range = [onto.Card]
+
 
     # Definizione delle Proprietà Dato
     # Le Proprietà Dato definiscono le relazioni tra un individuo e un valore di tipo dato (es. numero, stringa).
@@ -174,7 +189,7 @@ with onto:
         domain = [onto.Player]
         range = [str]
 
-    # Proprietà 'nomeGiocatore' per le scale
+    # Proprietà 'punteggioGiocatore' per le scale
     class punteggioGiocatore(DataProperty, FunctionalProperty):
         domain = [onto.Player]
         range = [int]
@@ -184,13 +199,15 @@ with onto:
     #utils
     mazzi_arr = ["Rosso", "Blu"]
     card_values_map = { 1: "A", 2: "2", 3: "3", 4: "4", 5: "5", 6: "6", 7: "7", 8: "8", 9: "9", 10: "10", 11: "J", 12: "Q", 13: "K" }
-    card_valori_punteggio = { 1: 15, 2: 20, 3: 5, 4: 5, 5: 5, 6: 5, 7: 5, 8: 5, 9: 5, 10: 10, 11: 10, 12: 10, 13: 10 }
+    card_valori_punteggio = { 1: 15, 2: 20, 3: 5, 4: 5, 5: 5, 6: 5, 7: 5, 8: 10, 9: 10, 10: 10, 11: 10, 12: 10, 13: 10 }
     semi_names = ["Cuori", "Quadri", "Fiori", "Picche"]
     jolly_names = ["Jolly_N", "Jolly_R"]
 
     #individui
     onto_semi = {s_name: onto.Seme(s_name) for s_name in semi_names}
 
+
+    #CREAZIONE DEL MAZZO
     #per ogni mazzo
     for singolo_mazzo_name in mazzi_arr:
         singolo_mazzo = onto.Mazzo(singolo_mazzo_name)
@@ -241,9 +258,6 @@ with onto:
             carta.cartaVisibile = False
             singolo_mazzo.mazzo.append(carta)
 
-            
-
-    
+print(f"ontology_file {ontology_file}")
 onto.save(file = ontology_file, format = "rdfxml")
-
 print(f"Ontologia aggiornata salvata in {ontology_file}")

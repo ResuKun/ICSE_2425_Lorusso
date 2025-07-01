@@ -1,0 +1,391 @@
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), "aipython"))
+
+from owlready2 import *
+from aipython.cspProblem import Variable, Constraint, CSP
+from operator import lt,ne,eq,gt,ge
+from aipython.searchGeneric import Searcher
+from aipython.cspSearch import Search_from_CSP
+
+ontology_file_path = "C:/Users/alexl/Documents/Facolta/ICSE/Progetto/Burraco/ICSE_2425_Lorusso/Ontologia/Cards_Ontology_Updated.owl"
+onto = get_ontology(ontology_file_path).load()
+
+#Da centralizzare eventualmente, copia di playerAction.py
+def get_card_number(card):
+    if hasattr(card, 'numeroCarta') and card.numeroCarta is not None:
+        return card.numeroCarta
+    return None
+
+#Da centralizzare
+def remove_jolly_pinella(lista_carte):
+    return [card for card in lista_carte if not isinstance(card, (onto.Jolly, onto.Pinella))]
+
+#condizioni per creazione delle scale / aggiunta delle carte a scala
+def doppio_jolly_combinazione(lista_carte, scala):
+    #se la scala contiene un Jolly o Pinella e provo ad aggiungerne un altro ritorna Falso
+    if any(isinstance(card, (onto.Jolly, onto.Pinella)) for card in scala) and any(isinstance(card, (onto.Jolly, onto.Pinella)) for card in lista_carte):
+        return False
+    return True
+
+# commentato in quanto le Variables accettano solo oggetti hashable
+#def doppio_jolly_lista(lista_carte):
+#    jolly_found = False
+#    for carta in lista_carte:
+#        if isinstance(carta, (onto.Jolly, onto.Pinella)) and jolly_found:
+#           return False
+#        elif isinstance(carta, (onto.Jolly, onto.Pinella)):
+#           jolly_found = True
+#    return True
+
+def doppio_jolly_lista(*lista_numeri):
+    jolly_found = False
+    for elem in lista_numeri:
+        numero = elem[0]
+        if numero == -1 and jolly_found:
+           return False
+        elif numero == -1:
+           jolly_found = True
+    return True
+
+
+def stesso_seme_scala(lista_carte, scala):
+    seme_scala = scala.semeScala
+    lista_carte = remove_jolly_pinella(lista_carte)
+    for card in lista_carte:
+        if seme_scala != card.seme:
+            return False
+    return True
+
+# commentato in quanto le Variables accettano solo oggetti hashable
+#def stesso_seme_lista(lista_carte):
+#    seme = None
+#    lista_carte = remove_jolly_pinella(lista_carte)
+#    for card in lista_carte:
+#        if seme is None:
+#            seme = card.seme
+#        elif seme != card.seme:
+#            return False
+#    return True
+
+def stesso_seme_lista(*lista_carte):
+    lista_carte = list(lista_carte)
+    
+    #rimuovo i Jolly
+    if any(num[0] == -1 for num in lista_carte):
+        lista_carte[:] = [x for x in lista_carte if x[0] != -1]
+
+    seme_riferimento = lista_carte[0][2]
+    return all(tupla[2] == seme_riferimento for tupla in lista_carte )
+
+
+def stesso_numero_tris(lista_carte, tris):
+    trisValue = tris.trisValue
+    lista_carte = remove_jolly_pinella(lista_carte)
+    for card in lista_carte:
+        if trisValue != card.numeroCarta:
+            return False
+    return True
+
+#def stesso_numero_lista(lista_carte):
+#    numero = None
+#    for card in lista_carte:
+#        if numero is None:
+#            numero = card.numeroCarta
+#        elif numero != card.numeroCarta:
+#            return False
+#    return True
+
+def stesso_numero_lista(*lista_carte):
+    lista_carte = list(lista_carte) 
+
+    #rimuovo i Jolly
+    if any(num[0] == -1 for num in lista_carte):
+        lista_carte[:] = [x for x in lista_carte if x[0] != -1]
+
+    valore_riferimento = lista_carte[0][0]
+    #controllo che abbiano tutti lo stesso numero (Jolly gia esclusi)
+    if all(tupla[0] == valore_riferimento for tupla in lista_carte[1:]):
+        # controllo che non siano la stessa carta
+        valori_elementi = [tupla[1] for tupla in lista_carte]
+        if len(valori_elementi) != len(set(valori_elementi)):
+            # se sono carte diverse ( non ci sono doppioni) e hanno tutte lo stesso numero, allora va bene
+            return False
+    else: return False
+    
+    return True
+
+
+def in_scala(lista_carte, scala):
+    #da raffinare con i controlli di esistenza di un jolly nella scala e della sua eventuale possibilità di muoversi
+    special_card = any(isinstance(card, (onto.Jolly, onto.Pinella)) for card in lista_carte)
+    
+    min_scala = scala.minValueScala
+    max_scala = scala.maxValueScala
+    min_number = min(c.numeroCarta for c in lista_carte)
+    max_number = max(c.numeroCarta for c in lista_carte)
+
+    # lista_in_scala = False
+    # if min_number == max_scala + 1:
+    #     lista_in_scala = True
+    # elif min_number == max_scala + 2 and special_card:
+    #     lista_in_scala = True
+    # elif max_number == min_scala - 1: 
+    #     lista_in_scala = True
+    # elif max_number == min_scala - 2 and special_card: 
+    #     lista_in_scala = True
+
+    lista_in_scala = (min_number == max_scala + 1) or (min_number == max_scala + 2 and special_card) or (max_number == min_scala - 1) or (max_number == min_scala - 2 and special_card)
+
+    return lista_in_scala
+
+# commentato in quanto le Variables accettano solo oggetti hashable
+#def lista_contigua(lista_carte):
+#    old_card = None
+#    found_jolly = 0
+#    if any(isinstance(card, (onto.Jolly, onto.Pinella)) for card in lista_carte):
+#        found_jolly = 1
+#        lista_carte = remove_jolly_pinella(lista_carte)
+#    #ordino le carte per numeroCarta e controllo che siano contigue
+#    #se presente un jolly concedo un "buco" nella lista
+#    carte_ordinate = sorted(lista_carte, key=lambda p: p.numeroCarta)
+#    for card in carte_ordinate:
+#        if old_card is None:
+#            old_card = card
+#        elif old_card is not None:
+#            old_number = get_card_number(old_card)
+#            new_number = get_card_number(card)
+#            if old_number + 1 < new_number and found_jolly < 1:
+#                return False
+#            elif old_number + 1 < new_number and found_jolly == 1:
+#                found_jolly = 0
+#            #questa penultima condizione si può eliminare dopo i vari debug
+#            elif old_number + 1 == new_number:
+#                print("corretto")
+#            else: print(f"caso strano old: {old_number} - new: {new_number}")
+#    return True
+
+#lista_carte
+def lista_contigua(*lista_carte):
+    lista_carte = list(lista_carte)
+
+    valori_elementi = [tupla[0] for tupla in lista_carte]
+    if len(valori_elementi) == len(set(valori_elementi)):
+        old_num = None
+        found_jolly = False
+        if any(num == -1 for num in valori_elementi):
+            found_jolly = True
+            lista_carte[:] = [x for x in lista_carte if x[0] != -1]
+
+        #ordino le carte per numeroCarta e controllo che siano contigue
+        #se presente un jolly concedo un "buco" nella lista
+        lista_carte = sorted(lista_carte, key=lambda x: x[0])
+        for num,_,_ in lista_carte:
+            if old_num is None:
+                old_num = num
+            elif old_num is not None:
+                if old_num + 1 < num and found_jolly is False:
+                    return False
+                elif old_num + 2 < num and found_jolly:
+                    return False
+                #questa penultima condizione si può eliminare dopo i vari debug
+                elif (old_num + 1 == num ) or (old_num + 2 == num and found_jolly):
+                    print("corretto")
+                else: print(f"caso strano old: {old_num} - new: {num}")
+        return True
+    
+    else: 
+        return False
+
+#check di fine partita, per ora controlliamo solo che le carte in mano siano terminate
+def check_end_game_condition(player_hand):
+    return len(player_hand.mazzo) == 0
+
+
+## -------------- START PROBLEMI CSP -------------- ##
+
+## SCALE  ##
+#Creazione di una scala
+def can_create_csp_scala(lista_carte):
+   
+    #lambda n: n >= 3
+    #lunghezza della lista delle carte
+    len_lista_carte = len(lista_carte)
+    len_lista_carte_var = Variable('len_lista_carte_var', [len_lista_carte])
+
+    #doppio_jolly_lista
+    #lista dei numeri delle carte, se jolly o pinella -1
+    lista_numeri = []
+    lista_semi_var = []
+    for card in lista_carte:
+        if not isinstance(card, (onto.Jolly, onto.Pinella)):
+            lista_numeri.append(card.numeroCarta)
+        else: 
+            lista_numeri.append(-1)
+        #per il controllo dello stesso seme, semplicemente ignoro i jolly
+        if hasattr(card, 'seme'):
+            lista_semi_var.append(Variable('lista_semi_var_' + str(len(lista_semi_var)), [card.seme.name]))
+
+    lista_var_numeri = []
+    for numero in lista_numeri:
+        lista_var_numeri.append(Variable('lista_numeri_var_'+ str(numero), [numero]))
+
+
+    # def __init__(self, title, variables, constraints):
+    create_scala_CSP = CSP("create_scala_CSP",
+        [len_lista_carte_var] + lista_var_numeri + lista_semi_var,
+        [
+            Constraint([len_lista_carte_var], lambda n: n >= 3, "min_length_3_for_tris"),
+            Constraint(lista_var_numeri, doppio_jolly_lista,"doppio_jolly_lista"),
+            Constraint(lista_semi_var, stesso_seme_lista,"stesso_seme_lista"),
+            Constraint(lista_var_numeri, lista_contigua,"lista_contigua"),
+        ])
+    
+    searcher = Searcher(Search_from_CSP(create_scala_CSP))
+    result = searcher.search()
+    print(f"can_create_csp_scala --> carte: {lista_carte} --> result: {result}")
+    return result
+
+
+
+#controlla se esiste un Tris fattibile tra le carte
+def find_csp_scala(lista_carte):
+    print(f"Start find_csp_scala --> lista_carte: {lista_carte}" )
+    lista_tuple = []
+    for card in lista_carte:
+        if not isinstance(card, (onto.Jolly, onto.Pinella)):
+            mia_tupla = (card.numeroCarta, card.name, card.seme.name)
+            lista_tuple.append(mia_tupla)
+        else:
+            mia_tupla = (-1, card.name, "Jolly")
+            lista_tuple.append(mia_tupla)
+
+
+    # Costruisci le variabili da selezionare (tris di 3 carte)
+    var1 = Variable("c1", lista_tuple)
+    var2 = Variable("c2", lista_tuple)
+    var3 = Variable("c3", lista_tuple)
+
+    # Evita duplicati esatti (non necessario se jolly può ripetersi?)
+    vars_tris = [var1, var2, var3]
+    csp = CSP("find_csp_scala",
+              vars_tris,
+              [
+                Constraint(vars_tris, lambda *args: len(set(args)) <= 3, "evita duplicati esatti"),
+                Constraint(vars_tris, doppio_jolly_lista,"doppio_jolly_lista"),
+                Constraint(vars_tris, stesso_seme_lista,"stesso_seme_lista"),
+                Constraint(vars_tris, lista_contigua,"lista_contigua"),
+              ])
+    
+    searcher = Searcher(Search_from_CSP(csp))
+    #result = searcher.search()
+    #print(f"find_csp_scala --> result: {result}")
+
+    result = None
+    while searcher.frontier:
+        result = searcher.search()
+        print("solution is " , searcher.solution)
+
+    return result
+
+#Update di una scala
+def can_update_csp_scala(lista_carte, scala):
+    # def __init__(self, title, variables, constraints):
+    update_scala_CSP = CSP("update_scala_CSP",
+        [lista_carte, scala],
+        [
+        Constraint([lista_carte,scala], doppio_jolly_combinazione,"doppio_jolly_combinazione"),
+        Constraint(lista_carte, doppio_jolly_lista,"doppio_jolly_lista"),
+        Constraint([lista_carte,scala], stesso_seme_scala,"stesso_seme_scala"),
+        Constraint(lista_carte, stesso_seme_lista,"stesso_seme_lista"),
+        Constraint([lista_carte,scala], in_scala,"in_scala"),
+        Constraint(lista_carte, lista_contigua,"lista_contigua"),
+        ])
+    
+    searcher = Searcher(Search_from_CSP(update_scala_CSP))
+    result = searcher.search()
+    print(f"can_update_csp_scala --> carte: {lista_carte} --> scala: {scala} --> result: {result}")
+    return result
+
+## TRIS  ##
+#Creazione di un TRIS
+def can_create_csp_tris(lista_carte):
+    # def __init__(self, title, variables, constraints):
+    create_scala_CSP = CSP("create_scala_CSP",
+        [lista_carte],
+        [
+        Constraint(lista_carte, lambda cards_list: len(cards_list) >= 3, "min_length_3_for_tris"),
+        Constraint(lista_carte, doppio_jolly_lista,"doppio_jolly_lista"),
+        Constraint(lista_carte, stesso_numero_lista,"stesso_numero_lista"),
+        ])
+    
+    searcher = Searcher(Search_from_CSP(create_scala_CSP))
+    result = searcher.search()
+    print(f"can_create_csp_tris --> carte: {lista_carte} --> result: {result}")
+    return result
+
+#controlla se esiste un Tris fattibile tra le carte
+def find_csp_tris(lista_carte):
+    print(f"Start find_csp_tris --> lista_carte: {lista_carte}" )
+    lista_numeri = []
+    for card in lista_carte:
+        if not isinstance(card, (onto.Jolly, onto.Pinella)):
+            mia_tupla = (card.numeroCarta, card.name)
+            lista_numeri.append(mia_tupla)
+        else:
+            mia_tupla = (-1, card.name)
+            lista_numeri.append(mia_tupla)
+
+    # Costruisci le variabili da selezionare (tris di 3 carte)
+    var1 = Variable("c1", lista_numeri)
+    var2 = Variable("c2", lista_numeri)
+    var3 = Variable("c3", lista_numeri)
+
+    # Evita duplicati esatti (non necessario se jolly può ripetersi?)
+    vars_tris = [var1, var2, var3]
+    csp = CSP("find_csp_tris",
+              vars_tris,
+              [
+                  Constraint(vars_tris, lambda *args: len(set(args)) <= 3, "evita duplicati esatti"),
+                  Constraint(vars_tris, doppio_jolly_lista, "al massimo un jolly"),
+                  Constraint(vars_tris, stesso_numero_lista, "stesso numero")
+              ])
+    
+    searcher = Searcher(Search_from_CSP(csp))
+    result = searcher.search()
+    print(f"find_csp_tris --> result: {result}")
+    return result
+    
+#Update di un TRIS
+def can_update_csp_tris(lista_carte, tris):
+    # def __init__(self, title, variables, constraints):
+    update_scala_CSP = CSP("update_scala_CSP",
+        [lista_carte, tris],
+        [
+        Constraint([lista_carte,tris], doppio_jolly_combinazione,"doppio_jolly_combinazione"),
+        Constraint(lista_carte, doppio_jolly_lista,"doppio_jolly_lista"),
+        Constraint([lista_carte,tris], stesso_numero_tris,"stesso_numero_tris"),
+        #Constraint(lista_carte, stesso_numero_lista,"stesso_numero_lista"),
+        ])
+    
+    searcher = Searcher(Search_from_CSP(update_scala_CSP))
+    result = searcher.search()
+    print(f"can_update_csp_tris --> carte: {lista_carte} --> tris: {tris} --> result: {result}")
+    return result
+
+
+#fine partita
+def can_end_game_csp(player):
+    player_hand = player.playerHand
+    # def __init__(self, title, variables, constraints):
+    end_game_csp = CSP("end_game_CSP",
+        [player_hand], # La variabile è la mano del giocatore
+        [
+        Constraint([player_hand], check_end_game_condition, "player_hand_is_empty")
+        ]
+    )
+    
+    searcher = Searcher(Search_from_CSP(end_game_csp))
+    result = searcher.search()
+    print(f"can_end_game_csp --> player: {player.nomeGiocatore} --> player_hand: {player_hand}")
+    return result

@@ -1,11 +1,9 @@
 #initGame
-from owlready2 import *
 import random
+import Ontologia.OntoManager as OntoManager
+from Ontologia.OntoManager import OntologyResource
 
-ontology_file_path = "C:/Users/alexl/Documents/Facolta/ICSE/Progetto/Burraco/ICSE_2425_Lorusso/Ontologia/Cards_Ontology.owl"
-ontology_file_save = "C:/Users/alexl/Documents/Facolta/ICSE/Progetto/Burraco/ICSE_2425_Lorusso/Ontologia/Cards_Ontology_Updated.owl"
-onto = get_ontology(ontology_file_path).load()
-
+onto = OntoManager.get_ontology_from_manager(OntologyResource.CARD)
 
 def init_game():
     partita = onto.Game("Partita")
@@ -19,7 +17,6 @@ def init_game():
     random.shuffle(all_cards_in_ontology)
     
     for card in all_cards_in_ontology:
-        print("Card:", card)
         monte_gioco.mazzo.append(card) # Cambiato da partita.monte.mazzo.append(card)
 
     primo_scarto = monte_gioco.mazzo[0]
@@ -32,11 +29,9 @@ def init_game():
     print(f"\nIl giocatore di turno all'inizio della partita è: {partita.turnOf.nomeGiocatore}")
 
     # Salva le modifiche all'ontologia
-    onto.save(file = ontology_file_save, format = "rdfxml")
-    print(f"\nOntologia aggiornata con la mano del giocatore salvata in {ontology_file_save}")
-
-
-
+    OntoManager.salva_ontologia_init_game()
+    # Creo una copia da aggiornare e una con lo start della partita
+    OntoManager.salva_ontologia_update_game()
 
 
 def createPlayer(number,name, partita):
@@ -51,16 +46,12 @@ def createPlayer(number,name, partita):
     player1.playerHand = onto.Mano(f"Mano_di_{player1.name}")
     mano = partita.monte.mazzo[:num_cards_to_deal]
     
+    print(f"carte di {player1.nomeGiocatore} : ")
     for card in mano:
+        print(f"{card.name}")
         player1.playerHand.mazzo.append(card)
         partita.monte.mazzo.remove(card)
-    
-    for card in player1.playerHand.mazzo:
-        seme_str = card.seme.name if card.seme else "N/A"
-        numero_str = card.numeroCarta if hasattr(card, 'numeroCarta') else "Special"
-        valore_str = card.valoreCarta
-        print(f"- {card.name} (Seme: {seme_str}, Numero/Tipo: {numero_str}, Valore: {valore_str})")
-    
+
     return player1
 
 init_game()

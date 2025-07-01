@@ -8,6 +8,11 @@
 
 <owl:Ontology rdf:about="http://www.semanticweb.org/les/ontologies/2025/Cards"/>
 
+<owl:ObjectProperty rdf:about="#hasCards">
+  <rdfs:domain rdf:resource="#Canasta"/>
+  <rdfs:range rdf:resource="#Card"/>
+</owl:ObjectProperty>
+
 <owl:ObjectProperty rdf:about="#players">
   <rdfs:domain rdf:resource="#Game"/>
   <rdfs:range rdf:resource="#Player"/>
@@ -31,9 +36,14 @@
   <rdfs:range rdf:resource="#Monte"/>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#canasta">
+<owl:ObjectProperty rdf:about="#scala">
   <rdfs:domain rdf:resource="#Player"/>
-  <rdfs:range rdf:resource="#Canasta"/>
+  <rdfs:range rdf:resource="#Scala"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#tris">
+  <rdfs:domain rdf:resource="#Player"/>
+  <rdfs:range rdf:resource="#Tris"/>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#playerHand">
@@ -56,11 +66,6 @@
 
 <owl:ObjectProperty rdf:about="#mazzo">
   <rdfs:domain rdf:resource="#Mazzo"/>
-  <rdfs:range rdf:resource="#Card"/>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="#hasCards">
-  <rdfs:domain rdf:resource="#Canasta"/>
   <rdfs:range rdf:resource="#Card"/>
 </owl:ObjectProperty>
 
@@ -117,6 +122,14 @@
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
 </owl:DatatypeProperty>
 
+<owl:Class rdf:about="#Canasta">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Card">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
 <owl:Class rdf:about="#Game">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
@@ -133,32 +146,24 @@
   <rdfs:subClassOf rdf:resource="#Mazzo"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Canasta">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+<owl:Class rdf:about="#Scala">
+  <rdfs:subClassOf rdf:resource="#Canasta"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Tris">
+  <rdfs:subClassOf rdf:resource="#Canasta"/>
 </owl:Class>
 
 <owl:Class rdf:about="#Mano">
   <rdfs:subClassOf rdf:resource="#Mazzo"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Card">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
 <owl:Class rdf:about="#Seme">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Scala">
-  <rdfs:subClassOf rdf:resource="#Canasta"/>
-</owl:Class>
-
 <owl:Class rdf:about="#Mazzo">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Tris">
-  <rdfs:subClassOf rdf:resource="#Canasta"/>
 </owl:Class>
 
 <owl:Class rdf:about="#FaceCard">
@@ -318,7 +323,7 @@
   <rdf:type rdf:resource="#Numbered"/>
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</numeroCarta>
-  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
 </owl:NamedIndividual>
 
@@ -326,7 +331,7 @@
   <rdf:type rdf:resource="#Numbered"/>
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</numeroCarta>
-  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
 </owl:NamedIndividual>
 
@@ -424,7 +429,7 @@
   <rdf:type rdf:resource="#Numbered"/>
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</numeroCarta>
-  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
 </owl:NamedIndividual>
 
@@ -432,7 +437,7 @@
   <rdf:type rdf:resource="#Numbered"/>
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</numeroCarta>
-  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
 </owl:NamedIndividual>
 
@@ -530,7 +535,7 @@
   <rdf:type rdf:resource="#Numbered"/>
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</numeroCarta>
-  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
 </owl:NamedIndividual>
 
@@ -538,7 +543,7 @@
   <rdf:type rdf:resource="#Numbered"/>
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</numeroCarta>
-  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
 </owl:NamedIndividual>
 
@@ -636,7 +641,7 @@
   <rdf:type rdf:resource="#Numbered"/>
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</numeroCarta>
-  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
 </owl:NamedIndividual>
 
@@ -644,7 +649,7 @@
   <rdf:type rdf:resource="#Numbered"/>
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</numeroCarta>
-  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
 </owl:NamedIndividual>
 
@@ -814,7 +819,7 @@
   <rdf:type rdf:resource="#Numbered"/>
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</numeroCarta>
-  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
 </owl:NamedIndividual>
 
@@ -822,7 +827,7 @@
   <rdf:type rdf:resource="#Numbered"/>
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</numeroCarta>
-  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
 </owl:NamedIndividual>
 
@@ -920,7 +925,7 @@
   <rdf:type rdf:resource="#Numbered"/>
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</numeroCarta>
-  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
 </owl:NamedIndividual>
 
@@ -928,7 +933,7 @@
   <rdf:type rdf:resource="#Numbered"/>
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</numeroCarta>
-  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
 </owl:NamedIndividual>
 
@@ -1026,7 +1031,7 @@
   <rdf:type rdf:resource="#Numbered"/>
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</numeroCarta>
-  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
 </owl:NamedIndividual>
 
@@ -1034,7 +1039,7 @@
   <rdf:type rdf:resource="#Numbered"/>
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</numeroCarta>
-  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
 </owl:NamedIndividual>
 
@@ -1132,7 +1137,7 @@
   <rdf:type rdf:resource="#Numbered"/>
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</numeroCarta>
-  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
 </owl:NamedIndividual>
 
@@ -1140,7 +1145,7 @@
   <rdf:type rdf:resource="#Numbered"/>
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</numeroCarta>
-  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
 </owl:NamedIndividual>
 
@@ -1201,96 +1206,96 @@
 
 <owl:NamedIndividual rdf:about="#Monte_della_partita">
   <rdf:type rdf:resource="#Monte"/>
-  <mazzo rdf:resource="#2_Cuori_Blu"/>
-  <mazzo rdf:resource="#6_Picche_Rosso"/>
-  <mazzo rdf:resource="#8_Fiori_Blu"/>
-  <mazzo rdf:resource="#3_Cuori_Blu"/>
-  <mazzo rdf:resource="#10_Fiori_Rosso"/>
   <mazzo rdf:resource="#K_Quadri_Rosso"/>
-  <mazzo rdf:resource="#5_Cuori_Rosso"/>
-  <mazzo rdf:resource="#3_Fiori_Blu"/>
-  <mazzo rdf:resource="#10_Cuori_Rosso"/>
-  <mazzo rdf:resource="#K_Quadri_Blu"/>
-  <mazzo rdf:resource="#8_Picche_Blu"/>
-  <mazzo rdf:resource="#9_Picche_Rosso"/>
-  <mazzo rdf:resource="#4_Cuori_Blu"/>
-  <mazzo rdf:resource="#9_Cuori_Rosso"/>
-  <mazzo rdf:resource="#J_Quadri_Rosso"/>
-  <mazzo rdf:resource="#4_Quadri_Rosso"/>
-  <mazzo rdf:resource="#K_Cuori_Blu"/>
-  <mazzo rdf:resource="#2_Quadri_Rosso"/>
-  <mazzo rdf:resource="#8_Quadri_Blu"/>
-  <mazzo rdf:resource="#J_Cuori_Rosso"/>
-  <mazzo rdf:resource="#6_Fiori_Rosso"/>
-  <mazzo rdf:resource="#6_Quadri_Rosso"/>
-  <mazzo rdf:resource="#10_Picche_Rosso"/>
-  <mazzo rdf:resource="#J_Fiori_Rosso"/>
-  <mazzo rdf:resource="#3_Picche_Blu"/>
-  <mazzo rdf:resource="#4_Fiori_Blu"/>
-  <mazzo rdf:resource="#K_Fiori_Blu"/>
-  <mazzo rdf:resource="#10_Cuori_Blu"/>
-  <mazzo rdf:resource="#Jolly_Jolly_N_Rosso"/>
-  <mazzo rdf:resource="#Q_Quadri_Rosso"/>
-  <mazzo rdf:resource="#7_Picche_Rosso"/>
-  <mazzo rdf:resource="#5_Fiori_Blu"/>
-  <mazzo rdf:resource="#Jolly_Jolly_N_Blu"/>
-  <mazzo rdf:resource="#J_Quadri_Blu"/>
-  <mazzo rdf:resource="#Q_Picche_Rosso"/>
-  <mazzo rdf:resource="#10_Picche_Blu"/>
-  <mazzo rdf:resource="#4_Fiori_Rosso"/>
-  <mazzo rdf:resource="#A_Fiori_Rosso"/>
-  <mazzo rdf:resource="#A_Quadri_Blu"/>
-  <mazzo rdf:resource="#5_Fiori_Rosso"/>
-  <mazzo rdf:resource="#7_Fiori_Blu"/>
-  <mazzo rdf:resource="#3_Cuori_Rosso"/>
-  <mazzo rdf:resource="#9_Quadri_Blu"/>
-  <mazzo rdf:resource="#5_Cuori_Blu"/>
-  <mazzo rdf:resource="#Q_Cuori_Blu"/>
-  <mazzo rdf:resource="#9_Cuori_Blu"/>
-  <mazzo rdf:resource="#9_Quadri_Rosso"/>
-  <mazzo rdf:resource="#Q_Quadri_Blu"/>
-  <mazzo rdf:resource="#6_Quadri_Blu"/>
-  <mazzo rdf:resource="#2_Fiori_Blu"/>
-  <mazzo rdf:resource="#7_Picche_Blu"/>
-  <mazzo rdf:resource="#4_Quadri_Blu"/>
-  <mazzo rdf:resource="#4_Cuori_Rosso"/>
-  <mazzo rdf:resource="#Q_Fiori_Rosso"/>
-  <mazzo rdf:resource="#3_Fiori_Rosso"/>
-  <mazzo rdf:resource="#A_Picche_Rosso"/>
-  <mazzo rdf:resource="#6_Picche_Blu"/>
-  <mazzo rdf:resource="#2_Picche_Blu"/>
-  <mazzo rdf:resource="#7_Quadri_Rosso"/>
-  <mazzo rdf:resource="#Q_Fiori_Blu"/>
-  <mazzo rdf:resource="#10_Fiori_Blu"/>
-  <mazzo rdf:resource="#Q_Picche_Blu"/>
-  <mazzo rdf:resource="#K_Cuori_Rosso"/>
-  <mazzo rdf:resource="#5_Quadri_Rosso"/>
-  <mazzo rdf:resource="#A_Cuori_Blu"/>
-  <mazzo rdf:resource="#10_Quadri_Rosso"/>
-  <mazzo rdf:resource="#7_Cuori_Rosso"/>
-  <mazzo rdf:resource="#J_Fiori_Blu"/>
-  <mazzo rdf:resource="#8_Picche_Rosso"/>
-  <mazzo rdf:resource="#4_Picche_Blu"/>
-  <mazzo rdf:resource="#10_Quadri_Blu"/>
-  <mazzo rdf:resource="#6_Cuori_Blu"/>
-  <mazzo rdf:resource="#J_Picche_Rosso"/>
-  <mazzo rdf:resource="#6_Fiori_Blu"/>
-  <mazzo rdf:resource="#K_Picche_Blu"/>
-  <mazzo rdf:resource="#8_Cuori_Blu"/>
-  <mazzo rdf:resource="#6_Cuori_Rosso"/>
-  <mazzo rdf:resource="#5_Quadri_Blu"/>
-  <mazzo rdf:resource="#K_Fiori_Rosso"/>
-  <mazzo rdf:resource="#7_Quadri_Blu"/>
-  <mazzo rdf:resource="#8_Fiori_Rosso"/>
   <mazzo rdf:resource="#2_Fiori_Rosso"/>
+  <mazzo rdf:resource="#K_Fiori_Blu"/>
+  <mazzo rdf:resource="#Q_Quadri_Rosso"/>
+  <mazzo rdf:resource="#7_Quadri_Rosso"/>
+  <mazzo rdf:resource="#J_Picche_Blu"/>
+  <mazzo rdf:resource="#7_Cuori_Blu"/>
+  <mazzo rdf:resource="#Jolly_Jolly_R_Rosso"/>
   <mazzo rdf:resource="#2_Quadri_Blu"/>
+  <mazzo rdf:resource="#10_Quadri_Blu"/>
+  <mazzo rdf:resource="#Q_Fiori_Rosso"/>
+  <mazzo rdf:resource="#9_Quadri_Rosso"/>
+  <mazzo rdf:resource="#7_Picche_Blu"/>
+  <mazzo rdf:resource="#A_Picche_Rosso"/>
+  <mazzo rdf:resource="#5_Quadri_Rosso"/>
+  <mazzo rdf:resource="#K_Cuori_Rosso"/>
+  <mazzo rdf:resource="#3_Cuori_Rosso"/>
+  <mazzo rdf:resource="#4_Quadri_Rosso"/>
+  <mazzo rdf:resource="#3_Fiori_Blu"/>
+  <mazzo rdf:resource="#10_Fiori_Rosso"/>
+  <mazzo rdf:resource="#7_Cuori_Rosso"/>
+  <mazzo rdf:resource="#6_Quadri_Blu"/>
+  <mazzo rdf:resource="#7_Picche_Rosso"/>
+  <mazzo rdf:resource="#9_Fiori_Blu"/>
+  <mazzo rdf:resource="#6_Picche_Rosso"/>
+  <mazzo rdf:resource="#4_Cuori_Blu"/>
+  <mazzo rdf:resource="#5_Picche_Blu"/>
+  <mazzo rdf:resource="#5_Cuori_Rosso"/>
+  <mazzo rdf:resource="#10_Fiori_Blu"/>
+  <mazzo rdf:resource="#J_Quadri_Rosso"/>
+  <mazzo rdf:resource="#4_Picche_Rosso"/>
+  <mazzo rdf:resource="#Q_Picche_Blu"/>
+  <mazzo rdf:resource="#5_Cuori_Blu"/>
+  <mazzo rdf:resource="#6_Fiori_Rosso"/>
+  <mazzo rdf:resource="#9_Picche_Rosso"/>
+  <mazzo rdf:resource="#8_Quadri_Blu"/>
+  <mazzo rdf:resource="#A_Fiori_Rosso"/>
+  <mazzo rdf:resource="#6_Cuori_Blu"/>
+  <mazzo rdf:resource="#Q_Cuori_Rosso"/>
+  <mazzo rdf:resource="#6_Quadri_Rosso"/>
+  <mazzo rdf:resource="#7_Quadri_Blu"/>
+  <mazzo rdf:resource="#3_Picche_Blu"/>
+  <mazzo rdf:resource="#4_Cuori_Rosso"/>
+  <mazzo rdf:resource="#Q_Picche_Rosso"/>
+  <mazzo rdf:resource="#9_Cuori_Blu"/>
+  <mazzo rdf:resource="#4_Quadri_Blu"/>
+  <mazzo rdf:resource="#8_Picche_Blu"/>
   <mazzo rdf:resource="#A_Fiori_Blu"/>
+  <mazzo rdf:resource="#J_Fiori_Blu"/>
+  <mazzo rdf:resource="#Q_Quadri_Blu"/>
+  <mazzo rdf:resource="#J_Quadri_Blu"/>
+  <mazzo rdf:resource="#8_Cuori_Rosso"/>
+  <mazzo rdf:resource="#K_Quadri_Blu"/>
+  <mazzo rdf:resource="#8_Fiori_Rosso"/>
+  <mazzo rdf:resource="#5_Picche_Rosso"/>
+  <mazzo rdf:resource="#4_Picche_Blu"/>
+  <mazzo rdf:resource="#4_Fiori_Rosso"/>
+  <mazzo rdf:resource="#8_Cuori_Blu"/>
+  <mazzo rdf:resource="#10_Quadri_Rosso"/>
+  <mazzo rdf:resource="#Jolly_Jolly_N_Rosso"/>
+  <mazzo rdf:resource="#8_Picche_Rosso"/>
+  <mazzo rdf:resource="#Q_Fiori_Blu"/>
+  <mazzo rdf:resource="#10_Picche_Rosso"/>
+  <mazzo rdf:resource="#10_Cuori_Blu"/>
+  <mazzo rdf:resource="#4_Fiori_Blu"/>
+  <mazzo rdf:resource="#A_Cuori_Rosso"/>
+  <mazzo rdf:resource="#5_Quadri_Blu"/>
+  <mazzo rdf:resource="#3_Quadri_Blu"/>
+  <mazzo rdf:resource="#2_Picche_Blu"/>
+  <mazzo rdf:resource="#3_Cuori_Blu"/>
+  <mazzo rdf:resource="#2_Cuori_Blu"/>
+  <mazzo rdf:resource="#3_Quadri_Rosso"/>
+  <mazzo rdf:resource="#J_Fiori_Rosso"/>
   <mazzo rdf:resource="#A_Quadri_Rosso"/>
+  <mazzo rdf:resource="#K_Picche_Blu"/>
+  <mazzo rdf:resource="#3_Picche_Rosso"/>
+  <mazzo rdf:resource="#2_Quadri_Rosso"/>
+  <mazzo rdf:resource="#5_Fiori_Blu"/>
+  <mazzo rdf:resource="#A_Picche_Blu"/>
+  <mazzo rdf:resource="#A_Quadri_Blu"/>
+  <mazzo rdf:resource="#2_Picche_Rosso"/>
+  <mazzo rdf:resource="#6_Picche_Blu"/>
+  <mazzo rdf:resource="#K_Cuori_Blu"/>
+  <mazzo rdf:resource="#K_Fiori_Rosso"/>
+  <mazzo rdf:resource="#10_Picche_Blu"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Scarto_della_partita">
   <rdf:type rdf:resource="#Scarto"/>
-  <mazzo rdf:resource="#8_Quadri_Rosso"/>
+  <mazzo rdf:resource="#9_Fiori_Rosso"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Giocatore1">
@@ -1302,17 +1307,17 @@
 
 <owl:NamedIndividual rdf:about="#Mano_di_Giocatore1">
   <rdf:type rdf:resource="#Mano"/>
-  <mazzo rdf:resource="#2_Picche_Rosso"/>
-  <mazzo rdf:resource="#5_Picche_Rosso"/>
-  <mazzo rdf:resource="#3_Quadri_Blu"/>
-  <mazzo rdf:resource="#3_Picche_Rosso"/>
-  <mazzo rdf:resource="#4_Picche_Rosso"/>
-  <mazzo rdf:resource="#5_Picche_Blu"/>
-  <mazzo rdf:resource="#J_Cuori_Blu"/>
-  <mazzo rdf:resource="#9_Fiori_Rosso"/>
-  <mazzo rdf:resource="#2_Cuori_Rosso"/>
-  <mazzo rdf:resource="#Jolly_Jolly_R_Blu"/>
-  <mazzo rdf:resource="#9_Fiori_Blu"/>
+  <mazzo rdf:resource="#Jolly_Jolly_N_Blu"/>
+  <mazzo rdf:resource="#5_Fiori_Rosso"/>
+  <mazzo rdf:resource="#J_Cuori_Rosso"/>
+  <mazzo rdf:resource="#10_Cuori_Rosso"/>
+  <mazzo rdf:resource="#Q_Cuori_Blu"/>
+  <mazzo rdf:resource="#9_Quadri_Blu"/>
+  <mazzo rdf:resource="#J_Picche_Rosso"/>
+  <mazzo rdf:resource="#9_Picche_Blu"/>
+  <mazzo rdf:resource="#K_Picche_Rosso"/>
+  <mazzo rdf:resource="#A_Cuori_Blu"/>
+  <mazzo rdf:resource="#7_Fiori_Rosso"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Giocatore2">
@@ -1324,17 +1329,17 @@
 
 <owl:NamedIndividual rdf:about="#Mano_di_Giocatore2">
   <rdf:type rdf:resource="#Mano"/>
-  <mazzo rdf:resource="#3_Quadri_Rosso"/>
-  <mazzo rdf:resource="#7_Cuori_Blu"/>
-  <mazzo rdf:resource="#Jolly_Jolly_R_Rosso"/>
-  <mazzo rdf:resource="#A_Cuori_Rosso"/>
-  <mazzo rdf:resource="#A_Picche_Blu"/>
-  <mazzo rdf:resource="#8_Cuori_Rosso"/>
-  <mazzo rdf:resource="#7_Fiori_Rosso"/>
-  <mazzo rdf:resource="#J_Picche_Blu"/>
-  <mazzo rdf:resource="#K_Picche_Rosso"/>
-  <mazzo rdf:resource="#Q_Cuori_Rosso"/>
-  <mazzo rdf:resource="#9_Picche_Blu"/>
+  <mazzo rdf:resource="#9_Cuori_Rosso"/>
+  <mazzo rdf:resource="#6_Fiori_Blu"/>
+  <mazzo rdf:resource="#3_Fiori_Rosso"/>
+  <mazzo rdf:resource="#J_Cuori_Blu"/>
+  <mazzo rdf:resource="#6_Cuori_Rosso"/>
+  <mazzo rdf:resource="#Jolly_Jolly_R_Blu"/>
+  <mazzo rdf:resource="#8_Quadri_Rosso"/>
+  <mazzo rdf:resource="#2_Cuori_Rosso"/>
+  <mazzo rdf:resource="#8_Fiori_Blu"/>
+  <mazzo rdf:resource="#7_Fiori_Blu"/>
+  <mazzo rdf:resource="#2_Fiori_Blu"/>
 </owl:NamedIndividual>
 
 
