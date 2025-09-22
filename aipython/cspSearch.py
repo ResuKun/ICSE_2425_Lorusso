@@ -45,27 +45,27 @@ class Search_from_CSP(Search_problem):
                 res.append(Arc(node,new_env))
         return res
 
-import cspExamples
-from searchGeneric import Searcher
-
-def solver_from_searcher(csp):
-    """depth-first search solver"""
-    path = Searcher(Search_from_CSP(csp)).search()
-    if path is not None:
-        return path.end()
-    else:
-        return None
-
-if __name__ == "__main__":
-    test_csp(solver_from_searcher)
-
-## Test Solving CSPs with Search:
-searcher1 = Searcher(Search_from_CSP(cspExamples.csp1))
-#print(searcher1.search())  # get next solution
-searcher2 = Searcher(Search_from_CSP(cspExamples.csp2))
-#print(searcher2.search())  # get next solution
-searcher3 = Searcher(Search_from_CSP(cspExamples.crossword1))
-#print(searcher3.search())  # get next solution
-searcher4 = Searcher(Search_from_CSP(cspExamples.crossword1d))
-#print(searcher4.search())  # get next solution (warning: slow)
+#import cspExamples
+#from searchGeneric import Searcher
+#
+#def solver_from_searcher(csp):
+#    """depth-first search solver"""
+#    path = Searcher(Search_from_CSP(csp)).search()
+#    if path is not None:
+#        return path.end()
+#    else:
+#        return None
+#
+#if __name__ == "__main__":
+#    test_csp(solver_from_searcher)
+#
+### Test Solving CSPs with Search:
+#searcher1 = Searcher(Search_from_CSP(cspExamples.csp1))
+##print(searcher1.search())  # get next solution
+#searcher2 = Searcher(Search_from_CSP(cspExamples.csp2))
+##print(searcher2.search())  # get next solution
+#searcher3 = Searcher(Search_from_CSP(cspExamples.crossword1))
+##print(searcher3.search())  # get next solution
+#searcher4 = Searcher(Search_from_CSP(cspExamples.crossword1d))
+##print(searcher4.search())  # get next solution (warning: slow)
 

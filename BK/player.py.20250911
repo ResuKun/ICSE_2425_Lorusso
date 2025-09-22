@@ -1,0 +1,141 @@
+
+import Ontologia.OntoAccessUtil as OntoAccessUtil
+import Player.player_onto_modifier as OntoModifier
+import Player.player_csp_resolver as CSPResolver
+from action_event import (
+    DrawCardAction, PickUpDiscardAction,
+    DiscardAction, OpenMeldAction, OpenTrisAction,
+    UpdateMeldAction, UpdateTrisAction, CloseGameAction
+)
+
+
+
+#classe di integrazione per RLCard
+class BurracoPlayer:
+
+	def __init__(self, player_name):
+		''' Initialize a Burraco player class
+
+		Args:
+			player_id (int): id for the player
+		'''
+		self.player1 = OntoAccessUtil.get_player_by_name(player_name)
+		self.player_id = self.player1.idGiocatore
+
+	def get_player_id(self):
+		''' Get the id of the player
+
+		Returns:
+			int: the id of the player
+		'''
+		return self.player_id
+	
+	def get_player_name(self):
+		''' Get the name of the player
+
+		Returns:
+			str: the name of the player
+		'''
+		return self.player1.nomeGiocatore
+	
+	def get_player_score(self):
+		''' Get the score of the player
+
+		Returns:
+			int: the score of the player
+		'''
+		return self.player1.punteggioGiocatore
+	
+	def get_player_hand(self):
+		''' Get the hand of the player
+
+		Returns:
+			list: the hand of the player
+		'''
+		return self.player1.playerHand.mazzo if self.player1.playerHand else []
+	
+	def get_player_melds(self):
+		''' Get the player's melds
+
+		Returns:
+			list: player's meld
+		'''
+		return self.player1.scala
+	
+	def get_player_tris(self):
+		''' Get the player's tris
+
+		Returns:
+			list: player's tris
+		'''
+		return self.player1.tris
+	
+#le logiche di attuazione dell'azione non avvengono qui
+
+	""" 
+	def discard_card(self, card):
+		''' Discard a card from the hand
+
+		Args:
+			card (Card): the card to be discarded
+	'''
+		OntoModifier.scarta_carta(self.player1, card)
+
+	def draw_card(self):
+		''' Draw a card from the deck
+		'''
+		OntoModifier.pesca_carta(self.player1)
+
+	def draw_from_discarded(self):
+		''' Draw all cards from the discard pile
+		'''
+		OntoModifier.pesca_scarti(self.player1) 
+
+	def get_possible_meld(self):
+		''' Get the possible melds of the player
+
+		Returns:
+			list: the possible melds of the player
+		'''
+		return CSPResolver.find_csp_scala(self.player1.playerHand.mazzo) + CSPResolver.find_csp_tris(self.player1.playerHand.mazzo)
+	
+	def open_meld(self, cards):
+		''' Open a meld with the given cards
+
+		Args:
+			cards (list): the cards to open the meld with
+		'''
+		OntoModifier.apre_scala(self.player1, cards)
+
+	def open_tris(self, cards):
+		''' Open a tris with the given cards
+
+		Args:
+			cards (list): the cards to open the tris with
+		'''
+		OntoModifier.apre_tris(self.player1, cards)
+
+	def get_possible_meld_to_update(self):
+		''' Get the possible melds of the player after an update
+
+		Returns:
+			list: the possible melds of the player
+		'''
+		return CSPResolver.get_possible_meld_to_update(self.player1)
+
+	def get_possible_tris_to_update(self):
+		''' Get the possible tris of the player after an update
+
+		Returns:
+			list: the possible tris of the player
+		'''
+		return CSPResolver.get_possible_tris_to_update(self.player1)
+
+	def can_close_game(self):
+		''' Check if the player can close the game. 
+
+		Returns:
+			Returns the single card to discard in case of a valid close
+		'''
+		return CSPResolver.can_end_game_csp(self.player1)
+	 """

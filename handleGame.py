@@ -1,17 +1,9 @@
-import sys
-import os
-sys.path.append(os.path.join(os.path.dirname(__file__), "aipython"))
-
 import copy
 from owlready2 import *
 import random
-from csp_card_resolver import can_create_csp_scala, can_update_csp_scala
-from playerAction import apre_canasta
-import Ontologia.OntoManager as OntoManager
-
-def remove_jolly_pinella(lista_carte):
-    onto = OntoManager.get_ontology_from_manager()
-    return [card for card in lista_carte if not isinstance(card, (onto.Jolly, onto.Pinella))]
+from Player.player_csp_resolver import can_create_csp_scala, can_update_csp_scala
+from Player.player_onto_modifier import apre_canasta
+import Ontologia.onto_save_manager as onto_save_manager
 
 def get_card_value_sum(lista_carte):
     sum = 0
@@ -31,7 +23,7 @@ def passa_turno(partita):
         if player != current_player:
             partita.turnOf = player
             break
-    OntoManager.salva_ontologia_init_game()
+    onto_save_manager.salva_ontologia_update_game()
 
 
 #restituisce una rappresentazione compatta e descrittiva 

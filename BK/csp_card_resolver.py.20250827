@@ -248,7 +248,7 @@ def can_create_csp_scala(lista_carte):
 
 
 
-#controlla se esiste un Tris fattibile tra le carte
+#controlla se esiste una Scala fattibile tra le carte
 def find_csp_scala(lista_carte):
     print(f"Start find_csp_scala --> lista_carte: {lista_carte}" )
     lista_tuple = []

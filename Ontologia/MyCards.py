@@ -1,5 +1,5 @@
 from owlready2 import *
-from Ontologia.OntoManager import OntologyResource
+from Ontologia.onto_save_manager import OntologyResource
 
 # Crea una nuova ontologia. L'IRI (Internationalized Resource Identifier) è l'identificatore unico
 # dell'ontologia.
@@ -54,32 +54,11 @@ with onto:
 
     class Canasta(Thing):
        # Questa classe rappresenta le canaste (Scale e Tris).
-        @property
-        def isBurraco(self):
-            return len(self.hasCards) >= 7
-
-        @property
-        def hasJollyOrPinella(self):
-            for card in self.hasCards:
-                if onto.Jolly in card.is_a or onto.Pinella in card.is_a:
-                    return True
-            return False
-
-        @property
-        def isBurracoPulito(self):
-            return self.isBurraco and not self.hasJollyOrPinella
-
-        @property
-        def isBurracoSporco(self):
-            return self.isBurraco and self.hasJollyOrPinella
-        
-        @property
-        def numeroCarte(self):
-            return len(self.hasCards)
+        pass
    
     class Scala(onto.Canasta):
         pass #Questa classe rappresenta le Scale.
-    
+
     class Tris(onto.Canasta):
         pass #Questa classe rappresenta i Tris.
 
@@ -108,7 +87,7 @@ with onto:
         domain = [onto.Game] 
         range = [onto.Scarto]
 
-    # Proprietà 'turnOf'
+    # Proprietà 'monte'
     class monte(ObjectProperty, FunctionalProperty):
         domain = [onto.Game] 
         range = [onto.Monte]
@@ -149,6 +128,12 @@ with onto:
     # Le Proprietà Dato definiscono le relazioni tra un individuo e un valore di tipo dato (es. numero, stringa).
     # Es. "una carta ha un numero" (relazione tra un individuo Card e il valore numerico "7").
 
+    # Proprietà 'id'
+    # un numerico progressivo per identificare le carte
+    class idCarta(DataProperty, FunctionalProperty):
+        domain = [onto.Card]
+        range = [int]
+    
     # Proprietà 'numeroCarta'
     class numeroCarta(DataProperty, FunctionalProperty):
         domain = [onto.Card]
@@ -184,6 +169,12 @@ with onto:
         domain = [onto.Tris]
         range = [int]
 
+    # Proprietà 'id'
+    # un numerico progressivo per identificare il giocatore
+    class idGiocatore(DataProperty, FunctionalProperty):
+        domain = [onto.Player]
+        range = [int]
+
     # Proprietà 'nomeGiocatore' per le scale
     class nomeGiocatore(DataProperty, FunctionalProperty):
         domain = [onto.Player]
@@ -209,6 +200,7 @@ with onto:
 
     #CREAZIONE DEL MAZZO
     #per ogni mazzo
+    id_carta = 1
     for singolo_mazzo_name in mazzi_arr:
         singolo_mazzo = onto.Mazzo(singolo_mazzo_name)
         #per ogni seme
@@ -221,6 +213,8 @@ with onto:
             asso.valoreCarta = 15
             asso.seme = single_semi
             asso.cartaVisibile = False
+            asso.idCarta = id_carta
+            id_carta += 1
             singolo_mazzo.mazzo.append(asso)
 
             for number in range(2,11):
@@ -232,10 +226,13 @@ with onto:
                 carta.valoreCarta = card_valori_punteggio[card_index]
                 carta.seme = single_semi
                 carta.cartaVisibile = False
+                carta.idCarta = id_carta
+                id_carta += 1
                 singolo_mazzo.mazzo.append(carta)
                 if card_index == 2:
                     carta.is_a.append(onto.Special)
                     carta.is_a.append(onto.Pinella)
+
             #J,Q,K
             for number in range(11,14):
                 card_index = number
@@ -246,6 +243,8 @@ with onto:
                 carta.valoreCarta = card_valori_punteggio[card_index]
                 carta.seme = single_semi
                 carta.cartaVisibile = False
+                carta.idCarta = id_carta
+                id_carta += 1
                 singolo_mazzo.mazzo.append(carta)
 
 
@@ -254,8 +253,11 @@ with onto:
             new_card_name = f"Jolly_{single_jolly_names}_{singolo_mazzo_name}"
             carta = onto.Special(new_card_name)
             carta.valoreCarta = 30
+            carta.is_a.append(onto.Special)
             carta.is_a.append(onto.Jolly)
             carta.cartaVisibile = False
+            carta.idCarta = id_carta
+            id_carta += 1
             singolo_mazzo.mazzo.append(carta)
 
 print(f"ontology_file {ontology_file}")

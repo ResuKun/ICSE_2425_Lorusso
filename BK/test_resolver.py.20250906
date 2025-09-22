@@ -8,10 +8,10 @@ from operator import lt,ne,eq,gt,ge
 from aipython.searchGeneric import Searcher
 from aipython.cspDFS import dfs_solve_all
 from aipython.cspSearch import Search_from_CSP
-from playerAction import apre_canasta_test
-import Ontologia.OntoManager as OntoManager
+from Player.player_onto_modifier import apre_canasta_test
+import Ontologia.OntoSaveManager as OntoSaveManager
 
-onto = OntoManager.get_ontology_from_manager()
+onto = OntoSaveManager.get_ontology_from_manager()
 
 
 def get_tuple_from_card(lista_carte, include_seme=True):
@@ -170,11 +170,11 @@ def lista_contigua(*lista_carte):
                 return False
             else: 
                 old_num = num
-                print("corretto")
             #    print(f"caso strano old: {old_num} - new: {num}")
     return True
     
 #check di fine partita, per ora controlliamo solo che le carte in mano siano terminate
+# aggiungere controllo che ci sia almeno una scala/tris completo
 def check_end_game_condition(player_hand):
     return len(player_hand.mazzo) == 0
 
@@ -328,6 +328,7 @@ def can_update_csp_tris(lista_carte, tris):
     
 
 #fine partita
+# da terminare
 def can_end_game_csp(player):
     player_hand = player.playerHand
     # def __init__(self, title, variables, constraints):
@@ -374,6 +375,38 @@ def test_resolver():
     #find_csp_scala(player1.playerHand.mazzo)
     #result1 = find_csp_tris(player1.playerHand.mazzo)
     print(f"END")
+
+#Permette al giocatore di calare una nuova canasta.
+#def apre_canasta(player, cards):
+#    #capire se tris o scala
+#    #istanziarla
+#    #associarla al giocatore
+#
+#    semeScala = None
+#    skip = True
+#    isScala = False
+#
+#    #TODO aggiungere e delegare i controlli per isScala risolivile tramite CSP
+#    #quindi sequenzialità e che siano dello stesso seme
+#    for card in cards:
+#        #la carta diventa visibile per tutti
+#        card.cartaVisibile = True
+#        player.playerHand.mazzo.remove(card)
+#        #salta i Jolly
+#        if hasattr(card, 'seme'):
+#            if skip:
+#                skip = False
+#                semeScala = card.seme
+#            else:
+#                if semeScala == card.seme:
+#                    isScala = True
+#                    break
+#
+#    if isScala:
+#        apre_scala(player, cards,semeScala)
+#    else:
+#        apre_tris(player, cards)
+#    salva_ontologia()
 
 def create_tris_test(player1):
     prima_carta = onto["10_Cuori_Blu"]
