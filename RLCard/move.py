@@ -1,7 +1,7 @@
 from typing import List
 from .player import BurracoPlayer
 from .action_event_dyn import *
-from Ontologia.MyCards import Card
+from Ontologia.MyCards import Card, Scala, Tris
 from RLCard.burraco_error import BurracoProgramError
 
 #
@@ -62,40 +62,48 @@ class PickupDiscardMove(PlayerMove):
 
 
 class OpenMeldMove(PlayerMove):
-    def __init__(self, player: BurracoPlayer, action: OpenMeldAction):
+    def __init__(self, player: BurracoPlayer, action: OpenMeldAction, cards: List[Card], accumulatedScore: int):
         super().__init__(player, action)
         if not isinstance(action, OpenMeldAction):
             raise BurracoProgramError("action must be OpenMeldAction.")
+        self.cards = cards
+        self.accumulatedScore = accumulatedScore
 
     def __str__(self):
-        return "{} {}".format(self.player, self.action)
+        return "{} {} {} {}".format(self.player, self.action, str(self.cards), self.accumulatedScore)
 
 
 class OpenTrisMove(PlayerMove):
-    def __init__(self, player: BurracoPlayer, action: OpenTrisAction):
+    def __init__(self, player: BurracoPlayer, action: OpenTrisAction, cards: List[Card], accumulatedScore: int):
         super().__init__(player, action)
         if not isinstance(action, OpenTrisAction):
             raise BurracoProgramError("action must be OpenTrisAction.")
+        self.cards = cards
+        self.accumulatedScore = accumulatedScore
 
     def __str__(self):
-        return "{} {}".format(self.player, self.action)
+        return "{} {} {} {}".format(self.player, self.action, str(self.cards), self.accumulatedScore)
 
 
 class UpdateMeldMove(PlayerMove):
-    def __init__(self, player: BurracoPlayer, action: UpdateMeldAction):
+    def __init__(self, player: BurracoPlayer, action: UpdateMeldAction, meld: Scala, card: Card ):
         super().__init__(player, action)
         if not isinstance(action, UpdateMeldAction):
             raise BurracoProgramError("action must be UpdateMeldAction.")
+        self.card = card
+        self.meld = meld
 
     def __str__(self):
         return "{} {}".format(self.player, self.action)
 
 
 class UpdateTrisMove(PlayerMove):
-    def __init__(self, player: BurracoPlayer, action: UpdateTrisAction):
+    def __init__(self, player: BurracoPlayer, action: UpdateTrisAction, tris: Tris, card: Card ):
         super().__init__(player, action)
         if not isinstance(action, UpdateTrisAction):
             raise BurracoProgramError("action must be UpdateTrisAction.")
+        self.tris = tris
+        self.card = card
 
     def __str__(self):
         return "{} {}".format(self.player, self.action)

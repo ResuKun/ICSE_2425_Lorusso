@@ -3,6 +3,7 @@ from rlcard.games.gin_rummy.dealer import GinRummyDealer
 import Utils.CONST as CONST
 import Ontologia.onto_access_util as onto_access_util
 import Player.player_onto_modifier as player_onto_util
+import Player.player_csp_resolver as player_csp_resolver
 from move import *
 
 from .player import BurracoPlayer
@@ -68,10 +69,34 @@ class BurracoRound:
         len_cards = player_onto_util.pesca_scarti(current_player)
         self.move_sheet.append(PickupDiscardMove(current_player, action, cards=current_player.player1.playerHand.mazzo[-len_cards]))
 
+    # TODO Possibile implementazione di Monte Carlo Tree Search
+    # per la previsione delle mosse a più lungo termine
+    # per ora apro la prima scala con più valore
     def open_meld(self, action: OpenMeldAction):
+
+        solutions = player_csp_resolver.find_csp_scala()
         current_player = self.players[self.current_player_id]
-        len_cards = player_onto_util.pesca_carta(current_player)
-        self.move_sheet.append(OpenMeldAction(current_player, action, cards=current_player.player1.playerHand.mazzo[-len_cards]))
+        cards = action.cards
+        accumulatedScore = player_onto_util.apre_scala(current_player, cards)
+        self.move_sheet.append(OpenMeldMove(current_player, action, cards, accumulatedScore))
+    
+    def open_tris(self, action: OpenTrisAction):
+        current_player = self.players[self.current_player_id]
+        cards = action.cards
+        accumulatedScore = player_onto_util.apre_tris(current_player, cards)
+        self.move_sheet.append(OpenTrisMove(current_player, action, cards, accumulatedScore))
+
+    def update_meld(self, action: OpenMeldAction):
+        current_player = self.players[self.current_player_id]
+        cards = action.cards
+        accumulatedScore = player_onto_util.apre_scala(current_player, cards)
+        self.move_sheet.append(OpenMeldMove(current_player, action, cards, accumulatedScore))
+    
+    def update_tris(self, action: OpenTrisAction):
+        current_player = self.players[self.current_player_id]
+        cards = action.cards
+        accumulatedScore = player_onto_util.apre_tris(current_player, cards)
+        self.move_sheet.append(OpenTrisMove(current_player, action, cards, accumulatedScore))
 
 
 #TODO riprendi da qui

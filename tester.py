@@ -55,14 +55,14 @@ def test_resolver():
         create_tris_test(player1)
         create_scala_test(player1)
     else:
-        add_card(player1)
+        add_card_scala(player1)
         #print(f"Mazzo Giocatore: {[card.name for card in player1.playerHand.mazzo]}")
 
        # tris_0 = onto["Tris_0_Giocatore1"]
         #CSPResolver.find_csp_tris(player1.playerHand.mazzo)
 
         #CSPResolver.can_update_csp_tris(player1.playerHand.mazzo,tris_0)
-        #find_csp_scala(player1.playerHand.mazzo)
+        CSPResolver.find_csp_scala(player1, player1.playerHand.mazzo)
         #find_csp_tris(player1.playerHand.mazzo)
         #create_scala_test(player1)
 
@@ -110,14 +110,21 @@ def add_card_tris(player1):
     player1.playerHand.mazzo.append(terza_carta)
 
 def add_card_scala(player1):
-    prima_carta = onto["8_Picche_Rosso"]
     seconda_carta = onto["7_Picche_Blu"]
+    prima_carta = onto["8_Picche_Rosso"]
     terza_carta = onto["9_Picche_Blu"]
     player1.playerHand.mazzo.append(prima_carta)
     player1.playerHand.mazzo.append(seconda_carta)
     player1.playerHand.mazzo.append(terza_carta)
     terza_carta = onto["Jolly_Jolly_R_Rosso"]
     player1.playerHand.mazzo.append(terza_carta)
+    terza_carta = onto["10_Picche_Rosso"]
+    player1.playerHand.mazzo.append(terza_carta)
+    terza_carta = onto["10_Cuori_Blu"]
+    player1.playerHand.mazzo.append(terza_carta)
+    seconda_carta = onto["10_Cuori_Rosso"]
+    player1.playerHand.mazzo.append(seconda_carta)
+
 
 
 def add_card(player1):

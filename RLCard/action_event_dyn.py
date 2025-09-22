@@ -140,18 +140,18 @@ class PickUpDiscardAction(ActionEvent):
 
 class OpenMeldAction(ActionEvent):
 
-    def __init__(self, meld):
+    def __init__(self, cards):
         super().__init__(action_id=open_meld_action_id)
-        self.meld = meld
+        self.cards = cards
 
     def __str__(self):
         return "open_meld_action_id"
 
 class OpenTrisAction(ActionEvent):
 
-    def __init__(self, tris):
+    def __init__(self, cards):
         super().__init__(action_id=open_tris_action_id)
-        self.tris = tris
+        self.cards = cards
 
     def __str__(self):
         return "open_tris_action_id"

@@ -10,15 +10,15 @@ def get_tuple_from_card(lista_carte, include_seme=True):
 	for card in lista_carte:
 		if not isinstance(card, (onto.Jolly, onto.Pinella)):
 			if include_seme:
-				mia_tupla = (card.numeroCarta, card.name, card.seme.name)
+				mia_tupla = (card.numeroCarta, card.name, card.seme.name, card.valoreCarta)
 			else:
-				mia_tupla = (card.numeroCarta, card.name)
+				mia_tupla = (card.numeroCarta, card.name, card.valoreCarta)
 			lista_tuple.append(mia_tupla)
 		else:
 			if include_seme:
-				mia_tupla = (CardValues.JOLLY_VALUE.value, card.name, "Jolly")
+				mia_tupla = (CardValues.JOLLY_VALUE.value, card.name, "Jolly", card.valoreCarta)
 			else:
-				mia_tupla = (CardValues.JOLLY_VALUE.value, card.name)
+				mia_tupla = (CardValues.JOLLY_VALUE.value, card.name, card.valoreCarta)
 			lista_tuple.append(mia_tupla)
 		
 	return lista_tuple
@@ -162,7 +162,7 @@ def lista_contigua(*lista_carte):
 	#ordino le carte per numeroCarta e controllo che siano contigue
 	#se presente un jolly concedo un "buco" nella lista
 	lista_carte = sorted(lista_carte, key=lambda x: x[0])
-	for num,_,_ in lista_carte:
+	for num,_,_,_ in lista_carte:
 		if old_num is None:
 			old_num = num
 		elif old_num is not None:

@@ -63,6 +63,7 @@ def scarta_carta(player, card_id):
 	onto_save_manager.salva_ontologia_update_game()
 
 #crea una nuova scala e la aggiunge al giocatore
+#restituisce il punteggio 
 def apre_scala(player, cards):
 	nScala = len(player.scala)
 	nuovaScala = onto.Scala("Scala_" + str(nScala)+ "_" + player.name)
@@ -78,85 +79,94 @@ def apre_scala(player, cards):
 
 	nuovaScala.semeScala = seme
 
+	partialScore = 0
 	for card in cards:
 		nuovaScala.hasCards.append(card)
 		#aggiorna il punteggio del giocatore
-		player.punteggioGiocatore += card.valoreCarta
+		partialScore += card.valoreCarta
 		card.cartaVisibile = True
 		player.playerHand.mazzo.remove(card)
 
+	player.punteggioGiocatore += partialScore
 	player.scala.append(nuovaScala)
 
 	#aggiungo i punti per il burraco se c'è
-	add_points_burraco(nuovaScala, player)
-	add_points_chiusura(player)
+	#commentati in quanto per ora non è possibile 
+	#scendere con una sola azione più di 5 carte 
+	# per questioni di performance
+	#partialScore += add_points_burraco(nuovaScala, player)
+	#partialScore += add_points_chiusura(player)
 	onto_save_manager.salva_ontologia_update_game()
-	return nuovaScala
+	return partialScore
 
 #crea una nuovo Tris e la aggiunge al giocatore
 def apre_tris(player, cards):
 	nTris = len(player.tris)
 	nuovoTris = onto.Tris(f"Tris_" + str(nTris) + "_" + player.name)
 	trisValue = None
+
+	partialScore = 0
 	for card in cards:
 		card.cartaVisibile = True
 		player.playerHand.mazzo.remove(card)
 		nuovoTris.hasCards.append(card)
 		#aggiorna il punteggio del giocatore
-		player.punteggioGiocatore += card.valoreCarta
+		partialScore += card.valoreCarta
 		if hasattr(card, 'seme') and trisValue is None:
 			trisValue = card.numeroCarta
 
+	player.punteggioGiocatore += partialScore
 	nuovoTris.trisValue = trisValue
 	player.tris.append(nuovoTris)
+
 	#aggiungo i punti per il burraco se c'è
-	add_points_burraco(nuovoTris, player)
+	#commentati in quanto per ora non è possibile 
+	#scendere con una sola azione più di 5 carte 
+	# per questioni di performance
+	#partialScore += add_points_burraco(nuovaScala, player)
+	#partialScore += add_points_chiusura(player)
 	onto_save_manager.salva_ontologia_update_game()
-	return nuovoTris
+	return partialScore
 
 #permette al giocatore di aggiungere carte a un suo tris esistente sul tavolo, aggiornando il Tris.
-def aggiunge_carte_tris(player, tris, cards_to_add): 
-	for card in cards_to_add:
-		tris.hasCards.append(card)
-		player.playerHand.mazzo.remove(card)
-		#aggiorna il punteggio del giocatore
-		player.punteggioGiocatore += card.valoreCarta
-		card.cartaVisibile = True
+def aggiunge_carta_tris(player, tris, card):
+	partialScore = card.valoreCarta
+	tris.hasCards.append(card)
+	player.playerHand.mazzo.remove(card)
+	#aggiorna il punteggio del giocatore
+	player.punteggioGiocatore += card.valoreCarta
+	card.cartaVisibile = True
 		
 	#aggiungo i punti per il burraco se c'è
-	add_points_burraco(tris, player)
+	partialScore += add_points_burraco(tris, player)
+	partialScore += add_points_chiusura(player)
+
 	onto_save_manager.salva_ontologia_update_game()
-	return True
+	return partialScore
 
 
 #permette al giocatore di aggiungere carte a una sua scala esistente sul tavolo, aggiornando la scala.
-def aggiunge_carte_scala(player, target_scala, cards_to_add):
+def aggiunge_carta_scala(player, target_scala, card):
 
-	for card in cards_to_add:
-		# Aggiunge la carta alla scala nell'ontologia
-		target_scala.hasCards.append(card)
-		#  Rimuove la carta dalla mano del giocatore
-		player.playerHand.mazzo.remove(card)
-		#aggiorna il punteggio del giocatore
-		player.punteggioGiocatore += card.valoreCarta
-		# Rende la carta visibile (poichè è ora sul tavolo)
-		card.cartaVisibile = True
+	partialScore = card.valoreCarta
+	# Aggiunge la carta alla scala nell'ontologia
+	target_scala.hasCards.append(card)
+	#  Rimuove la carta dalla mano del giocatore
+	player.playerHand.mazzo.remove(card)
+	#aggiorna il punteggio del giocatore
+	player.punteggioGiocatore += partialScore
+	# Rende la carta visibile (poichè è ora sul tavolo)
+	card.cartaVisibile = True
 
-	# TODO debuggare il pezzo successivo, probabilmente inutile
-	all_numeric_cards_in_scala = [
-		get_card_number(c) for c in target_scala.hasCards if get_card_number(c) is not None
-	]
-	all_numeric_cards_in_scala = sorted(list(set(all_numeric_cards_in_scala))) 
-	new_min_val = min(all_numeric_cards_in_scala)
-	new_max_val = max(all_numeric_cards_in_scala)
-	target_scala.minValueScala = new_min_val
-	target_scala.maxValueScala = new_max_val
+	card_number = [ get_card_number(c) for c in target_scala.hasCards if get_card_number(c) is not None ]
+	target_scala.minValueScala = min(card_number)
+	target_scala.maxValueScala = max(card_number)
 
 	#aggiungo i punti per il burraco se c'è
-	add_points_burraco(target_scala, player)
-	add_points_chiusura(player)
+	partialScore += add_points_burraco(target_scala, player)
+	partialScore += add_points_chiusura(player)
 	onto_save_manager.salva_ontologia_update_game()
-	return True
+	return partialScore
 
 
 def add_points_burraco(canasta, player):
@@ -169,6 +179,6 @@ def add_points_burraco(canasta, player):
 	return points
 
 def add_points_chiusura(player):
-	if len(player.playerHand.mazzo) == 0:
-		#aggiungo i punti per la chiusura
-		player.punteggioGiocatore += 100
+	partialScore = 0 if len(player.playerHand.mazzo) == 0 else 100
+	player.punteggioGiocatore += partialScore
+	return partialScore

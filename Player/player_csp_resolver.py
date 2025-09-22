@@ -62,7 +62,7 @@ def find_csp_scala(player, lista_carte):
     vars_tris = []
 
     # +2 per il range
-    for i in range(2, MELD_DEFAULT_DEPTH + 1):
+    for i in range(1, MELD_DEFAULT_DEPTH + 1):
         var = Variable(f"c{i}", lista_tuple)
         vars_tris.append(var)
 
@@ -84,7 +84,7 @@ def find_csp_scala(player, lista_carte):
     print(f"------------------------------------------------------------------------\n\n\n")
     print(*solutions_list, sep="\n")
     print(f"------------------------------------------------------------------------\n\n\n")
-    return solutions_list
+    return sort_combination_by_value(solutions_list)
 
 #Update di una scala
 def can_update_csp_scala(player, lista_carte, scala):
@@ -228,3 +228,8 @@ def can_end_game_csp(player):
 #restutruisce le tuple delle carte che il giocatore può scartare
 def can_discard_card(player):
     return checks.get_tuple_from_card(onto_access_util.remove_jolly_pinella(player.playerHand.mazzo))
+
+#ordina per ultimo elemento, adattivo in base alla presenza del seme o meno
+def sort_combination_by_value(solutions_list):
+    len_tuple = len(solutions_list[0][0]) -1
+    return sorted(solutions_list, key=lambda sublist: sum(item[len_tuple] for item in sublist), reverse=True)
