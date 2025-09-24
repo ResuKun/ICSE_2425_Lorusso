@@ -12,10 +12,8 @@ def init_game(players_names = ["Alessio", "MariaGrazia"]):
         raise TypeError("Numero massimo di giocatori consentito : " + CONST.CardValues.MAX_PLAYER.value)
 
     partita = onto.Game("Partita")
-    monte_gioco = onto.Monte("Monte_della_partita") 
-    partita.monte = monte_gioco 
-    scarto_gioco = onto.Scarto("Scarto_della_partita")
-    partita.scarto = scarto_gioco 
+    partita.monte = onto.Monte("Monte_della_partita")
+    partita.scarto = onto.Scarto("Scarto_della_partita")
 
     if len(players_names) == 0:
         raise TypeError("Deve esserci almeno un giocatore per iniziare la partita.")

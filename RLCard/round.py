@@ -1,16 +1,10 @@
 from typing import List
-from rlcard.games.gin_rummy.dealer import GinRummyDealer
 import Utils.CONST as CONST
 import Ontologia.onto_access_util as onto_access_util
-import Player.player_onto_modifier as player_onto_util
-import Player.player_csp_resolver as player_csp_resolver
+import Player.player_onto_manager as player_onto_util
 from move import *
 
 from .player import BurracoPlayer
-from . import judge
-
-from rlcard.games.gin_rummy.utils import melding
-from rlcard.games.gin_rummy.utils import utils
 
 
 # Per RLCard, un round nel Burraco è una mano intera, 
@@ -25,10 +19,7 @@ from rlcard.games.gin_rummy.utils import utils
 
 class BurracoRound:
 
-    
-
     def __init__(self, players, round_number):
-        #TODO verificare se self.{nome metodo} funziona
         self.init_round_cards(self)
         #self.players = [BurracoPlayer(player_id=0, np_random=self.np_random), BurracoPlayer(player_id=1, np_random=self.np_random)]
         self.players = [BurracoPlayer(players[0].nomeGiocatore), BurracoPlayer(players[1].nomeGiocatore)]
@@ -59,134 +50,52 @@ class BurracoRound:
     def pick_up_card(self, action: PickUpCardAction):
         #raccoglie la carta dal mazzo
         current_player = self.players[self.current_player_id]
-        player_onto_util.pesca_carta(current_player)
+        player_onto_util.pesca_carta(current_player.player1)
         #registro l'evento
         self.move_sheet.append(PickUpCardMove(current_player, action=action, card=current_player.player1.playerHand.mazzo[-1]))
 
     def pick_up_discard(self, action: PickUpDiscardAction):
         #raccoglie la carta dagli scarti
         current_player = self.players[self.current_player_id]
-        len_cards = player_onto_util.pesca_scarti(current_player)
+        len_cards = player_onto_util.pesca_scarti(current_player.player1)
         self.move_sheet.append(PickupDiscardMove(current_player, action, cards=current_player.player1.playerHand.mazzo[-len_cards]))
 
-    # TODO Possibile implementazione di Monte Carlo Tree Search
-    # per la previsione delle mosse a più lungo termine
-    # per ora apro la prima scala con più valore
     def open_meld(self, action: OpenMeldAction):
-
-        solutions = player_csp_resolver.find_csp_scala()
         current_player = self.players[self.current_player_id]
         cards = action.cards
-        accumulatedScore = player_onto_util.apre_scala(current_player, cards)
+        accumulatedScore = player_onto_util.apre_scala(current_player.player1, cards)
         self.move_sheet.append(OpenMeldMove(current_player, action, cards, accumulatedScore))
     
     def open_tris(self, action: OpenTrisAction):
         current_player = self.players[self.current_player_id]
         cards = action.cards
-        accumulatedScore = player_onto_util.apre_tris(current_player, cards)
+        accumulatedScore = player_onto_util.apre_tris(current_player.player1, cards)
         self.move_sheet.append(OpenTrisMove(current_player, action, cards, accumulatedScore))
 
-    def update_meld(self, action: OpenMeldAction):
+    def update_meld(self, action: UpdateMeldAction):
         current_player = self.players[self.current_player_id]
-        cards = action.cards
-        accumulatedScore = player_onto_util.apre_scala(current_player, cards)
-        self.move_sheet.append(OpenMeldMove(current_player, action, cards, accumulatedScore))
+        card = action.card
+        meld = action.meld
+        accumulatedScore = player_onto_util.aggiunge_carta_scala(current_player.player1, meld, card)
+        self.move_sheet.append(UpdateMeldMove(current_player, action, meld, card, accumulatedScore))
     
-    def update_tris(self, action: OpenTrisAction):
+    def update_tris(self, action: UpdateTrisAction):
         current_player = self.players[self.current_player_id]
-        cards = action.cards
-        accumulatedScore = player_onto_util.apre_tris(current_player, cards)
-        self.move_sheet.append(OpenTrisMove(current_player, action, cards, accumulatedScore))
-
-
-#TODO riprendi da qui
-
-    def declare_dead_hand(self, action: DeclareDeadHandAction):
-        # when current_player takes DeclareDeadHandAction step, the move is recorded and executed
-        # north becomes current_player to score his hand
-        current_player = self.players[self.current_player_id]
-        self.move_sheet.append(DeclareDeadHandMove(current_player, action))
-        self.going_out_action = action
-        self.going_out_player_id = self.current_player_id
-        if not len(current_player.hand) == 10:
-            raise BurracoProgramError("len(current_player.hand) is {}: should be 10.".format(len(current_player.hand)))
-        self.current_player_id = 0
-
+        card = action.card
+        tris = action.tris
+        accumulatedScore = player_onto_util.aggiunge_carta_tris(current_player.player1, tris, card)
+        self.move_sheet.append(UpdateTrisMove(current_player, action, tris, card, accumulatedScore))
+    
     def discard(self, action: DiscardAction):
-        # when current_player takes DiscardAction step, the move is recorded and executed
-        # opponent knows that the card is no longer in current_player hand
-        # current_player loses his turn and the opponent becomes the current player
         current_player = self.players[self.current_player_id]
-        if not len(current_player.hand) == 11:
-            raise BurracoProgramError("len(current_player.hand) is {}: should be 11.".format(len(current_player.hand)))
         self.move_sheet.append(DiscardMove(current_player, action))
-        card = action.card
-        current_player.remove_card_from_hand(card=card)
-        if card in current_player.known_cards:
-            current_player.known_cards.remove(card)
-        self.dealer.discard_pile.append(card)
+        card = onto_access_util.get_card_from_id(action.card_id)
+        player_onto_util.scarta_carta(current_player.player1,card)
+        #turno al giocatore successivo
         self.current_player_id = (self.current_player_id + 1) % 2
+    
 
-    def knock(self, action: KnockAction):
-        # when current_player takes KnockAction step, the move is recorded and executed
-        # opponent knows that the card is no longer in current_player hand
-        # north becomes current_player to score his hand
+    def close_game(self,action: CloseGameAction):
         current_player = self.players[self.current_player_id]
-        self.move_sheet.append(KnockMove(current_player, action))
-        self.going_out_action = action
-        self.going_out_player_id = self.current_player_id
-        if not len(current_player.hand) == 11:
-            raise BurracoProgramError("len(current_player.hand) is {}: should be 11.".format(len(current_player.hand)))
-        card = action.card
-        current_player.remove_card_from_hand(card=card)
-        if card in current_player.known_cards:
-            current_player.known_cards.remove(card)
-        self.current_player_id = 0
-
-    def gin(self, action: GinAction, going_out_deadwood_count: int):
-        # when current_player takes GinAction step, the move is recorded and executed
-        # opponent knows that the card is no longer in current_player hand
-        # north becomes current_player to score his hand
-        current_player = self.players[self.current_player_id]
-        self.move_sheet.append(GinMove(current_player, action))
-        self.going_out_action = action
-        self.going_out_player_id = self.current_player_id
-        if not len(current_player.hand) == 11:
-            raise BurracoProgramError("len(current_player.hand) is {}: should be 11.".format(len(current_player.hand)))
-        _, gin_cards = judge.get_going_out_cards(current_player.hand, going_out_deadwood_count)
-        card = gin_cards[0]
-        current_player.remove_card_from_hand(card=card)
-        if card in current_player.known_cards:
-            current_player.known_cards.remove(card)
-        self.current_player_id = 0
-
-    def score_player_0(self, action: ScoreNorthPlayerAction):
-        # when current_player takes ScoreNorthPlayerAction step, the move is recorded and executed
-        # south becomes current player
-        if not self.current_player_id == 0:
-            raise BurracoProgramError("current_player_id is {}: should be 0.".format(self.current_player_id))
-        current_player = self.get_current_player()
-        best_meld_clusters = melding.get_best_meld_clusters(hand=current_player.hand)
-        best_meld_cluster = [] if not best_meld_clusters else best_meld_clusters[0]
-        deadwood_count = utils.get_deadwood_count(hand=current_player.hand, meld_cluster=best_meld_cluster)
-        self.move_sheet.append(ScoreNorthMove(player=current_player,
-                                              action=action,
-                                              best_meld_cluster=best_meld_cluster,
-                                              deadwood_count=deadwood_count))
-        self.current_player_id = 1
-
-    def score_player_1(self, action: ScoreSouthPlayerAction):
-        # when current_player takes ScoreSouthPlayerAction step, the move is recorded and executed
-        # south remains current player
-        # the round is over
-        if not self.current_player_id == 1:
-            raise BurracoProgramError("current_player_id is {}: should be 1.".format(self.current_player_id))
-        current_player = self.get_current_player()
-        best_meld_clusters = melding.get_best_meld_clusters(hand=current_player.hand)
-        best_meld_cluster = [] if not best_meld_clusters else best_meld_clusters[0]
-        deadwood_count = utils.get_deadwood_count(hand=current_player.hand, meld_cluster=best_meld_cluster)
-        self.move_sheet.append(ScoreSouthMove(player=current_player,
-                                              action=action,
-                                              best_meld_cluster=best_meld_cluster,
-                                              deadwood_count=deadwood_count))
+        player_onto_util.chiudi_gioco(current_player.player1,action.card_id)
         self.is_over = True

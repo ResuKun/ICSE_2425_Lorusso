@@ -87,8 +87,8 @@ def find_csp_scala(player, lista_carte):
     return sort_combination_by_value(solutions_list)
 
 #Update di una scala
+# restituisce una lista di coppie (Scala - Carta) in formato tupla
 def can_update_csp_scala(player, lista_carte, scala):
-#def can_update_csp_scala(lista_carte, scala):
 
     lista_tuple = checks.get_tuple_from_card(lista_carte)
     lista_scala = [ checks.get_scala_normalized(scala)]
@@ -154,7 +154,7 @@ def find_csp_tris(player,lista_carte):
     print(f"\n\n\n [ find_csp_tris ] SOLUZIONI TROVATE-->")
     print(f"{[sol for sol in solutions_list]}")
     print(f"------------------------------------------------------------------------\n\n\n")
-    return solutions_list
+    return sort_combination_by_value(solutions_list)
 
 
 #Update di un TRIS
@@ -225,11 +225,9 @@ def can_end_game_csp(player):
     print(f"can_end_game_csp --> player: {player.nomeGiocatore} --> player_hand: {player_hand}")
     return result
 
-#restutruisce le tuple delle carte che il giocatore può scartare
-def can_discard_card(player):
-    return checks.get_tuple_from_card(onto_access_util.remove_jolly_pinella(player.playerHand.mazzo))
 
-#ordina per ultimo elemento, adattivo in base alla presenza del seme o meno
+
+#ordina la lista di combinazioni in base al loro valore (somma dei valori delle singole carte)
 def sort_combination_by_value(solutions_list):
     len_tuple = len(solutions_list[0][0]) -1
     return sorted(solutions_list, key=lambda sublist: sum(item[len_tuple] for item in sublist), reverse=True)

@@ -86,27 +86,29 @@ class OpenTrisMove(PlayerMove):
 
 
 class UpdateMeldMove(PlayerMove):
-    def __init__(self, player: BurracoPlayer, action: UpdateMeldAction, meld: Scala, card: Card ):
+    def __init__(self, player: BurracoPlayer, action: UpdateMeldAction, meld: Scala, card: Card, accumulatedScore: int):
         super().__init__(player, action)
         if not isinstance(action, UpdateMeldAction):
             raise BurracoProgramError("action must be UpdateMeldAction.")
         self.card = card
         self.meld = meld
+        self.accumulatedScore = accumulatedScore
 
     def __str__(self):
-        return "{} {}".format(self.player, self.action)
+        return "{} {} {} {} {}".format(self.player, self.action, self.meld, self.card, self.accumulatedScore)
 
 
 class UpdateTrisMove(PlayerMove):
-    def __init__(self, player: BurracoPlayer, action: UpdateTrisAction, tris: Tris, card: Card ):
+    def __init__(self, player: BurracoPlayer, action: UpdateTrisAction, tris: Tris, card: Card, accumulatedScore: int):
         super().__init__(player, action)
         if not isinstance(action, UpdateTrisAction):
             raise BurracoProgramError("action must be UpdateTrisAction.")
         self.tris = tris
         self.card = card
+        self.accumulatedScore = accumulatedScore
 
     def __str__(self):
-        return "{} {}".format(self.player, self.action)
+        return "{} {} {} {} {}".format(self.player, self.action, self.tris, self.card, self.accumulatedScore)
 
 class DiscardMove(PlayerMove):
     def __init__(self, player: BurracoPlayer, action: DiscardAction, card: Card):

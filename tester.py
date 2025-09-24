@@ -1,6 +1,6 @@
 import sys
 import Ontologia.onto_save_manager as onto_save_manager
-import Player.player_onto_modifier as OntoModifier
+import Player.player_onto_manager as OntoModifier
 import Player.player_csp_resolver as CSPResolver
 
 onto = onto_save_manager.get_ontology_from_manager()
@@ -49,27 +49,25 @@ def test_resolver():
     
     # (True,False) True per creare un tris, False per testare l'update di un tris esistente
     create_tris = False 
-    player1.playerHand.mazzo.clear()
+    #player1.playerHand.mazzo.clear()
 
     if create_tris:
         create_tris_test(player1)
         create_scala_test(player1)
     else:
-        add_card_scala(player1)
         #print(f"Mazzo Giocatore: {[card.name for card in player1.playerHand.mazzo]}")
 
        # tris_0 = onto["Tris_0_Giocatore1"]
         #CSPResolver.find_csp_tris(player1.playerHand.mazzo)
 
         #CSPResolver.can_update_csp_tris(player1.playerHand.mazzo,tris_0)
-        CSPResolver.find_csp_scala(player1, player1.playerHand.mazzo)
+        #CSPResolver.find_csp_scala(player1, player1.playerHand.mazzo)
         #find_csp_tris(player1.playerHand.mazzo)
         #create_scala_test(player1)
 
-        CSPResolver.can_discard_card(player1)
-
-        #scala = onto["Scala_0_Giocatore1"]
-        #CSPResolver.can_update_csp_scala(player1, player1.playerHand.mazzo, scala)
+        add_card(player1)
+        scala = onto["Scala_0_Giocatore1"]
+        CSPResolver.can_update_csp_scala(player1, player1.playerHand.mazzo, scala)
 
         #player1 = all_players[1]
         #print(f"Mazzo Giocatore: {[card.name for card in player1.playerHand.mazzo]}")
@@ -128,12 +126,9 @@ def add_card_scala(player1):
 
 
 def add_card(player1):
-    terza_carta = onto["Jolly_Jolly_R_Rosso"]
-    player1.playerHand.mazzo.append(terza_carta)
-    terza_carta = onto["3_Cuori_Blu"]
-    player1.playerHand.mazzo.append(terza_carta)
-    #seconda_carta = onto["Jolly_Jolly_R_Rosso"]
-    #player1.playerHand.mazzo.append(seconda_carta)
+    player1.playerHand.mazzo.append(onto["5_Cuori_Blu"])
+    player1.playerHand.mazzo.append(onto["10_Cuori_Blu"])
+    player1.playerHand.mazzo.append(onto["10_Cuori_Rosso"])
 
 #test_resolver_all()
 test_resolver()

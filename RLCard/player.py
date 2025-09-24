@@ -1,6 +1,6 @@
 
 import Ontologia.onto_access_util as onto_access_util
-import Player.player_onto_modifier as OntoModifier
+import Player.player_onto_manager as OntoModifier
 import Player.player_csp_resolver as CSPResolver
 from action_event_dyn import (
     PickUpCardAction, PickUpDiscardAction,

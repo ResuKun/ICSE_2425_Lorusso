@@ -7,6 +7,10 @@ onto = onto_save_manager.get_ontology_from_manager()
 def get_card_from_id(id):
     return onto.search(type = onto.Card, idCarta = id)[0]
 
+#ritorna le carte note
+def get_unknown_cards():
+    return onto.search(type = onto.Card, cartaNota = False)
+
 #ritorna la lista dei giocatori
 def get_player_list():
     return onto.Player.instances()
@@ -46,23 +50,30 @@ def remove_jolly_pinella(lista_carte):
 	return [card for card in lista_carte if not isinstance(card, (onto.Jolly, onto.Pinella))]
 
 def reset_deck():
-    #pulisco le mani dei giocatori per iniziare un nuovo round
+    # pulisco le mani dei giocatori per iniziare un nuovo round
     for player in onto.players:
         player.playerHand.clear()
 
-    #pulisco il monte da cui raccogliere e gli scarti
+    # pulisco il monte da cui raccogliere e gli scarti
     monte = get_monte()
     scarti = get_scarti()
     monte.clear()
     scarti.clear()
-    #mischio le carte
+
+    # mischio le carte
     all_cards_in_ontology = list(get_all_cards())
     random.shuffle(all_cards_in_ontology)
 
+    # le rendo di nuovo non visibile e/o note 
+    # e le aggiungo al mazzo
     for card in all_cards_in_ontology:
+        card.cartaVisibile = False
+        card.cartaNota = False
         monte.append(card)
 
     primo_scarto = monte[0]
+    primo_scarto.cartaVisibile = True
+    primo_scarto.cartaNota = True
     scarti.append(primo_scarto)
     monte.remove(primo_scarto)
     onto_save_manager.salva_ontologia_update_game()

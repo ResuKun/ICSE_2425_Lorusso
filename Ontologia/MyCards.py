@@ -149,6 +149,14 @@ with onto:
         domain = [onto.Card]
         range = [bool]
 
+    # Proprietà 'cartaNota'
+    # si distingue da cartaVisibile in quanto
+    # una volta scartata (o inserita in una scala/tris)
+    # ormai è noto che la carta è "uscita"
+    class cartaNota(DataProperty, FunctionalProperty):
+        domain = [onto.Card]
+        range = [bool]
+
     # Proprietà 'isClosed'
     class isClosed(DataProperty):
         domain = [onto.Canasta]
@@ -213,6 +221,7 @@ with onto:
             asso.valoreCarta = 15
             asso.seme = single_semi
             asso.cartaVisibile = False
+            asso.cartaNota = False
             asso.idCarta = id_carta
             id_carta += 1
             singolo_mazzo.mazzo.append(asso)
@@ -226,6 +235,7 @@ with onto:
                 carta.valoreCarta = card_valori_punteggio[card_index]
                 carta.seme = single_semi
                 carta.cartaVisibile = False
+                carta.cartaNota = False
                 carta.idCarta = id_carta
                 id_carta += 1
                 singolo_mazzo.mazzo.append(carta)
@@ -243,6 +253,7 @@ with onto:
                 carta.valoreCarta = card_valori_punteggio[card_index]
                 carta.seme = single_semi
                 carta.cartaVisibile = False
+                carta.cartaNota = False
                 carta.idCarta = id_carta
                 id_carta += 1
                 singolo_mazzo.mazzo.append(carta)
@@ -256,6 +267,7 @@ with onto:
             carta.is_a.append(onto.Special)
             carta.is_a.append(onto.Jolly)
             carta.cartaVisibile = False
+            carta.cartaNota = False
             carta.idCarta = id_carta
             id_carta += 1
             singolo_mazzo.mazzo.append(carta)

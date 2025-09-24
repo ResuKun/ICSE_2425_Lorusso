@@ -2,6 +2,7 @@ from owlready2 import *
 import Ontologia.onto_save_manager as onto_save_manager
 import Ontologia.onto_access_util as onto_access_util
 import Utils.CONST as CONST
+import CSP.checks as checks
 
 onto = onto_save_manager.get_ontology_from_manager()
 game = onto.Game.instances()[0]
@@ -14,6 +15,20 @@ def get_card_number(card):
 		return card.numeroCarta
 	return None
 
+def get_player_known_cards(player):
+	return [card for card in player.playerHand.mazzo if card.cartaNota ]
+
+def get_player_unknown_cards(player):
+	return [card for card in player.playerHand.mazzo if card.cartaNota == False ]
+
+def get_player_cards(player):
+	return player.playerHand.mazzo
+
+def get_player_melds(player):
+	return player.scala
+
+def get_player_tris(player):
+	return player.tris
 
 def reset_players_hands():
 	monte = onto_access_util.get_monte()
@@ -23,6 +38,10 @@ def reset_players_hands():
 			monte[CONST.CardValues.NUM_CARDS_TO_DEAL.value:])
 		player.playerHand.mazzo.extend(mano)
 	onto_save_manager.salva_ontologia_update_game()
+
+#restitusce le tuple della mano del giocatore
+def get_players_card(player):
+    return checks.get_tuple_from_card(player.playerHand.mazzo)
 
 #Gestisce la pesca dal monte:
 #la elimina dal mazzo della partita per inserirla nella mano del giocatore
@@ -59,6 +78,15 @@ def scarta_carta(player, card_id):
 	player.playerHand.mazzo.remove(card)
 	game.scarto.mazzo.append(card)
 	card.cartaVisibile = True
+	card.cartaNota = True
+	onto_save_manager.salva_ontologia_update_game()
+
+def chiudi_gioco(player, card_id):
+	card = onto_access_util.get_card_from_id(card_id)
+	player.playerHand.mazzo.remove(card)
+	game.scarto.mazzo.append(card)
+	card.cartaVisibile = True
+	card.cartaNota = True
 	add_points_chiusura(player)
 	onto_save_manager.salva_ontologia_update_game()
 
@@ -85,6 +113,7 @@ def apre_scala(player, cards):
 		#aggiorna il punteggio del giocatore
 		partialScore += card.valoreCarta
 		card.cartaVisibile = True
+		card.cartaNota = True
 		player.playerHand.mazzo.remove(card)
 
 	player.punteggioGiocatore += partialScore
@@ -108,6 +137,7 @@ def apre_tris(player, cards):
 	partialScore = 0
 	for card in cards:
 		card.cartaVisibile = True
+		card.cartaNota = True
 		player.playerHand.mazzo.remove(card)
 		nuovoTris.hasCards.append(card)
 		#aggiorna il punteggio del giocatore
@@ -136,6 +166,7 @@ def aggiunge_carta_tris(player, tris, card):
 	#aggiorna il punteggio del giocatore
 	player.punteggioGiocatore += card.valoreCarta
 	card.cartaVisibile = True
+	card.cartaNota = True
 		
 	#aggiungo i punti per il burraco se c'è
 	partialScore += add_points_burraco(tris, player)
@@ -157,6 +188,7 @@ def aggiunge_carta_scala(player, target_scala, card):
 	player.punteggioGiocatore += partialScore
 	# Rende la carta visibile (poichè è ora sul tavolo)
 	card.cartaVisibile = True
+	card.cartaNota = True
 
 	card_number = [ get_card_number(c) for c in target_scala.hasCards if get_card_number(c) is not None ]
 	target_scala.minValueScala = min(card_number)

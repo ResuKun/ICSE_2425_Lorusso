@@ -2,7 +2,7 @@ import copy
 from owlready2 import *
 import random
 from Player.player_csp_resolver import can_create_csp_scala, can_update_csp_scala
-from Player.player_onto_modifier import apre_canasta
+from Player.player_onto_manager import apre_canasta
 import Ontologia.onto_save_manager as onto_save_manager
 
 def get_card_value_sum(lista_carte):

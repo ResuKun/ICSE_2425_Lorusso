@@ -10,15 +10,15 @@ def get_tuple_from_card(lista_carte, include_seme=True):
 	for card in lista_carte:
 		if not isinstance(card, (onto.Jolly, onto.Pinella)):
 			if include_seme:
-				mia_tupla = (card.numeroCarta, card.name, card.seme.name, card.valoreCarta)
+				mia_tupla = (card.numeroCarta, card.idCarta, card.seme.name, card.valoreCarta)
 			else:
-				mia_tupla = (card.numeroCarta, card.name, card.valoreCarta)
+				mia_tupla = (card.numeroCarta, card.idCarta, card.valoreCarta)
 			lista_tuple.append(mia_tupla)
 		else:
 			if include_seme:
-				mia_tupla = (CardValues.JOLLY_VALUE.value, card.name, "Jolly", card.valoreCarta)
+				mia_tupla = (CardValues.JOLLY_VALUE.value, card.idCarta, "Jolly", card.valoreCarta)
 			else:
-				mia_tupla = (CardValues.JOLLY_VALUE.value, card.name, card.valoreCarta)
+				mia_tupla = (CardValues.JOLLY_VALUE.value, card.idCarta, card.valoreCarta)
 			lista_tuple.append(mia_tupla)
 		
 	return lista_tuple
@@ -33,7 +33,7 @@ def get_tuple_from_csp_results(lista_variabili, result):
 			lista_risultato.append(var_value)
 	return lista_risultato
 
-def get_tuple_from_tris(tris):
+""" def get_tuple_from_tris(tris):
 	lista_tris = []
 	contain_jolly = False
 	for card in tris.hasCards:
@@ -45,7 +45,7 @@ def get_tuple_from_tris(tris):
 			lista_tris.append(mia_tupla)
 			contain_jolly = True
 			
-	return lista_tris, contain_jolly
+	return lista_tris, contain_jolly """
 
 def has_jolly_or_pinella_tuple(lista_carte):
 	return any( [x for x in lista_carte if x[0] == CardValues.JOLLY_VALUE.value or x[0] == CardValues.PINELLA_VALUE.value])

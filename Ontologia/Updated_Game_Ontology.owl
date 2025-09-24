@@ -1417,8 +1417,10 @@
   <playerHand rdf:resource="#Mano_di_Giocatore1"/>
   <tris rdf:resource="#Tris_0_Giocatore1"/>
   <scala rdf:resource="#Scala_0_Giocatore1"/>
+  <tris rdf:resource="#Tris_1_Giocatore1"/>
+  <scala rdf:resource="#Scala_1_Giocatore1"/>
   <nomeGiocatore rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alessio</nomeGiocatore>
-  <punteggioGiocatore rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</punteggioGiocatore>
+  <punteggioGiocatore rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</punteggioGiocatore>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Giocatore2">
@@ -1430,21 +1432,6 @@
 
 <owl:NamedIndividual rdf:about="#Mano_di_Giocatore1">
   <rdf:type rdf:resource="#Mano"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#Mano_di_Giocatore2">
-  <rdf:type rdf:resource="#Mano"/>
-  <mazzo rdf:resource="#A_Cuori_Blu"/>
-  <mazzo rdf:resource="#9_Fiori_Blu"/>
-  <mazzo rdf:resource="#6_Quadri_Rosso"/>
-  <mazzo rdf:resource="#Q_Cuori_Blu"/>
-  <mazzo rdf:resource="#3_Quadri_Rosso"/>
-  <mazzo rdf:resource="#6_Picche_Rosso"/>
-  <mazzo rdf:resource="#A_Cuori_Rosso"/>
-  <mazzo rdf:resource="#2_Cuori_Blu"/>
-  <mazzo rdf:resource="#8_Quadri_Rosso"/>
-  <mazzo rdf:resource="#9_Cuori_Blu"/>
-  <mazzo rdf:resource="#J_Fiori_Rosso"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Tris_0_Giocatore1">
@@ -1462,11 +1449,23 @@
   <hasCards rdf:resource="#8_Cuori_Rosso"/>
   <hasCards rdf:resource="#7_Cuori_Blu"/>
   <hasCards rdf:resource="#6_Cuori_Blu"/>
-  <hasCards rdf:resource="#5_Cuori_Blu"/>
-  <hasCards rdf:resource="#4_Cuori_Blu"/>
-  <minValueScala rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</minValueScala>
+  <minValueScala rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</minValueScala>
   <maxValueScala rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</maxValueScala>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="#Mano_di_Giocatore2">
+  <rdf:type rdf:resource="#Mano"/>
+  <mazzo rdf:resource="#A_Cuori_Blu"/>
+  <mazzo rdf:resource="#9_Fiori_Blu"/>
+  <mazzo rdf:resource="#6_Quadri_Rosso"/>
+  <mazzo rdf:resource="#Q_Cuori_Blu"/>
+  <mazzo rdf:resource="#3_Quadri_Rosso"/>
+  <mazzo rdf:resource="#6_Picche_Rosso"/>
+  <mazzo rdf:resource="#A_Cuori_Rosso"/>
+  <mazzo rdf:resource="#2_Cuori_Blu"/>
+  <mazzo rdf:resource="#8_Quadri_Rosso"/>
+  <mazzo rdf:resource="#9_Cuori_Blu"/>
+  <mazzo rdf:resource="#J_Fiori_Rosso"/>
+</owl:NamedIndividual>
 
 </rdf:RDF>
