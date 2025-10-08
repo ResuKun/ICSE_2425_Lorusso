@@ -128,47 +128,7 @@
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
 </owl:DatatypeProperty>
 
-<owl:Class rdf:about="#Canasta">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
 <owl:Class rdf:about="#Card">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Game">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Player">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Scarto">
-  <rdfs:subClassOf rdf:resource="#Mazzo"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Monte">
-  <rdfs:subClassOf rdf:resource="#Mazzo"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Scala">
-  <rdfs:subClassOf rdf:resource="#Canasta"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Tris">
-  <rdfs:subClassOf rdf:resource="#Canasta"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Mano">
-  <rdfs:subClassOf rdf:resource="#Mazzo"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Seme">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Mazzo">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
@@ -191,6 +151,46 @@
 
 <owl:Class rdf:about="#Pinella">
   <rdfs:subClassOf rdf:resource="#Special"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Game">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Player">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Seme">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Mazzo">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Monte">
+  <rdfs:subClassOf rdf:resource="#Mazzo"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Scarto">
+  <rdfs:subClassOf rdf:resource="#Mazzo"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Mano">
+  <rdfs:subClassOf rdf:resource="#Mazzo"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Canasta">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Scala">
+  <rdfs:subClassOf rdf:resource="#Canasta"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Tris">
+  <rdfs:subClassOf rdf:resource="#Canasta"/>
 </owl:Class>
 
 <owl:NamedIndividual rdf:about="#Cuori">
@@ -1311,11 +1311,31 @@
 
 <owl:NamedIndividual rdf:about="#Partita">
   <rdf:type rdf:resource="#Game"/>
+  <players rdf:resource="#Giocatore1"/>
+  <players rdf:resource="#Giocatore2"/>
   <monte rdf:resource="#Monte_della_partita"/>
   <scarto rdf:resource="#Scarto_della_partita"/>
-  <players rdf:resource="#Giocatore1"/>
   <turnOf rdf:resource="#Giocatore1"/>
-  <players rdf:resource="#Giocatore2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Giocatore1">
+  <rdf:type rdf:resource="#Player"/>
+  <playerHand rdf:resource="#Mano_di_Giocatore1"/>
+  <tris rdf:resource="#Tris_0_Giocatore1"/>
+  <scala rdf:resource="#Scala_0_Giocatore1"/>
+  <tris rdf:resource="#Tris_1_Giocatore1"/>
+  <scala rdf:resource="#Scala_1_Giocatore1"/>
+  <idGiocatore rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</idGiocatore>
+  <nomeGiocatore rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alessio</nomeGiocatore>
+  <punteggioGiocatore rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</punteggioGiocatore>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Giocatore2">
+  <rdf:type rdf:resource="#Player"/>
+  <playerHand rdf:resource="#Mano_di_Giocatore2"/>
+  <idGiocatore rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2</idGiocatore>
+  <nomeGiocatore rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MariaGrazia</nomeGiocatore>
+  <punteggioGiocatore rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</punteggioGiocatore>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Monte_della_partita">
@@ -1412,24 +1432,6 @@
   <mazzo rdf:resource="#4_Quadri_Rosso"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Giocatore1">
-  <rdf:type rdf:resource="#Player"/>
-  <playerHand rdf:resource="#Mano_di_Giocatore1"/>
-  <tris rdf:resource="#Tris_0_Giocatore1"/>
-  <scala rdf:resource="#Scala_0_Giocatore1"/>
-  <tris rdf:resource="#Tris_1_Giocatore1"/>
-  <scala rdf:resource="#Scala_1_Giocatore1"/>
-  <nomeGiocatore rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alessio</nomeGiocatore>
-  <punteggioGiocatore rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</punteggioGiocatore>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#Giocatore2">
-  <rdf:type rdf:resource="#Player"/>
-  <playerHand rdf:resource="#Mano_di_Giocatore2"/>
-  <nomeGiocatore rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MariaGrazia</nomeGiocatore>
-  <punteggioGiocatore rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</punteggioGiocatore>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#Mano_di_Giocatore1">
   <rdf:type rdf:resource="#Mano"/>
 </owl:NamedIndividual>
@@ -1467,5 +1469,6 @@
   <mazzo rdf:resource="#9_Cuori_Blu"/>
   <mazzo rdf:resource="#J_Fiori_Rosso"/>
 </owl:NamedIndividual>
+
 
 </rdf:RDF>

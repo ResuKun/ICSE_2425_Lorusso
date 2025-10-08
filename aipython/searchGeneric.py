@@ -8,7 +8,7 @@
 # Attribution-NonCommercial-ShareAlike 4.0 International License.
 # See: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en
 
-from display import Displayable
+from .display import Displayable
 
 class Searcher(Displayable):
     """returns a searcher for a problem.
@@ -110,7 +110,7 @@ class Searcher(Displayable):
 # searcher_sdg.search()  # find first or next solution
 
 import heapq        # part of the Python standard library
-from searchProblem import Path
+from .searchProblem import Path
 
 class FrontierPQ(object):
     """A frontier consists of a priority queue (heap), frontierpq, of
@@ -179,7 +179,7 @@ class AStarSearcher(Searcher):
         value = path.cost+self.problem.heuristic(path.end())
         self.frontier.add(path, value)
 
-import searchExample
+from . import searchExample
 
 def test(SearchClass, problem=searchExample.problem1, solutions=[['G','D','B','C','A']] ):
     """Unit test for aipython searching algorithms.

@@ -3,12 +3,18 @@ import Ontologia.onto_save_manager as onto_save_manager
 import Ontologia.onto_access_util as onto_access_util
 from Utils.CONST import CardValues
 
-onto = onto_save_manager.get_ontology_from_manager()
+#onto = onto_save_manager.get_ontology_from_manager()
+
+#carica l'ontologia (singleton)
+def get_onto():
+    if not hasattr(get_onto, "_onto"):
+        get_onto._onto = onto_save_manager.get_ontology_from_manager()
+    return get_onto._onto
 
 def get_tuple_from_card(lista_carte, include_seme=True):
 	lista_tuple = []
 	for card in lista_carte:
-		if not isinstance(card, (onto.Jolly, onto.Pinella)):
+		if not isinstance(card, (get_onto().Jolly, get_onto().Pinella)):
 			if include_seme:
 				mia_tupla = (card.numeroCarta, card.idCarta, card.seme.name, card.valoreCarta)
 			else:
@@ -37,10 +43,10 @@ def get_tuple_from_csp_results(lista_variabili, result):
 	lista_tris = []
 	contain_jolly = False
 	for card in tris.hasCards:
-		if not isinstance(card, (onto.Jolly, onto.Pinella)) and (card.numeroCarta, card.name) not in lista_tris:
+		if not isinstance(card, (get_onto().Jolly, get_onto().Pinella)) and (card.numeroCarta, card.name) not in lista_tris:
 			mia_tupla = (card.numeroCarta, card.name)
 			lista_tris.append(mia_tupla)
-		elif isinstance(card, (onto.Jolly, onto.Pinella)):
+		elif isinstance(card, (get_onto().Jolly, get_onto().Pinella)):
 			mia_tupla = (CardValues.JOLLY_VALUE.value, card.name)
 			lista_tris.append(mia_tupla)
 			contain_jolly = True

@@ -4,16 +4,22 @@ import Ontologia.onto_save_manager as onto_save_manager
 from Ontologia.onto_save_manager import OntologyResource
 import Utils.CONST as CONST
 
-onto = onto_save_manager.get_ontology_from_manager(OntologyResource.CARD)
+#onto = onto_save_manager.get_ontology_from_manager(OntologyResource.CARD)
+
+
+def get_onto():
+    if not hasattr(get_onto, "_onto"):
+        get_onto._onto = onto_save_manager.get_ontology_from_manager()
+    return get_onto._onto
 
 def init_game(players_names = ["Alessio", "MariaGrazia"]):
 
     if len(players_names) > CONST.CardValues.MAX_PLAYER.value:
         raise TypeError("Numero massimo di giocatori consentito : " + CONST.CardValues.MAX_PLAYER.value)
 
-    partita = onto.Game("Partita")
-    partita.monte = onto.Monte("Monte_della_partita")
-    partita.scarto = onto.Scarto("Scarto_della_partita")
+    partita = get_onto().Game("Partita")
+    partita.monte = get_onto().Monte("Monte_della_partita")
+    partita.scarto = get_onto().Scarto("Scarto_della_partita")
 
     if len(players_names) == 0:
         raise TypeError("Deve esserci almeno un giocatore per iniziare la partita.")
@@ -35,7 +41,7 @@ def init_game(players_names = ["Alessio", "MariaGrazia"]):
 
 def createPlayer(number,name, partita):
     #creo i giocatori
-    player1 = onto.Player("Giocatore" + number)
+    player1 = get_onto().Player("Giocatore" + number)
     player1.idGiocatore = number
     player1.nomeGiocatore = name
     player1.punteggioGiocatore = 0
@@ -43,4 +49,4 @@ def createPlayer(number,name, partita):
     partita.players.append(player1)
     return player1
 
-init_game()
+#init_game()

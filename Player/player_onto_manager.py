@@ -2,10 +2,18 @@ from owlready2 import *
 import Ontologia.onto_save_manager as onto_save_manager
 import Ontologia.onto_access_util as onto_access_util
 import Utils.CONST as CONST
-import ICSE_2425_Lorusso.Utils.checks as checks
+import Utils.checks as checks
 
-onto = onto_save_manager.get_ontology_from_manager()
-game = onto.Game.instances()[0]
+
+#carica l'ontologia (singleton)
+def get_onto():
+    if not hasattr(get_onto, "_onto"):
+        get_onto._onto = onto_save_manager.get_ontology_from_manager()
+    return get_onto._onto
+
+#carica l'ontologia (singleton)
+def get_game():
+    return get_onto().Game.instances()[0]
 
 def get_player_score(player):
 	return player.punteggioGiocatore
@@ -46,7 +54,7 @@ def get_players_card(player):
 #Gestisce la pesca dal monte:
 #la elimina dal mazzo della partita per inserirla nella mano del giocatore
 def pesca_carta(player):
-	monte = game.monte 
+	monte = get_game().monte 
 	card = monte.mazzo[0]
 	monte.mazzo.remove(card)
 	player.playerHand.mazzo.append(card)
@@ -57,14 +65,14 @@ def pesca_carta(player):
 #svuota la pila degli scarti della partita 
 #per inserirla nella mano del giocatore
 def pesca_scarti(player):
-	cards = game.scarto.mazzo[:]
+	cards = get_game().scarto.mazzo[:]
 	len_cards = len(cards)
 
 	#le carte tornano non visibili
 	for card in cards:
 		card.cartaVisibile = False
 
-	game.scarto.mazzo.clear()
+	get_game().scarto.mazzo.clear()
 	player.playerHand.mazzo.extend(cards)
 	 # Salva le modifiche all'ontologia
 	onto_save_manager.salva_ontologia_update_game()
@@ -76,7 +84,7 @@ def pesca_scarti(player):
 def scarta_carta(player, card_id):
 	card = onto_access_util.get_card_from_id(card_id)
 	player.playerHand.mazzo.remove(card)
-	game.scarto.mazzo.append(card)
+	get_game().scarto.mazzo.append(card)
 	card.cartaVisibile = True
 	card.cartaNota = True
 	onto_save_manager.salva_ontologia_update_game()
@@ -84,7 +92,7 @@ def scarta_carta(player, card_id):
 def chiudi_gioco(player, card_id):
 	card = onto_access_util.get_card_from_id(card_id)
 	player.playerHand.mazzo.remove(card)
-	game.scarto.mazzo.append(card)
+	get_game().scarto.mazzo.append(card)
 	card.cartaVisibile = True
 	card.cartaNota = True
 	add_points_chiusura(player)
@@ -94,7 +102,7 @@ def chiudi_gioco(player, card_id):
 #restituisce il punteggio 
 def apre_scala(player, cards):
 	nScala = len(player.scala)
-	nuovaScala = onto.Scala("Scala_" + str(nScala)+ "_" + player.name)
+	nuovaScala = get_onto().Scala("Scala_" + str(nScala)+ "_" + player.name)
 	nuovaScala.minValueScala = min(c.numeroCarta for c in cards)
 	nuovaScala.maxValueScala = max(c.numeroCarta for c in cards)
 
@@ -131,7 +139,7 @@ def apre_scala(player, cards):
 #crea una nuovo Tris e la aggiunge al giocatore
 def apre_tris(player, cards):
 	nTris = len(player.tris)
-	nuovoTris = onto.Tris(f"Tris_" + str(nTris) + "_" + player.name)
+	nuovoTris = get_onto().Tris(f"Tris_" + str(nTris) + "_" + player.name)
 	trisValue = None
 
 	partialScore = 0
