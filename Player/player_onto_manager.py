@@ -2,7 +2,7 @@ from owlready2 import *
 import Ontologia.onto_save_manager as onto_save_manager
 import Ontologia.onto_access_util as onto_access_util
 import Utils.CONST as CONST
-import CSP.checks as checks
+import ICSE_2425_Lorusso.Utils.checks as checks
 
 onto = onto_save_manager.get_ontology_from_manager()
 game = onto.Game.instances()[0]
