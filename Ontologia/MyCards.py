@@ -207,8 +207,11 @@ with onto:
 
 
     #CREAZIONE DEL MAZZO
+    
+    #rimpiazzato con 0 per per il metodo (encode_cards) della classe utils.py
+    #id_carta = 1
+    id_carta = 0
     #per ogni mazzo
-    id_carta = 1
     for singolo_mazzo_name in mazzi_arr:
         singolo_mazzo = onto.Mazzo(singolo_mazzo_name)
         #per ogni seme
