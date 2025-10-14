@@ -1,6 +1,6 @@
 import numpy as np
 
-from rlcard.rlcard.games.base import Card
+from rlcard.games.base import Card
 
 def set_seed(seed):
     if seed is not None:

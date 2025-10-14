@@ -11,7 +11,7 @@ from aipython.cspSearch import Search_from_CSP
 #from Player.player_onto_modifier import apre_canasta_test
 import Ontologia.onto_save_manager as onto_save_manager
 import Ontologia.onto_access_util as onto_access_util
-import ICSE_2425_Lorusso.Utils.checks as checks
+import CSP.checks as checks
 from Utils.CONST import CardValues
 
 onto = onto_save_manager.get_ontology_from_manager()
