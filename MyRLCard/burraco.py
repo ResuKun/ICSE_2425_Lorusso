@@ -13,7 +13,7 @@ class BurracoEnv(Env):
 
         self._utils = utils
 
-        self.name = 'gin-rummy'
+        self.name = 'burraco'
         self.game = Game()
         super().__init__(config=config)
         self.state_shape = [[5, CONST.CardValues.TOTAL_CARDS.value] for _ in range(self.num_players)]
