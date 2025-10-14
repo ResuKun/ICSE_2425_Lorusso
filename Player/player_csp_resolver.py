@@ -11,10 +11,16 @@ from aipython.cspSearch import Search_from_CSP
 #from Player.player_onto_modifier import apre_canasta_test
 import Ontologia.onto_save_manager as onto_save_manager
 import Ontologia.onto_access_util as onto_access_util
-import CSP.checks as checks
+import Utils.checks as checks
 from Utils.CONST import CardValues
 
-onto = onto_save_manager.get_ontology_from_manager()
+#onto = onto_save_manager.get_ontology_from_manager()
+
+
+def get_onto():
+    if not hasattr(get_onto, "_onto"):
+        get_onto._onto = onto_save_manager.get_ontology_from_manager()
+    return get_onto._onto
 
 #da rendere adattivo , magari in base al numero di carte 
 #dato che con poche carte si abbasano le probabilità di trovare combinazioni
@@ -165,10 +171,10 @@ def can_update_csp_tris(player, lista_carte, tris):
     contain_jolly = False
     
     for card in tris.hasCards:
-        if not isinstance(card, (onto.Jolly, onto.Pinella)) and (card.numeroCarta, card.name) not in lista_tris:
+        if not isinstance(card, (get_onto().Jolly, get_onto().Pinella)) and (card.numeroCarta, card.name) not in lista_tris:
             mia_tupla = (card.numeroCarta, card.name)
             lista_tris.append(mia_tupla)
-        elif isinstance(card, (onto.Jolly, onto.Pinella)):
+        elif isinstance(card, (get_onto().Jolly, get_onto().Pinella)):
             mia_tupla = (CardValues.JOLLY_VALUE.value, card.name)
             lista_tris.append(mia_tupla)
             contain_jolly = True

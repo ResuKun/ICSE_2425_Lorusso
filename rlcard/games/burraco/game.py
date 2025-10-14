@@ -25,7 +25,7 @@ class BurracoGame:
 		self.judge = BurracoJudge()
 
 
-	def init_game(self):
+	#def init_game(self):
 		self.game=initGame.init_game()
 		self.round = BurracoRound(self.game.players, self.game.turnOf.idGiocatore)
 		self.actions = []

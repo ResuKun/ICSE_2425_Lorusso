@@ -3,7 +3,7 @@ import numpy as np
 from collections import OrderedDict
 from rlcard.envs import Env
 from rlcard.games.burraco.game import BurracoGame as Game
-import utils as utils
+import rlcard.games.burraco.utils as utils
 import Utils.CONST as CONST
 
 class BurracoEnv(Env):

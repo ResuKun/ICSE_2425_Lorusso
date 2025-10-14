@@ -1,6 +1,6 @@
 import Player.player_csp_resolver as csp_resolver
 import Player.player_onto_manager as play_onto
-from action_event_dyn import (PickUpCardAction,PickUpDiscardAction,
+from .action_event_dyn import (PickUpCardAction,PickUpDiscardAction,
                               OpenTrisAction,OpenMeldAction,UpdateTrisAction,
                               UpdateMeldAction,DiscardAction,CloseGameAction)
 

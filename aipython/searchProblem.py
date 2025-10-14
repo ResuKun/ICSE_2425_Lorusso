@@ -8,7 +8,7 @@
 # Attribution-NonCommercial-ShareAlike 4.0 International License.
 # See: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en
 
-from display import Displayable
+from .display import Displayable
 import matplotlib.pyplot as plt
 import random
 

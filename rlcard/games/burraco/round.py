@@ -20,7 +20,7 @@ from .player import BurracoPlayer
 class BurracoRound:
 
     def __init__(self, players, round_number):
-        self.init_round_cards(self)
+        self.init_round_cards()
         #self.players = [BurracoPlayer(player_id=0, np_random=self.np_random), BurracoPlayer(player_id=1, np_random=self.np_random)]
         self.players = [BurracoPlayer(players[0].nomeGiocatore), BurracoPlayer(players[1].nomeGiocatore)]
         

@@ -1,0 +1,7 @@
+pyproject.toml
+setup.py
+aipython.egg-info/PKG-INFO
+aipython.egg-info/SOURCES.txt
+aipython.egg-info/dependency_links.txt
+aipython.egg-info/top_level.txt
+data/simr_regr2.py

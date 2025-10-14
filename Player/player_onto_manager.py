@@ -2,7 +2,7 @@ from owlready2 import *
 import Ontologia.onto_save_manager as onto_save_manager
 import Ontologia.onto_access_util as onto_access_util
 import Utils.CONST as CONST
-import CSP.checks as checks
+import Utils.checks as checks
 
 
 #carica l'ontologia (singleton)
