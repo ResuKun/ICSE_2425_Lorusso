@@ -1,4 +1,4 @@
-from game import BurracoGame
+from ICSE_2425_Lorusso.rlcard.games.burraco.game import BurracoGame
 from player import BurracoPlayer
 import Player.player_onto_manager as pom
 

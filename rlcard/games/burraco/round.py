@@ -2,7 +2,7 @@ from typing import List
 import Utils.CONST as CONST
 import Ontologia.onto_access_util as onto_access_util
 import Player.player_onto_manager as player_onto_util
-from move import *
+from .move import *
 
 from .player import BurracoPlayer
 

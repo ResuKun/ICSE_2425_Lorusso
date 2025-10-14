@@ -2,7 +2,7 @@ from typing import List
 from .player import BurracoPlayer
 from .action_event_dyn import *
 from Ontologia.MyCards import Card, Scala, Tris
-from RLCard.burraco_error import BurracoProgramError
+from .burraco_error import BurracoProgramError
 
 #
 #   These classes are used to keep a move_sheet history of the moves in a round.
