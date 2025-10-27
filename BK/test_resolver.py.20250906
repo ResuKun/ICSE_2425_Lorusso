@@ -14,7 +14,7 @@ import Ontologia.OntoSaveManager as OntoSaveManager
 onto = OntoSaveManager.get_ontology_from_manager()
 
 
-def get_tuple_from_card(lista_carte, include_seme=True):
+def get_tuple_from_cards(lista_carte, include_seme=True):
     lista_tuple = []
     for card in lista_carte:
         if not isinstance(card, (onto.Jolly, onto.Pinella)):
@@ -189,7 +189,7 @@ def check_end_game_condition(player_hand):
 def find_csp_scala(lista_carte):
     print(f"Start find_csp_scala --> lista_carte: {lista_carte}" )
     
-    lista_tuple = get_tuple_from_card(lista_carte)
+    lista_tuple = get_tuple_from_cards(lista_carte)
    
     # Costruisce le variabili da selezionare (tris di 3 carte)
     var1 = Variable("c1", lista_tuple)
@@ -253,7 +253,7 @@ def can_update_csp_scala(lista_carte, scala):
 def find_csp_tris(lista_carte):
     print(f"Start find_csp_tris --> lista_carte: {lista_carte}" )
     
-    lista_numeri = get_tuple_from_card(lista_carte, False)
+    lista_numeri = get_tuple_from_cards(lista_carte, False)
     # Costruisce le variabili da selezionare (tris di 3 carte)
     var1 = Variable("c1", lista_numeri)
     var2 = Variable("c2", lista_numeri)
@@ -286,7 +286,7 @@ def find_csp_tris(lista_carte):
 #Update di un TRIS
 def can_update_csp_tris(lista_carte, tris):
     # def __init__(self, title, variables, constraints):
-    lista_numeri = get_tuple_from_card(lista_carte)
+    lista_numeri = get_tuple_from_cards(lista_carte)
     lista_tris = []
     contain_jolly = False
     for card in tris.hasCards:

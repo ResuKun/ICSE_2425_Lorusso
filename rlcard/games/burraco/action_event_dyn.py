@@ -71,9 +71,9 @@ class OpenTrisAction(ActionEvent):
 
 class UpdateMeldAction(ActionEvent):
 
-    def __init__(self,meld,card, action_id):
-        self.meld = meld
-        self.card = card
+    def __init__(self,meld_id, card_id, action_id):
+        self.meld_id = meld_id
+        self.card_id = card_id
         self.action_id = action_id
 
     def __str__(self):
@@ -81,9 +81,9 @@ class UpdateMeldAction(ActionEvent):
 
 class UpdateTrisAction(ActionEvent):
 
-    def __init__(self, tris, card, action_id):
-        self.tris = tris
-        self.card = card
+    def __init__(self, tris_id, card_id, action_id):
+        self.tris_id = tris_id
+        self.card_id = card_id
         self.action_id = action_id
 
     def __str__(self):

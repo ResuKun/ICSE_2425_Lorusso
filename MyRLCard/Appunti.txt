@@ -1,25 +1,22 @@
-Testare i metodi CSP di update scala e update tris
+
+
+
+
+DA IMPLEMENTARE:
+
+- migliorare la gestione del 2 come pinella
 
 
 
 
 
-
-
-
-
+----------------------------------------------------------------------
+✅Testare i metodi CSP di update scala e update tris
 
 
 IMPLEMENTARE IL POZZO
 ATTULAMENTE NON è IMPLEMENTATO PER NULLA
 !!!!!!!
-
-
-
-
-
-
-
 
 
 Totale delle azioni

@@ -1,14 +1,24 @@
 from owlready2 import *
-import Ontologia.onto_save_manager as onto_save_manager
 import Ontologia.onto_access_util as onto_access_util
+from Ontologia.onto_save_manager import OntologyManager
 from Utils.CONST import CardValues
 
-onto = onto_save_manager.get_ontology_from_manager()
+#carica l'ontologia (singleton)
+def get_manager():
+    if not hasattr(get_manager, "_manager"):
+        get_manager._manager = OntologyManager()
+    return get_manager._manager
 
-def get_tuple_from_card(lista_carte, include_seme=True):
+def get_onto():
+    if not hasattr(get_onto, "_onto"):
+        manager = get_manager()
+        get_onto._onto = manager.get_ontology_from_manager()
+    return get_onto._onto
+
+def get_tuple_from_cards(lista_carte, include_seme=True):
 	lista_tuple = []
 	for card in lista_carte:
-		if not isinstance(card, (onto.Jolly, onto.Pinella)):
+		if not isinstance(card, (get_onto().Jolly, get_onto().Pinella)):
 			if include_seme:
 				mia_tupla = (card.numeroCarta, card.idCarta, card.seme.name, card.valoreCarta)
 			else:
@@ -192,7 +202,7 @@ def get_player_normalized(player):
 
 def regole_di_gioco(player, is_closing_game, *cards_to_play):
 	cards_to_play = clean_from_placeholder(cards_to_play)
-	mano_player = get_tuple_from_card(player.playerHand.mazzo)
+	mano_player = get_tuple_from_cards(player.playerHand.mazzo)
 	result = False
 	#filtro le carte che voglio giocare
 	if not is_closing_game:

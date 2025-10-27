@@ -116,7 +116,19 @@
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
 </owl:DatatypeProperty>
 
+<owl:DatatypeProperty rdf:about="#scalaId">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Scala"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
 <owl:DatatypeProperty rdf:about="#trisValue">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Tris"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#trisId">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   <rdfs:domain rdf:resource="#Tris"/>
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>

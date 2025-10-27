@@ -1,7 +1,17 @@
 import Utils.CONST as CONST
-import Ontologia.onto_save_manager as onto_save_manager
-onto = onto_save_manager.get_ontology_from_manager()
+from Ontologia.onto_save_manager import OntologyManager
 
+#carica l'ontologia (singleton)
+def get_manager():
+    if not hasattr(get_manager, "_manager"):
+        get_manager._manager = OntologyManager()
+    return get_manager._manager
+
+def get_onto():
+    if not hasattr(get_onto, "_onto"):
+        manager = get_manager()
+        get_onto._onto = manager.get_ontology_from_manager()
+    return get_onto._onto
 
 score_player_0_action_id = 0
 score_player_1_action_id = 1

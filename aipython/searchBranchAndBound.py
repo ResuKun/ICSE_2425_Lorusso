@@ -34,7 +34,7 @@ class DF_branch_and_bound(Searcher):
             self.path = self.frontier.pop()
             if self.path.cost+self.problem.heuristic(self.path.end()) < self.bound:
                 # if self.path.end() not in self.path.initial_nodes():  # for cycle pruning
-                self.display(2,"Expanding:",self.path,"cost:",self.path.cost)
+                #self.display(2,"Expanding:",self.path,"cost:",self.path.cost)
                 self.num_expanded += 1
                 if self.problem.is_goal(self.path.end()):
                     self.best_path = self.path

@@ -6,10 +6,10 @@ import Utils.CONST as CONST
 
 
 # 1 hot encoding
-def encode_cards(cards: List[Card]) -> np.ndarray:
+# riceve una lista di id di carta
+def encode_cards(cards: List) -> np.ndarray:
     #inizializza a zero e poi aggiorna il corretto valore
     plane = np.zeros(CONST.CardValues.TOTAL_CARDS.value, dtype=int)
     for card in cards:
-        card_id = card.idCarta
-        plane[card_id] = 1
+        plane[card] = 1
     return plane

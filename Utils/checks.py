@@ -1,17 +1,21 @@
 from owlready2 import *
-import Ontologia.onto_save_manager as onto_save_manager
 import Ontologia.onto_access_util as onto_access_util
+from Ontologia.onto_save_manager import OntologyManager
 from Utils.CONST import CardValues
 
-#onto = onto_save_manager.get_ontology_from_manager()
-
 #carica l'ontologia (singleton)
+def get_manager():
+    if not hasattr(get_manager, "_manager"):
+        get_manager._manager = OntologyManager()
+    return get_manager._manager
+
 def get_onto():
     if not hasattr(get_onto, "_onto"):
-        get_onto._onto = onto_save_manager.get_ontology_from_manager()
+        manager = get_manager()
+        get_onto._onto = manager.get_ontology_from_manager()
     return get_onto._onto
 
-def get_tuple_from_card(lista_carte, include_seme=True):
+def get_tuple_from_cards(lista_carte, include_seme=True):
 	lista_tuple = []
 	for card in lista_carte:
 		if not isinstance(card, (get_onto().Jolly, get_onto().Pinella)):
@@ -43,10 +47,10 @@ def get_tuple_from_csp_results(lista_variabili, result):
 	lista_tris = []
 	contain_jolly = False
 	for card in tris.hasCards:
-		if not isinstance(card, (get_onto().Jolly, get_onto().Pinella)) and (card.numeroCarta, card.name) not in lista_tris:
+		if not isinstance(card, (onto.Jolly, onto.Pinella)) and (card.numeroCarta, card.name) not in lista_tris:
 			mia_tupla = (card.numeroCarta, card.name)
 			lista_tris.append(mia_tupla)
-		elif isinstance(card, (get_onto().Jolly, get_onto().Pinella)):
+		elif isinstance(card, (onto.Jolly, onto.Pinella)):
 			mia_tupla = (CardValues.JOLLY_VALUE.value, card.name)
 			lista_tris.append(mia_tupla)
 			contain_jolly = True
@@ -66,6 +70,11 @@ def three_or_more_cards(*lista_carte):
 	filtered_list = clean_from_placeholder(lista_carte)
 	return len(set(filtered_list)) >= 3
 
+#Controlla che la lista di carte contenga 1 sola carta
+def only_one_card(*lista_carte):
+	filtered_list = clean_from_placeholder(lista_carte)
+	return len(set(filtered_list)) == 1
+
 #Controlla che non ci siano duplicati tra le carte
 #se le carte sono duplicate ritorna False, altrimenti True
 #usato per evitare che si creino scale o tris con carte duplicate
@@ -73,6 +82,14 @@ def has_no_duplicate(*lista_carte):
 	# pulisco la lista dai placeholder None
 	arr_clean = clean_from_placeholder(lista_carte)
 	return len(arr_clean) == len(set(arr_clean))
+
+#Controlla che non ci siano duplicati tra le carte
+#a differenza del precedente considera solo il primo elemento
+def same_number_card(*lista_carte):
+	# pulisco la lista dai placeholder None
+	arr_clean = clean_from_placeholder(lista_carte)
+	numero_carta_list = [card[0] for card in arr_clean]
+	return len(numero_carta_list) == len(set(numero_carta_list))
 
 
 #Da centralizzare eventualmente, copia di playerAction.py
@@ -148,7 +165,7 @@ def stesso_numero_lista(*lista_carte):
 
 #scala normalizzata (has_jolly, seme, min, max, lista_numeri)
 def in_scala(carta, scala):
-	if carta[0] == CardValues.JOLLY_VALUE.value and scala[0]:
+	if carta[0] == CardValues.JOLLY_VALUE.value and not scala[0]:
 		return True
 	#se la carta e' gia' presente nella scala non va bene
 	if carta[0] in scala[4]:
@@ -184,7 +201,7 @@ def lista_contigua(*lista_carte):
 def get_scala_normalized(scala):
 	lista_numeri = tuple([carta.numeroCarta for carta in scala.hasCards])
 	has_jolly = onto_access_util.has_jolly_or_pinella(scala)
-	return (has_jolly, scala.semeScala.name, scala.minValueScala, scala.maxValueScala, lista_numeri)
+	return (has_jolly, scala.semeScala.name, scala.minValueScala, scala.maxValueScala, lista_numeri, scala.scalaId)
 
 def get_player_normalized(player):
 	return tuple(player)
@@ -198,7 +215,7 @@ def get_player_normalized(player):
 
 def regole_di_gioco(player, is_closing_game, *cards_to_play):
 	cards_to_play = clean_from_placeholder(cards_to_play)
-	mano_player = get_tuple_from_card(player.playerHand.mazzo)
+	mano_player = get_tuple_from_cards(player.playerHand.mazzo)
 	result = False
 	#filtro le carte che voglio giocare
 	if not is_closing_game:

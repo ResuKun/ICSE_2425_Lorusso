@@ -23,13 +23,14 @@ class BurracoGame:
 		self.round = None  # round: BurracoRound or None, must reset in init_game
 		self.num_players = 2
 		self.judge = BurracoJudge()
+		self.game = None
 
 
-	#def init_game(self):
+	def init_game(self):
 		self.game=initGame.init_game()
-		self.round = BurracoRound(self.game.players, self.game.turnOf.idGiocatore)
+		self.round = BurracoRound(self.game.players, self.game.turnOf.idGiocatore, self.judge)
 		self.actions = []
-		self.round = None
+		self.num_players = len(self.game.players)
 		current_player_id = self.round.current_player_id
 		state = self.get_state(player_id=current_player_id)
 		return state, current_player_id
@@ -74,7 +75,9 @@ class BurracoGame:
 	def get_num_players(self):
 		''' Return the number of players in the game
 		'''
-		return len(self.game.players)
+		if self.game is not None:
+			return len(self.game.players)
+		else: return self.num_players
 
 	def get_num_actions(self):
 		''' Return the number of possible actions in the game
@@ -117,7 +120,7 @@ class BurracoGame:
 				opponent_unknown_cards = []
 			else:
 				opponent_known_cards = get_player_known_cards(opponent.player1) + get_player_melds(opponent.player1) + get_player_tris(opponent.player1)
-				opponent_unknown_cards = get_player_unknown_cards()
+				opponent_unknown_cards = get_player_unknown_cards(opponent.player1)
 
 			opponent_known_cards.extend( get_player_melds(opponent.player1) + get_player_tris(opponent.player1))
 
@@ -125,8 +128,8 @@ class BurracoGame:
 			state['hand'] = [card.idCarta for card in get_player_cards(self.round.players[player_id].player1)]
 			state['top_discard'] =[card.idCarta for card in get_scarti()]
 			state['dead_cards'] = [card.idCarta for card in get_monte() ]
-			state['opponent_known_cards'] = [x.get_index() for x in opponent_known_cards]
-			state['opponent_unknown_cards'] = [x.get_index() for x in opponent_unknown_cards]
+			state['opponent_known_cards'] = [card.idCarta for card in opponent_known_cards]
+			state['opponent_unknown_cards'] = [card.idCarta for card in opponent_unknown_cards]
 		return state
 
 

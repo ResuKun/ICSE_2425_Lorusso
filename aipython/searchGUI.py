@@ -59,8 +59,8 @@ class SearcherGUI(object):
             raise ExitToPython()
         if level <= self.click: #step
             print(*args, **nargs)
-            self.ax.set_title(f"Expanding: {self.searcher.path}",
-                                  fontsize=self.problem.fontsize)
+          #  self.ax.set_title(f"Expanding: {self.searcher.path}",
+           #                       fontsize=self.problem.fontsize)
             if level == 1:
                 self.show_frontier(self.colors['frontier'])
                 self.show_path(self.colors['selected'])

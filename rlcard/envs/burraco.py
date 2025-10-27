@@ -36,10 +36,11 @@ class BurracoEnv(Env):
                              opponent_known_cards (carte già viste dell'avversario (avversario raccoglie gli scarti))
                              opponent_unknown_cards (carte non viste dell'avversario)
         '''
+        legal_actions = self._get_legal_actions()
         if self.game.is_over():
             obs = np.array([self._utils.encode_cards([]) for _ in range(5)])
-            extracted_state = {'obs': obs, 'legal_actions': self._get_legal_actions()}
-            extracted_state['raw_legal_actions'] = list(self._get_legal_actions().keys())
+            extracted_state = {'obs': obs, 'legal_actions': legal_actions}
+            extracted_state['raw_legal_actions'] = list(legal_actions.keys())
             extracted_state['raw_obs'] = obs
         else:
 
@@ -58,7 +59,7 @@ class BurracoEnv(Env):
             obs = np.array(rep)
            
            # come nell' Uno, costruisce e restituisce un extracted_state
-            extracted_state = {'obs': obs, 'legal_actions': self._get_legal_actions(), 'raw_legal_actions': list(self._get_legal_actions().keys())}
+            extracted_state = {'obs': obs, 'legal_actions': legal_actions, 'raw_legal_actions': list(legal_actions.keys())}
             extracted_state['raw_obs'] = obs
         return extracted_state
 
@@ -88,6 +89,6 @@ class BurracoEnv(Env):
         Returns:
             legal_actions (list): a list of legal actions' id
         '''
-        legal_actions = self.game.judge.get_legal_actions()
+        legal_actions = self.game.judge.get_legal_actions(self.game.game.turnOf)
         legal_actions_ids = {action_event.action_id: None for action_event in legal_actions}
         return OrderedDict(legal_actions_ids)

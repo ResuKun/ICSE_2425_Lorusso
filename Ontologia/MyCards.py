@@ -172,8 +172,18 @@ with onto:
         domain = [onto.Scala]
         range = [int]
 
+    # Proprietà 'scalaId' per le scale
+    class scalaId(DataProperty, FunctionalProperty):
+        domain = [onto.Scala]
+        range = [int]
+
     # Proprietà 'trisValue' per le scale
     class trisValue(DataProperty, FunctionalProperty):
+        domain = [onto.Tris]
+        range = [int]
+
+    # Proprietà 'trisId' per le scale
+    class trisId(DataProperty, FunctionalProperty):
         domain = [onto.Tris]
         range = [int]
 
@@ -195,6 +205,8 @@ with onto:
 
     AllDisjoint([onto.FaceCard, onto.Numbered])
 
+
+if __name__ == '__main__':
     #utils
     mazzi_arr = ["Rosso", "Blu"]
     card_values_map = { 1: "A", 2: "2", 3: "3", 4: "4", 5: "5", 6: "6", 7: "7", 8: "8", 9: "9", 10: "10", 11: "J", 12: "Q", 13: "K" }
@@ -275,6 +287,6 @@ with onto:
             id_carta += 1
             singolo_mazzo.mazzo.append(carta)
 
-print(f"ontology_file {ontology_file}")
-onto.save(file = ontology_file, format = "rdfxml")
-print(f"Ontologia aggiornata salvata in {ontology_file}")
+    print(f"ontology_file {ontology_file}")
+    onto.save(file = ontology_file, format = "rdfxml")
+    print(f"Ontologia aggiornata salvata in {ontology_file}")

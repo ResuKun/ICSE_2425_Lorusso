@@ -1,0 +1,21 @@
+2025-10-27 20:07:35 - logger.py - INFO - _initialize - Logger inizializzato. File di log: logs\partita_20251027_2007.log
+2025-10-27 20:07:35 - round.py - INFO - pick_up_card - Alessio --> [pick_up_card] --> J_Picche_Rosso
+2025-10-27 20:07:35 - round.py - INFO - open_tris - Alessio --> [Apro Tris] --> [(-1, 81, 'Jolly', 20), (11, 49, 'Picche', 10), (11, 77, 'Quadri', 10)]
+2025-10-27 20:07:36 - round.py - INFO - open_meld - Alessio --> [Apro Scala] --> [(-1, 55, 'Jolly', 20), (9, 47, 'Picche', 10), (11, 49, 'Picche', 10)]
+2025-10-27 20:07:36 - round.py - INFO - open_meld - Alessio --> [Apro Scala] --> [(-1, 107, 'Jolly', 30), (3, 2, 'Cuori', 5), (4, 57, 'Cuori', 5)]
+2025-10-27 20:07:50 - round.py - INFO - discard - Alessio --> [Scarto] --> A_Fiori_Blu
+2025-10-27 20:07:50 - round.py - INFO - pick_up_card - MariaGrazia --> [pick_up_card] --> Q_Cuori_Rosso
+2025-10-27 20:07:50 - round.py - INFO - open_tris - MariaGrazia --> [Apro Tris] --> [(7, 6, 'Cuori', 5), (7, 73, 'Quadri', 5), (7, 60, 'Cuori', 5)]
+2025-10-27 20:07:50 - round.py - INFO - update_tris - MariaGrazia --> [UP Tris] --> 7 -->7_Picche_Rosso
+2025-10-27 20:07:50 - round.py - INFO - update_tris - MariaGrazia --> [UP Tris] --> 7 -->7_Fiori_Rosso
+2025-10-27 20:07:51 - round.py - INFO - discard - MariaGrazia --> [Scarto] --> 4_Fiori_Rosso
+2025-10-27 20:07:51 - round.py - INFO - pick_up_card - Alessio --> [pick_up_card] --> 2_Cuori_Blu
+2025-10-27 20:07:51 - round.py - INFO - discard - Alessio --> [Scarto] --> 9_Picche_Blu
+2025-10-27 20:07:51 - round.py - INFO - pick_up_card - MariaGrazia --> [pick_up_card] --> 9_Picche_Blu
+2025-10-27 20:07:51 - round.py - INFO - open_tris - MariaGrazia --> [Apro Tris] --> [(9, 8, 'Cuori', 10), (9, 75, 'Quadri', 10), (9, 101, 'Picche', 10)]
+2025-10-27 20:07:51 - round.py - INFO - discard - MariaGrazia --> [Scarto] --> 10_Picche_Rosso
+2025-10-27 20:07:51 - round.py - INFO - pick_up_card - Alessio --> [pick_up_card] --> J_Quadri_Blu
+2025-10-27 20:07:51 - round.py - INFO - discard - Alessio --> [Scarto] --> J_Quadri_Blu
+2025-10-27 20:08:20 - round.py - INFO - pick_up_discard - MariaGrazia --> [pick_up_discard] --> 6_Picche_Rosso
+2025-10-27 20:08:21 - round.py - INFO - update_tris - MariaGrazia --> [UP Tris] --> 9 -->9_Picche_Blu
+2025-10-27 20:08:21 - round.py - INFO - discard - MariaGrazia --> [Scarto] --> A_Fiori_Blu

@@ -12,12 +12,12 @@ def run(args):
     env = rlcard.make(
         args.env,
         config={
-            'seed': 42,
+            'seed': 420,
         }
     )
 
     # Seed numpy, torch, random
-    set_seed(42)
+    set_seed(420)
 
     # Set agents
     agent = RandomAgent(num_actions=env.num_actions)
