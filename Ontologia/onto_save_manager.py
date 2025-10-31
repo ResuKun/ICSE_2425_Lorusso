@@ -1,12 +1,17 @@
 from owlready2 import *
 from enum import Enum
 from threading import Lock
+from datetime import datetime
 
 
 class OntologyResource(Enum):
-    CARD = "C:/Users/alexl/Documents/Facolta/ICSE/Progetto/Burraco/ICSE_2425_Lorusso/Ontologia/Cards_Ontology.owl"
-    INIT_GAME = "C:/Users/alexl/Documents/Facolta/ICSE/Progetto/Burraco/ICSE_2425_Lorusso/Ontologia/Init_Game_Ontology.owl"
-    UPDATED_GAME = "C:/Users/alexl/Documents/Facolta/ICSE/Progetto/Burraco/ICSE_2425_Lorusso/Ontologia/Updated_Game_Ontology.owl"
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S%f")
+    date = datetime.now().strftime("%Y_%m_%d")
+    ONTO_FOLDER = "C:/Users/alexl/Documents/Facolta/ICSE/Progetto/Burraco/ICSE_2425_Lorusso/Ontologia"
+    DATE_BK_DIR = ONTO_FOLDER + f"/BK/{date}"
+    CARD = ONTO_FOLDER + "/Cards_Ontology.owl"
+    INIT_GAME = DATE_BK_DIR + f"/Init_Game_Ontology{timestamp}.owl"
+    UPDATED_GAME = DATE_BK_DIR + f"/Updated_Game_Ontology{timestamp}.owl"
 
 
 class OntologyManager:
@@ -22,8 +27,6 @@ class OntologyManager:
                 cls._instance.onto = None
                 cls._instance.onto_type = None
         return cls._instance
-
-    # ======== FUNZIONI ORIGINALI, STESSA INTERFACCIA =========
 
     def get_ontology_from_manager(self, ontology_type=OntologyResource.UPDATED_GAME):
         """Carica un'ontologia dal tipo specificato, come nella versione originale."""
@@ -86,6 +89,8 @@ class OntologyManager:
 
 
     def create_update_file(self):
+        if not os.path.exists(OntologyResource.DATE_BK_DIR.value):
+            os.makedirs(OntologyResource.DATE_BK_DIR.value)
         """Crea un nuovo file UPDATED_GAME aggiornando l’IRI."""
         file = open(OntologyResource.CARD.value, "r")
         content = file.read()
@@ -100,6 +105,8 @@ class OntologyManager:
         print("ONTO - INFO:: Creato file UPDATED_GAME aggiornato")
 
     def create_init_file(self):
+        if not os.path.exists(OntologyResource.DATE_BK_DIR.value):
+            os.makedirs(OntologyResource.DATE_BK_DIR.value)
         """Crea un nuovo file UPDATED_GAME aggiornando l’IRI."""
         file = open(OntologyResource.CARD.value, "r")
         content = file.read()

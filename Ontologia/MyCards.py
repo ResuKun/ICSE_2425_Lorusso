@@ -203,6 +203,16 @@ with onto:
         domain = [onto.Player]
         range = [int]
 
+    # Proprietà 'punteggioGiocatore' per le scale
+    class isBurracoClosed(DataProperty, FunctionalProperty):
+        domain = [onto.Scala]
+        range = [bool]
+
+    # Proprietà 'punteggioGiocatore' per le scale
+    class isTrisClosed(DataProperty, FunctionalProperty):
+        domain = [onto.Tris]
+        range = [bool]
+
     AllDisjoint([onto.FaceCard, onto.Numbered])
 
 

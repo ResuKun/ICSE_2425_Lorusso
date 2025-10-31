@@ -184,23 +184,24 @@ def lista_contigua(*lista_carte):
 
 	#ordino le carte per numeroCarta e controllo che siano contigue
 	#se presente un jolly concedo un "buco" nella lista
-	lista_carte = sorted(lista_carte, key=lambda x: x[0])
-	for num,_,_,_ in lista_carte:
-		if old_num is None:
+	old_num = lista_carte[0][0]
+	jolly_used = False
+	for num, *_ in lista_carte[1:]:
+		gap = num - old_num
+		if gap == 1:
 			old_num = num
-		elif old_num is not None:
-			if (old_num + 1) < num and found_jolly is False:
-				return False
-			elif (old_num + 2) < num and found_jolly:
-				return False
-			else: 
-				old_num = num
+		elif gap == 2 and found_jolly and not jolly_used:
+			jolly_used = True
+			old_num = num
+		else:
+			return False
+
 	return True
 
 #ritorna una tupla normalizzata della scala
 def get_scala_normalized(scala):
 	lista_numeri = tuple([carta.numeroCarta for carta in scala.hasCards])
-	has_jolly = onto_access_util.has_jolly_or_pinella(scala)
+	has_jolly = onto_access_util.has_jolly_or_pinella_clean(scala)
 	return (has_jolly, scala.semeScala.name, scala.minValueScala, scala.maxValueScala, lista_numeri, scala.scalaId)
 
 def get_player_normalized(player):

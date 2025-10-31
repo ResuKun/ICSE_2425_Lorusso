@@ -111,6 +111,7 @@ def apre_scala(player, cards):
 	nuovaScala.scalaId = len(get_onto().Scala.instances())
 	nuovaScala.minValueScala = min(c[0] for c in cards if c[0] != -1)
 	nuovaScala.maxValueScala = max(c[0] for c in cards if c[0] != -1)
+	nuovaScala.isBurracoClosed = False
 
 	#ignoro i jolly/pinelle per il seme della scala
 	#sono sicuro della coerenza per i c
@@ -132,14 +133,12 @@ def apre_scala(player, cards):
 	player.punteggioGiocatore += partialScore
 	player.scala.append(nuovaScala)
 
-	player.scala = sorted(player.scala, key=lambda x: )
+	player.scala = sorted(player.scala, key = sort_meld)
 
 	#aggiungo i punti per il burraco se c'è
 	#commentati in quanto per ora non è possibile 
 	#scendere con una sola azione più di 5 carte 
 	# per questioni di performance
-	#partialScore += add_points_burraco(nuovaScala, player)
-	#partialScore += add_points_chiusura(player)
 	get_manager().salva_ontologia_update_game()
 	return partialScore
 
@@ -165,14 +164,13 @@ def apre_tris(player, tuple_cards):
 
 	player.punteggioGiocatore += partialScore
 	nuovoTris.trisValue = trisValue
+	nuovoTris.isTrisClosed = False
 	player.tris.append(nuovoTris)
 
 	#aggiungo i punti per il burraco se c'è
 	#commentati in quanto per ora non è possibile 
 	#scendere con una sola azione più di 5 carte 
 	# per questioni di performance
-	#partialScore += add_points_burraco(nuovaScala, player)
-	#partialScore += add_points_chiusura(player)
 	get_manager().salva_ontologia_update_game()
 	return partialScore
 
@@ -189,9 +187,7 @@ def aggiunge_carta_tris(player, tris_id, card_id):
 	card.cartaNota = True
 		
 	#aggiungo i punti per il burraco se c'è
-	partialScore += add_points_burraco(tris, player)
-	partialScore += add_points_chiusura(player)
-
+	partialScore += add_points_tris(tris, player)
 	get_manager().salva_ontologia_update_game()
 	return partialScore
 
@@ -217,18 +213,32 @@ def aggiunge_carta_scala(player, scala_id, card_id):
 
 	#aggiungo i punti per il burraco se c'è
 	partialScore += add_points_burraco(target_scala, player)
-	partialScore += add_points_chiusura(player)
 	get_manager().salva_ontologia_update_game()
 	return partialScore
 
 
 def add_points_burraco(canasta, player):
 	points = 0
-	if onto_access_util.isBurracoPulito(canasta):
-		points = 200
-	elif onto_access_util.isBurraco(canasta):
-		points = 100
-	player.punteggioGiocatore += points
+	if not canasta.isBurracoClosed:
+		if onto_access_util.isBurracoPulito(canasta):
+			points = 200
+			canasta.isBurracoClosed = True
+		elif onto_access_util.isBurraco(canasta):
+			points = 100
+			canasta.isBurracoClosed = True
+		player.punteggioGiocatore += points
+	return points
+
+def add_points_tris(canasta, player):
+	points = 0
+	if not canasta.isTrisClosed:
+		if onto_access_util.isBurracoPulito(canasta):
+			points = 200
+			canasta.isTrisClosed = True
+		elif onto_access_util.isBurraco(canasta):
+			points = 100
+			canasta.isBurraco = True
+		player.punteggioGiocatore += points
 	return points
 
 def add_points_chiusura(player):
@@ -236,12 +246,7 @@ def add_points_chiusura(player):
 	player.punteggioGiocatore += partialScore
 	return partialScore
 
-def sort_meld(card,seme):
-	numbered_card = card.numeroCarta != None,
-	is_two = card.numeroCarta == 2
-	is_pinella = card.Seme != None
-	if(card.numeroCarta != None):
-		if(card.numeroCarta == 2):
-			pass
-		else:
-	else
+def sort_meld(card):
+	if card.numeroCarta != None:
+		return card.numeroCarta
+	return -1

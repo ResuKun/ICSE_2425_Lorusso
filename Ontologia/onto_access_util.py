@@ -1,4 +1,5 @@
 import random
+from datetime import datetime
 from Ontologia.onto_save_manager import OntologyManager
 
 
@@ -81,26 +82,62 @@ def get_scarti():
 def isBurraco(canasta):
     return len(canasta.hasCards) >= 7
 
-def has_jolly_or_pinella(canasta):
+""" def has_jolly_or_pinella(canasta):
     onto,_ = get_onto()
-    return any(isinstance(card, (onto.Jolly, onto.Pinella)) for card in canasta.hasCards)
+    return any(isinstance(card, (onto.Jolly, onto.Pinella)) for card in canasta.hasCards) """
+
+
+""" def has_jolly_or_pinella_clean(canasta):
+    onto, _ = get_onto()
+    cards = canasta.hasCards
+    # Se non è una scala basta un Jolly
+    if not isinstance(canasta, onto.Scala):
+        return any(isinstance(card, onto.Jolly) or isinstance(card, onto.Pinella) for card in cards)
+
+    seme_scala = canasta.semeScala
+    # Caso: contiene una Pinella e la scala è continua
+    if any(isinstance(c, onto.Pinella) for c in cards) and is_continous():
+        # Ritorna True se c’è una pinella del seme giusto (cioè con numero 2 e stesso seme)
+        return any(c.numeroCarta == 2 and c.seme == seme_scala for c in cards)
+
+    # Altrimenti basta la presenza di un Jolly
+    return any(isinstance(c, onto.Jolly) for c in cards) """
 
 def has_jolly_or_pinella_clean(canasta):
-    onto,_ = get_onto()
-    result = False
-    if(isinstance(canasta, onto.Scala)):
-        seme = canasta.semeScala
-        if any(isinstance(card, (onto.Pinella)) for card in canasta.hasCards):
-            for card in canasta.hasCards:
-                if card.numeroCarta == 2:
-                    if seme == card.seme:
-                        if is_continous():
-                            pass
-        elif any(isinstance(card, (onto.Jolly)) for card in canasta.hasCards):
-            pass
-    return result
+    onto, _ = get_onto()
+    cards = list(canasta.hasCards)
 
-def is_continous(canasta):
+    if any(isinstance(c, onto.Jolly) for c in cards):
+        return True
+    
+    # Se non è una Scala basta una Pinella
+    if not isinstance(canasta, onto.Scala):
+        return any(isinstance(c, (onto.Pinella)) for c in cards)
+
+    seme_scala = canasta.semeScala
+    pinellas = [c for c in cards if isinstance(c, onto.Pinella)]
+
+    # Caso: due pinelle 
+    if len(pinellas) == 2:
+        return True
+
+    # Caso: una sola pinella
+    if len(pinellas) == 1 and is_continous(cards):
+        p = pinellas[0]
+        if getattr(p, "numeroCarta", None) == 2 and getattr(p, "seme", None) == seme_scala:
+            # Deve esserci il 3 dello stesso seme
+            has_three_same_suit = any(
+                getattr(c, "numeroCarta", None) == 3 and getattr(c, "seme", None) == seme_scala
+                for c in cards
+            )
+            if has_three_same_suit:
+                return True
+
+    # In tutti gli altri casi basta la presenza di un Jolly
+    return False
+
+
+""" def is_continous(canasta):
     lista_carte = sorted(canasta, key=lambda x: x.numeroCarta)
     for card in lista_carte:
         if old_num is None:
@@ -110,11 +147,31 @@ def is_continous(canasta):
                 return False
             else: 
                 old_num = old_num + 1
-    return True
+    return True """
 
+def is_continous(canasta):
+    lista_carte = sorted(canasta, key=lambda x: x.numeroCarta)
+    # Controlla che ogni carta successiva abbia numero consecutivo
+    old_num = lista_carte[0].numeroCarta
+    jolly_used = False
+    for card in lista_carte[1:]:
+        gap = card.numeroCarta - old_num
+        if gap == 1:
+            old_num = card.numeroCarta
+        elif gap == 2 and not jolly_used:
+            jolly_used = True
+            old_num = card.numeroCarta
+        else:
+            return False
+    return True
+""" 
+    for prev, curr in zip(lista_carte, lista_carte[1:]):
+        if curr.numeroCarta != prev.numeroCarta + 1:
+            return False
+    return True """
 
 def isBurracoPulito(canasta):
-    return isBurraco(canasta) and not has_jolly_or_pinella(canasta)
+    return isBurraco(canasta) and not has_jolly_or_pinella_clean(canasta)
 
 def remove_jolly_pinella(lista_carte):
     onto,_ = get_onto()
@@ -135,6 +192,7 @@ def reset_deck():
 
     # mischio le carte
     all_cards_in_ontology = list(get_all_cards())
+    random.seed(int(datetime.now().strftime("%S%f")))
     random.shuffle(all_cards_in_ontology)
 
     # le rendo di nuovo non visibile e/o note 

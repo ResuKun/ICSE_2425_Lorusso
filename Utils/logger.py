@@ -34,7 +34,7 @@ class SingletonLogger:
             # === Handler per file ===
             log_dir = "logs"
             os.makedirs(log_dir, exist_ok=True)
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M")
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S%f")
             log_filename = os.path.join(log_dir, f"partita_{timestamp}.log")
 
             file_handler = logging.FileHandler(log_filename, encoding="utf-8")

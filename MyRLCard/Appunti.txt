@@ -5,6 +5,11 @@
 DA IMPLEMENTARE:
 
 - migliorare la gestione del 2 come pinella
+- inserire regole di chiusura:
+    -- non posso raccogliere 1 sola carta e riscartarla per chiudere
+
+
+
 
 
 
