@@ -1,8 +1,15 @@
 cd C:\Users\alexl\Documents\Facolta\ICSE\Progetto\Burraco\ICSE_2425_Lorusso
+#installazione venv
 python -m venv .venv
+#attivazione
 .\.venv\Scripts\Activate.ps1
+#se errore Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 pip install matplotlib
-pip install owlready2
+pip install owlready2 
+#installazione rlcard da locale editabile(-e)
+pip install -e . 
+pip install termcolor
+ pip install setuptools
 
 
 $env:PYTHONPATH="C:\Users\alexl\Documents\Facolta\ICSE\Progetto\Burraco\ICSE_2425_Lorusso\aipython"
@@ -14,7 +21,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "aipython"))
 ---------------------------------------------------
 librerie necessarie
 
-pip install setuptools
 
 ---------------------------------------------------
 

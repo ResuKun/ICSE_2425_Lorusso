@@ -2,12 +2,13 @@ from owlready2 import *
 from enum import Enum
 from threading import Lock
 from datetime import datetime
+from pathlib import Path
 
 #TODO rendere i path relativi
 class OntologyResource(Enum):
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S%f")
     date = datetime.now().strftime("%Y_%m_%d")
-    ONTO_FOLDER = "C:/Users/alexl/Documents/Facolta/ICSE/Progetto/Burraco/ICSE_2425_Lorusso/Ontologia"
+    ONTO_FOLDER = str(Path("Ontologia").absolute())
     DATE_BK_DIR = ONTO_FOLDER + f"/BK/{date}"
     CARD = ONTO_FOLDER + "/Cards_Ontology.owl"
     INIT_GAME = DATE_BK_DIR + f"/Init_Game_Ontology{timestamp}.owl"
