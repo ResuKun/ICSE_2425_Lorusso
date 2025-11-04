@@ -1,0 +1,41 @@
+cd C:\Users\alexl\Documents\Facolta\ICSE\Progetto\Burraco\ICSE_2425_Lorusso
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install matplotlib
+pip install owlready2
+
+
+$env:PYTHONPATH="C:\Users\alexl\Documents\Facolta\ICSE\Progetto\Burraco\ICSE_2425_Lorusso\aipython"
+$env:PYTHONPATH="C:\Users\alexl\Documents\Facolta\ICSE\Progetto\Burraco\ICSE_2425_Lorusso"
+
+sys.path.append(os.path.join(os.path.dirname(__file__), "aipython"))
+
+
+---------------------------------------------------
+librerie necessarie
+
+pip install setuptools
+
+---------------------------------------------------
+
+Comandi alias:
+
+Set-Alias XX YYY
+(XX alias to, YYY original command)
+
+// funziona meglio
+function pippo {    python -m pip @Args }
+function pippo {    python install -m pip @Args }
+---------------------------------------------------
+
+
+Crea un ambiente virtuale chiamato .venv (puoi chiamarlo anche diversamente):
+python -m venv .venv
+
+Ora devi attivarlo — (usa il Python di .venv, non quello globale).
+    Su Windows PowerShell: .venv\Scripts\Activate.ps1
+    Su Windows CMD: .venv\Scripts\activate.bat
+
+Potresti ricevere un errore tipo: "ExecutionPolicy prohibits running this script".
+In tal caso, abilita temporaneamente gli script: Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+e poi riprova ad attivare: .venv\Scripts\Activate.ps1

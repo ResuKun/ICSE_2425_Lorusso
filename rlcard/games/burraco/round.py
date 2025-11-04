@@ -63,7 +63,8 @@ class BurracoRound:
         current_player = self.players[self.current_player_id]
         len_cards = player_onto_util.pesca_scarti(current_player.player1)
         self.move_sheet.append(PickupDiscardMove(current_player, action, cards=current_player.player1.playerHand.mazzo[-len_cards]))
-        self.log.info(f"{current_player.player1.nomeGiocatore} ----> {current_player.player1.playerHand.mazzo[-len_cards].name}")
+        cards = [carta.name for carta in current_player.player1.playerHand.mazzo[-len_cards:]]
+        self.log.info(f"{current_player.player1.nomeGiocatore} ----> {cards}")
 
     def open_meld(self, action: OpenMeldAction):
         current_player = self.players[self.current_player_id]
@@ -85,7 +86,7 @@ class BurracoRound:
         meld_id = action.meld_id
         accumulatedScore = player_onto_util.aggiunge_carta_scala(current_player.player1, meld_id, card_id)
         self.move_sheet.append(UpdateMeldMove(current_player, action, meld_id, card_id, accumulatedScore))
-        self.log.info(f"{current_player.player1.nomeGiocatore} ----> {onto_access_util.get_meld_from_id(meld_id).semeScala} --> {onto_access_util.get_card_from_id(action.card_id).name}")
+        self.log.info(f"{current_player.player1.nomeGiocatore} ----> {onto_access_util.get_meld_from_id(meld_id).name} --> {onto_access_util.get_card_from_id(action.card_id).name}")
     
     def update_tris(self, action: UpdateTrisAction):
         current_player = self.players[self.current_player_id]

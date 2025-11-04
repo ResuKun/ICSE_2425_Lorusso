@@ -1,5 +1,12 @@
 
 
+CORREGGERE le doppie pinelle
+    def can_update_csp_scala(player, lista_carte, scala):
+    def has_jolly_or_pinella_clean(canasta):
+    <owl:NamedIndividual rdf:about="#Scala_0_Giocatore1">
+    <owl:NamedIndividual rdf:about="#Partita_20251103_221009_907630">
+
+
 
 
 DA IMPLEMENTARE:

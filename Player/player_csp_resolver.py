@@ -105,18 +105,22 @@ def can_update_csp_scala(player, lista_carte, scala):
     lista_tuple = checks.get_tuple_from_cards(lista_carte)
     lista_scala = [ checks.get_scala_normalized(scala)]
 
+    carte_scala = [checks.get_tuple_from_cards(scala.hasCards)]
+
     #versione closure delle regole di gioco
     regole_di_gioco = checks.closure_player_regole_di_gioco(player)
 
     var = Variable("c1", lista_tuple)
     var2 = Variable("c2", lista_scala)
+    var3 = Variable("c3", carte_scala)
     update_scala_CSP = CSP("update_scala_CSP",
-         [var, var2],
+         [var, var2, var3],
         [
             Constraint(  [var], regole_di_gioco,"regole_di_gioco"),
             Constraint( [var, var2], checks.doppio_jolly_combinazione,"doppio_jolly_combinazione"),
             Constraint( [var, var2], checks.stesso_seme_scala,"stesso_seme_scala"),
-            Constraint( [var, var2], checks.in_scala,"in_scala")
+            #Constraint( [var, var2], checks.in_scala,"in_scala")
+            Constraint( [var3, var] , checks.lista_contigua_with_card,"lista_contigua"),
         ])
     
     solutions_list = solve_csp(update_scala_CSP,  [var, var2], True)

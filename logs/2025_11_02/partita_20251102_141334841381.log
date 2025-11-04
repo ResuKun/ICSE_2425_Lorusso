@@ -1,0 +1,365 @@
+2025-11-02 14:13:34 - logger.py - INFO - _initialize - Logger inizializzato. File di log: logs/2025_11_02\partita_20251102_141334841381.log
+2025-11-02 14:13:34 - round.py - INFO - pick_up_discard - Alessio ----> 6_Cuori_Rosso
+2025-11-02 14:13:36 - round.py - INFO - discard - Alessio ----> J_Picche_Blu
+2025-11-02 14:13:36 - round.py - INFO - pick_up_discard - MariaGrazia ----> J_Picche_Blu
+2025-11-02 14:13:37 - player_onto_manager.py - INFO - apre_tris -  Jolly_Jolly_N_Rosso -30 ----> partialScore ----> 30
+2025-11-02 14:13:37 - player_onto_manager.py - INFO - apre_tris -  5_Cuori_Rosso -5 ----> partialScore ----> 35
+2025-11-02 14:13:37 - player_onto_manager.py - INFO - apre_tris -  5_Quadri_Blu -5 ----> partialScore ----> 40
+2025-11-02 14:13:37 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 40
+2025-11-02 14:13:37 - round.py - INFO - open_tris - MariaGrazia ----> [(-1, 52, 'Jolly', 30), (5, 4, 'Cuori', 5), (5, 71, 'Quadri', 5)]
+2025-11-02 14:13:38 - round.py - INFO - discard - MariaGrazia ----> 2_Fiori_Blu
+2025-11-02 14:13:38 - round.py - INFO - pick_up_discard - Alessio ----> 2_Fiori_Blu
+2025-11-02 14:13:39 - round.py - INFO - open_meld - Alessio ----> [(-1, 81, 'Jolly', 20), (6, 5, 'Cuori', 5), (7, 6, 'Cuori', 5)]
+2025-11-02 14:13:40 - round.py - INFO - discard - Alessio ----> A_Fiori_Blu
+2025-11-02 14:13:40 - round.py - INFO - pick_up_discard - MariaGrazia ----> A_Fiori_Blu
+2025-11-02 14:13:40 - round.py - INFO - discard - MariaGrazia ----> Jolly_Jolly_R_Blu
+2025-11-02 14:13:40 - round.py - INFO - pick_up_card - Alessio ----> A_Fiori_Blu
+2025-11-02 14:13:41 - round.py - INFO - discard - Alessio ----> A_Fiori_Blu
+2025-11-02 14:13:41 - round.py - INFO - pick_up_discard - MariaGrazia ----> Jolly_Jolly_R_Blu
+2025-11-02 14:13:41 - round.py - INFO - discard - MariaGrazia ----> 7_Picche_Blu
+2025-11-02 14:13:41 - round.py - INFO - pick_up_card - Alessio ----> 3_Fiori_Blu
+2025-11-02 14:13:42 - round.py - INFO - discard - Alessio ----> 3_Fiori_Blu
+2025-11-02 14:13:42 - round.py - INFO - pick_up_card - MariaGrazia ----> 5_Quadri_Rosso
+2025-11-02 14:13:43 - round.py - INFO - open_meld - MariaGrazia ----> [(-1, 107, 'Jolly', 30), (4, 70, 'Quadri', 5), (5, 17, 'Quadri', 5)]
+2025-11-02 14:13:43 - round.py - INFO - discard - MariaGrazia ----> 3_Picche_Rosso
+2025-11-02 14:13:43 - round.py - INFO - pick_up_card - Alessio ----> 9_Fiori_Blu
+2025-11-02 14:13:43 - round.py - INFO - discard - Alessio ----> 6_Quadri_Rosso
+2025-11-02 14:13:43 - round.py - INFO - pick_up_discard - MariaGrazia ----> 7_Picche_Blu
+2025-11-02 14:13:44 - round.py - INFO - open_meld - MariaGrazia ----> [(-1, 40, 'Jolly', 20), (1, 80, 'Fiori', 15), (3, 82, 'Fiori', 5)]
+2025-11-02 14:13:44 - round.py - INFO - update_meld - MariaGrazia ----> Updated_Game_Ontology20251102_141330578743.Quadri --> 6_Quadri_Rosso
+2025-11-02 14:13:44 - round.py - INFO - update_meld - MariaGrazia ----> Updated_Game_Ontology20251102_141330578743.Fiori --> 2_Quadri_Rosso
+2025-11-02 14:13:44 - round.py - INFO - discard - MariaGrazia ----> 10_Quadri_Rosso
+2025-11-02 14:13:44 - round.py - INFO - pick_up_discard - Alessio ----> 10_Quadri_Rosso
+2025-11-02 14:13:45 - round.py - INFO - discard - Alessio ----> 9_Fiori_Blu
+2025-11-02 14:13:45 - round.py - INFO - pick_up_card - MariaGrazia ----> J_Picche_Blu
+2025-11-02 14:13:45 - round.py - INFO - discard - MariaGrazia ----> J_Picche_Blu
+2025-11-02 14:13:45 - round.py - INFO - pick_up_card - Alessio ----> 7_Cuori_Rosso
+2025-11-02 14:13:45 - round.py - INFO - discard - Alessio ----> 4_Picche_Rosso
+2025-11-02 14:13:45 - round.py - INFO - pick_up_discard - MariaGrazia ----> 9_Fiori_Blu
+2025-11-02 14:13:45 - round.py - INFO - discard - MariaGrazia ----> 4_Picche_Rosso
+2025-11-02 14:13:45 - round.py - INFO - pick_up_discard - Alessio ----> 4_Picche_Rosso
+2025-11-02 14:13:46 - round.py - INFO - discard - Alessio ----> 9_Fiori_Blu
+2025-11-02 14:13:46 - round.py - INFO - pick_up_discard - MariaGrazia ----> 9_Fiori_Blu
+2025-11-02 14:13:46 - round.py - INFO - discard - MariaGrazia ----> J_Picche_Blu
+2025-11-02 14:13:46 - round.py - INFO - pick_up_discard - Alessio ----> J_Picche_Blu
+2025-11-02 14:13:46 - round.py - INFO - discard - Alessio ----> 7_Cuori_Rosso
+2025-11-02 14:13:46 - round.py - INFO - pick_up_card - MariaGrazia ----> 4_Picche_Rosso
+2025-11-02 14:13:47 - round.py - INFO - discard - MariaGrazia ----> 4_Picche_Rosso
+2025-11-02 14:13:47 - round.py - INFO - pick_up_discard - Alessio ----> 7_Cuori_Rosso
+2025-11-02 14:13:47 - round.py - INFO - discard - Alessio ----> 3_Picche_Blu
+2025-11-02 14:13:47 - round.py - INFO - pick_up_discard - MariaGrazia ----> 3_Picche_Blu
+2025-11-02 14:13:47 - round.py - INFO - discard - MariaGrazia ----> 7_Picche_Blu
+2025-11-02 14:13:47 - round.py - INFO - pick_up_card - Alessio ----> 3_Picche_Blu
+2025-11-02 14:13:48 - round.py - INFO - discard - Alessio ----> 9_Quadri_Blu
+2025-11-02 14:13:48 - round.py - INFO - pick_up_discard - MariaGrazia ----> 7_Picche_Blu
+2025-11-02 14:13:48 - round.py - INFO - discard - MariaGrazia ----> 3_Picche_Blu
+2025-11-02 14:13:48 - round.py - INFO - pick_up_card - Alessio ----> 6_Quadri_Rosso
+2025-11-02 14:13:49 - round.py - INFO - discard - Alessio ----> 4_Picche_Rosso
+2025-11-02 14:13:49 - round.py - INFO - pick_up_card - MariaGrazia ----> Q_Cuori_Blu
+2025-11-02 14:13:49 - round.py - INFO - discard - MariaGrazia ----> A_Fiori_Blu
+2025-11-02 14:13:49 - round.py - INFO - pick_up_discard - Alessio ----> 3_Picche_Blu
+2025-11-02 14:13:50 - round.py - INFO - discard - Alessio ----> 4_Picche_Rosso
+2025-11-02 14:13:50 - round.py - INFO - pick_up_card - MariaGrazia ----> 9_Quadri_Blu
+2025-11-02 14:13:51 - round.py - INFO - discard - MariaGrazia ----> 9_Fiori_Blu
+2025-11-02 14:13:51 - round.py - INFO - pick_up_discard - Alessio ----> 4_Picche_Rosso
+2025-11-02 14:13:53 - round.py - INFO - discard - Alessio ----> 3_Fiori_Blu
+2025-11-02 14:13:53 - round.py - INFO - pick_up_card - MariaGrazia ----> 7_Picche_Blu
+2025-11-02 14:13:53 - round.py - INFO - discard - MariaGrazia ----> 9_Quadri_Blu
+2025-11-02 14:13:53 - round.py - INFO - pick_up_discard - Alessio ----> 3_Fiori_Blu
+2025-11-02 14:13:55 - round.py - INFO - discard - Alessio ----> 4_Picche_Rosso
+2025-11-02 14:13:55 - round.py - INFO - pick_up_discard - MariaGrazia ----> 4_Picche_Rosso
+2025-11-02 14:13:56 - round.py - INFO - discard - MariaGrazia ----> J_Picche_Blu
+2025-11-02 14:13:56 - round.py - INFO - pick_up_card - Alessio ----> 2_Fiori_Blu
+2025-11-02 14:13:58 - round.py - INFO - open_meld - Alessio ----> [(-1, 81, 'Jolly', 20), (1, 80, 'Fiori', 15), (3, 82, 'Fiori', 5)]
+2025-11-02 14:13:59 - round.py - INFO - discard - Alessio ----> Q_Cuori_Blu
+2025-11-02 14:13:59 - round.py - INFO - pick_up_card - MariaGrazia ----> Jolly_Jolly_R_Blu
+2025-11-02 14:13:59 - player_onto_manager.py - INFO - apre_tris -  Jolly_Jolly_R_Blu -30 ----> partialScore ----> 30
+2025-11-02 14:13:59 - player_onto_manager.py - INFO - apre_tris -  9_Fiori_Blu -10 ----> partialScore ----> 40
+2025-11-02 14:13:59 - player_onto_manager.py - INFO - apre_tris -  9_Quadri_Blu -10 ----> partialScore ----> 50
+2025-11-02 14:13:59 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 50
+2025-11-02 14:13:59 - round.py - INFO - open_tris - MariaGrazia ----> [(-1, 107, 'Jolly', 30), (9, 88, 'Fiori', 10), (9, 75, 'Quadri', 10)]
+2025-11-02 14:13:59 - round.py - INFO - discard - MariaGrazia ----> 3_Picche_Rosso
+2025-11-02 14:13:59 - round.py - INFO - pick_up_card - Alessio ----> 5_Cuori_Rosso
+2025-11-02 14:14:00 - round.py - INFO - update_meld - Alessio ----> Updated_Game_Ontology20251102_141330578743.Cuori --> 5_Cuori_Rosso
+2025-11-02 14:14:01 - round.py - INFO - discard - Alessio ----> 6_Quadri_Rosso
+2025-11-02 14:14:01 - round.py - INFO - pick_up_card - MariaGrazia ----> 5_Quadri_Blu
+2025-11-02 14:14:01 - round.py - INFO - update_tris - MariaGrazia ----> 5 -->5_Quadri_Blu
+2025-11-02 14:14:01 - round.py - INFO - discard - MariaGrazia ----> 4_Picche_Rosso
+2025-11-02 14:14:01 - round.py - INFO - pick_up_card - Alessio ----> 10_Quadri_Rosso
+2025-11-02 14:14:02 - round.py - INFO - discard - Alessio ----> 9_Quadri_Blu
+2025-11-02 14:14:02 - round.py - INFO - pick_up_card - MariaGrazia ----> 2_Quadri_Rosso
+2025-11-02 14:14:02 - round.py - INFO - discard - MariaGrazia ----> 7_Picche_Blu
+2025-11-02 14:14:02 - round.py - INFO - pick_up_card - Alessio ----> 2_Picche_Rosso
+2025-11-02 14:14:02 - round.py - INFO - open_meld - Alessio ----> [(-1, 40, 'Jolly', 20), (3, 95, 'Picche', 5), (4, 42, 'Picche', 5)]
+2025-11-02 14:14:02 - round.py - INFO - discard - Alessio ----> 5_Quadri_Rosso
+2025-11-02 14:14:02 - round.py - INFO - pick_up_discard - MariaGrazia ----> J_Picche_Blu
+2025-11-02 14:14:03 - round.py - INFO - open_meld - MariaGrazia ----> [(-1, 14, 'Jolly', 20), (3, 41, 'Picche', 5), (4, 42, 'Picche', 5)]
+2025-11-02 14:14:04 - round.py - INFO - update_tris - MariaGrazia ----> 5 -->5_Quadri_Rosso
+2025-11-02 14:14:04 - round.py - INFO - update_tris - MariaGrazia ----> 9 -->9_Quadri_Blu
+2025-11-02 14:14:04 - round.py - INFO - discard - MariaGrazia ----> 7_Picche_Blu
+2025-11-02 14:14:04 - round.py - INFO - pick_up_card - Alessio ----> Jolly_Jolly_N_Rosso
+2025-11-02 14:14:04 - round.py - INFO - update_meld - Alessio ----> Updated_Game_Ontology20251102_141330578743.Cuori --> Jolly_Jolly_N_Rosso
+2025-11-02 14:14:04 - round.py - INFO - discard - Alessio ----> 10_Quadri_Rosso
+2025-11-02 14:14:04 - round.py - INFO - pick_up_card - MariaGrazia ----> 4_Quadri_Blu
+2025-11-02 14:14:04 - round.py - INFO - discard - MariaGrazia ----> 6_Quadri_Rosso
+2025-11-02 14:14:04 - round.py - INFO - pick_up_card - Alessio ----> 3_Picche_Rosso
+2025-11-02 14:14:04 - round.py - INFO - discard - Alessio ----> 10_Quadri_Rosso
+2025-11-02 14:14:04 - round.py - INFO - pick_up_card - MariaGrazia ----> 8_Quadri_Rosso
+2025-11-02 14:14:04 - round.py - INFO - discard - MariaGrazia ----> Q_Cuori_Blu
+2025-11-02 14:14:04 - round.py - INFO - pick_up_card - Alessio ----> A_Cuori_Rosso
+2025-11-02 14:14:04 - round.py - INFO - update_meld - Alessio ----> Updated_Game_Ontology20251102_141330578743.Cuori --> A_Cuori_Rosso
+2025-11-02 14:14:04 - round.py - INFO - discard - Alessio ----> 7_Cuori_Rosso
+2025-11-02 14:14:04 - round.py - INFO - pick_up_discard - MariaGrazia ----> 7_Picche_Blu
+2025-11-02 14:14:05 - round.py - INFO - discard - MariaGrazia ----> 10_Quadri_Rosso
+2025-11-02 14:14:05 - round.py - INFO - pick_up_card - Alessio ----> 2_Picche_Blu
+2025-11-02 14:14:05 - player_onto_manager.py - INFO - apre_tris -  2_Picche_Blu -20 ----> partialScore ----> 20
+2025-11-02 14:14:05 - player_onto_manager.py - INFO - apre_tris -  3_Picche_Blu -5 ----> partialScore ----> 25
+2025-11-02 14:14:05 - player_onto_manager.py - INFO - apre_tris -  3_Picche_Rosso -5 ----> partialScore ----> 30
+2025-11-02 14:14:05 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 30
+2025-11-02 14:14:05 - round.py - INFO - open_tris - Alessio ----> [(-1, 94, 'Jolly', 20), (3, 95, 'Picche', 5), (3, 41, 'Picche', 5)]
+2025-11-02 14:14:05 - round.py - INFO - discard - Alessio ----> 9_Fiori_Blu
+2025-11-02 14:14:05 - round.py - INFO - pick_up_discard - MariaGrazia ----> 10_Quadri_Rosso
+2025-11-02 14:14:07 - round.py - INFO - update_tris - MariaGrazia ----> 9 -->9_Fiori_Blu
+2025-11-02 14:14:07 - round.py - INFO - discard - MariaGrazia ----> Q_Cuori_Blu
+2025-11-02 14:14:07 - round.py - INFO - pick_up_card - Alessio ----> J_Fiori_Blu
+2025-11-02 14:14:07 - round.py - INFO - discard - Alessio ----> J_Fiori_Blu
+2025-11-02 14:14:07 - round.py - INFO - pick_up_card - MariaGrazia ----> 8_Fiori_Rosso
+2025-11-02 14:14:08 - round.py - INFO - discard - MariaGrazia ----> 10_Quadri_Rosso
+2025-11-02 14:14:08 - round.py - INFO - pick_up_discard - Alessio ----> Q_Cuori_Blu
+2025-11-02 14:14:08 - round.py - INFO - discard - Alessio ----> Q_Cuori_Blu
+2025-11-02 14:14:08 - round.py - INFO - pick_up_card - MariaGrazia ----> Jolly_Jolly_R_Rosso
+2025-11-02 14:14:09 - round.py - INFO - open_meld - MariaGrazia ----> [(-1, 53, 'Jolly', 30), (8, 20, 'Quadri', 10), (10, 22, 'Quadri', 10)]
+2025-11-02 14:14:09 - round.py - INFO - discard - MariaGrazia ----> 8_Fiori_Rosso
+2025-11-02 14:14:09 - round.py - INFO - pick_up_discard - Alessio ----> Q_Cuori_Blu
+2025-11-02 14:14:09 - round.py - INFO - discard - Alessio ----> J_Picche_Blu
+2025-11-02 14:14:09 - round.py - INFO - pick_up_card - MariaGrazia ----> 2_Cuori_Rosso
+2025-11-02 14:14:10 - round.py - INFO - update_meld - MariaGrazia ----> Updated_Game_Ontology20251102_141330578743.Picche --> 2_Cuori_Rosso
+2025-11-02 14:14:10 - round.py - INFO - discard - MariaGrazia ----> J_Picche_Blu
+2025-11-02 14:14:10 - round.py - INFO - pick_up_card - Alessio ----> 6_Fiori_Rosso
+2025-11-02 14:14:10 - round.py - INFO - discard - Alessio ----> 8_Fiori_Rosso
+2025-11-02 14:14:10 - round.py - INFO - pick_up_discard - MariaGrazia ----> J_Picche_Blu
+2025-11-02 14:14:10 - round.py - INFO - discard - MariaGrazia ----> 6_Quadri_Rosso
+2025-11-02 14:14:10 - round.py - INFO - pick_up_discard - Alessio ----> 6_Quadri_Rosso
+2025-11-02 14:14:10 - round.py - INFO - discard - Alessio ----> Q_Cuori_Blu
+2025-11-02 14:14:10 - round.py - INFO - pick_up_discard - MariaGrazia ----> Q_Cuori_Blu
+2025-11-02 14:14:11 - round.py - INFO - discard - MariaGrazia ----> 7_Picche_Blu
+2025-11-02 14:14:11 - round.py - INFO - pick_up_card - Alessio ----> 10_Quadri_Blu
+2025-11-02 14:14:11 - round.py - INFO - discard - Alessio ----> 10_Quadri_Rosso
+2025-11-02 14:14:11 - round.py - INFO - pick_up_card - MariaGrazia ----> A_Picche_Blu
+2025-11-02 14:14:11 - round.py - INFO - update_meld - MariaGrazia ----> Updated_Game_Ontology20251102_141330578743.Picche --> A_Picche_Blu
+2025-11-02 14:14:11 - round.py - INFO - discard - MariaGrazia ----> 7_Picche_Blu
+2025-11-02 14:14:11 - round.py - INFO - pick_up_discard - Alessio ----> 7_Picche_Blu
+2025-11-02 14:14:11 - round.py - INFO - discard - Alessio ----> J_Fiori_Blu
+2025-11-02 14:14:11 - round.py - INFO - pick_up_discard - MariaGrazia ----> J_Fiori_Blu
+2025-11-02 14:14:12 - round.py - INFO - discard - MariaGrazia ----> 7_Cuori_Rosso
+2025-11-02 14:14:12 - round.py - INFO - pick_up_card - Alessio ----> 6_Quadri_Blu
+2025-11-02 14:14:12 - player_onto_manager.py - INFO - apre_tris -  6_Fiori_Rosso -5 ----> partialScore ----> 5
+2025-11-02 14:14:12 - player_onto_manager.py - INFO - apre_tris -  6_Quadri_Blu -5 ----> partialScore ----> 10
+2025-11-02 14:14:12 - player_onto_manager.py - INFO - apre_tris -  6_Quadri_Rosso -5 ----> partialScore ----> 15
+2025-11-02 14:14:12 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 15
+2025-11-02 14:14:12 - round.py - INFO - open_tris - Alessio ----> [(6, 31, 'Fiori', 5), (6, 72, 'Quadri', 5), (6, 18, 'Quadri', 5)]
+2025-11-02 14:14:12 - round.py - INFO - discard - Alessio ----> 10_Quadri_Rosso
+2025-11-02 14:14:12 - round.py - INFO - pick_up_card - MariaGrazia ----> 4_Fiori_Blu
+2025-11-02 14:14:12 - round.py - INFO - update_meld - MariaGrazia ----> Updated_Game_Ontology20251102_141330578743.Fiori --> 4_Fiori_Blu
+2025-11-02 14:14:12 - round.py - INFO - discard - MariaGrazia ----> Q_Cuori_Blu
+2025-11-02 14:14:12 - round.py - INFO - pick_up_discard - Alessio ----> 7_Cuori_Rosso
+2025-11-02 14:14:12 - round.py - INFO - discard - Alessio ----> 10_Quadri_Rosso
+2025-11-02 14:14:12 - round.py - INFO - pick_up_card - MariaGrazia ----> 10_Fiori_Rosso
+2025-11-02 14:14:12 - round.py - INFO - discard - MariaGrazia ----> 4_Quadri_Blu
+2025-11-02 14:14:12 - round.py - INFO - pick_up_discard - Alessio ----> 10_Quadri_Rosso
+2025-11-02 14:14:12 - round.py - INFO - discard - Alessio ----> 10_Quadri_Rosso
+2025-11-02 14:14:12 - round.py - INFO - pick_up_discard - MariaGrazia ----> 10_Quadri_Rosso
+2025-11-02 14:14:13 - round.py - INFO - discard - MariaGrazia ----> J_Picche_Blu
+2025-11-02 14:14:13 - round.py - INFO - pick_up_card - Alessio ----> 9_Fiori_Rosso
+2025-11-02 14:14:13 - round.py - INFO - discard - Alessio ----> Q_Cuori_Blu
+2025-11-02 14:14:13 - round.py - INFO - pick_up_card - MariaGrazia ----> 3_Quadri_Blu
+2025-11-02 14:14:13 - round.py - INFO - update_meld - MariaGrazia ----> Updated_Game_Ontology20251102_141330578743.Quadri --> 3_Quadri_Blu
+2025-11-02 14:14:13 - round.py - INFO - discard - MariaGrazia ----> J_Picche_Blu
+2025-11-02 14:14:13 - round.py - INFO - pick_up_card - Alessio ----> K_Picche_Rosso
+2025-11-02 14:14:13 - round.py - INFO - discard - Alessio ----> 7_Cuori_Rosso
+2025-11-02 14:14:13 - round.py - INFO - pick_up_card - MariaGrazia ----> 8_Picche_Rosso
+2025-11-02 14:14:13 - round.py - INFO - discard - MariaGrazia ----> 10_Fiori_Rosso
+2025-11-02 14:14:13 - round.py - INFO - pick_up_discard - Alessio ----> J_Picche_Blu
+2025-11-02 14:14:14 - round.py - INFO - discard - Alessio ----> 7_Picche_Blu
+2025-11-02 14:14:14 - round.py - INFO - pick_up_card - MariaGrazia ----> J_Quadri_Blu
+2025-11-02 14:14:14 - round.py - INFO - update_meld - MariaGrazia ----> Updated_Game_Ontology20251102_141330578743.Quadri --> J_Quadri_Blu
+2025-11-02 14:14:14 - round.py - INFO - discard - MariaGrazia ----> J_Fiori_Blu
+2025-11-02 14:14:14 - round.py - INFO - pick_up_discard - Alessio ----> 7_Picche_Blu
+2025-11-02 14:14:15 - round.py - INFO - open_meld - Alessio ----> [(9, 34, 'Fiori', 10), (10, 35, 'Fiori', 10), (11, 90, 'Fiori', 10)]
+2025-11-02 14:14:16 - round.py - INFO - discard - Alessio ----> 10_Quadri_Blu
+2025-11-02 14:14:16 - round.py - INFO - pick_up_discard - MariaGrazia ----> 10_Quadri_Blu
+2025-11-02 14:14:16 - round.py - INFO - discard - MariaGrazia ----> 8_Picche_Rosso
+2025-11-02 14:14:16 - round.py - INFO - pick_up_discard - Alessio ----> 8_Picche_Rosso
+2025-11-02 14:14:16 - round.py - INFO - discard - Alessio ----> J_Picche_Blu
+2025-11-02 14:14:16 - round.py - INFO - pick_up_card - MariaGrazia ----> K_Quadri_Rosso
+2025-11-02 14:14:16 - round.py - INFO - discard - MariaGrazia ----> 10_Quadri_Blu
+2025-11-02 14:14:16 - round.py - INFO - pick_up_discard - Alessio ----> J_Picche_Blu
+2025-11-02 14:14:17 - round.py - INFO - discard - Alessio ----> 4_Quadri_Blu
+2025-11-02 14:14:17 - round.py - INFO - pick_up_discard - MariaGrazia ----> 4_Quadri_Blu
+2025-11-02 14:14:17 - round.py - INFO - discard - MariaGrazia ----> K_Quadri_Rosso
+2025-11-02 14:14:17 - round.py - INFO - pick_up_card - Alessio ----> K_Cuori_Blu
+2025-11-02 14:14:17 - round.py - INFO - discard - Alessio ----> 7_Picche_Blu
+2025-11-02 14:14:17 - round.py - INFO - pick_up_discard - MariaGrazia ----> K_Quadri_Rosso
+2025-11-02 14:14:17 - round.py - INFO - discard - MariaGrazia ----> Q_Cuori_Blu
+2025-11-02 14:14:18 - round.py - INFO - pick_up_card - Alessio ----> 3_Fiori_Rosso
+2025-11-02 14:14:18 - round.py - INFO - discard - Alessio ----> 8_Picche_Rosso
+2025-11-02 14:14:18 - round.py - INFO - pick_up_discard - MariaGrazia ----> Q_Cuori_Blu
+2025-11-02 14:14:18 - round.py - INFO - discard - MariaGrazia ----> K_Quadri_Rosso
+2025-11-02 14:14:18 - round.py - INFO - pick_up_card - Alessio ----> 4_Quadri_Rosso
+2025-11-02 14:14:19 - round.py - INFO - discard - Alessio ----> K_Cuori_Blu
+2025-11-02 14:14:19 - round.py - INFO - pick_up_card - MariaGrazia ----> Q_Quadri_Blu
+2025-11-02 14:14:19 - round.py - INFO - update_meld - MariaGrazia ----> Updated_Game_Ontology20251102_141330578743.Quadri --> Q_Quadri_Blu
+2025-11-02 14:14:19 - round.py - INFO - discard - MariaGrazia ----> 8_Picche_Rosso
+2025-11-02 14:14:19 - round.py - INFO - pick_up_card - Alessio ----> 3_Quadri_Rosso
+2025-11-02 14:14:20 - round.py - INFO - discard - Alessio ----> 3_Quadri_Rosso
+2025-11-02 14:14:20 - round.py - INFO - pick_up_discard - MariaGrazia ----> K_Quadri_Rosso
+2025-11-02 14:14:20 - round.py - INFO - update_meld - MariaGrazia ----> Updated_Game_Ontology20251102_141330578743.Quadri --> K_Quadri_Rosso
+2025-11-02 14:14:20 - round.py - INFO - discard - MariaGrazia ----> 8_Picche_Rosso
+2025-11-02 14:14:21 - round.py - INFO - pick_up_discard - Alessio ----> 8_Picche_Rosso
+2025-11-02 14:14:21 - round.py - INFO - discard - Alessio ----> J_Picche_Blu
+2025-11-02 14:14:21 - round.py - INFO - pick_up_card - MariaGrazia ----> K_Fiori_Blu
+2025-11-02 14:14:21 - round.py - INFO - discard - MariaGrazia ----> K_Cuori_Blu
+2025-11-02 14:14:21 - round.py - INFO - pick_up_discard - Alessio ----> J_Picche_Blu
+2025-11-02 14:14:22 - round.py - INFO - discard - Alessio ----> Q_Cuori_Blu
+2025-11-02 14:14:22 - round.py - INFO - pick_up_card - MariaGrazia ----> 8_Cuori_Blu
+2025-11-02 14:14:23 - round.py - INFO - discard - MariaGrazia ----> 8_Cuori_Blu
+2025-11-02 14:14:23 - round.py - INFO - pick_up_card - Alessio ----> 7_Cuori_Blu
+2025-11-02 14:14:23 - player_onto_manager.py - INFO - apre_tris -  7_Cuori_Rosso -5 ----> partialScore ----> 5
+2025-11-02 14:14:23 - player_onto_manager.py - INFO - apre_tris -  7_Cuori_Blu -5 ----> partialScore ----> 10
+2025-11-02 14:14:23 - player_onto_manager.py - INFO - apre_tris -  7_Picche_Blu -5 ----> partialScore ----> 15
+2025-11-02 14:14:23 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 15
+2025-11-02 14:14:23 - round.py - INFO - open_tris - Alessio ----> [(7, 6, 'Cuori', 5), (7, 60, 'Cuori', 5), (7, 99, 'Picche', 5)]
+2025-11-02 14:14:24 - round.py - INFO - discard - Alessio ----> 4_Quadri_Rosso
+2025-11-02 14:14:24 - round.py - INFO - pick_up_discard - MariaGrazia ----> Q_Cuori_Blu
+2025-11-02 14:14:24 - round.py - INFO - discard - MariaGrazia ----> Q_Cuori_Blu
+2025-11-02 14:14:24 - round.py - INFO - pick_up_discard - Alessio ----> Q_Cuori_Blu
+2025-11-02 14:14:25 - round.py - INFO - discard - Alessio ----> Q_Cuori_Blu
+2025-11-02 14:14:25 - round.py - INFO - pick_up_card - MariaGrazia ----> J_Picche_Rosso
+2025-11-02 14:14:25 - round.py - INFO - discard - MariaGrazia ----> 8_Fiori_Rosso
+2025-11-02 14:14:25 - round.py - INFO - pick_up_discard - Alessio ----> Q_Cuori_Blu
+2025-11-02 14:14:26 - round.py - INFO - update_meld - Alessio ----> Updated_Game_Ontology20251102_141330578743.Fiori --> 8_Fiori_Rosso
+2025-11-02 14:14:26 - round.py - INFO - discard - Alessio ----> J_Picche_Blu
+2025-11-02 14:14:26 - round.py - INFO - pick_up_card - MariaGrazia ----> Q_Cuori_Rosso
+2025-11-02 14:14:27 - round.py - INFO - discard - MariaGrazia ----> K_Fiori_Blu
+2025-11-02 14:14:27 - round.py - INFO - pick_up_card - Alessio ----> J_Quadri_Rosso
+2025-11-02 14:14:27 - round.py - INFO - discard - Alessio ----> Q_Cuori_Blu
+2025-11-02 14:14:27 - round.py - INFO - pick_up_card - MariaGrazia ----> 8_Quadri_Blu
+2025-11-02 14:14:27 - round.py - INFO - discard - MariaGrazia ----> Q_Cuori_Rosso
+2025-11-02 14:14:27 - round.py - INFO - pick_up_card - Alessio ----> J_Cuori_Blu
+2025-11-02 14:14:28 - player_onto_manager.py - INFO - apre_tris -  J_Quadri_Rosso -10 ----> partialScore ----> 10
+2025-11-02 14:14:28 - player_onto_manager.py - INFO - apre_tris -  J_Picche_Blu -10 ----> partialScore ----> 20
+2025-11-02 14:14:28 - player_onto_manager.py - INFO - apre_tris -  J_Cuori_Blu -10 ----> partialScore ----> 30
+2025-11-02 14:14:28 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 30
+2025-11-02 14:14:28 - round.py - INFO - open_tris - Alessio ----> [(11, 23, 'Quadri', 10), (11, 103, 'Picche', 10), (11, 64, 'Cuori', 10)]
+2025-11-02 14:14:28 - round.py - INFO - discard - Alessio ----> 3_Fiori_Rosso
+2025-11-02 14:14:28 - round.py - INFO - pick_up_card - MariaGrazia ----> 8_Fiori_Blu
+2025-11-02 14:14:28 - player_onto_manager.py - INFO - apre_tris -  8_Fiori_Blu -10 ----> partialScore ----> 10
+2025-11-02 14:14:28 - player_onto_manager.py - INFO - apre_tris -  8_Quadri_Blu -10 ----> partialScore ----> 20
+2025-11-02 14:14:28 - player_onto_manager.py - INFO - apre_tris -  8_Cuori_Blu -10 ----> partialScore ----> 30
+2025-11-02 14:14:28 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 30
+2025-11-02 14:14:28 - round.py - INFO - open_tris - MariaGrazia ----> [(8, 87, 'Fiori', 10), (8, 74, 'Quadri', 10), (8, 61, 'Cuori', 10)]
+2025-11-02 14:14:28 - round.py - INFO - discard - MariaGrazia ----> 4_Quadri_Blu
+2025-11-02 14:14:28 - round.py - INFO - pick_up_card - Alessio ----> A_Picche_Rosso
+2025-11-02 14:14:28 - round.py - INFO - discard - Alessio ----> 10_Quadri_Blu
+2025-11-02 14:14:28 - round.py - INFO - pick_up_card - MariaGrazia ----> 4_Fiori_Rosso
+2025-11-02 14:14:29 - round.py - INFO - discard - MariaGrazia ----> 7_Picche_Blu
+2025-11-02 14:14:29 - round.py - INFO - pick_up_card - Alessio ----> 6_Cuori_Blu
+2025-11-02 14:14:29 - round.py - INFO - update_tris - Alessio ----> 6 -->6_Cuori_Blu
+2025-11-02 14:14:29 - round.py - INFO - discard - Alessio ----> A_Picche_Rosso
+2025-11-02 14:14:29 - round.py - INFO - pick_up_card - MariaGrazia ----> 2_Fiori_Rosso
+2025-11-02 14:14:29 - round.py - INFO - open_meld - MariaGrazia ----> [(-1, 27, 'Jolly', 20), (3, 15, 'Quadri', 5), (4, 16, 'Quadri', 5)]
+2025-11-02 14:14:29 - round.py - INFO - discard - MariaGrazia ----> 4_Fiori_Rosso
+2025-11-02 14:14:29 - round.py - INFO - pick_up_card - Alessio ----> 9_Quadri_Rosso
+2025-11-02 14:14:29 - round.py - INFO - discard - Alessio ----> 8_Picche_Rosso
+2025-11-02 14:14:29 - round.py - INFO - pick_up_discard - MariaGrazia ----> J_Picche_Blu
+2025-11-02 14:14:31 - round.py - INFO - update_tris - MariaGrazia ----> 8 -->8_Picche_Rosso
+2025-11-02 14:14:33 - round.py - INFO - discard - MariaGrazia ----> K_Fiori_Blu
+2025-11-02 14:14:33 - round.py - INFO - pick_up_card - Alessio ----> 7_Quadri_Rosso
+2025-11-02 14:14:33 - round.py - INFO - update_tris - Alessio ----> 7 -->7_Quadri_Rosso
+2025-11-02 14:14:33 - round.py - INFO - discard - Alessio ----> 9_Quadri_Rosso
+2025-11-02 14:14:33 - round.py - INFO - pick_up_card - MariaGrazia ----> Q_Fiori_Rosso
+2025-11-02 14:14:35 - player_onto_manager.py - INFO - apre_tris -  Q_Cuori_Blu -10 ----> partialScore ----> 10
+2025-11-02 14:14:35 - player_onto_manager.py - INFO - apre_tris -  Q_Cuori_Rosso -10 ----> partialScore ----> 20
+2025-11-02 14:14:35 - player_onto_manager.py - INFO - apre_tris -  Q_Fiori_Rosso -10 ----> partialScore ----> 30
+2025-11-02 14:14:35 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 30
+2025-11-02 14:14:35 - round.py - INFO - open_tris - MariaGrazia ----> [(12, 65, 'Cuori', 10), (12, 11, 'Cuori', 10), (12, 37, 'Fiori', 10)]
+2025-11-02 14:14:35 - round.py - INFO - update_tris - MariaGrazia ----> 12 -->Q_Cuori_Blu
+2025-11-02 14:14:36 - round.py - INFO - discard - MariaGrazia ----> J_Picche_Blu
+2025-11-02 14:14:36 - round.py - INFO - pick_up_card - Alessio ----> 7_Quadri_Blu
+2025-11-02 14:14:36 - round.py - INFO - update_tris - Alessio ----> 7 -->7_Quadri_Blu
+2025-11-02 14:14:36 - round.py - INFO - discard - Alessio ----> K_Picche_Rosso
+2025-11-02 14:14:36 - round.py - INFO - pick_up_card - MariaGrazia ----> 5_Picche_Rosso
+2025-11-02 14:14:36 - round.py - INFO - update_meld - MariaGrazia ----> Updated_Game_Ontology20251102_141330578743.Picche --> 5_Picche_Rosso
+2025-11-02 14:14:37 - round.py - INFO - discard - MariaGrazia ----> A_Picche_Rosso
+2025-11-02 14:14:37 - round.py - INFO - pick_up_card - Alessio ----> 10_Cuori_Blu
+2025-11-02 14:14:37 - round.py - INFO - discard - Alessio ----> K_Cuori_Blu
+2025-11-02 14:14:37 - round.py - INFO - pick_up_discard - MariaGrazia ----> K_Fiori_Blu
+2025-11-02 14:14:38 - player_onto_manager.py - INFO - apre_tris -  K_Picche_Rosso -10 ----> partialScore ----> 10
+2025-11-02 14:14:38 - player_onto_manager.py - INFO - apre_tris -  K_Fiori_Blu -10 ----> partialScore ----> 20
+2025-11-02 14:14:38 - player_onto_manager.py - INFO - apre_tris -  K_Cuori_Blu -10 ----> partialScore ----> 30
+2025-11-02 14:14:38 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 30
+2025-11-02 14:14:38 - round.py - INFO - open_tris - MariaGrazia ----> [(13, 51, 'Picche', 10), (13, 92, 'Fiori', 10), (13, 66, 'Cuori', 10)]
+2025-11-02 14:14:39 - round.py - INFO - update_meld - MariaGrazia ----> Updated_Game_Ontology20251102_141330578743.Quadri --> 9_Quadri_Rosso
+2025-11-02 14:14:39 - round.py - INFO - discard - MariaGrazia ----> 3_Fiori_Rosso
+2025-11-02 14:14:39 - round.py - INFO - pick_up_card - Alessio ----> Q_Fiori_Blu
+2025-11-02 14:14:39 - round.py - INFO - discard - Alessio ----> 10_Cuori_Blu
+2025-11-02 14:14:39 - round.py - INFO - pick_up_card - MariaGrazia ----> 10_Picche_Rosso
+2025-11-02 14:14:40 - player_onto_manager.py - INFO - apre_tris -  10_Quadri_Blu -10 ----> partialScore ----> 10
+2025-11-02 14:14:40 - player_onto_manager.py - INFO - apre_tris -  10_Picche_Rosso -10 ----> partialScore ----> 20
+2025-11-02 14:14:40 - player_onto_manager.py - INFO - apre_tris -  10_Quadri_Rosso -10 ----> partialScore ----> 30
+2025-11-02 14:14:40 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 30
+2025-11-02 14:14:40 - round.py - INFO - open_tris - MariaGrazia ----> [(10, 76, 'Quadri', 10), (10, 48, 'Picche', 10), (10, 22, 'Quadri', 10)]
+2025-11-02 14:14:40 - round.py - INFO - discard - MariaGrazia ----> 4_Quadri_Blu
+2025-11-02 14:14:40 - round.py - INFO - pick_up_discard - Alessio ----> 3_Fiori_Rosso
+2025-11-02 14:14:40 - round.py - INFO - update_meld - Alessio ----> Updated_Game_Ontology20251102_141330578743.Fiori --> Q_Fiori_Blu
+2025-11-02 14:14:40 - round.py - INFO - discard - Alessio ----> 10_Cuori_Blu
+2025-11-02 14:14:40 - round.py - INFO - pick_up_card - MariaGrazia ----> 6_Picche_Rosso
+2025-11-02 14:14:40 - round.py - INFO - update_meld - MariaGrazia ----> Updated_Game_Ontology20251102_141330578743.Picche --> 6_Picche_Rosso
+2025-11-02 14:14:40 - round.py - INFO - update_meld - MariaGrazia ----> Updated_Game_Ontology20251102_141330578743.Picche --> 7_Picche_Blu
+2025-11-02 14:14:40 - round.py - INFO - discard - MariaGrazia ----> A_Picche_Rosso
+2025-11-02 14:14:40 - round.py - INFO - pick_up_discard - Alessio ----> 10_Cuori_Blu
+2025-11-02 14:14:40 - round.py - INFO - discard - Alessio ----> 4_Quadri_Blu
+2025-11-02 14:14:40 - round.py - INFO - pick_up_discard - MariaGrazia ----> 4_Quadri_Blu
+2025-11-02 14:14:40 - round.py - INFO - discard - MariaGrazia ----> J_Picche_Rosso
+2025-11-02 14:14:40 - round.py - INFO - pick_up_discard - Alessio ----> J_Picche_Rosso
+2025-11-02 14:14:40 - round.py - INFO - update_tris - Alessio ----> 11 -->J_Picche_Rosso
+2025-11-02 14:14:40 - round.py - INFO - discard - Alessio ----> A_Picche_Rosso
+2025-11-02 14:14:40 - round.py - INFO - pick_up_card - MariaGrazia ----> 7_Fiori_Rosso
+2025-11-02 14:14:40 - round.py - INFO - discard - MariaGrazia ----> J_Picche_Blu
+2025-11-02 14:14:40 - round.py - INFO - pick_up_card - Alessio ----> 4_Cuori_Blu
+2025-11-02 14:14:40 - round.py - INFO - update_meld - Alessio ----> Updated_Game_Ontology20251102_141330578743.Cuori --> 4_Cuori_Blu
+2025-11-02 14:14:40 - round.py - INFO - discard - Alessio ----> 3_Fiori_Rosso
+2025-11-02 14:14:40 - round.py - INFO - pick_up_card - MariaGrazia ----> 3_Cuori_Blu
+2025-11-02 14:14:40 - round.py - INFO - discard - MariaGrazia ----> 4_Fiori_Rosso
+2025-11-02 14:14:40 - round.py - INFO - pick_up_card - Alessio ----> 10_Fiori_Blu
+2025-11-02 14:14:40 - round.py - INFO - discard - Alessio ----> 10_Fiori_Blu
+2025-11-02 14:14:40 - round.py - INFO - pick_up_discard - MariaGrazia ----> A_Picche_Rosso
+2025-11-02 14:14:41 - round.py - INFO - update_tris - MariaGrazia ----> 10 -->10_Fiori_Blu
+2025-11-02 14:14:41 - round.py - INFO - discard - MariaGrazia ----> J_Picche_Blu
+2025-11-02 14:14:41 - round.py - INFO - pick_up_card - Alessio ----> A_Cuori_Blu
+2025-11-02 14:14:41 - round.py - INFO - discard - Alessio ----> 10_Cuori_Blu
+2025-11-02 14:14:41 - round.py - INFO - pick_up_discard - MariaGrazia ----> J_Picche_Blu
+2025-11-02 14:14:41 - round.py - INFO - update_tris - MariaGrazia ----> 10 -->10_Cuori_Blu
+2025-11-02 14:14:41 - round.py - INFO - discard - MariaGrazia ----> 3_Fiori_Rosso
+2025-11-02 14:14:41 - round.py - INFO - pick_up_card - Alessio ----> K_Picche_Blu
+2025-11-02 14:14:41 - round.py - INFO - discard - Alessio ----> K_Picche_Blu
+2025-11-02 14:14:41 - round.py - INFO - pick_up_card - MariaGrazia ----> 10_Picche_Blu
+2025-11-02 14:14:42 - round.py - INFO - update_tris - MariaGrazia ----> 10 -->10_Picche_Blu
+2025-11-02 14:14:42 - round.py - INFO - discard - MariaGrazia ----> 3_Cuori_Blu
+2025-11-02 14:14:42 - round.py - INFO - pick_up_card - Alessio ----> 9_Cuori_Rosso
+2025-11-02 14:14:42 - round.py - INFO - discard - Alessio ----> A_Cuori_Blu
+2025-11-02 14:14:42 - round.py - INFO - pick_up_discard - MariaGrazia ----> 3_Fiori_Rosso
+2025-11-02 14:14:42 - round.py - INFO - update_tris - MariaGrazia ----> 13 -->K_Picche_Blu
+2025-11-02 14:14:42 - round.py - INFO - discard - MariaGrazia ----> 4_Quadri_Blu
+2025-11-02 14:14:42 - round.py - INFO - pick_up_card - Alessio ----> 4_Cuori_Rosso
+2025-11-02 14:14:42 - round.py - INFO - discard - Alessio ----> 4_Cuori_Rosso
+2025-11-02 14:14:42 - round.py - INFO - pick_up_discard - MariaGrazia ----> 4_Quadri_Blu
+2025-11-02 14:14:43 - player_onto_manager.py - INFO - apre_tris -  4_Cuori_Rosso -5 ----> partialScore ----> 5
+2025-11-02 14:14:43 - player_onto_manager.py - INFO - apre_tris -  4_Quadri_Blu -5 ----> partialScore ----> 10
+2025-11-02 14:14:43 - player_onto_manager.py - INFO - apre_tris -  4_Fiori_Rosso -5 ----> partialScore ----> 15
+2025-11-02 14:14:43 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 15
+2025-11-02 14:14:43 - round.py - INFO - open_tris - MariaGrazia ----> [(4, 3, 'Cuori', 5), (4, 70, 'Quadri', 5), (4, 29, 'Fiori', 5)]
+2025-11-02 14:14:43 - round.py - INFO - discard - MariaGrazia ----> J_Picche_Blu
+2025-11-02 14:14:43 - round.py - INFO - pick_up_discard - Alessio ----> J_Picche_Blu
+2025-11-02 14:14:43 - round.py - INFO - update_tris - Alessio ----> 11 -->J_Picche_Blu
+2025-11-02 14:14:43 - round.py - INFO - close_game - Alessio ----> 9_Cuori_Rosso

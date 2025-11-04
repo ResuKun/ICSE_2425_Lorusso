@@ -2,6 +2,8 @@
 import random
 from Ontologia.onto_save_manager import OntologyManager
 import Utils.CONST as CONST
+from Utils.logger import SingletonLogger 
+from datetime import datetime
 
 def init_game_files():
     manager = OntologyManager()
@@ -18,11 +20,15 @@ def get_onto():
     return get_onto._onto, get_onto._manager
 
 def init_game(players_names = ["Alessio", "MariaGrazia"]):
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+    gamename = "Partita_" + timestamp
+    SingletonLogger.init(name="gioco", partita = gamename)
     init_game_files()
+
     if len(players_names) > CONST.CardValues.MAX_PLAYER.value:
         raise TypeError("Numero massimo di giocatori consentito : " + CONST.CardValues.MAX_PLAYER.value)
     onto, manager = get_onto()
-    partita = onto.Game("Partita")
+    partita = onto.Game(gamename)
     partita.monte = onto.Monte("Monte_della_partita")
     partita.scarto = onto.Scarto("Scarto_della_partita")
 

@@ -102,7 +102,7 @@ def get_card_number(card):
 #condizioni per creazione delle scale / aggiunta delle carte a scala
 def doppio_jolly_combinazione(carta, contain_jolly):
 	#se la scala contiene un Jolly o Pinella e provo ad aggiungerne un altro ritorna Falso
-	if carta[0] == CardValues.JOLLY_VALUE.value and contain_jolly[0]:
+	if ( carta[0] == CardValues.JOLLY_VALUE.value  or carta[0] == CardValues.PINELLA_VALUE.value )and contain_jolly[0]:
 		return False
 	return True
 
@@ -170,11 +170,19 @@ def in_scala(carta, scala):
 	#se la carta e' gia' presente nella scala non va bene
 	if carta[0] in scala[4]:
 		return False
-	return carta[0] == scala[2] -1 or carta[0] == scala[3] +1 or (scala[3] > carta[0] > scala[2])
+	return (carta[0] == scala[2] -1 
+		 	or carta[0] == scala[3] +1 
+			or (scala[3] > carta[0] > scala[2]))
+
+def lista_contigua_with_card(lista_carte, card = None):
+	lista_carte.append(card)
+	test = tuple(lista_carte)
+	return lista_contigua((test))
 
 #lista_carte
 def lista_contigua(*lista_carte):
-	#lista_carte = list(lista_carte)
+	if len(lista_carte) == 1:
+		lista_carte = lista_carte[0]
 	lista_carte = clean_from_placeholder(lista_carte)
 	old_num = None
 	found_jolly = False

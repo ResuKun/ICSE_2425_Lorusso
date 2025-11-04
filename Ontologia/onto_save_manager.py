@@ -3,7 +3,7 @@ from enum import Enum
 from threading import Lock
 from datetime import datetime
 
-
+#TODO rendere i path relativi
 class OntologyResource(Enum):
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S%f")
     date = datetime.now().strftime("%Y_%m_%d")

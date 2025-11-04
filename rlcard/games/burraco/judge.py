@@ -40,15 +40,16 @@ class BurracoJudge:
             for meld in potential_melds_upd:
                 legal_actions.append(UpdateMeldAction(meld[1][5],meld[0][1],len(legal_actions)))
             
-            # Aggiunge le azioni di scarto per ogni carta scartabile
-            if(len(potential_tris) == 0 and len(potential_melds) == 0 and len(potential_tris_upd) == 0 and len(potential_melds_upd) == 0 ):
-                for card in play_onto.get_players_card(player):
-                    legal_actions.append(DiscardAction(card[1],len(legal_actions)))
-
             # Aggiunge l'azione di chiusura del gioco
             card = csp_resolver.can_end_game_csp(player)
             if card != []:
                 legal_actions.append(CloseGameAction(card[0][0][1],len(legal_actions)))
+            # Aggiunge le azioni di scarto per ogni carta scartabile
+            elif(len(potential_tris) == 0 and len(potential_melds) == 0 and len(potential_tris_upd) == 0 and len(potential_melds_upd) == 0 ):
+                for card in play_onto.get_players_card(player):
+                    legal_actions.append(DiscardAction(card[1],len(legal_actions)))
+
+
         
         self.action_map = legal_actions
         return legal_actions

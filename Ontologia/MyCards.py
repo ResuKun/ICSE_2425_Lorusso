@@ -193,25 +193,35 @@ with onto:
         domain = [onto.Player]
         range = [int]
 
-    # Proprietà 'nomeGiocatore' per le scale
+    # Proprietà 'nomeGiocatore' 
     class nomeGiocatore(DataProperty, FunctionalProperty):
         domain = [onto.Player]
         range = [str]
 
-    # Proprietà 'punteggioGiocatore' per le scale
+    # Proprietà 'punteggioGiocatore'
     class punteggioGiocatore(DataProperty, FunctionalProperty):
         domain = [onto.Player]
         range = [int]
 
-    # Proprietà 'punteggioGiocatore' per le scale
+    # Proprietà 'isBurracoClosed' per le scale
     class isBurracoClosed(DataProperty, FunctionalProperty):
         domain = [onto.Scala]
         range = [bool]
 
-    # Proprietà 'punteggioGiocatore' per le scale
+    # Proprietà 'isTrisClosed' per i tris
     class isTrisClosed(DataProperty, FunctionalProperty):
         domain = [onto.Tris]
         range = [bool]
+
+    # Proprietà 'punteggioScala' per le scale
+    class punteggioScala(DataProperty, FunctionalProperty):
+        domain = [onto.Scala]
+        range = [int]
+
+    # Proprietà 'punteggioTris' per le scale
+    class punteggioTris(DataProperty, FunctionalProperty):
+        domain = [onto.Tris]
+        range = [int]
 
     AllDisjoint([onto.FaceCard, onto.Numbered])
 
