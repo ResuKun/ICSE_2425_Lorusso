@@ -1,6 +1,6 @@
 from owlready2 import *
 import Ontologia.onto_access_util as onto_access_util
-from Ontologia.onto_save_manager import OntologyManager
+from Ontologia.onto_save_manager import OntologyManager, OntologyResource
 from Utils.CONST import CardValues
 
 #carica l'ontologia (singleton)
@@ -9,16 +9,19 @@ def get_manager():
         get_manager._manager = OntologyManager()
     return get_manager._manager
 
-def get_onto():
+def get_onto(debug_mode = False):
     if not hasattr(get_onto, "_onto"):
         manager = get_manager()
-        get_onto._onto = manager.get_ontology_from_manager()
+        if debug_mode:
+            get_onto._onto = manager.get_ontology_from_manager(OntologyResource.UPDATED_GAME_TEST)
+        else:
+            get_onto._onto = manager.get_ontology_from_manager()
     return get_onto._onto
 
-def get_tuple_from_cards(lista_carte, include_seme=True):
+def get_tuple_from_cards(lista_carte, include_seme=True, debug_mode = False):
 	lista_tuple = []
 	for card in lista_carte:
-		if not isinstance(card, (get_onto().Jolly, get_onto().Pinella)):
+		if not isinstance(card, (get_onto(debug_mode).Jolly, get_onto().Pinella)):
 			if include_seme:
 				mia_tupla = (card.numeroCarta, card.idCarta, card.seme.name, card.valoreCarta)
 			else:
@@ -102,10 +105,7 @@ def get_card_number(card):
 #condizioni per creazione delle scale / aggiunta delle carte a scala
 def doppio_jolly_combinazione(carta, contain_jolly):
 	#se la scala contiene un Jolly o Pinella e provo ad aggiungerne un altro ritorna Falso
-	if ( carta[0] == CardValues.JOLLY_VALUE.value  or carta[0] == CardValues.PINELLA_VALUE.value )and contain_jolly[0]:
-		return False
-	return True
-
+	return not ( carta[0] == CardValues.JOLLY_VALUE.value  or carta[0] == CardValues.PINELLA_VALUE.value )and contain_jolly[0]
 
 	
 def doppio_jolly_lista(*lista_carte):

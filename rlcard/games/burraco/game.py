@@ -43,6 +43,8 @@ class BurracoGame:
 			self.round.pick_up_card(action)
 		elif isinstance(action, PickUpDiscardAction):
 			self.round.pick_up_discard(action)
+		elif isinstance(action, AddDiscardToPickupAction):
+			self.round.add_discarded_to_pickup()
 
 		elif isinstance(action, OpenMeldAction):
 			self.round.open_meld(action)
@@ -58,6 +60,8 @@ class BurracoGame:
 
 		elif isinstance(action, CloseGameAction):
 			self.round.close_game(action)
+		elif isinstance(action, CloseGameJudgeAction):
+			self.round.close_game_by_judge()
 
 		else:
 			raise Exception('Unknown step action={}'.format(action))

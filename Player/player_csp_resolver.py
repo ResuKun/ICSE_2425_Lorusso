@@ -240,7 +240,8 @@ def can_end_game_csp(player):
     result = solve_csp(end_game_csp, [var1], True)
     return result
 
-
+def can_pick_up():
+    pass
 
 #ordina la lista di combinazioni in base al loro valore (somma dei valori delle singole carte)
 def sort_combination_by_value(solutions_list):

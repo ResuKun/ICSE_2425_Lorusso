@@ -13,6 +13,8 @@ class OntologyResource(Enum):
     CARD = ONTO_FOLDER + "/Cards_Ontology.owl"
     INIT_GAME = DATE_BK_DIR + f"/Init_Game_Ontology{timestamp}.owl"
     UPDATED_GAME = DATE_BK_DIR + f"/Updated_Game_Ontology{timestamp}.owl"
+    INIT_GAME_TEST = ONTO_FOLDER + f"/Init_Game_Ontology.owl"
+    UPDATED_GAME_TEST = ONTO_FOLDER + f"/Updated_Game_Ontology.owl"
 
 
 class OntologyManager:
@@ -40,6 +42,8 @@ class OntologyManager:
                 onto_pre_load = get_ontology(OntologyResource.INIT_GAME.value)
             elif ontology_type == OntologyResource.UPDATED_GAME:
                 onto_pre_load = get_ontology(OntologyResource.UPDATED_GAME.value)
+            elif ontology_type == OntologyResource.UPDATED_GAME_TEST:
+                onto_pre_load = get_ontology(OntologyResource.UPDATED_GAME_TEST.value)
             else:
                 raise ValueError("Caso Invalido e non gestito")
 
@@ -59,18 +63,18 @@ class OntologyManager:
         self.onto.save(file=OntologyResource.CARD.value, format="rdfxml")
         print("UPDATE::  Ontologia aggiornata in CARD_CARD_GAME_FILE")
 
-    def salva_ontologia_init_game(self):
+    def salva_ontologia_init_game(self, source = OntologyResource.INIT_GAME ):
         """Salva l'ontologia nel file INIT_GAME.owl"""
         if self.onto is None:
             raise ValueError("Nessuna ontologia caricata.")
-        self.onto.save(file=OntologyResource.INIT_GAME.value, format="rdfxml")
+        self.onto.save(file=source.value, format="rdfxml")
         print("UPDATE::  Ontologia aggiornata in CARD_INIT_GAME_FILE")
 
-    def salva_ontologia_update_game(self):
+    def salva_ontologia_update_game(self, source = OntologyResource.UPDATED_GAME):
         """Salva l'ontologia nel file UPDATED_GAME.owl"""
         if self.onto is None:
             raise ValueError("Nessuna ontologia caricata.")
-        self.onto.save(file=OntologyResource.UPDATED_GAME.value, format="rdfxml")
+        self.onto.save(file = source.value, format="rdfxml")
         print("UPDATE::  Ontologia aggiornata in CARD_UPDATED_GAME_FILE")
 
     def scarica_ontologia(self):
@@ -90,9 +94,9 @@ class OntologyManager:
 
 
     def create_update_file(self):
+        """Crea un nuovo file UPDATED_GAME aggiornando l’IRI."""
         if not os.path.exists(OntologyResource.DATE_BK_DIR.value):
             os.makedirs(OntologyResource.DATE_BK_DIR.value)
-        """Crea un nuovo file UPDATED_GAME aggiornando l’IRI."""
         file = open(OntologyResource.CARD.value, "r")
         content = file.read()
         file.close()
@@ -106,9 +110,9 @@ class OntologyManager:
         print("ONTO - INFO:: Creato file UPDATED_GAME aggiornato")
 
     def create_init_file(self):
+        """Crea un nuovo file UPDATED_GAME aggiornando l’IRI."""
         if not os.path.exists(OntologyResource.DATE_BK_DIR.value):
             os.makedirs(OntologyResource.DATE_BK_DIR.value)
-        """Crea un nuovo file UPDATED_GAME aggiornando l’IRI."""
         file = open(OntologyResource.CARD.value, "r")
         content = file.read()
         file.close()
@@ -117,6 +121,34 @@ class OntologyManager:
             "http://www.semanticweb.org/les/ontologies/2025/Init_Game_Ontology"
         )
         f = open(OntologyResource.INIT_GAME.value, "w")
+        f.write(content)
+        f.close()
+        print("ONTO - INFO:: Creato file UPDATED_GAME aggiornato")
+
+    def create_update_file_test(self):
+        """Crea un nuovo file UPDATED_GAME aggiornando l’IRI."""
+        file = open(OntologyResource.CARD.value, "r")
+        content = file.read()
+        file.close()
+        content = content.replace(
+            "http://www.semanticweb.org/les/ontologies/2025/Cards",
+            "http://www.semanticweb.org/les/ontologies/2025/Updated_Game_Ontology"
+        )
+        f = open(OntologyResource.UPDATED_GAME_TEST.value, "w")
+        f.write(content)
+        f.close()
+        print("ONTO - INFO:: Creato file UPDATED_GAME aggiornato")
+
+    def create_init_file_test(self):
+        """Crea un nuovo file UPDATED_GAME aggiornando l’IRI."""
+        file = open(OntologyResource.CARD.value, "r")
+        content = file.read()
+        file.close()
+        content = content.replace(
+            "http://www.semanticweb.org/les/ontologies/2025/Cards",
+            "http://www.semanticweb.org/les/ontologies/2025/Init_Game_Ontology"
+        )
+        f = open(OntologyResource.INIT_GAME_TEST.value, "w")
         f.write(content)
         f.close()
         print("ONTO - INFO:: Creato file UPDATED_GAME aggiornato")

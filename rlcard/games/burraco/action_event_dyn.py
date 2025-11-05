@@ -51,6 +51,15 @@ class PickUpDiscardAction(ActionEvent):
     def __str__(self):
         return "pick_up_discard"
 
+
+class AddDiscardToPickupAction(ActionEvent):
+    def __init__(self, action_id):
+        self.action_id = action_id
+
+    def __str__(self):
+        return "add_discard_to_pickup_action"
+    
+    
 class OpenMeldAction(ActionEvent):
 
     def __init__(self, cards,action_id):
@@ -107,3 +116,12 @@ class CloseGameAction(ActionEvent):
 
     def __str__(self):
         return "CloseGame "
+    
+class CloseGameJudgeAction(ActionEvent):
+    def __init__(self, action_id):
+        self.action_id = action_id
+
+    def __str__(self):
+        return "CloseGame "
+    
+    

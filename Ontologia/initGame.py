@@ -1,33 +1,42 @@
 #initGame
 import random
-from Ontologia.onto_save_manager import OntologyManager
+from Ontologia.onto_save_manager import OntologyManager, OntologyResource
 import Utils.CONST as CONST
 from Utils.logger import SingletonLogger 
 from datetime import datetime
 
-def init_game_files():
-    manager = OntologyManager()
-    # Salva le modifiche all'ontologia
-    manager.create_init_file()
-    # Creo una copia da aggiornare e una con lo start della partita
-    manager.create_update_file()
+def init_game_files(debug_mode):
+    if debug_mode:
+        #debug mode per tester.py
+        manager = OntologyManager()
+        manager.create_init_file_test()
+        manager.create_update_file_test()
+    else:
+        manager = OntologyManager()
+        # Salva le modifiche all'ontologia
+        manager.create_init_file()
+        # Creo una copia da aggiornare e una con lo start della partita
+        manager.create_update_file()
 
-def get_onto():
+def get_onto(debug_mode = False):
     if not hasattr(get_onto, "_onto"):
         manager = OntologyManager()
         get_onto._manager= manager
-        get_onto._onto = manager.get_ontology_from_manager()
+        if debug_mode:
+            get_onto._onto = manager.get_ontology_from_manager(OntologyResource.UPDATED_GAME_TEST)
+        else:
+            get_onto._onto = manager.get_ontology_from_manager()
     return get_onto._onto, get_onto._manager
 
-def init_game(players_names = ["Alessio", "MariaGrazia"]):
+def init_game(players_names = ["Alessio", "MariaGrazia"],  debug_mode = False):
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
     gamename = "Partita_" + timestamp
     SingletonLogger.init(name="gioco", partita = gamename)
-    init_game_files()
+    init_game_files(debug_mode)
 
     if len(players_names) > CONST.CardValues.MAX_PLAYER.value:
         raise TypeError("Numero massimo di giocatori consentito : " + CONST.CardValues.MAX_PLAYER.value)
-    onto, manager = get_onto()
+    onto, manager = get_onto(debug_mode)
     partita = onto.Game(gamename)
     partita.monte = onto.Monte("Monte_della_partita")
     partita.scarto = onto.Scarto("Scarto_della_partita")
@@ -44,8 +53,8 @@ def init_game(players_names = ["Alessio", "MariaGrazia"]):
     print(f"\nIl giocatore di turno all'inizio della partita è: {partita.turnOf.nomeGiocatore}")
 
     # Salva le modifiche all'ontologia
-    manager.salva_ontologia_init_game()
-    manager.salva_ontologia_update_game()
+    manager.salva_ontologia_init_game(OntologyResource.INIT_GAME_TEST)
+    manager.salva_ontologia_update_game(OntologyResource.UPDATED_GAME_TEST)
     return partita
 
 

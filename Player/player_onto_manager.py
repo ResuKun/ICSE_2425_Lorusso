@@ -1,5 +1,5 @@
 from owlready2 import *
-from Ontologia.onto_save_manager import OntologyManager
+from Ontologia.onto_save_manager import OntologyManager, OntologyResource
 import Ontologia.onto_access_util as onto_access_util
 import Utils.CONST as CONST
 import Utils.checks as checks
@@ -11,10 +11,13 @@ def get_manager():
         get_manager._manager = OntologyManager()
     return get_manager._manager
 
-def get_onto():
+def get_onto(debug_mode = False):
     if not hasattr(get_onto, "_onto"):
         manager = get_manager()
-        get_onto._onto = manager.get_ontology_from_manager()
+        if debug_mode:
+            get_onto._onto = manager.get_ontology_from_manager(OntologyResource.UPDATED_GAME_TEST)
+        else: 
+            get_onto._onto = manager.get_ontology_from_manager()
     return get_onto._onto
 
 def get_game():
@@ -57,7 +60,7 @@ def reset_players_hands():
 		player.playerHand.mazzo.extend(mano)
 
 	get_manager().salva_ontologia_update_game()
-	print("")
+	get_manager().salva_ontologia_init_game()
 
 #restitusce le tuple della mano del giocatore
 def get_players_card(player):
@@ -114,9 +117,9 @@ def chiudi_gioco(player, card_id):
 
 #crea una nuova scala e la aggiunge al giocatore
 #restituisce il punteggio 
-def apre_scala(player, cards):
+def apre_scala(player, cards, debug_mode = False):
 	nScala = len(player.scala)
-	nuovaScala = get_onto().Scala("Scala_" + str(nScala)+ "_" + player.name)
+	nuovaScala = get_onto(debug_mode).Scala("Scala_" + str(nScala)+ "_" + player.name)
 	nuovaScala.scalaId = len(get_onto().Scala.instances())
 	nuovaScala.minValueScala = min(c[0] for c in cards if c[0] != -1)
 	nuovaScala.maxValueScala = max(c[0] for c in cards if c[0] != -1)
@@ -130,7 +133,7 @@ def apre_scala(player, cards):
 			break
 
 	partialScore = 0
-	onto_cards = onto_access_util.get_cards_from_id_list([c[1] for c in cards])
+	onto_cards = onto_access_util.get_cards_from_id_list([c[1] for c in cards], debug_mode)
 	for card in onto_cards:
 		nuovaScala.hasCards.append(card)
 		#aggiorna il punteggio del giocatore
@@ -149,7 +152,11 @@ def apre_scala(player, cards):
 	#commentati in quanto per ora non è possibile 
 	#scendere con una sola azione più di 5 carte 
 	# per questioni di performance
-	get_manager().salva_ontologia_update_game()
+
+	if debug_mode:
+		get_manager().salva_ontologia_update_game(OntologyResource.UPDATED_GAME_TEST)
+	else:
+		get_manager().salva_ontologia_update_game()
 	return partialScore
 
 #crea una nuovo Tris e la aggiunge al giocatore

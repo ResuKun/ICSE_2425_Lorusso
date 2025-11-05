@@ -1,4 +1,3 @@
-from typing import List
 import Utils.CONST as CONST
 import Ontologia.onto_access_util as onto_access_util
 import Player.player_onto_manager as player_onto_util
@@ -22,23 +21,17 @@ class BurracoRound:
 
     def __init__(self, players, round_number, judge):
         self.init_round_cards()
-        #self.players = [BurracoPlayer(player_id=0, np_random=self.np_random), BurracoPlayer(player_id=1, np_random=self.np_random)]
         self.players = [BurracoPlayer(players[0].nomeGiocatore), BurracoPlayer(players[1].nomeGiocatore)]
         
-        #TODO verificare se RL ha bisogno di partire da 0 o da 1
         self.current_player_id = (int(round_number)) % CONST.CardValues.MAX_PLAYER.value
         
         self.is_over = False
-        self.going_out_action = None  # going_out_action: int or None
-        self.going_out_player_id = None  # going_out_player_id: int or None
-        self.move_sheet = []  # type: List[BurracoMove]
+        self.going_out_action = None 
+        self.going_out_player_id = None 
+        self.move_sheet = [] 
         self.game_judge = judge
         self.log = SingletonLogger().get_logger()
-        
-       #nel GinRummy qui inizializza la Move
-       #player_dealing = BurracoPlayer(player_id=dealer_id, np_random=self.np_random)
-       #shuffled_deck = self.dealer.shuffled_deck
-       #self.move_sheet.append(DealHandMove(player_dealing=player_dealing, shuffled_deck=shuffled_deck))
+
 
     def init_round_cards(self):
         #faccio il reset del mazzo e degli scarti
@@ -105,10 +98,19 @@ class BurracoRound:
         onto_access_util.set_turnOf_by_id_player(self.current_player_id)
         self.game_judge.clean_map()
         self.log.info(f"{current_player.player1.nomeGiocatore} ----> {onto_access_util.get_card_from_id(action.card_id).name}")
+    
+    #TODO rendere le carte non visibili
+    def add_discarded_to_pickup(self):
+        onto_access_util.add_discarded_cards_to_pickup()
+        self.log.info(f" ------ [add_discarded_to_pickup ------  ]")
 
     def close_game(self,action: CloseGameAction):
         current_player = self.players[self.current_player_id]
         player_onto_util.chiudi_gioco(current_player.player1,action.card_id)
         self.is_over = True
         self.log.info(f"{current_player.player1.nomeGiocatore} ----> {onto_access_util.get_card_from_id(action.card_id).name}")
+
+    def close_game_by_judge(self):
+        self.is_over = True
+        self.log.info(f" ---------------- [CLOSED GAME BY JUDGE] ----------------")
 

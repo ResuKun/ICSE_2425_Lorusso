@@ -1,14 +1,18 @@
 import random
 from datetime import datetime
-from Ontologia.onto_save_manager import OntologyManager
+from Ontologia.onto_save_manager import OntologyManager, OntologyResource
+from Utils.logger import SingletonLogger 
 
 
 #carica l'ontologia (singleton)
-def get_onto():
+def get_onto(debugmode = False):
     if not hasattr(get_onto, "_onto"):
         manager = OntologyManager()
         get_onto._manager = manager
-        get_onto._onto = manager.get_ontology_from_manager()
+        if debugmode:
+            get_onto._onto = manager.get_ontology_from_manager(OntologyResource.UPDATED_GAME_TEST)
+        else:
+            get_onto._onto = manager.get_ontology_from_manager()
     return get_onto._onto,get_onto._manager
 
 #ritorna la carta dato l'id
@@ -27,8 +31,8 @@ def get_tris_from_id(id):
     return onto.search(type = onto.Tris, trisId = id)[0]
 
 #ritorna la carta dato l'id
-def get_cards_from_id_list(id_list):
-    onto,_ = get_onto()
+def get_cards_from_id_list(id_list, debugmode = False):
+    onto,_ = get_onto(debugmode)
     return [onto.search(type=onto.Card, idCarta=i)[0] for i in id_list]
 
 #ritorna le carte note
@@ -124,6 +128,7 @@ def has_jolly_or_pinella_clean(canasta):
     # Caso: una sola pinella
     if len(pinellas) == 1 and is_continous(cards):
         p = pinellas[0]
+        # se dello stesso seme
         if getattr(p, "numeroCarta", None) == 2 and getattr(p, "seme", None) == seme_scala:
             # Deve esserci il 3 dello stesso seme
             has_three_same_suit = any(
@@ -131,10 +136,10 @@ def has_jolly_or_pinella_clean(canasta):
                 for c in cards
             )
             if has_three_same_suit:
-                return True
+                return False
 
     # In tutti gli altri casi basta la presenza di un Jolly
-    return False
+    return True
 
 
 """ def is_continous(canasta):
@@ -208,3 +213,26 @@ def reset_deck():
     scarti.append(primo_scarto)
     monte.remove(primo_scarto)
     manager.salva_ontologia_update_game()
+    manager.salva_ontologia_init_game()
+
+
+def add_discarded_cards_to_pickup():
+    onto,manager = get_onto()
+    scarti = onto.Game.instances()[0].scarto.mazzo
+    log = SingletonLogger().get_logger()
+    log.info(f"  [add_discarded_to_pickup PRE - [SCARTI] ------> {onto.Game.instances()[0].scarto.mazzo}]")
+    log.info(f"  [add_discarded_to_pickup PRE - [MONTE]  ------> {onto.Game.instances()[0].monte.mazzo}]")
+
+    onto.Game.instances()[0].monte.mazzo = scarti[:len(scarti) - 1]
+    set_da_rimuovere = set(onto.Game.instances()[0].monte.mazzo)
+    lista_risultato = [
+        elemento 
+        for elemento in scarti 
+        if elemento not in set_da_rimuovere
+    ]
+    onto.Game.instances()[0].scarto.mazzo = lista_risultato
+    log.info(f"  [add_discarded_to_pickup POST - [SCARTI] ------> {onto.Game.instances()[0].scarto.mazzo}]")
+    log.info(f"  [add_discarded_to_pickup POST - [MONTE]  ------> {onto.Game.instances()[0].monte.mazzo}]")
+
+    manager.salva_ontologia_update_game()
+    
