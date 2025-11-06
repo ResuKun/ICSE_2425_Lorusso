@@ -1,0 +1,18 @@
+2025-11-06 22:36:42 - logger.py - INFO - _initialize - Logger inizializzato. File di log: logs/2025_11_06\partita_20251106_223642066114.log
+2025-11-06 22:36:42 - logger.py - INFO - _initialize - ---------------------------------------------------
+2025-11-06 22:36:42 - logger.py - INFO - _initialize - PARTITA ::  Partita_20251106_223642_065742
+2025-11-06 22:36:42 - logger.py - INFO - _initialize - ---------------------------------------------------
+2025-11-06 22:36:42 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-06 22:36:42 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-06 22:36:42 - round.py - INFO - pick_up_discard - Alessio ----> ['9_Quadri_Rosso']
+2025-11-06 22:36:42 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-06 22:36:58 - player_onto_manager.py - INFO - apre_tris -  2_Fiori_Rosso -20 ----> partialScore ----> 20
+2025-11-06 22:36:58 - player_onto_manager.py - INFO - apre_tris -  10_Quadri_Rosso -10 ----> partialScore ----> 30
+2025-11-06 22:36:58 - player_onto_manager.py - INFO - apre_tris -  10_Quadri_Blu -10 ----> partialScore ----> 40
+2025-11-06 22:36:58 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 40
+2025-11-06 22:36:58 - round.py - INFO - open_tris - Alessio ----> [(2, 27, 'Fiori', 20), (10, 22, 'Quadri', 10), (10, 76, 'Quadri', 10)]
+2025-11-06 22:36:59 - player_onto_manager.py - INFO - apre_tris -  Jolly_Jolly_N_Blu -30 ----> partialScore ----> 30
+2025-11-06 22:36:59 - player_onto_manager.py - INFO - apre_tris -  J_Fiori_Blu -10 ----> partialScore ----> 40
+2025-11-06 22:36:59 - player_onto_manager.py - INFO - apre_tris -  J_Fiori_Rosso -10 ----> partialScore ----> 50
+2025-11-06 22:36:59 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 50
+2025-11-06 22:36:59 - round.py - INFO - open_tris - Alessio ----> [(-1, 106, 'Jolly', 30), (11, 90, 'Fiori', 10), (11, 36, 'Fiori', 10)]

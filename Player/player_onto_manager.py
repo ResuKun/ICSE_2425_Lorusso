@@ -179,7 +179,7 @@ def apre_tris(player, tuple_cards):
 		#aggiorna il punteggio del giocatore
 		partialScore += card.valoreCarta
 		log.info(f" {card.name} -{card.valoreCarta} ----> partialScore ----> {partialScore}")
-		if hasattr(card, 'seme') and trisValue is None:
+		if hasattr(card, 'seme') and not checks.is_jolly_or_pinella(card.numeroCarta) and trisValue is None:
 			trisValue = card.numeroCarta
 
 	player.punteggioGiocatore += partialScore
