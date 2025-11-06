@@ -23,31 +23,15 @@ class BurracoJudge:
 
         # Aggiunge le azioni di base (pescare dal mazzo, prendere dagli scarti, scartare)
         if len(self.action_map) == 0:
-            #gestire il caso in cui finiscono le carte
-            monte_gt_0, scarti_gt_1 = len(onto_access_util.get_monte()) > 0, len(onto_access_util.get_scarti()) > 0
-            mask = (scarti_gt_1 << 1) | monte_gt_0
-            match mask:
-                case 0b00:
-                    #print("not monte_gt_0 and not scarti_gt_1")
-                    #chiudere la partita
-                    legal_actions.append(CloseGameJudgeAction(len(legal_actions)))
-                case 0b01:
-                    #print("monte_gt_0 and not scarti_gt_1")
-                    #continua (caso impossibile a meno di bug)
-                    legal_actions.append(PickUpCardAction(len(legal_actions)))
-                    legal_actions.append(PickUpDiscardAction(len(legal_actions)))
-                case 0b10:
-                    #print("not monte_gt_0 and scarti_gt_1")
-                    #ripristinare mazzo
-                    legal_actions.append(AddDiscardToPickupAction(len(legal_actions)))
-                case 0b11:
-                    #print("monte_gt_0 and scarti_gt_1")
-                    #continua
-                    legal_actions.append(PickUpCardAction(len(legal_actions)))
-                    legal_actions.append(PickUpDiscardAction(len(legal_actions)))
-                case _:
-                    print("Altra combinazione")
-                    #caso impossibile, lanciare errore
+            #da regolamento internazionale ART. 16
+            if len(onto_access_util.get_monte()) == 2:
+                #print("not monte_gt_0 and not scarti_gt_1")
+                #chiudere la partita
+                legal_actions.append(CloseGameJudgeAction(len(legal_actions)))
+            else:
+                #continua
+                legal_actions.append(PickUpCardAction(len(legal_actions)))
+                legal_actions.append(PickUpDiscardAction(len(legal_actions)))
         else:
             # Genera le azioni di creazione e update delle combinazioni
             potential_tris = csp_resolver.find_csp_tris(player)
@@ -67,13 +51,13 @@ class BurracoJudge:
                 legal_actions.append(UpdateMeldAction(meld[1][5],meld[0][1],len(legal_actions)))
             
             # Aggiunge l'azione di chiusura del gioco
-            card = csp_resolver.can_end_game_csp(player)
-            if card != []:
-                legal_actions.append(CloseGameAction(card[0][0][1],len(legal_actions)))
-            # Aggiunge le azioni di scarto per ogni carta scartabile
-            elif(len(potential_tris) == 0 and len(potential_melds) == 0 and len(potential_tris_upd) == 0 and len(potential_melds_upd) == 0 ):
-                for card in play_onto.get_players_card(player):
-                    legal_actions.append(DiscardAction(card[1],len(legal_actions)))
+            if(len(legal_actions) == 0):
+                card = csp_resolver.can_end_game_csp(player)
+                if card != []:
+                    legal_actions.append(CloseGameAction(card[0][0][1],len(legal_actions)))
+                else:
+                    for card in play_onto.get_players_card(player):
+                        legal_actions.append(DiscardAction(card[1],len(legal_actions)))
 
 
         self.action_map = legal_actions

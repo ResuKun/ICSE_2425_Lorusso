@@ -21,7 +21,7 @@ def get_onto(debug_mode = False):
 def get_tuple_from_cards(lista_carte, include_seme=True, debug_mode = False):
 	lista_tuple = []
 	for card in lista_carte:
-		if not isinstance(card, (get_onto(debug_mode).Jolly, get_onto().Pinella)):
+		if not isinstance(card, (get_onto(debug_mode).Jolly)):
 			if include_seme:
 				mia_tupla = (card.numeroCarta, card.idCarta, card.seme.name, card.valoreCarta)
 			else:
@@ -61,7 +61,7 @@ def get_tuple_from_csp_results(lista_variabili, result):
 	return lista_tris, contain_jolly """
 
 def has_jolly_or_pinella_tuple(lista_carte):
-	return any( [x for x in lista_carte if x[0] == CardValues.JOLLY_VALUE.value or x[0] == CardValues.PINELLA_VALUE.value])
+	return any( [x for x in lista_carte if is_jolly_or_pinella(x[0])])
 
 #Rimuove i placeholder (None) dalla lista delle carte
 def clean_from_placeholder(lista_carte):
@@ -105,31 +105,30 @@ def get_card_number(card):
 #condizioni per creazione delle scale / aggiunta delle carte a scala
 def doppio_jolly_combinazione(carta, contain_jolly):
 	#se la scala contiene un Jolly o Pinella e provo ad aggiungerne un altro ritorna Falso
-	return not ( carta[0] == CardValues.JOLLY_VALUE.value  or carta[0] == CardValues.PINELLA_VALUE.value )and contain_jolly[0]
+	return not (is_jolly_or_pinella(carta[0]) ) and contain_jolly[0]
 
 	
 def doppio_jolly_lista(*lista_carte):
-	lista_carte = [x for x in lista_carte if x[0] == CardValues.JOLLY_VALUE.value]
+	lista_carte = [x for x in lista_carte if is_jolly_or_pinella(x[0])]
 	return len(lista_carte) < 2
 
 #scala normalizzata (has_jolly, seme, min, max)
 def stesso_seme_scala(carta, scala):
-	return scala[1] == carta[2] if carta[0] != CardValues.JOLLY_VALUE.value else True
+	return scala[1] == carta[2] if not is_jolly_or_pinella(carta[0]) else True
 
 def stesso_seme_lista(*lista_carte):
 	lista_carte = list(lista_carte)
 	lista_carte = clean_from_placeholder(lista_carte)
 	#rimuovo i Jolly
-	if any(num[0] == CardValues.JOLLY_VALUE.value for num in lista_carte):
-		
-		lista_carte[:] = [x for x in lista_carte if x[0] != CardValues.JOLLY_VALUE.value]
+	if any(is_jolly_or_pinella(num[0]) for num in lista_carte):
+		lista_carte = [x for x in lista_carte if not is_jolly_or_pinella(x[0])]
 
 	seme_riferimento = lista_carte[0][2]
-	return all(tupla[2] == seme_riferimento for tupla in lista_carte )
-
+	result = all(tupla[2] == seme_riferimento for tupla in lista_carte )
+	return result 
 
 def stesso_numero_tris(card, tris):
-	return card[0] == tris[1] if card[0] != CardValues.JOLLY_VALUE.value else True
+	return card[0] == tris[1] if not is_jolly_or_pinella(card[0]) else True
 
 #controlla che le carte abbiano lo stesso numero
 #e che non siano la stessa carta (es. 10_Cuori_Blu,
@@ -141,13 +140,13 @@ def stesso_numero_lista(*lista_carte):
 	if len(lista_carte) != len(set(lista_carte)):
 		return False
 		
-	if all(num[0] == CardValues.JOLLY_VALUE.value for num in lista_carte):
+	if all( is_jolly_or_pinella(num[0]) for num in lista_carte):
 		print(f"Errore: tutti i numeri sono Jolly : {[num[1] for num in lista_carte]}")
 		return False
 	
 	#rimuovo i Jolly
-	if any(num[0] == CardValues.JOLLY_VALUE.value for num in lista_carte):
-		lista_carte[:] = [x for x in lista_carte if x[0] != CardValues.JOLLY_VALUE.value]
+	if any(is_jolly_or_pinella(num[0]) for num in lista_carte):
+		lista_carte[:] = [x for x in lista_carte if not is_jolly_or_pinella(x[0])]
 
 	valore_riferimento = lista_carte[0][0]
 	#controllo che abbiano tutti lo stesso numero (Jolly gia esclusi)
@@ -165,7 +164,7 @@ def stesso_numero_lista(*lista_carte):
 
 #scala normalizzata (has_jolly, seme, min, max, lista_numeri)
 def in_scala(carta, scala):
-	if carta[0] == CardValues.JOLLY_VALUE.value and not scala[0]:
+	if is_jolly_or_pinella(carta[0]) and not scala[0]:
 		return True
 	#se la carta e' gia' presente nella scala non va bene
 	if carta[0] in scala[4]:
@@ -186,9 +185,9 @@ def lista_contigua(*lista_carte):
 	lista_carte = clean_from_placeholder(lista_carte)
 	old_num = None
 	found_jolly = False
-	if any(num[0] == CardValues.JOLLY_VALUE.value for num in lista_carte):
+	if any(is_jolly_or_pinella(num[0]) for num in lista_carte):
 		found_jolly = True
-		lista_carte[:] = [x for x in lista_carte if x[0] != CardValues.JOLLY_VALUE.value]
+		lista_carte[:] = [x for x in lista_carte if not is_jolly_or_pinella(x[0])]
 
 	#ordino le carte per numeroCarta e controllo che siano contigue
 	#se presente un jolly concedo un "buco" nella lista
@@ -248,3 +247,6 @@ def closure_player_close_game(player):
 	def constraint(*carte):
 		return regole_di_gioco(player, True, *carte)
 	return constraint
+
+def is_jolly_or_pinella(num):
+	return num == CardValues.JOLLY_VALUE.value or num == CardValues.PINELLA_VALUE.value

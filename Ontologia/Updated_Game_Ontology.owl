@@ -1465,7 +1465,7 @@
   <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">107</idCarta>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Partita_20251105_224013_843483">
+<owl:NamedIndividual rdf:about="#Partita_20251106_222550_497519">
   <rdf:type rdf:resource="#Game"/>
   <monte rdf:resource="#Monte_della_partita"/>
   <scarto rdf:resource="#Scarto_della_partita"/>

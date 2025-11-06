@@ -49,7 +49,10 @@ class BurracoRound:
         player_onto_util.pesca_carta(current_player.player1)
         #registro l'evento
         self.move_sheet.append(PickUpCardMove(current_player, action=action, card=current_player.player1.playerHand.mazzo[-1]))
+        self.log.info(f"-------------------------------------------------------------------------------------")
+        self.log.info(f"-----------------------------------------NUOVO TURNO---------------------------------")
         self.log.info(f"{current_player.player1.nomeGiocatore} ----> {current_player.player1.playerHand.mazzo[-1].name}")
+        self.log.info(f"-------------------------------------------------------------------------------------")
 
     def pick_up_discard(self, action: PickUpDiscardAction):
         #raccoglie la carta dagli scarti
@@ -57,7 +60,10 @@ class BurracoRound:
         len_cards = player_onto_util.pesca_scarti(current_player.player1)
         self.move_sheet.append(PickupDiscardMove(current_player, action, cards=current_player.player1.playerHand.mazzo[-len_cards]))
         cards = [carta.name for carta in current_player.player1.playerHand.mazzo[-len_cards:]]
+        self.log.info(f"-------------------------------------------------------------------------------------")
+        self.log.info(f"-----------------------------------------NUOVO TURNO---------------------------------")
         self.log.info(f"{current_player.player1.nomeGiocatore} ----> {cards}")
+        self.log.info(f"-------------------------------------------------------------------------------------")
 
     def open_meld(self, action: OpenMeldAction):
         current_player = self.players[self.current_player_id]
@@ -97,12 +103,11 @@ class BurracoRound:
         self.current_player_id = (self.current_player_id + 1) % 2
         onto_access_util.set_turnOf_by_id_player(self.current_player_id)
         self.game_judge.clean_map()
+        self.log.info(f"-------------------------------------------------------------------------------------")
+        self.log.info(f"-----------------------------------------FINE---------------------------------")
         self.log.info(f"{current_player.player1.nomeGiocatore} ----> {onto_access_util.get_card_from_id(action.card_id).name}")
-    
-    #TODO rendere le carte non visibili
-    def add_discarded_to_pickup(self):
-        onto_access_util.add_discarded_cards_to_pickup()
-        self.log.info(f" ------ [add_discarded_to_pickup ------  ]")
+        self.log.info(f"-------------------------------------------------------------------------------------")
+
 
     def close_game(self,action: CloseGameAction):
         current_player = self.players[self.current_player_id]

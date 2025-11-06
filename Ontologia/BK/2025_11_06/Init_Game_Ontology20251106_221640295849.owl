@@ -320,9 +320,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#2_Cuori_Rosso">
@@ -332,9 +332,9 @@
   <rdf:type rdf:resource="#Pinella"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#3_Cuori_Rosso">
@@ -342,9 +342,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#4_Cuori_Rosso">
@@ -352,9 +352,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#5_Cuori_Rosso">
@@ -362,9 +362,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#6_Cuori_Rosso">
@@ -372,9 +372,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#7_Cuori_Rosso">
@@ -382,9 +382,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#8_Cuori_Rosso">
@@ -392,9 +392,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#9_Cuori_Rosso">
@@ -402,9 +402,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#10_Cuori_Rosso">
@@ -412,9 +412,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#J_Cuori_Rosso">
@@ -422,9 +422,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Q_Cuori_Rosso">
@@ -432,9 +432,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#K_Cuori_Rosso">
@@ -442,9 +442,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#A_Quadri_Rosso">
@@ -452,9 +452,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#2_Quadri_Rosso">
@@ -464,9 +464,9 @@
   <rdf:type rdf:resource="#Pinella"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#3_Quadri_Rosso">
@@ -474,9 +474,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#4_Quadri_Rosso">
@@ -484,9 +484,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#5_Quadri_Rosso">
@@ -494,9 +494,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#6_Quadri_Rosso">
@@ -504,9 +504,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#7_Quadri_Rosso">
@@ -514,9 +514,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#8_Quadri_Rosso">
@@ -524,9 +524,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#9_Quadri_Rosso">
@@ -534,9 +534,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#10_Quadri_Rosso">
@@ -544,9 +544,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#J_Quadri_Rosso">
@@ -554,9 +554,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Q_Quadri_Rosso">
@@ -564,9 +564,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#K_Quadri_Rosso">
@@ -574,9 +574,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#A_Fiori_Rosso">
@@ -584,9 +584,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#2_Fiori_Rosso">
@@ -596,9 +596,9 @@
   <rdf:type rdf:resource="#Pinella"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">27</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">27</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#3_Fiori_Rosso">
@@ -606,9 +606,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#4_Fiori_Rosso">
@@ -616,9 +616,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#5_Fiori_Rosso">
@@ -626,9 +626,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#6_Fiori_Rosso">
@@ -636,9 +636,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#7_Fiori_Rosso">
@@ -646,9 +646,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#8_Fiori_Rosso">
@@ -656,9 +656,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#9_Fiori_Rosso">
@@ -666,9 +666,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#10_Fiori_Rosso">
@@ -676,9 +676,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#J_Fiori_Rosso">
@@ -686,9 +686,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Q_Fiori_Rosso">
@@ -696,9 +696,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#K_Fiori_Rosso">
@@ -706,9 +706,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#A_Picche_Rosso">
@@ -716,9 +716,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#2_Picche_Rosso">
@@ -728,9 +728,9 @@
   <rdf:type rdf:resource="#Pinella"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#3_Picche_Rosso">
@@ -738,9 +738,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#4_Picche_Rosso">
@@ -748,9 +748,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#5_Picche_Rosso">
@@ -758,9 +758,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#6_Picche_Rosso">
@@ -768,9 +768,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#7_Picche_Rosso">
@@ -778,9 +778,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#8_Picche_Rosso">
@@ -788,9 +788,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">46</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">46</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#9_Picche_Rosso">
@@ -798,9 +798,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">47</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">47</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#10_Picche_Rosso">
@@ -808,9 +808,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">48</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">48</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#J_Picche_Rosso">
@@ -818,9 +818,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">49</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">49</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Q_Picche_Rosso">
@@ -828,9 +828,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#K_Picche_Rosso">
@@ -838,27 +838,27 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Jolly_Jolly_N_Rosso">
   <rdf:type rdf:resource="#Special"/>
   <rdf:type rdf:resource="#Jolly"/>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Jolly_Jolly_R_Rosso">
   <rdf:type rdf:resource="#Special"/>
   <rdf:type rdf:resource="#Jolly"/>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">53</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">53</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Blu">
@@ -924,9 +924,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#2_Cuori_Blu">
@@ -936,9 +936,9 @@
   <rdf:type rdf:resource="#Pinella"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#3_Cuori_Blu">
@@ -946,9 +946,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#4_Cuori_Blu">
@@ -956,9 +956,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#5_Cuori_Blu">
@@ -966,9 +966,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#6_Cuori_Blu">
@@ -976,9 +976,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#7_Cuori_Blu">
@@ -986,9 +986,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#8_Cuori_Blu">
@@ -996,9 +996,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">61</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">61</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#9_Cuori_Blu">
@@ -1006,9 +1006,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">62</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">62</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#10_Cuori_Blu">
@@ -1016,9 +1016,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">63</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">63</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#J_Cuori_Blu">
@@ -1026,9 +1026,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Q_Cuori_Blu">
@@ -1036,9 +1036,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#K_Cuori_Blu">
@@ -1046,9 +1046,9 @@
   <seme rdf:resource="#Cuori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">66</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">66</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#A_Quadri_Blu">
@@ -1056,9 +1056,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#2_Quadri_Blu">
@@ -1068,9 +1068,9 @@
   <rdf:type rdf:resource="#Pinella"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">68</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">68</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#3_Quadri_Blu">
@@ -1078,9 +1078,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">69</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">69</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#4_Quadri_Blu">
@@ -1088,9 +1088,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#5_Quadri_Blu">
@@ -1098,9 +1098,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
-  <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
-  <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
   <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">71</idCarta>
+  <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cartaVisibile>
+  <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cartaNota>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#6_Quadri_Blu">
@@ -1108,9 +1108,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">72</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">72</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#7_Quadri_Blu">
@@ -1118,9 +1118,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">73</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">73</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#8_Quadri_Blu">
@@ -1128,9 +1128,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">74</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">74</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#9_Quadri_Blu">
@@ -1138,9 +1138,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">75</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">75</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#10_Quadri_Blu">
@@ -1148,9 +1148,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">76</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">76</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#J_Quadri_Blu">
@@ -1158,9 +1158,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">77</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">77</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Q_Quadri_Blu">
@@ -1168,9 +1168,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">78</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">78</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#K_Quadri_Blu">
@@ -1178,9 +1178,9 @@
   <seme rdf:resource="#Quadri"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">79</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">79</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#A_Fiori_Blu">
@@ -1188,9 +1188,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">80</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">80</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#2_Fiori_Blu">
@@ -1200,9 +1200,9 @@
   <rdf:type rdf:resource="#Pinella"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">81</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">81</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#3_Fiori_Blu">
@@ -1210,9 +1210,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">82</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">82</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#4_Fiori_Blu">
@@ -1220,9 +1220,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">83</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">83</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#5_Fiori_Blu">
@@ -1230,9 +1230,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">84</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">84</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#6_Fiori_Blu">
@@ -1240,9 +1240,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">85</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">85</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#7_Fiori_Blu">
@@ -1250,9 +1250,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">86</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">86</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#8_Fiori_Blu">
@@ -1260,9 +1260,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">87</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">87</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#9_Fiori_Blu">
@@ -1270,9 +1270,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">88</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">88</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#10_Fiori_Blu">
@@ -1280,9 +1280,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">89</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">89</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#J_Fiori_Blu">
@@ -1290,9 +1290,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Q_Fiori_Blu">
@@ -1300,9 +1300,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">91</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">91</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#K_Fiori_Blu">
@@ -1310,9 +1310,9 @@
   <seme rdf:resource="#Fiori"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">92</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">92</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#A_Picche_Blu">
@@ -1320,9 +1320,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">93</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">93</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#2_Picche_Blu">
@@ -1332,9 +1332,9 @@
   <rdf:type rdf:resource="#Pinella"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">94</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">94</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#3_Picche_Blu">
@@ -1342,9 +1342,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">95</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">95</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#4_Picche_Blu">
@@ -1352,9 +1352,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">96</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">96</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#5_Picche_Blu">
@@ -1362,9 +1362,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">97</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">97</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#6_Picche_Blu">
@@ -1372,9 +1372,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">98</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">98</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#7_Picche_Blu">
@@ -1382,9 +1382,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">99</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">99</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#8_Picche_Blu">
@@ -1392,9 +1392,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#9_Picche_Blu">
@@ -1402,9 +1402,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">101</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">101</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#10_Picche_Blu">
@@ -1412,9 +1412,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">102</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">102</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#J_Picche_Blu">
@@ -1422,9 +1422,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">103</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">103</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Q_Picche_Blu">
@@ -1432,9 +1432,9 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">104</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">104</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#K_Picche_Blu">
@@ -1442,30 +1442,30 @@
   <seme rdf:resource="#Picche"/>
   <numeroCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</numeroCarta>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">105</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">105</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Jolly_Jolly_N_Blu">
   <rdf:type rdf:resource="#Special"/>
   <rdf:type rdf:resource="#Jolly"/>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">106</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">106</idCarta>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Jolly_Jolly_R_Blu">
   <rdf:type rdf:resource="#Special"/>
   <rdf:type rdf:resource="#Jolly"/>
   <valoreCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</valoreCarta>
+  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">107</idCarta>
   <cartaVisibile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaVisibile>
   <cartaNota rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cartaNota>
-  <idCarta rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">107</idCarta>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Partita_20251106_222550_497519">
+<owl:NamedIndividual rdf:about="#Partita_20251106_221642_752435">
   <rdf:type rdf:resource="#Game"/>
   <monte rdf:resource="#Monte_della_partita"/>
   <scarto rdf:resource="#Scarto_della_partita"/>
@@ -1476,10 +1476,96 @@
 
 <owl:NamedIndividual rdf:about="#Monte_della_partita">
   <rdf:type rdf:resource="#Monte"/>
+  <mazzo rdf:resource="#Jolly_Jolly_R_Rosso"/>
+  <mazzo rdf:resource="#9_Cuori_Blu"/>
+  <mazzo rdf:resource="#A_Fiori_Rosso"/>
+  <mazzo rdf:resource="#2_Fiori_Rosso"/>
+  <mazzo rdf:resource="#5_Quadri_Rosso"/>
+  <mazzo rdf:resource="#9_Quadri_Rosso"/>
+  <mazzo rdf:resource="#A_Picche_Blu"/>
+  <mazzo rdf:resource="#3_Picche_Blu"/>
+  <mazzo rdf:resource="#K_Fiori_Blu"/>
+  <mazzo rdf:resource="#3_Picche_Rosso"/>
+  <mazzo rdf:resource="#2_Picche_Rosso"/>
+  <mazzo rdf:resource="#J_Quadri_Rosso"/>
+  <mazzo rdf:resource="#6_Quadri_Blu"/>
+  <mazzo rdf:resource="#10_Cuori_Rosso"/>
+  <mazzo rdf:resource="#5_Picche_Blu"/>
+  <mazzo rdf:resource="#10_Picche_Blu"/>
+  <mazzo rdf:resource="#7_Picche_Rosso"/>
+  <mazzo rdf:resource="#4_Quadri_Rosso"/>
+  <mazzo rdf:resource="#8_Picche_Blu"/>
+  <mazzo rdf:resource="#3_Quadri_Rosso"/>
+  <mazzo rdf:resource="#8_Fiori_Blu"/>
+  <mazzo rdf:resource="#9_Fiori_Rosso"/>
+  <mazzo rdf:resource="#7_Fiori_Rosso"/>
+  <mazzo rdf:resource="#J_Cuori_Blu"/>
+  <mazzo rdf:resource="#K_Picche_Blu"/>
+  <mazzo rdf:resource="#7_Picche_Blu"/>
+  <mazzo rdf:resource="#9_Fiori_Blu"/>
+  <mazzo rdf:resource="#3_Cuori_Blu"/>
+  <mazzo rdf:resource="#8_Cuori_Rosso"/>
+  <mazzo rdf:resource="#8_Quadri_Rosso"/>
+  <mazzo rdf:resource="#J_Picche_Rosso"/>
+  <mazzo rdf:resource="#Q_Fiori_Rosso"/>
+  <mazzo rdf:resource="#Q_Cuori_Blu"/>
+  <mazzo rdf:resource="#Q_Cuori_Rosso"/>
+  <mazzo rdf:resource="#A_Quadri_Rosso"/>
+  <mazzo rdf:resource="#4_Quadri_Blu"/>
+  <mazzo rdf:resource="#7_Quadri_Blu"/>
+  <mazzo rdf:resource="#9_Quadri_Blu"/>
+  <mazzo rdf:resource="#Jolly_Jolly_N_Blu"/>
+  <mazzo rdf:resource="#7_Quadri_Rosso"/>
+  <mazzo rdf:resource="#4_Picche_Rosso"/>
+  <mazzo rdf:resource="#3_Cuori_Rosso"/>
+  <mazzo rdf:resource="#4_Cuori_Blu"/>
+  <mazzo rdf:resource="#3_Fiori_Rosso"/>
+  <mazzo rdf:resource="#10_Fiori_Rosso"/>
+  <mazzo rdf:resource="#2_Cuori_Rosso"/>
+  <mazzo rdf:resource="#J_Picche_Blu"/>
+  <mazzo rdf:resource="#A_Quadri_Blu"/>
+  <mazzo rdf:resource="#A_Picche_Rosso"/>
+  <mazzo rdf:resource="#A_Cuori_Blu"/>
+  <mazzo rdf:resource="#10_Fiori_Blu"/>
+  <mazzo rdf:resource="#J_Quadri_Blu"/>
+  <mazzo rdf:resource="#K_Cuori_Blu"/>
+  <mazzo rdf:resource="#5_Cuori_Blu"/>
+  <mazzo rdf:resource="#5_Fiori_Rosso"/>
+  <mazzo rdf:resource="#6_Cuori_Rosso"/>
+  <mazzo rdf:resource="#2_Cuori_Blu"/>
+  <mazzo rdf:resource="#2_Fiori_Blu"/>
+  <mazzo rdf:resource="#K_Fiori_Rosso"/>
+  <mazzo rdf:resource="#A_Fiori_Blu"/>
+  <mazzo rdf:resource="#K_Quadri_Rosso"/>
+  <mazzo rdf:resource="#Jolly_Jolly_N_Rosso"/>
+  <mazzo rdf:resource="#K_Quadri_Blu"/>
+  <mazzo rdf:resource="#9_Cuori_Rosso"/>
+  <mazzo rdf:resource="#10_Quadri_Blu"/>
+  <mazzo rdf:resource="#7_Fiori_Blu"/>
+  <mazzo rdf:resource="#5_Picche_Rosso"/>
+  <mazzo rdf:resource="#5_Fiori_Blu"/>
+  <mazzo rdf:resource="#3_Quadri_Blu"/>
+  <mazzo rdf:resource="#8_Cuori_Blu"/>
+  <mazzo rdf:resource="#6_Picche_Blu"/>
+  <mazzo rdf:resource="#4_Picche_Blu"/>
+  <mazzo rdf:resource="#K_Picche_Rosso"/>
+  <mazzo rdf:resource="#7_Cuori_Blu"/>
+  <mazzo rdf:resource="#Q_Quadri_Blu"/>
+  <mazzo rdf:resource="#6_Quadri_Rosso"/>
+  <mazzo rdf:resource="#Q_Fiori_Blu"/>
+  <mazzo rdf:resource="#6_Fiori_Blu"/>
+  <mazzo rdf:resource="#2_Quadri_Blu"/>
+  <mazzo rdf:resource="#2_Picche_Blu"/>
+  <mazzo rdf:resource="#8_Fiori_Rosso"/>
+  <mazzo rdf:resource="#J_Fiori_Blu"/>
+  <mazzo rdf:resource="#Jolly_Jolly_R_Blu"/>
+  <mazzo rdf:resource="#8_Quadri_Blu"/>
+  <mazzo rdf:resource="#6_Fiori_Rosso"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Scarto_della_partita">
   <rdf:type rdf:resource="#Scarto"/>
+  <mazzo rdf:resource="#5_Quadri_Blu"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Giocatore0">
@@ -1492,6 +1578,17 @@
 
 <owl:NamedIndividual rdf:about="#Mano_di_Giocatore0">
   <rdf:type rdf:resource="#Mano"/>
+  <mazzo rdf:resource="#K_Cuori_Rosso"/>
+  <mazzo rdf:resource="#J_Cuori_Rosso"/>
+  <mazzo rdf:resource="#Q_Quadri_Rosso"/>
+  <mazzo rdf:resource="#10_Quadri_Rosso"/>
+  <mazzo rdf:resource="#J_Fiori_Rosso"/>
+  <mazzo rdf:resource="#9_Picche_Rosso"/>
+  <mazzo rdf:resource="#8_Picche_Rosso"/>
+  <mazzo rdf:resource="#2_Quadri_Rosso"/>
+  <mazzo rdf:resource="#6_Picche_Rosso"/>
+  <mazzo rdf:resource="#10_Cuori_Blu"/>
+  <mazzo rdf:resource="#Q_Picche_Rosso"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Giocatore1">
@@ -1504,6 +1601,17 @@
 
 <owl:NamedIndividual rdf:about="#Mano_di_Giocatore1">
   <rdf:type rdf:resource="#Mano"/>
+  <mazzo rdf:resource="#4_Fiori_Rosso"/>
+  <mazzo rdf:resource="#7_Cuori_Rosso"/>
+  <mazzo rdf:resource="#4_Cuori_Rosso"/>
+  <mazzo rdf:resource="#Q_Picche_Blu"/>
+  <mazzo rdf:resource="#3_Fiori_Blu"/>
+  <mazzo rdf:resource="#5_Cuori_Rosso"/>
+  <mazzo rdf:resource="#4_Fiori_Blu"/>
+  <mazzo rdf:resource="#9_Picche_Blu"/>
+  <mazzo rdf:resource="#A_Cuori_Rosso"/>
+  <mazzo rdf:resource="#10_Picche_Rosso"/>
+  <mazzo rdf:resource="#6_Cuori_Blu"/>
 </owl:NamedIndividual>
 
 
