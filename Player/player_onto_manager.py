@@ -128,7 +128,7 @@ def apre_scala(player, cards, debug_mode = False):
 	#ignoro i jolly/pinelle per il seme della scala
 	#sono sicuro della coerenza per i c
 	for card in cards:
-		if card[0] != CONST.CardValues.JOLLY_VALUE.value:
+		if card[0] != CONST.CardValues.JOLLY_VALUE.value and card[0] != CONST.CardValues.PINELLA_VALUE.value:
 			nuovaScala.semeScala = next(s for s in get_onto().Seme.instances() if s.name == card[2])
 			break
 

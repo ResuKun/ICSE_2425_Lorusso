@@ -186,19 +186,9 @@ def find_csp_tris(player):
 def can_update_csp_tris(player, lista_carte, tris, debug_mode = False):
     # def __init__(self, title, variables, constraints):
     lista_numeri = checks.get_tuple_from_cards(lista_carte, True, debug_mode)
-    lista_tris = []
-    contain_jolly = False
-    
-    for card in tris.hasCards:
-        if not isinstance(card, (get_onto(debug_mode).Jolly, get_onto().Pinella)) and (card.numeroCarta, card.name) not in lista_tris:
-            mia_tupla = (card.numeroCarta, card.name)
-            lista_tris.append(mia_tupla)
-        elif isinstance(card, (get_onto().Jolly, get_onto().Pinella)):
-            mia_tupla = (CardValues.JOLLY_VALUE.value, card.name)
-            lista_tris.append(mia_tupla)
-            contain_jolly = True
 
     trisValue_list = []
+    contain_jolly = any(isinstance(card, (get_onto().Jolly, get_onto().Pinella)) for card in tris.hasCards)
     tupla = (contain_jolly, tris.trisValue, tris.trisId)
     trisValue_list.append(tupla)
 
