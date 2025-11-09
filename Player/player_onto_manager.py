@@ -262,7 +262,7 @@ def add_points_tris(canasta, player):
 			canasta.isTrisClosed = True
 		elif onto_access_util.isBurraco(canasta):
 			points = 100
-			canasta.isBurraco = True
+			canasta.isTrisClosed = True
 		player.punteggioGiocatore += points
 	return points
 

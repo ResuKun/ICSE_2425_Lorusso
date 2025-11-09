@@ -105,7 +105,10 @@ def get_card_number(card):
 #condizioni per creazione delle scale / aggiunta delle carte a scala
 def doppio_jolly_combinazione(carta, contain_jolly):
 	#se la scala contiene un Jolly o Pinella e provo ad aggiungerne un altro ritorna Falso
-	return not (is_jolly_or_pinella(carta[0]) ) and contain_jolly[0]
+	if contain_jolly[0]:
+		return not (is_jolly_or_pinella(carta[0]))
+	else:
+		return True
 
 	
 def doppio_jolly_lista(*lista_carte):

@@ -20,18 +20,18 @@ def test_resolver():
     print("--------------------------------------------------")
     print("PYTHONPATH:", sys.path)
     print("--------------------------------------------------")
-    initGame.init_game(players_names = ["Alessio", "MariaGrazia"],  debug_mode = True)
+   # initGame.init_game(players_names = ["Alessio", "MariaGrazia"],  debug_mode = True)
     
     all_players = list(get_onto().Player.instances())
     player1 = all_players[0]
     
     # (True,False) True per creare un tris, False per testare l'update di un tris esistente
     create_tris = False 
-    player1.playerHand.mazzo.clear()
+   # player1.playerHand.mazzo.clear()
 
     #if create_tris:
     #create_tris_test(player1)
-    create_scala_test(player1)
+    #create_scala_test(player1)
    # else:
         #print(f"Mazzo Giocatore: {[card.name for card in player1.playerHand.mazzo]}")
 
@@ -43,8 +43,8 @@ def test_resolver():
         #create_scala_test(player1)
 
     add_card(player1)
-    scala = get_onto()["Scala_0_Giocatore0"]
-    result = CSPResolver.can_update_csp_scala(player1, player1.playerHand.mazzo, scala)
+    scala = get_onto()["Tris_6_Giocatore0"]
+    result = CSPResolver.can_update_csp_tris(player1, player1.playerHand.mazzo, scala, True)
 
         #player1 = all_players[1]
         #print(f"Mazzo Giocatore: {[card.name for card in player1.playerHand.mazzo]}")
@@ -107,7 +107,7 @@ def add_card_scala(player1):
 
 
 def add_card(player1):
-    player1.playerHand.mazzo.append(get_onto()["2_Fiori_Blu"])
+    player1.playerHand.mazzo.append(get_onto()["8_Picche_Rosso"])
 
 #test_resolver_all()
 test_resolver()

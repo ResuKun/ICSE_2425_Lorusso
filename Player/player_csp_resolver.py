@@ -11,15 +11,23 @@ from aipython.cspSearch import Search_from_CSP
 #from Player.player_onto_modifier import apre_canasta_test
 import Ontologia.onto_access_util as onto_access_util
 import Utils.checks as checks
-from Ontologia.onto_save_manager import OntologyManager
+from Ontologia.onto_save_manager import OntologyManager, OntologyResource
 from Utils.CONST import CardValues
 
+#carica l'ontologia (singleton)
+def get_manager():
+    if not hasattr(get_manager, "_manager"):
+        get_manager._manager = OntologyManager()
+    return get_manager._manager
 
-def get_onto():
+def get_onto(debug_mode = False):
     if not hasattr(get_onto, "_onto"):
-        get_onto._onto = OntologyManager().get_ontology_from_manager()
+        manager = get_manager()
+        if debug_mode:
+            get_onto._onto = manager.get_ontology_from_manager(OntologyResource.UPDATED_GAME_TEST)
+        else: 
+            get_onto._onto = manager.get_ontology_from_manager()
     return get_onto._onto
-
 #da rendere adattivo , magari in base al numero di carte 
 #dato che con poche carte si abbasano le probabilità di trovare combinazioni
 #fino a 5 è gestibile
@@ -175,14 +183,14 @@ def find_csp_tris(player):
 
 
 #Update di un TRIS
-def can_update_csp_tris(player, lista_carte, tris):
+def can_update_csp_tris(player, lista_carte, tris, debug_mode = False):
     # def __init__(self, title, variables, constraints):
-    lista_numeri = checks.get_tuple_from_cards(lista_carte)
+    lista_numeri = checks.get_tuple_from_cards(lista_carte, True, debug_mode)
     lista_tris = []
     contain_jolly = False
     
     for card in tris.hasCards:
-        if not isinstance(card, (get_onto().Jolly, get_onto().Pinella)) and (card.numeroCarta, card.name) not in lista_tris:
+        if not isinstance(card, (get_onto(debug_mode).Jolly, get_onto().Pinella)) and (card.numeroCarta, card.name) not in lista_tris:
             mia_tupla = (card.numeroCarta, card.name)
             lista_tris.append(mia_tupla)
         elif isinstance(card, (get_onto().Jolly, get_onto().Pinella)):

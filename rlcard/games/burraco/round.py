@@ -51,7 +51,10 @@ class BurracoRound:
         self.move_sheet.append(PickUpCardMove(current_player, action=action, card=current_player.player1.playerHand.mazzo[-1]))
         self.log.info(f"-------------------------------------------------------------------------------------")
         self.log.info(f"-----------------------------------------NUOVO TURNO---------------------------------")
-        self.log.info(f"{current_player.player1.nomeGiocatore} ----> {current_player.player1.playerHand.mazzo[-1].name}")
+        self.log.info(f"{current_player.player1.nomeGiocatore} ")
+        self.log.info(f"---- carta pescata ----> {current_player.player1.playerHand.mazzo[-1].name}")
+        self.log.info(f"---- CARTE IN MANO: ")
+        self.log.info(f"{[card.name for card in current_player.player1.playerHand.mazzo]}")
         self.log.info(f"-------------------------------------------------------------------------------------")
 
     def pick_up_discard(self, action: PickUpDiscardAction):
@@ -62,7 +65,10 @@ class BurracoRound:
         cards = [carta.name for carta in current_player.player1.playerHand.mazzo[-len_cards:]]
         self.log.info(f"-------------------------------------------------------------------------------------")
         self.log.info(f"-----------------------------------------NUOVO TURNO---------------------------------")
-        self.log.info(f"{current_player.player1.nomeGiocatore} ----> {cards}")
+        self.log.info(f"{current_player.player1.nomeGiocatore} ")
+        self.log.info(f"---- carta pescata ----> {cards}")
+        self.log.info(f"---- CARTE IN MANO: ")
+        self.log.info(f"{[card.name for card in current_player.player1.playerHand.mazzo]}")
         self.log.info(f"-------------------------------------------------------------------------------------")
 
     def open_meld(self, action: OpenMeldAction):
