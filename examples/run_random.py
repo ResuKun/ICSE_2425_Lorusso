@@ -6,18 +6,21 @@ import pprint
 import rlcard
 from rlcard.agents import RandomAgent
 from rlcard.utils import set_seed
+from datetime import datetime
 
 def run(args):
+
+    seed = int(datetime.now().strftime("%S%f"))
     # Make environment
     env = rlcard.make(
         args.env,
         config={
-            'seed': 10,
+            'seed': seed,
         }
     )
 
     # Seed numpy, torch, random
-    set_seed(10)
+    set_seed(seed)
 
     # Set agents
     agent = RandomAgent(num_actions=env.num_actions)

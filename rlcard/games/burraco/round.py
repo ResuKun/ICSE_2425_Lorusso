@@ -3,7 +3,6 @@ import Ontologia.onto_access_util as onto_access_util
 import Player.player_onto_manager as player_onto_util
 from .move import *
 from Utils.logger import SingletonLogger 
-
 from .player import BurracoPlayer
 
 
@@ -110,8 +109,8 @@ class BurracoRound:
         onto_access_util.set_turnOf_by_id_player(self.current_player_id)
         self.game_judge.clean_map()
         self.log.info(f"-------------------------------------------------------------------------------------")
-        self.log.info(f"-----------------------------------------FINE---------------------------------")
         self.log.info(f"{current_player.player1.nomeGiocatore} ----> {onto_access_util.get_card_from_id(action.card_id).name}")
+        self.log.info(f"-----------------------------------------FINE---------------------------------")
         self.log.info(f"-------------------------------------------------------------------------------------")
 
 

@@ -311,6 +311,7 @@ aipython/searchGrid.py
 aipython/searchMPP.py
 aipython/searchProblem.py
 aipython/searchTest.py
+aipython/setup.py
 aipython/stripsCSPPlanner.py
 aipython/stripsForwardPlanner.py
 aipython/stripsHeuristic.py

@@ -16,6 +16,17 @@ class OntologyResource(Enum):
     INIT_GAME_TEST = ONTO_FOLDER + f"/Init_Game_Ontology.owl"
     UPDATED_GAME_TEST = ONTO_FOLDER + f"/Updated_Game_Ontology.owl"
 
+    def reset_sources(self):
+        self.timestamp = datetime.now().strftime("%Y%m%d_%H%M%S%f")
+        self.date = datetime.now().strftime("%Y_%m_%d")
+        self.ONTO_FOLDER = str(Path("Ontologia").absolute())
+        self.DATE_BK_DIR = ONTO_FOLDER + f"/BK/{date}"
+        self.CARD = ONTO_FOLDER + "/Cards_Ontology.owl"
+        self.INIT_GAME = DATE_BK_DIR + f"/Init_Game_Ontology{timestamp}.owl"
+        self.UPDATED_GAME = DATE_BK_DIR + f"/Updated_Game_Ontology{timestamp}.owl"
+        self.INIT_GAME_TEST = ONTO_FOLDER + f"/Init_Game_Ontology.owl"
+        self.UPDATED_GAME_TEST = ONTO_FOLDER + f"/Updated_Game_Ontology.owl"
+
 
 class OntologyManager:
     """Singleton che gestisce il caricamento e salvataggio delle ontologie Owlready2."""

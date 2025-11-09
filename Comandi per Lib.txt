@@ -11,6 +11,14 @@ pip install -e .
 pip install termcolor
  pip install setuptools
 
+#per girare su GPU (USARE Python 3.12 max, 3.13 non supportato per GPU)
+pip install torch torchvision torchaudio 
+--extra-index-url https://download.pytorch.org/whl/cu121
+#in caso di errore
+pip uninstall torch torchvision torchaudio -y
+#verifica l'installazione
+python -c "import torch; print(torch.cuda.is_available())"
+
 
 $env:PYTHONPATH="C:\Users\alexl\Documents\Facolta\ICSE\Progetto\Burraco\ICSE_2425_Lorusso\aipython"
 $env:PYTHONPATH="C:\Users\alexl\Documents\Facolta\ICSE\Progetto\Burraco\ICSE_2425_Lorusso"

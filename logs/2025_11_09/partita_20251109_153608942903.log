@@ -1,0 +1,1176 @@
+2025-11-09 15:36:08 - logger.py - INFO - _initialize - Logger inizializzato. File di log: logs/2025_11_09\partita_20251109_153608942903.log
+2025-11-09 15:36:08 - logger.py - INFO - _initialize - ---------------------------------------------------
+2025-11-09 15:36:08 - logger.py - INFO - _initialize - PARTITA ::  Partita_20251109_153608_086993
+2025-11-09 15:36:08 - logger.py - INFO - _initialize - ---------------------------------------------------
+2025-11-09 15:36:10 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:10 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:10 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:10 - round.py - INFO - pick_up_card - ---- carta pescata ----> 6_Cuori_Rosso
+2025-11-09 15:36:10 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:10 - round.py - INFO - pick_up_card - ['6_Fiori_Rosso', 'K_Fiori_Blu', '2_Fiori_Rosso', 'Q_Fiori_Blu', '6_Picche_Blu', '8_Picche_Rosso', '3_Quadri_Rosso', '3_Picche_Blu', 'A_Quadri_Rosso', 'Q_Fiori_Rosso', '7_Quadri_Rosso', '6_Cuori_Rosso']
+2025-11-09 15:36:10 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:11 - round.py - INFO - open_meld - Alessio ----> [(2, 27, 'Fiori', 20), (6, 98, 'Picche', 5), (8, 46, 'Picche', 10)]
+2025-11-09 15:36:11 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:11 - round.py - INFO - discard - Alessio ----> Q_Fiori_Rosso
+2025-11-09 15:36:11 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:11 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:12 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:12 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:12 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:12 - round.py - INFO - pick_up_card - ---- carta pescata ----> 8_Picche_Blu
+2025-11-09 15:36:12 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:12 - round.py - INFO - pick_up_card - ['3_Picche_Rosso', 'Q_Cuori_Rosso', '7_Fiori_Blu', 'J_Fiori_Rosso', '10_Cuori_Blu', '5_Quadri_Blu', '5_Picche_Rosso', 'J_Quadri_Rosso', 'K_Quadri_Rosso', '9_Picche_Blu', 'J_Cuori_Blu', '8_Picche_Blu']
+2025-11-09 15:36:12 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:12 - player_onto_manager.py - INFO - apre_tris -  J_Cuori_Blu -10 ----> partialScore ----> 10
+2025-11-09 15:36:12 - player_onto_manager.py - INFO - apre_tris -  J_Quadri_Rosso -10 ----> partialScore ----> 20
+2025-11-09 15:36:12 - player_onto_manager.py - INFO - apre_tris -  J_Fiori_Rosso -10 ----> partialScore ----> 30
+2025-11-09 15:36:12 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 30
+2025-11-09 15:36:13 - round.py - INFO - open_tris - MariaGrazia ----> [(11, 64, 'Cuori', 10), (11, 23, 'Quadri', 10), (11, 36, 'Fiori', 10)]
+2025-11-09 15:36:13 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:13 - round.py - INFO - discard - MariaGrazia ----> K_Quadri_Rosso
+2025-11-09 15:36:13 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:13 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:13 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:13 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:13 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:13 - round.py - INFO - pick_up_card - ---- carta pescata ----> A_Fiori_Rosso
+2025-11-09 15:36:13 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:13 - round.py - INFO - pick_up_card - ['6_Fiori_Rosso', 'K_Fiori_Blu', 'Q_Fiori_Blu', '3_Quadri_Rosso', '3_Picche_Blu', 'A_Quadri_Rosso', '7_Quadri_Rosso', '6_Cuori_Rosso', 'A_Fiori_Rosso']
+2025-11-09 15:36:13 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:13 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:13 - round.py - INFO - discard - Alessio ----> 6_Fiori_Rosso
+2025-11-09 15:36:13 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:13 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:13 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:13 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:13 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:13 - round.py - INFO - pick_up_card - ---- carta pescata ----> 3_Fiori_Rosso
+2025-11-09 15:36:13 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:13 - round.py - INFO - pick_up_card - ['3_Picche_Rosso', 'Q_Cuori_Rosso', '7_Fiori_Blu', '10_Cuori_Blu', '5_Quadri_Blu', '5_Picche_Rosso', '9_Picche_Blu', '8_Picche_Blu', '3_Fiori_Rosso']
+2025-11-09 15:36:13 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:14 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:14 - round.py - INFO - discard - MariaGrazia ----> 8_Picche_Blu
+2025-11-09 15:36:14 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:14 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:14 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:14 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:14 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:14 - round.py - INFO - pick_up_card - ---- carta pescata ----> A_Picche_Blu
+2025-11-09 15:36:14 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:14 - round.py - INFO - pick_up_card - ['K_Fiori_Blu', 'Q_Fiori_Blu', '3_Quadri_Rosso', '3_Picche_Blu', 'A_Quadri_Rosso', '7_Quadri_Rosso', '6_Cuori_Rosso', 'A_Fiori_Rosso', 'A_Picche_Blu']
+2025-11-09 15:36:14 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:14 - player_onto_manager.py - INFO - apre_tris -  A_Fiori_Rosso -15 ----> partialScore ----> 15
+2025-11-09 15:36:14 - player_onto_manager.py - INFO - apre_tris -  A_Picche_Blu -15 ----> partialScore ----> 30
+2025-11-09 15:36:14 - player_onto_manager.py - INFO - apre_tris -  A_Quadri_Rosso -15 ----> partialScore ----> 45
+2025-11-09 15:36:14 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 45
+2025-11-09 15:36:14 - round.py - INFO - open_tris - Alessio ----> [(1, 26, 'Fiori', 15), (1, 93, 'Picche', 15), (1, 13, 'Quadri', 15)]
+2025-11-09 15:36:14 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:14 - round.py - INFO - discard - Alessio ----> 3_Picche_Blu
+2025-11-09 15:36:14 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:14 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:14 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:14 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:14 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:14 - round.py - INFO - pick_up_card - ---- carta pescata ----> 2_Picche_Rosso
+2025-11-09 15:36:14 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:14 - round.py - INFO - pick_up_card - ['3_Picche_Rosso', 'Q_Cuori_Rosso', '7_Fiori_Blu', '10_Cuori_Blu', '5_Quadri_Blu', '5_Picche_Rosso', '9_Picche_Blu', '3_Fiori_Rosso', '2_Picche_Rosso']
+2025-11-09 15:36:14 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:14 - player_onto_manager.py - INFO - apre_tris -  2_Picche_Rosso -20 ----> partialScore ----> 20
+2025-11-09 15:36:14 - player_onto_manager.py - INFO - apre_tris -  5_Quadri_Blu -5 ----> partialScore ----> 25
+2025-11-09 15:36:14 - player_onto_manager.py - INFO - apre_tris -  5_Picche_Rosso -5 ----> partialScore ----> 30
+2025-11-09 15:36:14 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 30
+2025-11-09 15:36:14 - round.py - INFO - open_tris - MariaGrazia ----> [(2, 40, 'Picche', 20), (5, 71, 'Quadri', 5), (5, 43, 'Picche', 5)]
+2025-11-09 15:36:14 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:14 - round.py - INFO - discard - MariaGrazia ----> 10_Cuori_Blu
+2025-11-09 15:36:14 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:14 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:14 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:14 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:14 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:14 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['J_Cuori_Rosso', 'Q_Fiori_Rosso', 'K_Quadri_Rosso', '6_Fiori_Rosso', '8_Picche_Blu', '3_Picche_Blu', '10_Cuori_Blu']
+2025-11-09 15:36:14 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:14 - round.py - INFO - pick_up_discard - ['K_Fiori_Blu', 'Q_Fiori_Blu', '3_Quadri_Rosso', '7_Quadri_Rosso', '6_Cuori_Rosso', 'J_Cuori_Rosso', 'Q_Fiori_Rosso', 'K_Quadri_Rosso', '6_Fiori_Rosso', '8_Picche_Blu', '3_Picche_Blu', '10_Cuori_Blu']
+2025-11-09 15:36:14 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:16 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:16 - round.py - INFO - discard - Alessio ----> K_Fiori_Blu
+2025-11-09 15:36:16 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:16 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:16 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:16 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:16 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:16 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['K_Fiori_Blu']
+2025-11-09 15:36:16 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:16 - round.py - INFO - pick_up_discard - ['3_Picche_Rosso', 'Q_Cuori_Rosso', '7_Fiori_Blu', '9_Picche_Blu', '3_Fiori_Rosso', 'K_Fiori_Blu']
+2025-11-09 15:36:16 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:16 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:16 - round.py - INFO - discard - MariaGrazia ----> 3_Fiori_Rosso
+2025-11-09 15:36:16 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:16 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:16 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:16 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:16 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:16 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['3_Fiori_Rosso']
+2025-11-09 15:36:16 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:16 - round.py - INFO - pick_up_discard - ['Q_Fiori_Blu', '3_Quadri_Rosso', '7_Quadri_Rosso', '6_Cuori_Rosso', 'J_Cuori_Rosso', 'Q_Fiori_Rosso', 'K_Quadri_Rosso', '6_Fiori_Rosso', '8_Picche_Blu', '3_Picche_Blu', '10_Cuori_Blu', '3_Fiori_Rosso']
+2025-11-09 15:36:16 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:17 - player_onto_manager.py - INFO - apre_tris -  3_Fiori_Rosso -5 ----> partialScore ----> 5
+2025-11-09 15:36:17 - player_onto_manager.py - INFO - apre_tris -  3_Quadri_Rosso -5 ----> partialScore ----> 10
+2025-11-09 15:36:17 - player_onto_manager.py - INFO - apre_tris -  3_Picche_Blu -5 ----> partialScore ----> 15
+2025-11-09 15:36:17 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 15
+2025-11-09 15:36:17 - round.py - INFO - open_tris - Alessio ----> [(3, 28, 'Fiori', 5), (3, 15, 'Quadri', 5), (3, 95, 'Picche', 5)]
+2025-11-09 15:36:17 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:17 - round.py - INFO - discard - Alessio ----> Q_Fiori_Blu
+2025-11-09 15:36:17 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:17 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:17 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:17 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:17 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:17 - round.py - INFO - pick_up_card - ---- carta pescata ----> 10_Quadri_Rosso
+2025-11-09 15:36:17 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:17 - round.py - INFO - pick_up_card - ['3_Picche_Rosso', 'Q_Cuori_Rosso', '7_Fiori_Blu', '9_Picche_Blu', 'K_Fiori_Blu', '10_Quadri_Rosso']
+2025-11-09 15:36:17 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:17 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:17 - round.py - INFO - discard - MariaGrazia ----> 3_Picche_Rosso
+2025-11-09 15:36:17 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:17 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:17 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:17 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:17 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:17 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['Q_Fiori_Blu', '3_Picche_Rosso']
+2025-11-09 15:36:17 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:17 - round.py - INFO - pick_up_discard - ['7_Quadri_Rosso', '6_Cuori_Rosso', 'J_Cuori_Rosso', 'Q_Fiori_Rosso', 'K_Quadri_Rosso', '6_Fiori_Rosso', '8_Picche_Blu', '10_Cuori_Blu', 'Q_Fiori_Blu', '3_Picche_Rosso']
+2025-11-09 15:36:17 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:17 - round.py - INFO - update_tris - Alessio ----> 3 -->3_Picche_Rosso
+2025-11-09 15:36:18 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:18 - round.py - INFO - discard - Alessio ----> 7_Quadri_Rosso
+2025-11-09 15:36:18 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:18 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['7_Quadri_Rosso']
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - ['Q_Cuori_Rosso', '7_Fiori_Blu', '9_Picche_Blu', 'K_Fiori_Blu', '10_Quadri_Rosso', '7_Quadri_Rosso']
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:18 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:18 - round.py - INFO - discard - MariaGrazia ----> 7_Quadri_Rosso
+2025-11-09 15:36:18 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:18 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:18 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:18 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:18 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:18 - round.py - INFO - pick_up_card - ---- carta pescata ----> 8_Quadri_Blu
+2025-11-09 15:36:18 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:18 - round.py - INFO - pick_up_card - ['6_Cuori_Rosso', 'J_Cuori_Rosso', 'Q_Fiori_Rosso', 'K_Quadri_Rosso', '6_Fiori_Rosso', '8_Picche_Blu', '10_Cuori_Blu', 'Q_Fiori_Blu', '8_Quadri_Blu']
+2025-11-09 15:36:18 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:18 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:18 - round.py - INFO - discard - Alessio ----> 8_Picche_Blu
+2025-11-09 15:36:18 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:18 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['7_Quadri_Rosso', '8_Picche_Blu']
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - ['Q_Cuori_Rosso', '7_Fiori_Blu', '9_Picche_Blu', 'K_Fiori_Blu', '10_Quadri_Rosso', '7_Quadri_Rosso', '8_Picche_Blu']
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:18 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:18 - round.py - INFO - discard - MariaGrazia ----> 8_Picche_Blu
+2025-11-09 15:36:18 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:18 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['8_Picche_Blu']
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - ['6_Cuori_Rosso', 'J_Cuori_Rosso', 'Q_Fiori_Rosso', 'K_Quadri_Rosso', '6_Fiori_Rosso', '10_Cuori_Blu', 'Q_Fiori_Blu', '8_Quadri_Blu', '8_Picche_Blu']
+2025-11-09 15:36:18 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:19 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:19 - round.py - INFO - discard - Alessio ----> 6_Fiori_Rosso
+2025-11-09 15:36:19 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:19 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:19 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:19 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:19 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:19 - round.py - INFO - pick_up_card - ---- carta pescata ----> 5_Fiori_Rosso
+2025-11-09 15:36:19 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:19 - round.py - INFO - pick_up_card - ['Q_Cuori_Rosso', '7_Fiori_Blu', '9_Picche_Blu', 'K_Fiori_Blu', '10_Quadri_Rosso', '7_Quadri_Rosso', '5_Fiori_Rosso']
+2025-11-09 15:36:19 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:19 - round.py - INFO - update_tris - MariaGrazia ----> 5 -->5_Fiori_Rosso
+2025-11-09 15:36:19 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:19 - round.py - INFO - discard - MariaGrazia ----> 9_Picche_Blu
+2025-11-09 15:36:19 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:19 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['6_Fiori_Rosso', '9_Picche_Blu']
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - ['6_Cuori_Rosso', 'J_Cuori_Rosso', 'Q_Fiori_Rosso', 'K_Quadri_Rosso', '10_Cuori_Blu', 'Q_Fiori_Blu', '8_Quadri_Blu', '8_Picche_Blu', '6_Fiori_Rosso', '9_Picche_Blu']
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:19 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:19 - round.py - INFO - discard - Alessio ----> 10_Cuori_Blu
+2025-11-09 15:36:19 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:19 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['10_Cuori_Blu']
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - ['Q_Cuori_Rosso', '7_Fiori_Blu', 'K_Fiori_Blu', '10_Quadri_Rosso', '7_Quadri_Rosso', '10_Cuori_Blu']
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:19 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:19 - round.py - INFO - discard - MariaGrazia ----> 10_Quadri_Rosso
+2025-11-09 15:36:19 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:19 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['10_Quadri_Rosso']
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - ['6_Cuori_Rosso', 'J_Cuori_Rosso', 'Q_Fiori_Rosso', 'K_Quadri_Rosso', 'Q_Fiori_Blu', '8_Quadri_Blu', '8_Picche_Blu', '6_Fiori_Rosso', '9_Picche_Blu', '10_Quadri_Rosso']
+2025-11-09 15:36:19 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:20 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:20 - round.py - INFO - discard - Alessio ----> 8_Quadri_Blu
+2025-11-09 15:36:20 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:20 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:20 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:20 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:20 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:20 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['8_Quadri_Blu']
+2025-11-09 15:36:20 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:20 - round.py - INFO - pick_up_discard - ['Q_Cuori_Rosso', '7_Fiori_Blu', 'K_Fiori_Blu', '7_Quadri_Rosso', '10_Cuori_Blu', '8_Quadri_Blu']
+2025-11-09 15:36:20 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:20 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:20 - round.py - INFO - discard - MariaGrazia ----> Q_Cuori_Rosso
+2025-11-09 15:36:20 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:20 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:20 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:20 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:20 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:20 - round.py - INFO - pick_up_card - ---- carta pescata ----> K_Picche_Rosso
+2025-11-09 15:36:20 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:20 - round.py - INFO - pick_up_card - ['6_Cuori_Rosso', 'J_Cuori_Rosso', 'Q_Fiori_Rosso', 'K_Quadri_Rosso', 'Q_Fiori_Blu', '8_Picche_Blu', '6_Fiori_Rosso', '9_Picche_Blu', '10_Quadri_Rosso', 'K_Picche_Rosso']
+2025-11-09 15:36:20 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:20 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:20 - round.py - INFO - discard - Alessio ----> Q_Fiori_Rosso
+2025-11-09 15:36:20 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:20 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:20 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:20 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:20 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:20 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['Q_Cuori_Rosso', 'Q_Fiori_Rosso']
+2025-11-09 15:36:20 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:20 - round.py - INFO - pick_up_discard - ['7_Fiori_Blu', 'K_Fiori_Blu', '7_Quadri_Rosso', '10_Cuori_Blu', '8_Quadri_Blu', 'Q_Cuori_Rosso', 'Q_Fiori_Rosso']
+2025-11-09 15:36:20 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:21 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:21 - round.py - INFO - discard - MariaGrazia ----> Q_Fiori_Rosso
+2025-11-09 15:36:21 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:21 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:21 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:21 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:21 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:21 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['Q_Fiori_Rosso']
+2025-11-09 15:36:21 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:21 - round.py - INFO - pick_up_discard - ['6_Cuori_Rosso', 'J_Cuori_Rosso', 'K_Quadri_Rosso', 'Q_Fiori_Blu', '8_Picche_Blu', '6_Fiori_Rosso', '9_Picche_Blu', '10_Quadri_Rosso', 'K_Picche_Rosso', 'Q_Fiori_Rosso']
+2025-11-09 15:36:21 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:21 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:21 - round.py - INFO - discard - Alessio ----> 9_Picche_Blu
+2025-11-09 15:36:21 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:21 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:21 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:21 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:21 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:21 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['9_Picche_Blu']
+2025-11-09 15:36:21 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:21 - round.py - INFO - pick_up_discard - ['7_Fiori_Blu', 'K_Fiori_Blu', '7_Quadri_Rosso', '10_Cuori_Blu', '8_Quadri_Blu', 'Q_Cuori_Rosso', '9_Picche_Blu']
+2025-11-09 15:36:21 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:21 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:21 - round.py - INFO - discard - MariaGrazia ----> 9_Picche_Blu
+2025-11-09 15:36:21 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:21 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:21 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:21 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:21 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:21 - round.py - INFO - pick_up_card - ---- carta pescata ----> 5_Quadri_Rosso
+2025-11-09 15:36:21 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:21 - round.py - INFO - pick_up_card - ['6_Cuori_Rosso', 'J_Cuori_Rosso', 'K_Quadri_Rosso', 'Q_Fiori_Blu', '8_Picche_Blu', '6_Fiori_Rosso', '10_Quadri_Rosso', 'K_Picche_Rosso', 'Q_Fiori_Rosso', '5_Quadri_Rosso']
+2025-11-09 15:36:21 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:22 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:22 - round.py - INFO - discard - Alessio ----> Q_Fiori_Blu
+2025-11-09 15:36:22 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:22 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['9_Picche_Blu', 'Q_Fiori_Blu']
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - ['7_Fiori_Blu', 'K_Fiori_Blu', '7_Quadri_Rosso', '10_Cuori_Blu', '8_Quadri_Blu', 'Q_Cuori_Rosso', '9_Picche_Blu', 'Q_Fiori_Blu']
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:22 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:22 - round.py - INFO - discard - MariaGrazia ----> Q_Fiori_Blu
+2025-11-09 15:36:22 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:22 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['Q_Fiori_Blu']
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - ['6_Cuori_Rosso', 'J_Cuori_Rosso', 'K_Quadri_Rosso', '8_Picche_Blu', '6_Fiori_Rosso', '10_Quadri_Rosso', 'K_Picche_Rosso', 'Q_Fiori_Rosso', '5_Quadri_Rosso', 'Q_Fiori_Blu']
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:22 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:22 - round.py - INFO - discard - Alessio ----> 6_Fiori_Rosso
+2025-11-09 15:36:22 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:22 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['6_Fiori_Rosso']
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - ['7_Fiori_Blu', 'K_Fiori_Blu', '7_Quadri_Rosso', '10_Cuori_Blu', '8_Quadri_Blu', 'Q_Cuori_Rosso', '9_Picche_Blu', '6_Fiori_Rosso']
+2025-11-09 15:36:22 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:23 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:23 - round.py - INFO - discard - MariaGrazia ----> K_Fiori_Blu
+2025-11-09 15:36:23 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:23 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:23 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:23 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:23 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:23 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['K_Fiori_Blu']
+2025-11-09 15:36:23 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:23 - round.py - INFO - pick_up_discard - ['6_Cuori_Rosso', 'J_Cuori_Rosso', 'K_Quadri_Rosso', '8_Picche_Blu', '10_Quadri_Rosso', 'K_Picche_Rosso', 'Q_Fiori_Rosso', '5_Quadri_Rosso', 'Q_Fiori_Blu', 'K_Fiori_Blu']
+2025-11-09 15:36:23 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:23 - player_onto_manager.py - INFO - apre_tris -  K_Fiori_Blu -10 ----> partialScore ----> 10
+2025-11-09 15:36:23 - player_onto_manager.py - INFO - apre_tris -  K_Picche_Rosso -10 ----> partialScore ----> 20
+2025-11-09 15:36:23 - player_onto_manager.py - INFO - apre_tris -  K_Quadri_Rosso -10 ----> partialScore ----> 30
+2025-11-09 15:36:23 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 30
+2025-11-09 15:36:23 - round.py - INFO - open_tris - Alessio ----> [(13, 92, 'Fiori', 10), (13, 51, 'Picche', 10), (13, 25, 'Quadri', 10)]
+2025-11-09 15:36:23 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:23 - round.py - INFO - discard - Alessio ----> 5_Quadri_Rosso
+2025-11-09 15:36:23 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:23 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:23 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:23 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:23 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:23 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['5_Quadri_Rosso']
+2025-11-09 15:36:23 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:23 - round.py - INFO - pick_up_discard - ['7_Fiori_Blu', '7_Quadri_Rosso', '10_Cuori_Blu', '8_Quadri_Blu', 'Q_Cuori_Rosso', '9_Picche_Blu', '6_Fiori_Rosso', '5_Quadri_Rosso']
+2025-11-09 15:36:23 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:23 - round.py - INFO - update_tris - MariaGrazia ----> 5 -->5_Quadri_Rosso
+2025-11-09 15:36:24 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:24 - round.py - INFO - discard - MariaGrazia ----> 7_Quadri_Rosso
+2025-11-09 15:36:24 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:24 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - ---- carta pescata ----> 4_Cuori_Blu
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - ['6_Cuori_Rosso', 'J_Cuori_Rosso', '8_Picche_Blu', '10_Quadri_Rosso', 'Q_Fiori_Rosso', 'Q_Fiori_Blu', '4_Cuori_Blu']
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:24 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:24 - round.py - INFO - discard - Alessio ----> 4_Cuori_Blu
+2025-11-09 15:36:24 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:24 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - ---- carta pescata ----> 5_Fiori_Blu
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - ['7_Fiori_Blu', '10_Cuori_Blu', '8_Quadri_Blu', 'Q_Cuori_Rosso', '9_Picche_Blu', '6_Fiori_Rosso', '5_Fiori_Blu']
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:24 - round.py - INFO - update_tris - MariaGrazia ----> 5 -->5_Fiori_Blu
+2025-11-09 15:36:24 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:24 - round.py - INFO - discard - MariaGrazia ----> 6_Fiori_Rosso
+2025-11-09 15:36:24 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:24 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - ---- carta pescata ----> 2_Picche_Blu
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - ['6_Cuori_Rosso', 'J_Cuori_Rosso', '8_Picche_Blu', '10_Quadri_Rosso', 'Q_Fiori_Rosso', 'Q_Fiori_Blu', '2_Picche_Blu']
+2025-11-09 15:36:24 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:24 - player_onto_manager.py - INFO - apre_tris -  2_Picche_Blu -20 ----> partialScore ----> 20
+2025-11-09 15:36:24 - player_onto_manager.py - INFO - apre_tris -  Q_Fiori_Rosso -10 ----> partialScore ----> 30
+2025-11-09 15:36:24 - player_onto_manager.py - INFO - apre_tris -  Q_Fiori_Blu -10 ----> partialScore ----> 40
+2025-11-09 15:36:24 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 40
+2025-11-09 15:36:24 - round.py - INFO - open_tris - Alessio ----> [(2, 94, 'Picche', 20), (12, 37, 'Fiori', 10), (12, 91, 'Fiori', 10)]
+2025-11-09 15:36:24 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:24 - round.py - INFO - discard - Alessio ----> J_Cuori_Rosso
+2025-11-09 15:36:24 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:24 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:24 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:24 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:24 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:24 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['7_Quadri_Rosso', '4_Cuori_Blu', '6_Fiori_Rosso', 'J_Cuori_Rosso']
+2025-11-09 15:36:24 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:24 - round.py - INFO - pick_up_discard - ['7_Fiori_Blu', '10_Cuori_Blu', '8_Quadri_Blu', 'Q_Cuori_Rosso', '9_Picche_Blu', '7_Quadri_Rosso', '4_Cuori_Blu', '6_Fiori_Rosso', 'J_Cuori_Rosso']
+2025-11-09 15:36:24 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - open_meld - MariaGrazia ----> [(10, 63, 'Cuori', 10), (11, 10, 'Cuori', 10), (12, 11, 'Cuori', 10)]
+2025-11-09 15:36:25 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - MariaGrazia ----> 8_Quadri_Blu
+2025-11-09 15:36:25 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['8_Quadri_Blu']
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - ['6_Cuori_Rosso', '8_Picche_Blu', '10_Quadri_Rosso', '8_Quadri_Blu']
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - Alessio ----> 10_Quadri_Rosso
+2025-11-09 15:36:25 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - ---- carta pescata ----> 6_Quadri_Blu
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - ['7_Fiori_Blu', '9_Picche_Blu', '7_Quadri_Rosso', '4_Cuori_Blu', '6_Fiori_Rosso', '6_Quadri_Blu']
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - MariaGrazia ----> 4_Cuori_Blu
+2025-11-09 15:36:25 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['10_Quadri_Rosso', '4_Cuori_Blu']
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - ['6_Cuori_Rosso', '8_Picche_Blu', '8_Quadri_Blu', '10_Quadri_Rosso', '4_Cuori_Blu']
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - Alessio ----> 8_Picche_Blu
+2025-11-09 15:36:25 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - ---- carta pescata ----> 9_Cuori_Rosso
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - ['7_Fiori_Blu', '9_Picche_Blu', '7_Quadri_Rosso', '6_Fiori_Rosso', '6_Quadri_Blu', '9_Cuori_Rosso']
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - MariaGrazia ----> 6_Quadri_Blu
+2025-11-09 15:36:25 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - ---- carta pescata ----> Q_Quadri_Rosso
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - ['6_Cuori_Rosso', '8_Quadri_Blu', '10_Quadri_Rosso', '4_Cuori_Blu', 'Q_Quadri_Rosso']
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - update_tris - Alessio ----> 12 -->Q_Quadri_Rosso
+2025-11-09 15:36:25 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - Alessio ----> 4_Cuori_Blu
+2025-11-09 15:36:25 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['8_Picche_Blu', '6_Quadri_Blu', '4_Cuori_Blu']
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - ['7_Fiori_Blu', '9_Picche_Blu', '7_Quadri_Rosso', '6_Fiori_Rosso', '9_Cuori_Rosso', '8_Picche_Blu', '6_Quadri_Blu', '4_Cuori_Blu']
+2025-11-09 15:36:25 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - MariaGrazia ----> 4_Cuori_Blu
+2025-11-09 15:36:25 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - ---- carta pescata ----> Jolly_Jolly_N_Blu
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - ['6_Cuori_Rosso', '8_Quadri_Blu', '10_Quadri_Rosso', 'Jolly_Jolly_N_Blu']
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - update_tris - Alessio ----> 13 -->Jolly_Jolly_N_Blu
+2025-11-09 15:36:25 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - Alessio ----> 10_Quadri_Rosso
+2025-11-09 15:36:25 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:25 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - ---- carta pescata ----> 6_Cuori_Blu
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - ['7_Fiori_Blu', '9_Picche_Blu', '7_Quadri_Rosso', '6_Fiori_Rosso', '9_Cuori_Rosso', '8_Picche_Blu', '6_Quadri_Blu', '6_Cuori_Blu']
+2025-11-09 15:36:25 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - player_onto_manager.py - INFO - apre_tris -  6_Cuori_Blu -5 ----> partialScore ----> 5
+2025-11-09 15:36:26 - player_onto_manager.py - INFO - apre_tris -  6_Fiori_Rosso -5 ----> partialScore ----> 10
+2025-11-09 15:36:26 - player_onto_manager.py - INFO - apre_tris -  6_Quadri_Blu -5 ----> partialScore ----> 15
+2025-11-09 15:36:26 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 15
+2025-11-09 15:36:26 - round.py - INFO - open_tris - MariaGrazia ----> [(6, 59, 'Cuori', 5), (6, 31, 'Fiori', 5), (6, 72, 'Quadri', 5)]
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - MariaGrazia ----> 7_Quadri_Rosso
+2025-11-09 15:36:26 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['4_Cuori_Blu', '10_Quadri_Rosso', '7_Quadri_Rosso']
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - ['6_Cuori_Rosso', '8_Quadri_Blu', '4_Cuori_Blu', '10_Quadri_Rosso', '7_Quadri_Rosso']
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - Alessio ----> 6_Cuori_Rosso
+2025-11-09 15:36:26 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ---- carta pescata ----> 7_Picche_Blu
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ['7_Fiori_Blu', '9_Picche_Blu', '9_Cuori_Rosso', '8_Picche_Blu', '7_Picche_Blu']
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - open_meld - MariaGrazia ----> [(7, 99, 'Picche', 5), (8, 100, 'Picche', 10), (9, 101, 'Picche', 10)]
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - MariaGrazia ----> 9_Cuori_Rosso
+2025-11-09 15:36:26 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ---- carta pescata ----> 10_Cuori_Rosso
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ['8_Quadri_Blu', '4_Cuori_Blu', '10_Quadri_Rosso', '7_Quadri_Rosso', '10_Cuori_Rosso']
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - Alessio ----> 10_Cuori_Rosso
+2025-11-09 15:36:26 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['6_Cuori_Rosso', '9_Cuori_Rosso', '10_Cuori_Rosso']
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - ['7_Fiori_Blu', '6_Cuori_Rosso', '9_Cuori_Rosso', '10_Cuori_Rosso']
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - update_tris - MariaGrazia ----> 6 -->6_Cuori_Rosso
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - MariaGrazia ----> 9_Cuori_Rosso
+2025-11-09 15:36:26 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ---- carta pescata ----> 3_Cuori_Rosso
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ['8_Quadri_Blu', '4_Cuori_Blu', '10_Quadri_Rosso', '7_Quadri_Rosso', '3_Cuori_Rosso']
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - update_tris - Alessio ----> 3 -->3_Cuori_Rosso
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - Alessio ----> 10_Quadri_Rosso
+2025-11-09 15:36:26 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ---- carta pescata ----> 6_Quadri_Rosso
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ['7_Fiori_Blu', '10_Cuori_Rosso', '6_Quadri_Rosso']
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - update_tris - MariaGrazia ----> 6 -->6_Quadri_Rosso
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - MariaGrazia ----> 7_Fiori_Blu
+2025-11-09 15:36:26 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['9_Cuori_Rosso', '10_Quadri_Rosso', '7_Fiori_Blu']
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - ['8_Quadri_Blu', '4_Cuori_Blu', '7_Quadri_Rosso', '9_Cuori_Rosso', '10_Quadri_Rosso', '7_Fiori_Blu']
+2025-11-09 15:36:26 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - Alessio ----> 4_Cuori_Blu
+2025-11-09 15:36:26 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ---- carta pescata ----> J_Quadri_Blu
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ['10_Cuori_Rosso', 'J_Quadri_Blu']
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - MariaGrazia ----> 10_Cuori_Rosso
+2025-11-09 15:36:26 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ---- carta pescata ----> 10_Quadri_Blu
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - ['8_Quadri_Blu', '7_Quadri_Rosso', '9_Cuori_Rosso', '10_Quadri_Rosso', '7_Fiori_Blu', '10_Quadri_Blu']
+2025-11-09 15:36:26 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - Alessio ----> 10_Quadri_Blu
+2025-11-09 15:36:27 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - ---- carta pescata ----> 7_Cuori_Rosso
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - ['J_Quadri_Blu', '7_Cuori_Rosso']
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - MariaGrazia ----> J_Quadri_Blu
+2025-11-09 15:36:27 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['4_Cuori_Blu', '10_Cuori_Rosso', '10_Quadri_Blu', 'J_Quadri_Blu']
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - ['8_Quadri_Blu', '7_Quadri_Rosso', '9_Cuori_Rosso', '10_Quadri_Rosso', '7_Fiori_Blu', '4_Cuori_Blu', '10_Cuori_Rosso', '10_Quadri_Blu', 'J_Quadri_Blu']
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - player_onto_manager.py - INFO - apre_tris -  10_Quadri_Rosso -10 ----> partialScore ----> 10
+2025-11-09 15:36:27 - player_onto_manager.py - INFO - apre_tris -  10_Quadri_Blu -10 ----> partialScore ----> 20
+2025-11-09 15:36:27 - player_onto_manager.py - INFO - apre_tris -  10_Cuori_Rosso -10 ----> partialScore ----> 30
+2025-11-09 15:36:27 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 30
+2025-11-09 15:36:27 - round.py - INFO - open_tris - Alessio ----> [(10, 22, 'Quadri', 10), (10, 76, 'Quadri', 10), (10, 9, 'Cuori', 10)]
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - Alessio ----> 7_Quadri_Rosso
+2025-11-09 15:36:27 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - ---- carta pescata ----> 10_Picche_Blu
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - ['7_Cuori_Rosso', '10_Picche_Blu']
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - MariaGrazia ----> 7_Cuori_Rosso
+2025-11-09 15:36:27 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['7_Quadri_Rosso', '7_Cuori_Rosso']
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - ['8_Quadri_Blu', '9_Cuori_Rosso', '7_Fiori_Blu', '4_Cuori_Blu', 'J_Quadri_Blu', '7_Quadri_Rosso', '7_Cuori_Rosso']
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - player_onto_manager.py - INFO - apre_tris -  7_Quadri_Rosso -5 ----> partialScore ----> 5
+2025-11-09 15:36:27 - player_onto_manager.py - INFO - apre_tris -  7_Fiori_Blu -5 ----> partialScore ----> 10
+2025-11-09 15:36:27 - player_onto_manager.py - INFO - apre_tris -  7_Cuori_Rosso -5 ----> partialScore ----> 15
+2025-11-09 15:36:27 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 15
+2025-11-09 15:36:27 - round.py - INFO - open_tris - Alessio ----> [(7, 19, 'Quadri', 5), (7, 86, 'Fiori', 5), (7, 6, 'Cuori', 5)]
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - Alessio ----> 9_Cuori_Rosso
+2025-11-09 15:36:27 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - ---- carta pescata ----> 4_Picche_Blu
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - ['10_Picche_Blu', '4_Picche_Blu']
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - MariaGrazia ----> 10_Picche_Blu
+2025-11-09 15:36:27 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['9_Cuori_Rosso', '10_Picche_Blu']
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - ['8_Quadri_Blu', '4_Cuori_Blu', 'J_Quadri_Blu', '9_Cuori_Rosso', '10_Picche_Blu']
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - update_tris - Alessio ----> 10 -->10_Picche_Blu
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - Alessio ----> J_Quadri_Blu
+2025-11-09 15:36:27 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['J_Quadri_Blu']
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - ['4_Picche_Blu', 'J_Quadri_Blu']
+2025-11-09 15:36:27 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - MariaGrazia ----> J_Quadri_Blu
+2025-11-09 15:36:27 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - ---- carta pescata ----> 4_Quadri_Blu
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - ['8_Quadri_Blu', '4_Cuori_Blu', '9_Cuori_Rosso', '4_Quadri_Blu']
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - Alessio ----> 9_Cuori_Rosso
+2025-11-09 15:36:27 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - ---- carta pescata ----> 3_Cuori_Blu
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - ['4_Picche_Blu', '3_Cuori_Blu']
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - MariaGrazia ----> 4_Picche_Blu
+2025-11-09 15:36:27 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:27 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:27 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- carta pescata ----> Q_Cuori_Blu
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ['8_Quadri_Blu', '4_Cuori_Blu', '4_Quadri_Blu', 'Q_Cuori_Blu']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - update_tris - Alessio ----> 12 -->Q_Cuori_Blu
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - Alessio ----> 4_Cuori_Blu
+2025-11-09 15:36:28 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- carta pescata ----> 8_Cuori_Rosso
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ['3_Cuori_Blu', '8_Cuori_Rosso']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - MariaGrazia ----> 8_Cuori_Rosso
+2025-11-09 15:36:28 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['J_Quadri_Blu', '9_Cuori_Rosso', '4_Picche_Blu', '4_Cuori_Blu', '8_Cuori_Rosso']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ['8_Quadri_Blu', '4_Quadri_Blu', 'J_Quadri_Blu', '9_Cuori_Rosso', '4_Picche_Blu', '4_Cuori_Blu', '8_Cuori_Rosso']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - player_onto_manager.py - INFO - apre_tris -  4_Quadri_Blu -5 ----> partialScore ----> 5
+2025-11-09 15:36:28 - player_onto_manager.py - INFO - apre_tris -  4_Picche_Blu -5 ----> partialScore ----> 10
+2025-11-09 15:36:28 - player_onto_manager.py - INFO - apre_tris -  4_Cuori_Blu -5 ----> partialScore ----> 15
+2025-11-09 15:36:28 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 15
+2025-11-09 15:36:28 - round.py - INFO - open_tris - Alessio ----> [(4, 70, 'Quadri', 5), (4, 96, 'Picche', 5), (4, 57, 'Cuori', 5)]
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - Alessio ----> J_Quadri_Blu
+2025-11-09 15:36:28 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- carta pescata ----> 10_Picche_Rosso
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ['3_Cuori_Blu', '10_Picche_Rosso']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - MariaGrazia ----> 10_Picche_Rosso
+2025-11-09 15:36:28 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- carta pescata ----> 4_Picche_Rosso
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ['8_Quadri_Blu', '9_Cuori_Rosso', '8_Cuori_Rosso', '4_Picche_Rosso']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - update_tris - Alessio ----> 4 -->4_Picche_Rosso
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - Alessio ----> 9_Cuori_Rosso
+2025-11-09 15:36:28 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['J_Quadri_Blu', '10_Picche_Rosso', '9_Cuori_Rosso']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ['3_Cuori_Blu', 'J_Quadri_Blu', '10_Picche_Rosso', '9_Cuori_Rosso']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - update_tris - MariaGrazia ----> 11 -->J_Quadri_Blu
+2025-11-09 15:36:28 - round.py - INFO - update_meld - MariaGrazia ----> Scala_1_Giocatore1 --> 10_Picche_Rosso
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - MariaGrazia ----> 9_Cuori_Rosso
+2025-11-09 15:36:28 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['9_Cuori_Rosso']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ['8_Quadri_Blu', '8_Cuori_Rosso', '9_Cuori_Rosso']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - Alessio ----> 9_Cuori_Rosso
+2025-11-09 15:36:28 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- carta pescata ----> 9_Fiori_Blu
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ['3_Cuori_Blu', '9_Fiori_Blu']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - MariaGrazia ----> 9_Fiori_Blu
+2025-11-09 15:36:28 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- carta pescata ----> 2_Quadri_Blu
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ['8_Quadri_Blu', '8_Cuori_Rosso', '2_Quadri_Blu']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - update_tris - Alessio ----> 3 -->2_Quadri_Blu
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - Alessio ----> 8_Quadri_Blu
+2025-11-09 15:36:28 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['9_Cuori_Rosso', '9_Fiori_Blu', '8_Quadri_Blu']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ['3_Cuori_Blu', '9_Cuori_Rosso', '9_Fiori_Blu', '8_Quadri_Blu']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - MariaGrazia ----> 3_Cuori_Blu
+2025-11-09 15:36:28 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['3_Cuori_Blu']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ['8_Cuori_Rosso', '3_Cuori_Blu']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - Alessio ----> 8_Cuori_Rosso
+2025-11-09 15:36:28 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['8_Cuori_Rosso']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ['9_Cuori_Rosso', '9_Fiori_Blu', '8_Quadri_Blu', '8_Cuori_Rosso']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - MariaGrazia ----> 8_Quadri_Blu
+2025-11-09 15:36:28 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- carta pescata ----> 10_Fiori_Blu
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ['3_Cuori_Blu', '10_Fiori_Blu']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - Alessio ----> 3_Cuori_Blu
+2025-11-09 15:36:28 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- carta pescata ----> 2_Cuori_Blu
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ['9_Cuori_Rosso', '9_Fiori_Blu', '8_Cuori_Rosso', '2_Cuori_Blu']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - update_tris - MariaGrazia ----> 6 -->2_Cuori_Blu
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - MariaGrazia ----> 8_Cuori_Rosso
+2025-11-09 15:36:28 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- carta pescata ----> Q_Picche_Rosso
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - ['10_Fiori_Blu', 'Q_Picche_Rosso']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - Alessio ----> 10_Fiori_Blu
+2025-11-09 15:36:28 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['8_Quadri_Blu', '3_Cuori_Blu', '8_Cuori_Rosso', '10_Fiori_Blu']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - ['9_Cuori_Rosso', '9_Fiori_Blu', '8_Quadri_Blu', '3_Cuori_Blu', '8_Cuori_Rosso', '10_Fiori_Blu']
+2025-11-09 15:36:28 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - MariaGrazia ----> 9_Cuori_Rosso
+2025-11-09 15:36:29 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - ---- carta pescata ----> 9_Picche_Rosso
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - ['Q_Picche_Rosso', '9_Picche_Rosso']
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - Alessio ----> Q_Picche_Rosso
+2025-11-09 15:36:29 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:29 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['9_Cuori_Rosso', 'Q_Picche_Rosso']
+2025-11-09 15:36:29 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:29 - round.py - INFO - pick_up_discard - ['9_Fiori_Blu', '8_Quadri_Blu', '3_Cuori_Blu', '8_Cuori_Rosso', '10_Fiori_Blu', '9_Cuori_Rosso', 'Q_Picche_Rosso']
+2025-11-09 15:36:29 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - MariaGrazia ----> 8_Cuori_Rosso
+2025-11-09 15:36:29 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - ---- carta pescata ----> 7_Cuori_Blu
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - ['9_Picche_Rosso', '7_Cuori_Blu']
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - Alessio ----> 7_Cuori_Blu
+2025-11-09 15:36:29 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - ---- carta pescata ----> Q_Picche_Blu
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - ['9_Fiori_Blu', '8_Quadri_Blu', '3_Cuori_Blu', '10_Fiori_Blu', '9_Cuori_Rosso', 'Q_Picche_Rosso', 'Q_Picche_Blu']
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - MariaGrazia ----> 9_Fiori_Blu
+2025-11-09 15:36:29 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - ---- carta pescata ----> 2_Fiori_Blu
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - ['9_Picche_Rosso', '2_Fiori_Blu']
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - Alessio ----> 2_Fiori_Blu
+2025-11-09 15:36:29 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - ---- carta pescata ----> A_Fiori_Blu
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - ['8_Quadri_Blu', '3_Cuori_Blu', '10_Fiori_Blu', '9_Cuori_Rosso', 'Q_Picche_Rosso', 'Q_Picche_Blu', 'A_Fiori_Blu']
+2025-11-09 15:36:29 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - MariaGrazia ----> 8_Quadri_Blu
+2025-11-09 15:36:29 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:29 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:29 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['8_Cuori_Rosso', '7_Cuori_Blu', '9_Fiori_Blu', '2_Fiori_Blu', '8_Quadri_Blu']
+2025-11-09 15:36:29 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:29 - round.py - INFO - pick_up_discard - ['9_Picche_Rosso', '8_Cuori_Rosso', '7_Cuori_Blu', '9_Fiori_Blu', '2_Fiori_Blu', '8_Quadri_Blu']
+2025-11-09 15:36:29 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - update_tris - Alessio ----> 1 -->2_Fiori_Blu
+2025-11-09 15:36:29 - round.py - INFO - update_tris - Alessio ----> 7 -->7_Cuori_Blu
+2025-11-09 15:36:29 - round.py - INFO - update_meld - Alessio ----> Scala_0_Giocatore0 --> 9_Picche_Rosso
+2025-11-09 15:36:29 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - Alessio ----> 9_Fiori_Blu
+2025-11-09 15:36:29 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:29 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['9_Fiori_Blu']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ['3_Cuori_Blu', '10_Fiori_Blu', '9_Cuori_Rosso', 'Q_Picche_Rosso', 'Q_Picche_Blu', 'A_Fiori_Blu', '9_Fiori_Blu']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - MariaGrazia ----> 10_Fiori_Blu
+2025-11-09 15:36:30 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['10_Fiori_Blu']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ['8_Cuori_Rosso', '8_Quadri_Blu', '10_Fiori_Blu']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - update_tris - Alessio ----> 10 -->10_Fiori_Blu
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - Alessio ----> 8_Quadri_Blu
+2025-11-09 15:36:30 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - ---- carta pescata ----> 9_Fiori_Rosso
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - ['3_Cuori_Blu', '9_Cuori_Rosso', 'Q_Picche_Rosso', 'Q_Picche_Blu', 'A_Fiori_Blu', '9_Fiori_Blu', '9_Fiori_Rosso']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - player_onto_manager.py - INFO - apre_tris -  9_Cuori_Rosso -10 ----> partialScore ----> 10
+2025-11-09 15:36:30 - player_onto_manager.py - INFO - apre_tris -  9_Fiori_Rosso -10 ----> partialScore ----> 20
+2025-11-09 15:36:30 - player_onto_manager.py - INFO - apre_tris -  9_Fiori_Blu -10 ----> partialScore ----> 30
+2025-11-09 15:36:30 - player_onto_manager.py - INFO - apre_tris - FINAL partialScore ----> 30
+2025-11-09 15:36:30 - round.py - INFO - open_tris - MariaGrazia ----> [(9, 8, 'Cuori', 10), (9, 34, 'Fiori', 10), (9, 88, 'Fiori', 10)]
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - MariaGrazia ----> A_Fiori_Blu
+2025-11-09 15:36:30 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - Alessio 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - ---- carta pescata ----> J_Picche_Blu
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - ['8_Cuori_Rosso', 'J_Picche_Blu']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - Alessio ----> 8_Cuori_Rosso
+2025-11-09 15:36:30 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - ---- carta pescata ----> 7_Quadri_Blu
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - ['3_Cuori_Blu', 'Q_Picche_Rosso', 'Q_Picche_Blu', '7_Quadri_Blu']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - MariaGrazia ----> Q_Picche_Blu
+2025-11-09 15:36:30 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['8_Quadri_Blu', 'A_Fiori_Blu', '8_Cuori_Rosso', 'Q_Picche_Blu']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ['J_Picche_Blu', '8_Quadri_Blu', 'A_Fiori_Blu', '8_Cuori_Rosso', 'Q_Picche_Blu']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - update_tris - Alessio ----> 1 -->A_Fiori_Blu
+2025-11-09 15:36:30 - round.py - INFO - update_tris - Alessio ----> 12 -->Q_Picche_Blu
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - Alessio ----> 8_Quadri_Blu
+2025-11-09 15:36:30 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - ---- carta pescata ----> 10_Fiori_Rosso
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - ['3_Cuori_Blu', 'Q_Picche_Rosso', '7_Quadri_Blu', '10_Fiori_Rosso']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - MariaGrazia ----> 10_Fiori_Rosso
+2025-11-09 15:36:30 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['8_Quadri_Blu', '10_Fiori_Rosso']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ['J_Picche_Blu', '8_Cuori_Rosso', '8_Quadri_Blu', '10_Fiori_Rosso']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - update_tris - Alessio ----> 10 -->10_Fiori_Rosso
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - Alessio ----> 8_Cuori_Rosso
+2025-11-09 15:36:30 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['8_Cuori_Rosso']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ['3_Cuori_Blu', 'Q_Picche_Rosso', '7_Quadri_Blu', '8_Cuori_Rosso']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - MariaGrazia ----> 3_Cuori_Blu
+2025-11-09 15:36:30 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['3_Cuori_Blu']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ['J_Picche_Blu', '8_Quadri_Blu', '3_Cuori_Blu']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - update_tris - Alessio ----> 3 -->3_Cuori_Blu
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - Alessio ----> J_Picche_Blu
+2025-11-09 15:36:30 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['J_Picche_Blu']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - ['Q_Picche_Rosso', '7_Quadri_Blu', '8_Cuori_Rosso', 'J_Picche_Blu']
+2025-11-09 15:36:30 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - update_tris - MariaGrazia ----> 11 -->J_Picche_Blu
+2025-11-09 15:36:31 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - discard - MariaGrazia ----> 8_Cuori_Rosso
+2025-11-09 15:36:31 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:31 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['8_Cuori_Rosso']
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - ['8_Quadri_Blu', '8_Cuori_Rosso']
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - discard - Alessio ----> 8_Quadri_Blu
+2025-11-09 15:36:31 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:31 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - pick_up_card - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:31 - round.py - INFO - pick_up_card - MariaGrazia 
+2025-11-09 15:36:31 - round.py - INFO - pick_up_card - ---- carta pescata ----> 5_Cuori_Rosso
+2025-11-09 15:36:31 - round.py - INFO - pick_up_card - ---- CARTE IN MANO: 
+2025-11-09 15:36:31 - round.py - INFO - pick_up_card - ['Q_Picche_Rosso', '7_Quadri_Blu', '5_Cuori_Rosso']
+2025-11-09 15:36:31 - round.py - INFO - pick_up_card - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - update_tris - MariaGrazia ----> 5 -->5_Cuori_Rosso
+2025-11-09 15:36:31 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - discard - MariaGrazia ----> 7_Quadri_Blu
+2025-11-09 15:36:31 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:31 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['8_Quadri_Blu', '7_Quadri_Blu']
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - ['8_Cuori_Rosso', '8_Quadri_Blu', '7_Quadri_Blu']
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - update_tris - Alessio ----> 7 -->7_Quadri_Blu
+2025-11-09 15:36:31 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - discard - Alessio ----> 8_Quadri_Blu
+2025-11-09 15:36:31 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:31 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - MariaGrazia 
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['8_Quadri_Blu']
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - ['Q_Picche_Rosso', '8_Quadri_Blu']
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - discard - MariaGrazia ----> Q_Picche_Rosso
+2025-11-09 15:36:31 - round.py - INFO - discard - -----------------------------------------FINE---------------------------------
+2025-11-09 15:36:31 - round.py - INFO - discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - -----------------------------------------NUOVO TURNO---------------------------------
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - Alessio 
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - ---- carta pescata ----> ['Q_Picche_Rosso']
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - ---- CARTE IN MANO: 
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - ['8_Cuori_Rosso', 'Q_Picche_Rosso']
+2025-11-09 15:36:31 - round.py - INFO - pick_up_discard - -------------------------------------------------------------------------------------
+2025-11-09 15:36:31 - round.py - INFO - update_tris - Alessio ----> 12 -->Q_Picche_Rosso
+2025-11-09 15:36:51 - round.py - INFO - close_game - Alessio ----> 8_Cuori_Rosso
