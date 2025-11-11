@@ -19,11 +19,16 @@ pip uninstall torch torchvision torchaudio -y
 #verifica l'installazione
 python -c "import torch; print(torch.cuda.is_available())"
 
+------------------------------------------------------
+python examples/run_rl.py --env burraco --algorithm dqn --log_dir experiments/burraco_dqn_result/
 
+------------------------------------------------------------------------------------------------
 $env:PYTHONPATH="C:\Users\alexl\Documents\Facolta\ICSE\Progetto\Burraco\ICSE_2425_Lorusso\aipython"
 $env:PYTHONPATH="C:\Users\alexl\Documents\Facolta\ICSE\Progetto\Burraco\ICSE_2425_Lorusso"
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "aipython"))
+
+
 
 
 ---------------------------------------------------

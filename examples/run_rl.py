@@ -106,7 +106,9 @@ def train(args):
     torch.save(agent, save_path)
     print('Model saved in', save_path)
 
+from datetime import datetime
 if __name__ == '__main__':
+    date = datetime.now().strftime("%Y_%m_%d")
     parser = argparse.ArgumentParser("DQN/NFSP example in RLCard")
     parser.add_argument(
         '--env',
@@ -147,12 +149,12 @@ if __name__ == '__main__':
     parser.add_argument(
         '--num_episodes',
         type=int,
-        default=5000,
+        default=500,
     )
     parser.add_argument(
         '--num_eval_games',
         type=int,
-        default=2000,
+        default=20,
     )
     parser.add_argument(
         '--evaluate_every',
@@ -162,7 +164,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--log_dir',
         type=str,
-        default='experiments/burraco_dqn_result/',
+        default=f'experiments/burraco_dqn_result/{date}',
     )
     
     parser.add_argument(

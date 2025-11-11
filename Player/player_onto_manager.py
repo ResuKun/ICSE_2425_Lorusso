@@ -5,20 +5,13 @@ import Utils.CONST as CONST
 import Utils.checks as checks
 
 
-#carica l'ontologia (singleton)
-def get_manager():
-    if not hasattr(get_manager, "_manager"):
-        get_manager._manager = OntologyManager()
-    return get_manager._manager
 
-def get_onto(debug_mode = False):
-    if not hasattr(get_onto, "_onto"):
-        manager = get_manager()
-        if debug_mode:
-            get_onto._onto = manager.get_ontology_from_manager(OntologyResource.UPDATED_GAME_TEST)
-        else: 
-            get_onto._onto = manager.get_ontology_from_manager()
-    return get_onto._onto
+#carica l'ontologia (singleton)
+def get_onto():
+	return onto_access_util.get_onto()
+
+def get_manager():
+    return OntologyManager()
 
 def get_game():
     return get_onto().Game.instances()[0]
@@ -117,9 +110,9 @@ def chiudi_gioco(player, card_id):
 
 #crea una nuova scala e la aggiunge al giocatore
 #restituisce il punteggio 
-def apre_scala(player, cards, debug_mode = False):
+def apre_scala(player, cards):
 	nScala = len(player.scala)
-	nuovaScala = get_onto(debug_mode).Scala("Scala_" + str(nScala)+ "_" + player.name)
+	nuovaScala = get_onto().Scala("Scala_" + str(nScala)+ "_" + player.name)
 	nuovaScala.scalaId = len(get_onto().Scala.instances())
 	nuovaScala.minValueScala = min(c[0] for c in cards if c[0] != -1)
 	nuovaScala.maxValueScala = max(c[0] for c in cards if c[0] != -1)
@@ -133,7 +126,7 @@ def apre_scala(player, cards, debug_mode = False):
 			break
 
 	partialScore = 0
-	onto_cards = onto_access_util.get_cards_from_id_list([c[1] for c in cards], debug_mode)
+	onto_cards = onto_access_util.get_cards_from_id_list([c[1] for c in cards])
 	for card in onto_cards:
 		nuovaScala.hasCards.append(card)
 		#aggiorna il punteggio del giocatore
@@ -153,10 +146,7 @@ def apre_scala(player, cards, debug_mode = False):
 	#scendere con una sola azione più di 5 carte 
 	# per questioni di performance
 
-	if debug_mode:
-		get_manager().salva_ontologia_update_game(OntologyResource.UPDATED_GAME_TEST)
-	else:
-		get_manager().salva_ontologia_update_game()
+	get_manager().salva_ontologia_update_game()
 	return partialScore
 
 #crea una nuovo Tris e la aggiunge al giocatore

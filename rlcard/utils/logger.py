@@ -1,5 +1,6 @@
 import os
 import csv
+from datetime import datetime
 
 class Logger(object):
     ''' Logger saves the running results and helps make plots from the results
@@ -14,9 +15,10 @@ class Logger(object):
         self.log_dir = log_dir
 
     def __enter__(self):
-        self.txt_path = os.path.join(self.log_dir, 'log.txt')
-        self.csv_path = os.path.join(self.log_dir, 'performance.csv')
-        self.fig_path = os.path.join(self.log_dir, 'fig.png')
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S%f")
+        self.txt_path = os.path.join(self.log_dir, f'log_{timestamp}.txt')
+        self.csv_path = os.path.join(self.log_dir, f'performance_{timestamp}.csv')
+        self.fig_path = os.path.join(self.log_dir, f'fig_{timestamp}.png')
 
         if not os.path.exists(self.log_dir):
             os.makedirs(self.log_dir)

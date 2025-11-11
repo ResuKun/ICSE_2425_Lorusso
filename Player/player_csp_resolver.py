@@ -16,18 +16,10 @@ from Utils.CONST import CardValues
 
 #carica l'ontologia (singleton)
 def get_manager():
-    if not hasattr(get_manager, "_manager"):
-        get_manager._manager = OntologyManager()
-    return get_manager._manager
+    return OntologyManager()
 
-def get_onto(debug_mode = False):
-    if not hasattr(get_onto, "_onto"):
-        manager = get_manager()
-        if debug_mode:
-            get_onto._onto = manager.get_ontology_from_manager(OntologyResource.UPDATED_GAME_TEST)
-        else: 
-            get_onto._onto = manager.get_ontology_from_manager()
-    return get_onto._onto
+def get_onto():
+    return onto_access_util.get_onto()
 #da rendere adattivo , magari in base al numero di carte 
 #dato che con poche carte si abbasano le probabilità di trovare combinazioni
 #fino a 5 è gestibile
@@ -183,9 +175,9 @@ def find_csp_tris(player):
 
 
 #Update di un TRIS
-def can_update_csp_tris(player, lista_carte, tris, debug_mode = False):
+def can_update_csp_tris(player, lista_carte, tris):
     # def __init__(self, title, variables, constraints):
-    lista_numeri = checks.get_tuple_from_cards(lista_carte, True, debug_mode)
+    lista_numeri = checks.get_tuple_from_cards(lista_carte, True)
 
     trisValue_list = []
     contain_jolly = any(isinstance(card, (get_onto().Jolly, get_onto().Pinella)) for card in tris.hasCards)

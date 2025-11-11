@@ -3,25 +3,11 @@ import Ontologia.onto_access_util as onto_access_util
 from Ontologia.onto_save_manager import OntologyManager, OntologyResource
 from Utils.CONST import CardValues
 
-#carica l'ontologia (singleton)
-def get_manager():
-    if not hasattr(get_manager, "_manager"):
-        get_manager._manager = OntologyManager()
-    return get_manager._manager
 
-def get_onto(debug_mode = False):
-    if not hasattr(get_onto, "_onto"):
-        manager = get_manager()
-        if debug_mode:
-            get_onto._onto = manager.get_ontology_from_manager(OntologyResource.UPDATED_GAME_TEST)
-        else:
-            get_onto._onto = manager.get_ontology_from_manager()
-    return get_onto._onto
-
-def get_tuple_from_cards(lista_carte, include_seme=True, debug_mode = False):
+def get_tuple_from_cards(lista_carte, include_seme=True):
 	lista_tuple = []
 	for card in lista_carte:
-		if not isinstance(card, (get_onto(debug_mode).Jolly)):
+		if not isinstance(card, (OntologyManager().get_onto().Jolly)):
 			if include_seme:
 				mia_tupla = (card.numeroCarta, card.idCarta, card.seme.name, card.valoreCarta)
 			else:
