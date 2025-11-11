@@ -327,7 +327,12 @@ class DQNAgent(object):
             path (str): the path to save the model
             filename(str): the file name of checkpoint
         '''
-        torch.save(self.checkpoint_attributes(), os.path.join(path, filename))
+        path = os.path.normpath(path)
+        os.makedirs(path, exist_ok=True)
+        checkpoint_path = os.path.join(path, filename)
+        checkpoint_path = os.path.normpath(checkpoint_path)
+        print(f"Saving checkpoint to: {checkpoint_path}")
+        torch.save(self.checkpoint_attributes(), checkpoint_path)
 
 
 class Estimator(object):

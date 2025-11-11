@@ -102,9 +102,12 @@ def train(args):
     plot_curve(csv_path, fig_path, args.algorithm)
 
     # Save model
-    save_path = os.path.join(args.log_dir, 'model.pth')
-    torch.save(agent, save_path)
-    print('Model saved in', save_path)
+    path = os.path.normpath(path)
+    os.makedirs(path, exist_ok=True)
+    checkpoint_path = os.path.join(path, 'model.pth')
+    checkpoint_path = os.path.normpath(checkpoint_path)
+    torch.save(agent, checkpoint_path)
+    print('Model saved in', checkpoint_path)
 
 from datetime import datetime
 if __name__ == '__main__':
@@ -149,12 +152,12 @@ if __name__ == '__main__':
     parser.add_argument(
         '--num_episodes',
         type=int,
-        default=500,
+        default=1,
     )
     parser.add_argument(
         '--num_eval_games',
         type=int,
-        default=20,
+        default=1,
     )
     parser.add_argument(
         '--evaluate_every',

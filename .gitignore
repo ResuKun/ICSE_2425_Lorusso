@@ -28,3 +28,4 @@
 /.venv312
 /Ontologia/BK
 /logs
+experiments/burraco_dqn_result/2025_11_11/checkpoint_dqn.pt
