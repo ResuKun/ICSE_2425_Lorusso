@@ -69,14 +69,14 @@ class OntologyManager:
         if self.onto is None:
             raise ValueError("Nessuna ontologia caricata.")
         self.onto.save(file=self.card , format="rdfxml")
-        print(f"UPDATE::  Ontologia aggiornata in {self.card}")
+        #print(f"UPDATE::  Ontologia aggiornata in {self.card}")
 
     def salva_ontologia_init_game(self ):
         """Salva l'ontologia nel file INIT_GAME.owl"""
         if self.onto is None:
             raise ValueError("Nessuna ontologia caricata.")
         self.onto.save(file=self.init_game, format="rdfxml")
-        print(f"UPDATE::  Ontologia aggiornata in {self.init_game}")
+        #print(f"UPDATE::  Ontologia aggiornata in {self.init_game}")
 
     def salva_ontologia_update_game(self, debuge_mode = False):
         """Salva l'ontologia nel file UPDATED_GAME.owl"""
@@ -86,7 +86,7 @@ class OntologyManager:
         if debuge_mode:
             file_name = self.updated_game_test
         self.onto.save(file = file_name, format="rdfxml")
-        print(f"UPDATE::  Ontologia aggiornata in {file_name}")
+        #print(f"UPDATE::  Ontologia aggiornata in {file_name}")
 
 
  #  def scarica_ontologia(self):
@@ -114,7 +114,7 @@ class OntologyManager:
                 # Rimuove l'ontologia dal dizionario globale se presente
                 if iri_to_remove and iri_to_remove in default_world.ontologies:
                     del default_world.ontologies[iri_to_remove]
-                    print(f"ONTO - INFO:: Ontologia {self.onto_type.name} scaricata dalla memoria")
+                    #print(f"ONTO - INFO:: Ontologia {self.onto_type.name} scaricata dalla memoria")
                 else:
                     print("ONTO - WARNING:: L'ontologia non era registrata nel world")
 
@@ -142,7 +142,7 @@ class OntologyManager:
         self.init_game_test = OntologyResource.ONTO_FOLDER.value + OntologyResource.INIT_GAME.value + OntologyResource.FILE_EXTENSION.value
         self.updated_game = self.bk_dir + OntologyResource.UPDATED_GAME.value + str(self.timestamp) + OntologyResource.FILE_EXTENSION.value
         self.updated_game_test = OntologyResource.ONTO_FOLDER.value + OntologyResource.UPDATED_GAME.value + OntologyResource.FILE_EXTENSION.value
-        print(f"reload_file_name --> {self.updated_game}")
+        #print(f"reload_file_name --> {self.updated_game}")
 
     def create_update_file(self, reload = False):
         """Crea un nuovo file UPDATED_GAME aggiornando l’IRI."""
@@ -160,7 +160,7 @@ class OntologyManager:
         f = open(self.updated_game , "w")
         f.write(content)
         f.close()
-        print("ONTO - INFO:: Creato file UPDATED_GAME aggiornato")
+        print(f"ONTO - INFO:: Creato file {self.updated_game} ")
 
     def create_init_file(self, reload = False):
         """Crea un nuovo file UPDATED_GAME aggiornando l’IRI."""
@@ -178,7 +178,7 @@ class OntologyManager:
         f = open(self.init_game, "w")
         f.write(content)
         f.close()
-        print("ONTO - INFO:: Creato file UPDATED_GAME aggiornato")
+        print(f"ONTO - INFO:: Creato file {self.init_game} ")
 
     def create_update_file_test(self):
         """Crea un nuovo file UPDATED_GAME aggiornando l’IRI."""
@@ -192,7 +192,7 @@ class OntologyManager:
         f = open(self.updated_game_test, "w")
         f.write(content)
         f.close()
-        print("ONTO - INFO:: Creato file UPDATED_GAME aggiornato")
+        #print("ONTO - INFO:: Creato file UPDATED_GAME aggiornato")
 
     def create_init_file_test(self):
         """Crea un nuovo file UPDATED_GAME aggiornando l’IRI."""
@@ -206,4 +206,4 @@ class OntologyManager:
         f = open(self.init_game_test, "w")
         f.write(content)
         f.close()
-        print("ONTO - INFO:: Creato file UPDATED_GAME aggiornato")
+        #print("ONTO - INFO:: Creato file UPDATED_GAME aggiornato")

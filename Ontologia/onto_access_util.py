@@ -1,6 +1,6 @@
 import random
 from datetime import datetime
-from Ontologia.onto_save_manager import OntologyManager, OntologyResource
+from Ontologia.onto_save_manager import OntologyManager
 from Utils.logger import SingletonLogger 
 
 
@@ -82,27 +82,6 @@ def get_scarti():
 def isBurraco(canasta):
     return len(canasta.hasCards) >= 7
 
-""" def has_jolly_or_pinella(canasta):
-    onto = get_onto()
-    return any(isinstance(card, (onto.Jolly, onto.Pinella)) for card in canasta.hasCards) """
-
-
-""" def has_jolly_or_pinella_clean(canasta):
-    onto, _ = get_onto()
-    cards = canasta.hasCards
-    # Se non è una scala basta un Jolly
-    if not isinstance(canasta, onto.Scala):
-        return any(isinstance(card, onto.Jolly) or isinstance(card, onto.Pinella) for card in cards)
-
-    seme_scala = canasta.semeScala
-    # Caso: contiene una Pinella e la scala è continua
-    if any(isinstance(c, onto.Pinella) for c in cards) and is_continous():
-        # Ritorna True se c’è una pinella del seme giusto (cioè con numero 2 e stesso seme)
-        return any(c.numeroCarta == 2 and c.seme == seme_scala for c in cards)
-
-    # Altrimenti basta la presenza di un Jolly
-    return any(isinstance(c, onto.Jolly) for c in cards) """
-
 def has_jolly_or_pinella_clean(canasta):
     onto = get_onto()
     cards = list(canasta.hasCards)
@@ -137,18 +116,6 @@ def has_jolly_or_pinella_clean(canasta):
     # In tutti gli altri casi basta la presenza di un Jolly
     return True
 
-
-""" def is_continous(canasta):
-    lista_carte = sorted(canasta, key=lambda x: x.numeroCarta)
-    for card in lista_carte:
-        if old_num is None:
-            old_num = card.numeroCarta
-        else:
-            if (old_num + 1) < card.numeroCarta:
-                return False
-            else: 
-                old_num = old_num + 1
-    return True """
 
 def is_continous(canasta):
     lista_carte = sorted(canasta, key=lambda x: x.numeroCarta)
@@ -215,8 +182,8 @@ def add_discarded_cards_to_pickup():
     onto = get_onto()
     scarti = onto.Game.instances()[0].scarto.mazzo
     log = SingletonLogger().get_logger()
-    log.info(f"  [add_discarded_to_pickup PRE - [SCARTI] ------> {onto.Game.instances()[0].scarto.mazzo}]")
-    log.info(f"  [add_discarded_to_pickup PRE - [MONTE]  ------> {onto.Game.instances()[0].monte.mazzo}]")
+    #log.info(f"  [add_discarded_to_pickup PRE - [SCARTI] ------> {onto.Game.instances()[0].scarto.mazzo}]")
+    #log.info(f"  [add_discarded_to_pickup PRE - [MONTE]  ------> {onto.Game.instances()[0].monte.mazzo}]")
 
     onto.Game.instances()[0].monte.mazzo = scarti[:len(scarti) - 1]
     set_da_rimuovere = set(onto.Game.instances()[0].monte.mazzo)
@@ -226,8 +193,8 @@ def add_discarded_cards_to_pickup():
         if elemento not in set_da_rimuovere
     ]
     onto.Game.instances()[0].scarto.mazzo = lista_risultato
-    log.info(f"  [add_discarded_to_pickup POST - [SCARTI] ------> {onto.Game.instances()[0].scarto.mazzo}]")
-    log.info(f"  [add_discarded_to_pickup POST - [MONTE]  ------> {onto.Game.instances()[0].monte.mazzo}]")
+    #log.info(f"  [add_discarded_to_pickup POST - [SCARTI] ------> {onto.Game.instances()[0].scarto.mazzo}]")
+    #log.info(f"  [add_discarded_to_pickup POST - [MONTE]  ------> {onto.Game.instances()[0].monte.mazzo}]")
 
     get_manager().salva_ontologia_update_game()
     

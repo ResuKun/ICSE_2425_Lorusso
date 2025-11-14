@@ -101,10 +101,16 @@ def train(args):
     # Plot the learning curve
     plot_curve(csv_path, fig_path, args.algorithm)
 
+
+   # Save model
+    save_path = os.path.join(args.log_dir, 'model.pth')
+    torch.save(agent, save_path)
+    print('Model saved in', save_path)
+
     # Save model
-    path = os.path.normpath(path)
-    os.makedirs(path, exist_ok=True)
-    checkpoint_path = os.path.join(path, 'model.pth')
+    checkpoint_path = os.path.normpath(args.log_dir)
+    os.makedirs(checkpoint_path, exist_ok=True)
+    checkpoint_path = os.path.join(checkpoint_path, 'model.pth')
     checkpoint_path = os.path.normpath(checkpoint_path)
     torch.save(agent, checkpoint_path)
     print('Model saved in', checkpoint_path)
@@ -152,12 +158,12 @@ if __name__ == '__main__':
     parser.add_argument(
         '--num_episodes',
         type=int,
-        default=1,
+        default=500,
     )
     parser.add_argument(
         '--num_eval_games',
         type=int,
-        default=1,
+        default=10,
     )
     parser.add_argument(
         '--evaluate_every',

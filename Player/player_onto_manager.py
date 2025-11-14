@@ -168,7 +168,7 @@ def apre_tris(player, tuple_cards):
 		nuovoTris.hasCards.append(card)
 		#aggiorna il punteggio del giocatore
 		partialScore += card.valoreCarta
-		log.info(f" {card.name} -{card.valoreCarta} ----> partialScore ----> {partialScore}")
+		#log.info(f" {card.name} -{card.valoreCarta} ----> partialScore ----> {partialScore}")
 		if hasattr(card, 'seme') and not checks.is_jolly_or_pinella(card.numeroCarta) and trisValue is None:
 			trisValue = card.numeroCarta
 
@@ -176,7 +176,7 @@ def apre_tris(player, tuple_cards):
 	nuovoTris.trisValue = trisValue
 	nuovoTris.isTrisClosed = False
 	nuovoTris.punteggioTris = partialScore
-	log.info(f"FINAL partialScore ----> {partialScore}")
+	#log.info(f"FINAL partialScore ----> {partialScore}")
 
 	player.tris.append(nuovoTris)
 

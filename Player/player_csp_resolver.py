@@ -65,7 +65,7 @@ def solve_csp(csp, vars, is_update = False):
 #la scala deve essere composta da 3 carte dello stesso seme, oppure da 2 carte dello stesso seme e un Jolly o Pinella
 def find_csp_scala(player):
     lista_carte = player.playerHand.mazzo
-    print(f"Start find_csp_scala --> lista_carte: {lista_carte}" )
+    #print(f"Start find_csp_scala --> lista_carte: {lista_carte}" )
     
     lista_tuple = checks.get_tuple_from_cards(lista_carte)
     lista_tuple.append(CardValues.PLACEHOLDER_OBJECT.value)
@@ -92,10 +92,10 @@ def find_csp_scala(player):
               ])
 
     solutions_list = solve_csp(csp, vars_tris)
-    print(f"\n\n\n [ find_csp_scala ] SOLUZIONI TROVATE-->")
-    print(f"------------------------------------------------------------------------\n\n\n")
-    print(*solutions_list, sep="\n")
-    print(f"------------------------------------------------------------------------\n\n\n")
+   # print(f"\n\n\n [ find_csp_scala ] SOLUZIONI TROVATE-->")
+   # print(f"------------------------------------------------------------------------\n\n\n")
+   # print(*solutions_list, sep="\n")
+   # print(f"------------------------------------------------------------------------\n\n\n")
     return sort_combination_by_value(solutions_list)
 
 #Update di una scala
@@ -125,9 +125,9 @@ def can_update_csp_scala(player, lista_carte, scala):
     
     solutions_list = solve_csp(update_scala_CSP,  [var, var2], True)
 
-    print(f"\n\n\n[ can_update_csp_scala ] SOLUZIONI TROVATE-->")
-    print(f"{[sol for sol in solutions_list]}")
-    print(f"------------------------------------------------------------------------\n\n\n")
+    #print(f"\n\n\n[ can_update_csp_scala ] SOLUZIONI TROVATE-->")
+    #print(f"{[sol for sol in solutions_list]}")
+    #print(f"------------------------------------------------------------------------\n\n\n")
     return solutions_list
 
 def get_possible_meld_to_update(player):
@@ -142,7 +142,7 @@ def get_possible_meld_to_update(player):
 #controlla se esiste un Tris fattibile tra le carte
 def find_csp_tris(player):
     lista_carte = player.playerHand.mazzo
-    print(f"Start find_csp_tris --> lista_carte: {lista_carte}" )
+    #print(f"Start find_csp_tris --> lista_carte: {lista_carte}" )
     
     lista_tuple = checks.get_tuple_from_cards(lista_carte)
     lista_tuple.append(CardValues.PLACEHOLDER_OBJECT.value)
@@ -168,9 +168,9 @@ def find_csp_tris(player):
     
     solutions_list = solve_csp(csp, vars_tris)
 
-    print(f"\n\n\n [ find_csp_tris ] SOLUZIONI TROVATE-->")
-    print(f"{[sol for sol in solutions_list]}")
-    print(f"------------------------------------------------------------------------\n\n\n")
+   #print(f"\n\n\n [ find_csp_tris ] SOLUZIONI TROVATE-->")
+   #print(f"{[sol for sol in solutions_list]}")
+   #print(f"------------------------------------------------------------------------\n\n\n")
     return sort_combination_by_value(solutions_list)
 
 
@@ -201,9 +201,9 @@ def can_update_csp_tris(player, lista_carte, tris):
     
     solutions_list = solve_csp(update_scala_CSP, vars_jolly_single, True)
 
-    print(f"\n\n\n [ can_update_csp_tris ] SOLUZIONI TROVATE-->")
-    print(f"{[sol for sol in solutions_list]}")
-    print(f"------------------------------------------------------------------------\n\n\n")
+    #print(f"\n\n\n [ can_update_csp_tris ] SOLUZIONI TROVATE-->")
+    #print(f"{[sol for sol in solutions_list]}")
+    #print(f"------------------------------------------------------------------------\n\n\n")
     return solutions_list
 
 def get_possible_tris_to_update(player):

@@ -51,13 +51,13 @@ class BurracoJudge:
                 legal_actions.append(UpdateMeldAction(meld[1][5],meld[0][1],len(legal_actions)))
             
             # Aggiunge l'azione di chiusura del gioco
-            if(len(legal_actions) == 0):
-                card = csp_resolver.can_end_game_csp(player)
-                if card != []:
-                    legal_actions.append(CloseGameAction(card[0][0][1],len(legal_actions)))
-                else:
-                    for card in play_onto.get_players_card(player):
-                        legal_actions.append(DiscardAction(card[1],len(legal_actions)))
+            #if(len(legal_actions) == 0):
+            card = csp_resolver.can_end_game_csp(player)
+            if card != []:
+                legal_actions.append(CloseGameAction(card[0][0][1],len(legal_actions)))
+            else:
+                for card in play_onto.get_players_card(player):
+                    legal_actions.append(DiscardAction(card[1],len(legal_actions)))
 
 
         self.action_map = legal_actions
