@@ -41,7 +41,10 @@ def train(args):
             agent = DQNAgent(
                 num_actions=env.num_actions,
                 state_shape=env.state_shape[0],
-                mlp_layers=[64,64],
+                #default
+                #mlp_layers=[64,64],
+                #burraco consigliato
+                mlp_layers=[512, 512, 256],
                 device=device,
                 save_path=args.log_dir,
                 save_every=args.save_every
@@ -158,17 +161,17 @@ if __name__ == '__main__':
     parser.add_argument(
         '--num_episodes',
         type=int,
-        default=500,
+        default=1500,
     )
     parser.add_argument(
         '--num_eval_games',
         type=int,
-        default=10,
+        default=20,
     )
     parser.add_argument(
         '--evaluate_every',
         type=int,
-        default=100,
+        default=150,
     )
     parser.add_argument(
         '--log_dir',

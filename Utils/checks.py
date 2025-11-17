@@ -50,34 +50,37 @@ def has_jolly_or_pinella_tuple(lista_carte):
 	return any( [x for x in lista_carte if is_jolly_or_pinella(x[0])])
 
 #Rimuove i placeholder (None) dalla lista delle carte
-def clean_from_placeholder(lista_carte):
-	res_list = [card for card in lista_carte if card[0] != CardValues.PLACEHOLDER_VALUE.value]
-	return res_list
+#TODO una volta velocizzati i processi si potrà testare con più lungo raggio
+#aggiungendo delle carte placeholder cosi da considerare anche gruppi di 
+#4/+ carte da scendere in una mano sola
+#def clean_from_placeholder(lista_carte):
+#	res_list = [card for card in lista_carte if card[0] != CardValues.PLACEHOLDER_VALUE.value]
+#	return res_list
 
 #Controlla che la lista di carte contenga almeno 3 carte
 def three_or_more_cards(*lista_carte):
-	filtered_list = clean_from_placeholder(lista_carte)
-	return len(set(filtered_list)) >= 3
+	#filtered_list = clean_from_placeholder(lista_carte)
+	return len(set(lista_carte)) >= 3
 
 #Controlla che la lista di carte contenga 1 sola carta
 def only_one_card(*lista_carte):
-	filtered_list = clean_from_placeholder(lista_carte)
-	return len(set(filtered_list)) == 1
+	#filtered_list = clean_from_placeholder(lista_carte)
+	return len(set(lista_carte)) == 1
 
 #Controlla che non ci siano duplicati tra le carte
 #se le carte sono duplicate ritorna False, altrimenti True
 #usato per evitare che si creino scale o tris con carte duplicate
 def has_no_duplicate(*lista_carte):
 	# pulisco la lista dai placeholder None
-	arr_clean = clean_from_placeholder(lista_carte)
-	return len(arr_clean) == len(set(arr_clean))
+	#arr_clean = clean_from_placeholder(lista_carte)
+	return len(lista_carte) == len(set(lista_carte))
 
 #Controlla che non ci siano duplicati tra le carte
 #a differenza del precedente considera solo il primo elemento
 def same_number_card(*lista_carte):
 	# pulisco la lista dai placeholder None
-	arr_clean = clean_from_placeholder(lista_carte)
-	numero_carta_list = [card[0] for card in arr_clean]
+	#arr_clean = clean_from_placeholder(lista_carte)
+	numero_carta_list = [card[0] for card in lista_carte]
 	return len(numero_carta_list) == len(set(numero_carta_list))
 
 
@@ -107,7 +110,7 @@ def stesso_seme_scala(carta, scala):
 
 def stesso_seme_lista(*lista_carte):
 	lista_carte = list(lista_carte)
-	lista_carte = clean_from_placeholder(lista_carte)
+	#lista_carte = clean_from_placeholder(lista_carte)
 	#rimuovo i Jolly
 	if any(is_jolly_or_pinella(num[0]) for num in lista_carte):
 		lista_carte = [x for x in lista_carte if not is_jolly_or_pinella(x[0])]
@@ -123,7 +126,7 @@ def stesso_numero_tris(card, tris):
 #e che non siano la stessa carta (es. 10_Cuori_Blu,
 def stesso_numero_lista(*lista_carte):
 	lista_carte = list(lista_carte)
-	lista_carte = clean_from_placeholder(lista_carte)
+	#lista_carte = clean_from_placeholder(lista_carte)
 
 	#controllo che non ci siano doppioni
 	if len(lista_carte) != len(set(lista_carte)):
@@ -171,12 +174,12 @@ def lista_contigua_with_card(lista_carte, card = None):
 def lista_contigua(*lista_carte):
 	if len(lista_carte) == 1:
 		lista_carte = lista_carte[0]
-	lista_carte = clean_from_placeholder(lista_carte)
+	#lista_carte = clean_from_placeholder(lista_carte)
 	old_num = None
 	found_jolly = False
 	if any(is_jolly_or_pinella(num[0]) for num in lista_carte):
 		found_jolly = True
-		lista_carte[:] = [x for x in lista_carte if not is_jolly_or_pinella(x[0])]
+		lista_carte = [x for x in lista_carte if not is_jolly_or_pinella(x[0])]
 
 	#ordino le carte per numeroCarta e controllo che siano contigue
 	#se presente un jolly concedo un "buco" nella lista
@@ -211,7 +214,7 @@ def get_player_normalized(player):
 #	   e l'ultima carta che scarto non deve essere una pinella/jolly
 
 def regole_di_gioco(player, is_closing_game, *cards_to_play):
-	cards_to_play = clean_from_placeholder(cards_to_play)
+	#cards_to_play = clean_from_placeholder(cards_to_play)
 	mano_player = get_tuple_from_cards(player.playerHand.mazzo)
 	result = False
 	#filtro le carte che voglio giocare

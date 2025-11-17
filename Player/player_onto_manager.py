@@ -68,7 +68,6 @@ def pesca_carta(player):
 	player.playerHand.mazzo.append(card)
 	 # Salva le modifiche all'ontologia
 	get_manager().salva_ontologia_update_game()
-	print("")
 
 #Gestisce la pesca dagli scarti:
 #svuota la pila degli scarti della partita 
@@ -97,7 +96,6 @@ def scarta_carta(player, card_id):
 	card.cartaVisibile = True
 	card.cartaNota = True
 	get_manager().salva_ontologia_update_game()
-	print("")
 
 def chiudi_gioco(player, card_id):
 	card = onto_access_util.get_card_from_id(card_id)

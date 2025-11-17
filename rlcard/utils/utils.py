@@ -1,4 +1,5 @@
 import numpy as np
+from Utils.logger import SingletonLogger 
 
 from rlcard.games.base import Card
 
@@ -222,6 +223,7 @@ def tournament(env, num):
             counter += 1
     for i, _ in enumerate(payoffs):
         payoffs[i] /= counter
+
     return payoffs
 
 def plot_curve(csv_path, save_path, algorithm):

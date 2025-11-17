@@ -52,8 +52,8 @@ def solve_csp(csp, vars, is_update = False):
         solutions_list.append(partial_solution)
 
     # Rimuovo i placeholder dalle soluzioni
-    for i in range(len(solutions_list)):
-        solutions_list[i] = checks.clean_from_placeholder(solutions_list[i])
+   #for i in range(len(solutions_list)):
+   #    solutions_list[i] = checks.clean_from_placeholder(solutions_list[i])
 
     return solutions_list
 
@@ -68,12 +68,12 @@ def find_csp_scala(player):
     #print(f"Start find_csp_scala --> lista_carte: {lista_carte}" )
     
     lista_tuple = checks.get_tuple_from_cards(lista_carte)
-    lista_tuple.append(CardValues.PLACEHOLDER_OBJECT.value)
+    #lista_tuple.append(CardValues.PLACEHOLDER_OBJECT.value)
     # Costruisce le variabili da selezionare (tris di 3 carte)
     vars_tris = []
 
     # +2 per il range
-    for i in range(1, MELD_DEFAULT_DEPTH + 1):
+    for i in range(0, MELD_DEFAULT_DEPTH ):
         var = Variable(f"c{i}", lista_tuple)
         vars_tris.append(var)
 
@@ -83,12 +83,12 @@ def find_csp_scala(player):
               vars_tris,
               [
                 Constraint(vars_tris, checks.has_no_duplicate, "has_no_duplicate"),
-                Constraint(vars_tris, checks.same_number_card, "same_number_card"),
+                #Constraint(vars_tris, checks.same_number_card, "same_number_card"),
                 Constraint(vars_tris, checks.three_or_more_cards, "minimo 3 carte"),
-                Constraint(vars_tris, regole_di_gioco,"regole_di_gioco"),
                 Constraint(vars_tris, checks.doppio_jolly_lista,"doppio_jolly_lista"),
                 Constraint(vars_tris, checks.stesso_seme_lista,"stesso_seme_lista"),
                 Constraint(vars_tris, checks.lista_contigua,"lista_contigua"),
+                Constraint(vars_tris, regole_di_gioco,"regole_di_gioco"),
               ])
 
     solutions_list = solve_csp(csp, vars_tris)
@@ -116,11 +116,11 @@ def can_update_csp_scala(player, lista_carte, scala):
     update_scala_CSP = CSP("update_scala_CSP",
          [var, var2, var3],
         [
-            Constraint(  [var], regole_di_gioco,"regole_di_gioco"),
-            Constraint( [var, var2], checks.doppio_jolly_combinazione,"doppio_jolly_combinazione"),
             Constraint( [var, var2], checks.stesso_seme_scala,"stesso_seme_scala"),
+            Constraint( [var, var2], checks.doppio_jolly_combinazione,"doppio_jolly_combinazione"),
             #Constraint( [var, var2], checks.in_scala,"in_scala")
             Constraint( [var3, var] , checks.lista_contigua_with_card,"lista_contigua"),
+            Constraint(  [var], regole_di_gioco,"regole_di_gioco"),
         ])
     
     solutions_list = solve_csp(update_scala_CSP,  [var, var2], True)
@@ -145,11 +145,11 @@ def find_csp_tris(player):
     #print(f"Start find_csp_tris --> lista_carte: {lista_carte}" )
     
     lista_tuple = checks.get_tuple_from_cards(lista_carte)
-    lista_tuple.append(CardValues.PLACEHOLDER_OBJECT.value)
+    #lista_tuple.append(CardValues.PLACEHOLDER_OBJECT.value)
     # Costruisce le variabili da selezionare (tris di 3 carte)
     vars_tris = []
     # +1 per il range
-    for i in range(1, MELD_DEFAULT_DEPTH + 1):
+    for i in range(0, MELD_DEFAULT_DEPTH ):
         var = Variable(f"c{i}", lista_tuple)
         vars_tris.append(var)
 
@@ -159,11 +159,11 @@ def find_csp_tris(player):
     csp = CSP("find_csp_tris",
               vars_tris,
               [
-                Constraint(vars_tris, checks.three_or_more_cards, "minimo 3 carte"),
                 Constraint(vars_tris, checks.has_no_duplicate, "has_no_duplicate"),
-                Constraint(vars_tris, regole_di_gioco,"regole_di_gioco"),
+                Constraint(vars_tris, checks.three_or_more_cards, "minimo 3 carte"),
                 Constraint(vars_tris, checks.doppio_jolly_lista, "doppio_jolly_lista"),
                 Constraint(vars_tris, checks.stesso_numero_lista, "stesso_numero_lista"),
+                Constraint(vars_tris, regole_di_gioco,"regole_di_gioco"),
               ])
     
     solutions_list = solve_csp(csp, vars_tris)
@@ -194,9 +194,9 @@ def can_update_csp_tris(player, lista_carte, tris):
     update_scala_CSP = CSP("update_scala_CSP",
         vars_jolly_single, #mettere le variabili
         [
-            Constraint(vars_jolly_single, regole_di_gioco,"regole_di_gioco"),
-            Constraint(vars_jolly_single, checks.doppio_jolly_combinazione,"doppio_jolly_combinazione"),
             Constraint(vars_jolly_single, checks.stesso_numero_tris,"stesso_numero_tris"),
+            Constraint(vars_jolly_single, checks.doppio_jolly_combinazione,"doppio_jolly_combinazione"),
+            Constraint(vars_jolly_single, regole_di_gioco,"regole_di_gioco"),
         ])
     
     solutions_list = solve_csp(update_scala_CSP, vars_jolly_single, True)
@@ -229,9 +229,6 @@ def can_end_game_csp(player):
     #result = searcher.search()
     result = solve_csp(end_game_csp, [var1], True)
     return result
-
-def can_pick_up():
-    pass
 
 #ordina la lista di combinazioni in base al loro valore (somma dei valori delle singole carte)
 def sort_combination_by_value(solutions_list):
