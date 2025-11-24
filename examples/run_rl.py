@@ -161,7 +161,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--num_episodes',
         type=int,
-        default=1500,
+        default=5000,
     )
     parser.add_argument(
         '--num_eval_games',
@@ -171,7 +171,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--evaluate_every',
         type=int,
-        default=150,
+        default=1000,
     )
     parser.add_argument(
         '--log_dir',

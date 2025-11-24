@@ -46,8 +46,8 @@ class DQNAgent(object):
     def __init__(self,
                  #default
                  #replay_memory_size=20000,
-                 replay_memory_size=20000,
-                 replay_memory_init_size=100,
+                 replay_memory_size=100000,
+                 replay_memory_init_size=2000,
                  update_target_estimator_every=1000,
                  discount_factor=0.99,
                  epsilon_start=1.0,
