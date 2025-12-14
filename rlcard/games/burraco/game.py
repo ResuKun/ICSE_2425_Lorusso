@@ -6,7 +6,7 @@ from .judge import BurracoJudge
 from .action_event_dyn import *
 from Player.player_onto_manager import get_player_known_cards, get_player_unknown_cards, get_player_melds, get_player_tris,get_player_cards
 from Ontologia.onto_access_util import get_monte, get_scarti
-
+from action_event_static import ActionEvent
 
 import Ontologia.initGame as initGame
 
@@ -137,8 +137,6 @@ class BurracoGame:
 		return state
 
 
-# non più statico in quanto serve 
-# la mappa dinamica della action
-#	@staticmethod
+	@staticmethod
 	def decode_action(self, action_id) -> ActionEvent:
-		return self.judge.decode_action(action_id)
+		return ActionEvent.decode_action(action_id=action_id)

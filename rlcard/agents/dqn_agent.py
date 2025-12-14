@@ -34,6 +34,7 @@ from collections import namedtuple
 from copy import deepcopy
 
 from rlcard.utils.utils import remove_illegal
+from Utils.logger import SingletonLogger 
 
 Transition = namedtuple('Transition', ['state', 'action', 'reward', 'next_state', 'done', 'legal_actions'])
 
@@ -44,30 +45,49 @@ class DQNAgent(object):
     that depends on PyTorch instead of Tensorflow
     '''
     def __init__(self,
-                 #default
-                 #replay_memory_size=20000,
-                 replay_memory_size=100000,
-                 replay_memory_init_size=2000,
+                 replay_memory_size=200000,
+                 replay_memory_init_size=100,
                  update_target_estimator_every=1000,
                  discount_factor=0.99,
                  epsilon_start=1.0,
                  epsilon_end=0.1,
-                 #epsilon_decay_steps=20000,
-                 #possibile aumentare sino a 200k
-                 epsilon_decay_steps=50000,
-                 #default
-                 #batch_size=32,
+                 epsilon_decay_steps=20000,
                  batch_size=512,
+                 #batch_size=32,
                  num_actions=2,
                  state_shape=None,
                  train_every=1,
                  mlp_layers=None,
-                 #default
-                 # learning_rate=0.00005,
-                 learning_rate=0.0001,
+                 learning_rate=0.00005,
                  device=None,
                  save_path=None,
                  save_every=float('inf'),):
+        
+                # pre cancellazione
+                # self,
+                # #replay_memory_size=20000,
+                # replay_memory_size=100000,
+                # replay_memory_init_size=5000,
+                # update_target_estimator_every=1000,
+                # discount_factor=0.99,
+                # epsilon_start=1.0,
+                # epsilon_end=0.1,
+                # epsilon_decay_steps=20000,
+                # #possibile aumentare sino a 200k
+                # #epsilon_decay_steps=50000,
+                # #batch_size=32,
+                # batch_size=512,
+                # num_actions=None,
+                # state_shape=None,
+                # train_every=1,
+                # mlp_layers=None,
+                # #default
+                # learning_rate=0.00005,
+                # #learning_rate=0.0001,
+                # device=None,
+                # save_path=None,
+                # save_every=float('inf'),):
+
 
         '''
         Q-Learning algorithm for off-policy TD control using Function Approximation.
@@ -144,7 +164,9 @@ class DQNAgent(object):
         self.feed_memory(state['obs'], action, reward, next_state['obs'], list(next_state['legal_actions'].keys()), done)
         self.total_t += 1
         tmp = self.total_t - self.replay_memory_init_size
+        main_log = SingletonLogger().get_logger()
         if tmp>=0 and tmp%self.train_every == 0:
+            main_log.info(f"[DQNAgent --> tmp>=0 and tmp%self.train_every --> ] {tmp} % {self.train_every}")
             self.train()
 
     def step(self, state):

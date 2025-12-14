@@ -1,258 +1,261 @@
 # parallel_run_rl_cpu_workers.py
 import argparse
 import os
-import time
 import multiprocessing as mp
 from datetime import datetime
 from Utils.logger import SingletonLogger 
-
+import time
 import torch
 import rlcard
+import queue as _pyqueue
 from rlcard.utils import Logger, set_seed, get_device, reorganize, plot_curve, tournament
+from rlcard.agents import RandomAgent
+from Utils.checkpoint_file_handler import save_and_send_ckpt_to_worker
 
-
-
-import traceback
-import sys
-def worker_process(worker_id, traj_queue, param_queue, args, seed_offset = 0):
-
-    print(f"[W{worker_id}]")
+def worker_process(worker_id, traj_queue, param_queue, args, seed_offset=0):
     try:
-        seed = args.seed
-        worker_seed = seed + seed_offset + worker_id
-        print(f"[W{worker_id}] Avvio worker su CPU (seed={worker_seed})")
-        set_seed(worker_seed)
+        seed = args.seed + seed_offset + worker_id
+        set_seed(seed)
 
-        # Forza l'uso della CPU anche se disponibile GPU
         device = torch.device("cpu")
-        print(f"[W{worker_id}] Avvio worker su CPU (seed={worker_seed})")
+        env = rlcard.make(args.env, config={'seed': seed})
 
-        env = rlcard.make(args.env, config={'seed': worker_seed})
+        # Riceve primo checkpoint (bloccante una volta sola)
+        ckpt_msg = param_queue.get()  # può essere dict oppure percorso file (str)
 
-        # Attende un checkpoint iniziale dal main process
-        checkpoint = None
-        while checkpoint is None:
-            try:
-                checkpoint = param_queue.get(timeout=5)
-            except Exception:
-                continue
+        # Se è stringa -> carica da file, altrimenti lo usa direttamente
+        if isinstance(ckpt_msg, str):
+            ckpt = torch.load(ckpt_msg, map_location='cpu', weights_only=False)
+        else:
+            ckpt = ckpt_msg
 
-        # Crea agente locale da checkpoint (solo per inference)
-        local_agent = get_agent(env, device, args)
-        # Imposta agents: agente locale + avversari random
-        agents = [local_agent]
-        from rlcard.agents import RandomAgent
-        for _ in range(1, env.num_players):
-            agents.append(RandomAgent(num_actions=env.num_actions))
+        local_agent = get_agent(env, device, args, ckpt)
+
+        opponents = [
+            RandomAgent(num_actions=env.num_actions)
+            for _ in range(env.num_players - 1)
+        ]
+        agents = [local_agent] + opponents
         env.set_agents(agents)
 
-        produced = 0
         for ep in range(args.num_ep_worker):
-            print(f"starting [worker - {worker_id}] - [EP - {ep}] ")
             trajs, pays = env.run(is_training=True)
             traj_queue.put((trajs, pays))
-            produced += 1
-            # Polling per aggiornamenti di checkpoint (policy aggiornata)
-            while not param_queue.empty():
-                try:
-                    new_ckpt = param_queue.get_nowait()
-                    if args.algorithm == 'dqn':
-                        from rlcard.agents import DQNAgent
-                        local_agent = DQNAgent.from_checkpoint(checkpoint=new_ckpt)
-                    else:
-                        from rlcard.agents import NFSPAgent
-                        local_agent = NFSPAgent.from_checkpoint(checkpoint=new_ckpt)
-                    agents[0] = local_agent
-                    env.set_agents(agents)
-                    print(f"[W{worker_id}] Aggiornato modello locale da nuovo checkpoint")
-                except Exception:
-                    break
+
+            # polling: svuota param_queue (se ci sono messaggi, tieni solo l'ultimo)
+            try:
+                latest = None
+                while True:
+                    msg = param_queue.get_nowait()
+                    latest = msg
+            except _pyqueue.Empty:
+                latest = latest  # nulla di nuovo
+
+            if latest is not None:
+                # applica l'ultimo messaggio arrivato
+                if isinstance(latest, str):
+                    new_ckpt = torch.load(latest, map_location='cpu', weights_only=False)
+                else:
+                    new_ckpt = latest
+                # ricrea agente o aggiorna i pesi a seconda della API
+                agents[0] = get_agent(env, device, args, new_ckpt)
+                env.set_agents(agents)
 
         traj_queue.put(("__WORKER_DONE__", worker_id))
-        print(f"[W{worker_id}] Terminato, episodi generati: {produced}")
-    
+
     except Exception:
+        import traceback, sys
         tb = traceback.format_exc()
-        # prova a scrivere lo stacktrace nel log dir principale
+        # Print immediately so you see it in console
+        print(f"[W{worker_id}] UNCAUGHT EXCEPTION:\n{tb}", file=sys.stderr, flush=True)
+        # Also save to file for inspection
         try:
             os.makedirs(args.log_dir, exist_ok=True)
-            err_path = os.path.join(args.log_dir, f"worker_{worker_id}_exc.txt")
-            with open(err_path, "w", encoding="utf-8") as f:
+            with open(os.path.join(args.log_dir, f"worker_{worker_id}_exc.txt"), "w", encoding="utf-8") as f:
                 f.write(tb)
-        except Exception:
-            # se non posso scrivere, almeno stampo su stderr (flush)
-            print(f"[W{worker_id}] Errore e non posso scrivere file: {tb}", file=sys.stderr, flush=True)
-        # esci con codice non-zero
+        except Exception as e_file:
+            print(f"[W{worker_id}] Failed to write exc file: {e_file}", file=sys.stderr, flush=True)
+            print(tb, file=sys.stderr, flush=True)
+        # Ensure non-zero exit
         sys.exit(1)
 
 
-def main(args):
-    mp.set_start_method('spawn', force=True)
-    param_queue = mp.Queue(maxsize=args.num_workers)
-    traj_queue = mp.Queue(maxsize=64)
 
-    
+def main(args):
+
+    mp.set_start_method("spawn", force=True)
+
+    # --- creo code ---
+    param_queues = [mp.Queue(maxsize=1) for _ in range(args.num_workers)]
+    traj_queue = mp.Queue()
+
     main_log = SingletonLogger().get_logger()
 
     main_log.info(f" num_workers            : {args.num_workers}")
     main_log.info(f" num_ep_worker          : {args.num_ep_worker}")
     main_log.info(f" num_eval_games         : {args.num_eval_games}")
     main_log.info(f" train_every            : {args.train_every}")
-    # --- Processo principale (GPU) ---
-    device = get_device()  # qui userà la GPU se disponibile
+    main_log.info(f" load_checkpoint_path   : {args.load_checkpoint_path}")
+
+    # --- setup agente centrale (GPU) ---
+    device = get_device()
     set_seed(args.seed)
-    env_for_agent = rlcard.make(args.env, config={'seed': args.seed})
 
-    central_agent = get_agent(env_for_agent, device, args)
-    main_log.info("get_agent")
+    env_main = rlcard.make(args.env, config={'seed': args.seed})
+    central_agent = get_agent(env_main, device, args)
 
-    agents = [central_agent]
-    from rlcard.agents import RandomAgent
-    for _ in range(1, env_for_agent.num_players):
-        agents.append(RandomAgent(num_actions=env_for_agent.num_actions))
-    env_for_agent.set_agents(agents)
-    main_log.info("set_agents")
+    opponents = [
+        RandomAgent(num_actions=env_main.num_actions)
+        for _ in range(env_main.num_players - 1)
+    ]
+    env_main.set_agents([central_agent] + opponents)
 
-    # Invia il primo checkpoint ai worker
-    init_ckpt = central_agent.checkpoint_attributes()
-    import pickle
-
-    try:
-        pickle.dumps(init_ckpt)
-        print("PICKLE OK")
-    except Exception as e:
-        print("PICKLE ERROR:", e)
-    main_log.info("checkpoint_attributes")
-    for _ in range(args.num_workers):
-        param_queue.put(init_ckpt)
-    main_log.info("param_queue.put")
-
-    # --- Avvio dei worker (solo CPU) ---
+   ## --- avvio worker ---
     processes = []
-    main_log.info("startig processes 1")
     for wid in range(args.num_workers):
-        p = mp.Process(target=worker_process, args=(wid, traj_queue, param_queue, args))
-        main_log.info("startig processes 2")
+        p = mp.Process(
+            target=worker_process,
+            args=(wid, traj_queue, param_queues[wid], args)
+        )
         p.start()
         processes.append(p)
         time.sleep(0.5)
 
+
+    # invio primo checkpoint a ogni worker
+    for wid, q in enumerate(param_queues):
+        save_and_send_ckpt_to_worker(central_agent, wid, q, step=0, args=args)
+
+    # --- ciclo principale ---
     finished_workers = 0
     buffer_count = 0
     episode_count = 0
-    
+
+    worker_done = [False] * args.num_workers
+
     with Logger(args.log_dir) as logger:
+
         while finished_workers < args.num_workers:
-            item = traj_queue.get()
-            if isinstance(item, tuple) and item[0] == "__WORKER_DONE__":
-                finished_workers += 1
-                main_log.info(f"[Main] Worker {item[1]} completato ({finished_workers}/{args.num_workers})")
+            try:
+                item = traj_queue.get(timeout=10)
+            except:
+                main_log.warning("[Main] timeout waiting for traj_queue; checking workers...")
+                for i, p in enumerate(processes):
+                     main_log.warning(f"[Main] worker {i} pid={p.pid} is_alive={p.is_alive()} exitcode={p.exitcode}")
                 continue
 
+            # --- worker finito ---
+            if isinstance(item, tuple) and item[0] == "__WORKER_DONE__":
+                wid = item[1]
+                worker_done[wid] = True
+                finished_workers += 1
+                continue
+
+            # --- traiettoria ---
             trajs, pays = item
             episode_count += 1
+
             reorganized = reorganize(trajs, pays)
             for ts in reorganized[0]:
                 central_agent.feed(ts)
                 buffer_count += 1
 
-            # Esegue training ogni N transizioni raccolte
+            # --- train ---
             if buffer_count >= args.train_every:
-                main_log.info(f"buffer_count >= args.train_every --> {buffer_count} - {args.train_every}")
-                central_agent.train()
+                if len(central_agent.memory.memory) >= central_agent.batch_size:
+                    main_log.info(f"TRAIN: buffer_count={buffer_count}, memory={len(central_agent.memory.memory)}")
+                    central_agent.train()
+                else:
+                    main_log.info(f"SKIP TRAIN: memory too small ({len(central_agent.memory.memory)}/{central_agent.batch_size})")
+
                 buffer_count = 0
-            
+
+            # --- valutazione periodica ---
             if episode_count % args.eval_every == 0:
-                main_log.info("")
+                main_log.info(f"START tournament - episode_count:{episode_count}")
+                main_log.info(f"param_queue size before tournament: {[par.qsize() for par in param_queues]}")
+                result = tournament(env_main, args.num_eval_games)[0]
                 logger.log_performance(
-                    episode_count * args.train_every,
-                    tournament(
-                        env_for_agent,
-                        args.num_eval_games,
-                    )[0]
+                    episode_count * args.train_every, result
                 )
-                # Invia nuovo checkpoint ai worker
-                ckpt = central_agent.checkpoint_attributes()
-                for _ in range(args.num_workers):
-                    param_queue.put(ckpt)
+                main_log.info("END tournament")
+
+                # --- invio checkpoint aggiornato ---
+                if finished_workers < args.num_workers:
+                    ckpt = central_agent.checkpoint_attributes()
+                    step = episode_count * args.train_every
+                    for wid, q in enumerate(param_queues):
+                        if not worker_done[wid] and processes[wid].is_alive():
+                            save_and_send_ckpt_to_worker(central_agent, wid, q, step=step, args=args)
+        
         # Get the paths
         csv_path, fig_path = logger.csv_path, logger.fig_path
-        try:
-            main_log.info("Logger closed")
-            logger.close()
-            main_log.info("Logger closed")
-        except Exception as e_logger:
-            main_log.error(f"Error while closing Logger - {e_logger}")
-
-    main_log.info("Joining processes")
-    for p in processes:
-        p.join()
-    main_log.info("Joining processes end")
-
-    main_log.info("Closing Queues")
-    main_log.info(f"traj_queue size before close: {traj_queue.qsize()}")
-    main_log.info("active children:", mp.active_children())
-
-    # --- CHIUSURA CODE ---
-    try:
-        traj_queue.close()
-        traj_queue.join_thread()
-        param_queue.close()
-        param_queue.join_thread()
-        main_log.info("Queues closed")
-    except Exception as e:
-        main_log.error("Errore chiusura code:", e)
-
-    main_log.info("FORCE SHUTDOWN processes")
-    # --- FORCE SHUTDOWN eventuale ---
-    for p in processes:
-        if p.is_alive():
-            main_log.warning(f"[Main] Worker {p.pid} ancora vivo, terminate()...")
-            p.terminate()
-
-    # Salva modello finale
-    main_log.info("Saving Model")
-    os.makedirs(args.log_dir, exist_ok=True)
-    save_path = os.path.join(args.log_dir, "final_model.pth")
-    torch.save(central_agent, save_path)
-    main_log.info(f"[Main] Modello finale salvato in {save_path}")
 
     # Plot the learning curve
     main_log.info("Saving Statistics")
     plot_curve(csv_path, fig_path, args.algorithm)
 
+    # --- chiusura ---
+    for p in processes:
+        p.join()
 
-    # --- chiudi SingletonLogger ---
-    try:
-        main_log.info("Closing main_log")
-        for h in main_log.handlers:
-            h.close()
-            main_log.removeHandler(h)
-    except:
-        pass
+    for q in param_queues:
+        q.close()
+        q.join_thread()
+    traj_queue.close()
+    traj_queue.join_thread()
+
+    # --- salvataggio finale ---
+    os.makedirs(args.log_dir, exist_ok=True)
+    torch.save(central_agent, os.path.join(args.log_dir, "final_model.pth"))
 
 
-def get_agent(env, device, args):
+def get_agent(env, device, args, checkpoint_arg = None):
     # Initialize the agent and use random agents as opponents
     agent = None
     if args.algorithm == 'dqn':
         from rlcard.agents import DQNAgent
-        if args.load_checkpoint_path != "":
-            agent = DQNAgent.from_checkpoint(checkpoint=torch.load(args.load_checkpoint_path))
+        if checkpoint_arg != None:
+            agent = DQNAgent.from_checkpoint(checkpoint=checkpoint_arg)
+        elif args.load_checkpoint_path != "":
+            print(f"Loading from: {args.load_checkpoint_path}")
+            ckpt = torch.load(args.load_checkpoint_path,weights_only=False)
+            agent = DQNAgent.from_checkpoint(checkpoint=ckpt)
+
         else:
             agent = DQNAgent(
-                num_actions=env.num_actions,
-                state_shape=env.state_shape[0],
-                mlp_layers=[64,64],
-                device=device,
-                save_path=args.log_dir,
-                save_every=args.save_every
-            )
+                    replay_memory_size=200000,
+                    replay_memory_init_size=10000,
+                    update_target_estimator_every=2500,
+                    discount_factor=0.99,
+                    epsilon_start=1.0,
+                    epsilon_end=0.1,
+                    epsilon_decay_steps=400000,
+                    batch_size=256,
+                    num_actions=env.num_actions,        # da ambiente Burraco
+                    state_shape=env.state_shape[0],     # da env.state_shape[0]
+                    mlp_layers=[128, 128],              # da valutare mlp_layers=[512, 512, 256],
+                    learning_rate=0.00005,
+                    device=device,
+                    save_path=args.log_dir,
+                    save_every=args.save_every,
+                    train_every = 100
+                )
+
+            #agent = DQNAgent(
+            #    num_actions=env.num_actions,
+            #    state_shape=env.state_shape[0],
+            #    #salire a [1024, 512, 256] con TANTI esempi
+            #    mlp_layers=[512, 512, 256],
+            #    device=device,
+            #    save_path=args.log_dir,
+            #    save_every=args.save_every
+            #)
 
     elif args.algorithm == 'nfsp':
         from rlcard.agents import NFSPAgent
-        if args.load_checkpoint_path != "":
-            agent = NFSPAgent.from_checkpoint(checkpoint=torch.load(args.load_checkpoint_path))
+        if checkpoint_arg != None:
+            agent = NFSPAgent.from_checkpoint(checkpoint=checkpoint_arg)
         else:
             agent = NFSPAgent(
                 num_actions=env.num_actions,
@@ -273,14 +276,17 @@ if __name__ == "__main__":
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--log_dir", default=path)
     parser.add_argument("--save_every", type=int, default=-1)
+    #parser.add_argument("--load_checkpoint_path", default="Checkpoint/checkpoint_dqn.pt")
     parser.add_argument("--load_checkpoint_path", default="")
 
     #default 32
-    parser.add_argument("--train_every", type=int, default=32)
+    parser.add_argument("--train_every", type=int, default=100)
     parser.add_argument("--num_workers", type=int, default=5)
-    parser.add_argument("--num_ep_worker", type=int, default=2)
-    parser.add_argument("--num_eval_games", type=int, default=1)
-    parser.add_argument("--eval_every", type=int, default=5)
+    parser.add_argument("--num_ep_worker", type=int, default=10000)
+    parser.add_argument("--num_eval_games", type=int, default=10)
+    parser.add_argument("--eval_every", type=int, default=100)
 
     args = parser.parse_args()
     main(args)
+
+

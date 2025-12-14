@@ -1,4 +1,14 @@
 import Utils.CONST as CONST
+from map_actions_ids import create_mapping
+
+# pick_up_action_id = 0
+# pick_up_discard_action_id = 1
+# discard_action_id = 2	- 109
+# close_game_action_id = 110 - 205
+# open_tris_action_id = 206 - 4909
+# open_meld_action_id = 4910 - 11597
+# update_tris_action_id = 11598 - 12893
+# update_meld_action_id = 12894 - 13217
 
 class ActionEvent(object):
 

@@ -1,5 +1,6 @@
 import random
 from datetime import datetime
+from typing import Iterable
 from Ontologia.onto_save_manager import OntologyManager
 from Utils.logger import SingletonLogger 
 
@@ -200,3 +201,13 @@ def add_discarded_cards_to_pickup():
     
 def scarica_ontologia():
     get_manager().scarica_ontologia()
+
+
+def get_card_by_rank(numeroCarta) -> Iterable:
+    onto = get_onto()
+    value_card_arr = onto.search(type = onto.Card, numeroCarta = numeroCarta)
+    return value_card_arr
+
+def get_card_by_rank_seme(seme, numeroCarta):
+    value_card_arr = [card for card in get_card_by_rank(numeroCarta) if card.seme.name == seme]
+    return value_card_arr

@@ -1,3 +1,16 @@
+#per creare venv con python 3.12
+& "C:\Users\alexl\AppData\Local\Programs\Python\Python312\python.exe" -m venv .venv312
+#per girare su GPU (USARE Python 3.12 max, 3.13 non supportato per GPU)
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --extra-index-url https://download.pytorch.org/whl/cu121
+#in caso di errore
+pip uninstall torch torchvision torchaudio -y
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --extra-index-url https://download.pytorch.org/whl/cu121
+#verifica l'installazione
+python -c "import torch; print(torch.cuda.is_available())"
+
+
+
+
 cd C:\Users\alexl\Documents\Facolta\ICSE\Progetto\Burraco\ICSE_2425_Lorusso
 #installazione venv
 python -m venv .venv
@@ -6,18 +19,11 @@ python -m venv .venv
 #se errore Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 pip install matplotlib
 pip install owlready2 
+pip install termcolor
+pip install setuptools
 #installazione rlcard da locale editabile(-e)
 pip install -e . 
-pip install termcolor
- pip install setuptools
 
-#per girare su GPU (USARE Python 3.12 max, 3.13 non supportato per GPU)
-pip install torch torchvision torchaudio 
---extra-index-url https://download.pytorch.org/whl/cu121
-#in caso di errore
-pip uninstall torch torchvision torchaudio -y
-#verifica l'installazione
-python -c "import torch; print(torch.cuda.is_available())"
 
 ------------------------------------------------------
 python examples/run_rl.py --env burraco --algorithm dqn --log_dir experiments/burraco_dqn_result/

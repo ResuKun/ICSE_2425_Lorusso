@@ -39,32 +39,15 @@ def train(args):
             agent = DQNAgent.from_checkpoint(checkpoint=torch.load(args.load_checkpoint_path))
         else:
             agent = DQNAgent(
-                #OLD
-                #num_actions=env.num_actions,
-                #state_shape=env.state_shape[0],
-                ##default
-                ##mlp_layers=[64,64],
-                ##burraco consigliato ad altissimi episodi (1M circa)
-                #mlp_layers=[512, 512, 256],
-                #device=device,
-                #save_path=args.log_dir,
-                #save_every=args.save_every
-                replay_memory_size=200000,
-                replay_memory_init_size=10000,
-                update_target_estimator_every=2500,
-                discount_factor=0.99,
-                epsilon_start=1.0,
-                epsilon_end=0.1,
-                epsilon_decay_steps=400000,
-                batch_size=256,
-                num_actions=env.num_actions,        # da ambiente Burraco
-                state_shape=env.state_shape[0],     # da env.state_shape[0]
-                mlp_layers=[128, 128],              # da valutare mlp_layers=[512, 512, 256],
-                learning_rate=0.00005,
+                num_actions=env.num_actions,
+                state_shape=env.state_shape[0],
+                #default
+                #mlp_layers=[64,64],
+                #burraco consigliato
+                mlp_layers=[512, 512, 256],
                 device=device,
                 save_path=args.log_dir,
-                save_every=args.save_every,
-                train_every = 100
+                save_every=args.save_every
             )
 
     elif args.algorithm == 'nfsp':
@@ -178,17 +161,17 @@ if __name__ == '__main__':
     parser.add_argument(
         '--num_episodes',
         type=int,
-        default=10000,
+        default=1500,
     )
     parser.add_argument(
         '--num_eval_games',
         type=int,
-        default=10,
+        default=20,
     )
     parser.add_argument(
         '--evaluate_every',
         type=int,
-        default=100,
+        default=150,
     )
     parser.add_argument(
         '--log_dir',

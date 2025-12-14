@@ -72,12 +72,11 @@ class OntologyManager:
         #print(f"UPDATE::  Ontologia aggiornata in {self.card}")
 
     def salva_ontologia_init_game(self ):
-        #"""Salva l'ontologia nel file INIT_GAME.owl"""
-        #if self.onto is None:
-        #    raise ValueError("Nessuna ontologia caricata.")
-        #self.onto.save(file=self.init_game, format="rdfxml")
+        """Salva l'ontologia nel file INIT_GAME.owl"""
+        if self.onto is None:
+            raise ValueError("Nessuna ontologia caricata.")
+        self.onto.save(file=self.init_game, format="rdfxml")
         #print(f"UPDATE::  Ontologia aggiornata in {self.init_game}")
-        pass
 
     def salva_ontologia_update_game(self, debuge_mode = False):
         """Salva l'ontologia nel file UPDATED_GAME.owl"""
@@ -169,17 +168,17 @@ class OntologyManager:
             self.reload_file_name()
         if not os.path.exists(self.bk_dir):
             os.makedirs(self.bk_dir)
-       # file = open(self.card , "r")
-       # content = file.read()
-       # file.close()
-       # content = content.replace(
-       #     "http://www.semanticweb.org/les/ontologies/2025/Cards",
-       #     f"http://www.semanticweb.org/les/ontologies/2025/Init_Game_Ontology{self.timestamp}"
-       # )
-       # f = open(self.init_game, "w")
-       # f.write(content)
-       # f.close()
-       # print(f"ONTO - INFO:: Creato file {self.init_game} ")
+        file = open(self.card , "r")
+        content = file.read()
+        file.close()
+        content = content.replace(
+            "http://www.semanticweb.org/les/ontologies/2025/Cards",
+            f"http://www.semanticweb.org/les/ontologies/2025/Init_Game_Ontology{self.timestamp}"
+        )
+        f = open(self.init_game, "w")
+        f.write(content)
+        f.close()
+        print(f"ONTO - INFO:: Creato file {self.init_game} ")
 
     def create_update_file_test(self):
         """Crea un nuovo file UPDATED_GAME aggiornando l’IRI."""
@@ -196,16 +195,15 @@ class OntologyManager:
         #print("ONTO - INFO:: Creato file UPDATED_GAME aggiornato")
 
     def create_init_file_test(self):
-        pass
-        #"""Crea un nuovo file UPDATED_GAME aggiornando l’IRI."""
-        #file = open(self.card , "r")
-        #content = file.read()
-        #file.close()
-        #content = content.replace(
-        #    "http://www.semanticweb.org/les/ontologies/2025/Cards",
-        #    "http://www.semanticweb.org/les/ontologies/2025/Init_Game_Ontology"
-        #)
-        #f = open(self.init_game_test, "w")
-        #f.write(content)
-        #f.close()
+        """Crea un nuovo file UPDATED_GAME aggiornando l’IRI."""
+        file = open(self.card , "r")
+        content = file.read()
+        file.close()
+        content = content.replace(
+            "http://www.semanticweb.org/les/ontologies/2025/Cards",
+            "http://www.semanticweb.org/les/ontologies/2025/Init_Game_Ontology"
+        )
+        f = open(self.init_game_test, "w")
+        f.write(content)
+        f.close()
         #print("ONTO - INFO:: Creato file UPDATED_GAME aggiornato")

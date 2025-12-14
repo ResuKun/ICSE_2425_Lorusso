@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Iperparametri consigliati per DQN su Burraco</title>
+  <style>
+    body { font-family: Inter, Arial, sans-serif; line-height:1.5; margin:24px; color:#111 }
+    h1 { font-size:1.8rem; margin-bottom:0.2rem }
+    h2 { margin-top:1.2rem }
+    p { margin:0.45rem 0 }
+    pre { background:#f6f6f8; padding:12px; border-radius:6px; overflow:auto }
+    code { background:#f0f0f0; padding:2px 4px; border-radius:4px }
+    .box { border-left:4px solid #2b8; padding:12px; background:#fbfffd }
+    .note { background:#fff7e6; padding:10px; border-radius:6px }
+    a.file { display:inline-block; margin-top:8px }
+    footer { margin-top:20px; font-size:0.9rem; color:#555 }
+  </style>
+</head>
+<body>
+  <h1>Iperparametri consigliati per DQN su Burraco</h1>
+  <p>Di seguito trovi una versione HTML completa della risposta con i suggerimenti sugli iperparametri che ti ho fornito. Non ho tralasciato nulla di quanto scritto.</p>
+
+  <h2>Introduzione</h2>
+  <p>Ti do dei <strong>suggerimenti ragionati e indipendenti</strong> per gli iperparametri. Li ho basati su tre elementi chiave:</p>
+  <ol>
+    <li><strong>Burraco è un gioco lungo e complesso</strong>, quindi serve stabilità più che reattività.</li>
+    <li><strong>Usi 5 worker paralleli</strong>, quindi generi rapidamente molte transizioni.</li>
+    <li><strong>Usi DQN puro</strong>, non Rainbow o PER → più sensibile agli iperparametri.</li>
+  </ol>
+
+  <h2>Configurazione consigliata (molto stabile per giochi complessi)</h2>
+  <h3>Replay buffer</h3>
+  <pre><code>replay_memory_size = 200000 – 500000
+replay_memory_init_size = 10000</code></pre>
+  <p><strong>Perché:</strong></p>
+  <ul>
+    <li>Burraco produce partite lunghe → tante transizioni correlate → serve buffer più grande per evitare overfitting su pattern recenti.</li>
+    <li>100k è ok ma borderline; 200k è decisamente meglio.</li>
+    <li>L’inizializzazione a 5000 è troppo bassa per giochi strategici → 10000 è più sicuro.</li>
+  </ul>
+
+  <h3>Batch size</h3>
+  <pre><code>batch_size = 256</code></pre>
+  <p><strong>Perché evitare 512:</strong></p>
+  <ul>
+    <li>512 è molto alto: rallenta l’update, diminuisce la diversità relativa del batch e rischia di rendere il training instabile con replay non prioritizzato.</li>
+    <li>256 è un ottimo compromesso per stabilità ed efficienza.</li>
+    <li>Se hai una GPU molto potente puoi valutare 512, ma solo se: usi learning rate molto basso (tipo 1e-5) e hai un buffer enorme (300k–500k).</li>
+  </ul>
+
+  <h3>Epsilon decay</h3>
+  <pre><code>epsilon_decay_steps = 300000 – 500000</code></pre>
+  <p><strong>Perché aumentare rispetto al tuo 200k?</strong></p>
+  <ul>
+    <li>Un gioco lungo e complesso ha bisogno di <em>esplorare molto di più</em>.</li>
+    <li>Con 5 worker farai milioni di transizioni → puoi permetterti decay più lento.</li>
+    <li>Decay troppo veloce → comportamenti prematuri subottimali.</li>
+  </ul>
+
+  <h3>Target network update</h3>
+  <pre><code>update_target_estimator_every = 2000 – 3000</code></pre>
+  <p><strong>Perché non 5000? Perché?</strong></p>
+  <ul>
+    <li>Aggiornamenti troppo rari causano oscillazioni nel Q-learning doppio.</li>
+    <li>Con batch 256 e buffer grande, update più frequenti stabilizzano molto.</li>
+    <li>Per giochi complessi è fondamentale evitare differenze troppo grandi tra Q e Target-Q.</li>
+  </ul>
+
+  <h3>Learning rate</h3>
+  <p>RLCard default: <code>5e-5</code>.<br>
+  Con batch 256 va benissimo. Con batch 512 dovresti scendere a <code>1e-5</code>.</p>
+
+  <h3>TRAIN EVERY (nel main)</h3>
+  <pre><code>train_every = 200</code></pre>
+  <p>Questo, per come hai strutturato il codice, determina la frequenza degli update del <em>central_agent</em>.
+  È buono, ma puoi valutare:</p>
+  <pre><code>train_every = 100</code></pre>
+  <p>→ più reattivo, ma ancora stabile. Con tanti worker arriverà rapidamente a molte iterazioni.</p>
+
+  <h2>Riassunto iperparametri consigliati (miei, non influenzati dai tuoi)</h2>
+  <pre><code>// 🔵 Buffer
+replay_memory_size = 200000
+replay_memory_init_size = 10000
+
+// 🔵 Batch
+batch_size = 256
+
+// 🔵 Epsilon decay
+epsilon_decay_steps = 300000 – 500000
+
+// 🔵 Target update
+update_target_estimator_every = 2000 – 3000
+
+// 🔵 Learning rate
+learning_rate = 5e-5  (standard per DQN RLCard)
+
+// 🔵 Nel tuo script main
+train_every = 100 – 200</code></pre>
+
+  <h2>Versione finale (molto solida per Burraco)</h2>
+  <pre><code>replay_memory_size = 200000
+replay_memory_init_size = 10000
+batch_size = 256
+epsilon_decay_steps = 400000
+update_target_estimator_every = 2500
+train_every = 100</code></pre>
+  <p>Questa combinazione garantisce:</p>
+  <ul>
+    <li>stabilità nelle Q-values</li>
+    <li>esplorazione sufficiente</li>
+    <li>apprendimento continuo senza oscillazioni</li>
+    <li>sfrutta bene i 5 worker</li>
+    <li>buona scalabilità per un gioco complicato come Burraco</li>
+  </ul>
+
+  <h2>Se vuoi, posso anche:</h2>
+  <ul>
+    <li>calcolarti la <em>velocità dell’esplorazione</em> con questi parametri</li>
+    <li>stimare gli <em>step totali</em> che il tuo training farà</li>
+    <li>ottimizzare la tua rete MLP (64-64 è piccola per Burraco)</li>
+  </ul>
+
+  <div class="note">
+    <strong>Nota:</strong> ho incluso anche link ai file python che hai caricato, così puoi facilmente aprirli dal tuo ambiente locale.
+    <div>
+      <a class="file" href="/mnt/data/run_rl_mp_burraco.py">/mnt/data/run_rl_mp_burraco.py</a><br>
+      <a class="file" href="/mnt/data/dqn_agent.py">/mnt/data/dqn_agent.py</a>
+    </div>
+  </div>
+
+  <footer>
+    Pagina generata automaticamente contenente i suggerimenti sugli iperparametri per l’addestramento DQN su Burraco.
+  </footer>
+</body>
+</html>

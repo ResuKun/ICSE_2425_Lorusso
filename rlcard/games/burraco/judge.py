@@ -13,10 +13,6 @@ class BurracoJudge:
     def get_legal_actions(self, player):
         legal_actions = []
 
-        #TODO FIXME: gestire le legal_actions in base allo stato del gioco
-        # es. se il giocatore NON ha già pescato, DEVE pescare (mazzo o scarti)
-        # es. se il giocatore ha già pescato, non può pescare di nuovo
-        
         #pulisce lo storico da AddDiscardToPickupAction
         if len(self.action_map) == 1 and isinstance(self.action_map[0], AddDiscardToPickupAction):
             self.action_map = []
@@ -25,7 +21,6 @@ class BurracoJudge:
         if len(self.action_map) == 0:
             #da regolamento internazionale ART. 16
             if len(onto_access_util.get_monte()) == 2:
-                #print("not monte_gt_0 and not scarti_gt_1")
                 #chiudere la partita
                 legal_actions.append(CloseGameJudgeAction(len(legal_actions)))
             else:
@@ -40,7 +35,7 @@ class BurracoJudge:
 
             potential_melds = csp_resolver.find_csp_scala(player)
             for meld in potential_melds:
-                legal_actions.append(OpenMeldAction(meld,len(legal_actions)))
+                legal_actions.append(OpenMeldAction(meld, len(legal_actions)))
 
             potential_tris_upd = csp_resolver.get_possible_tris_to_update(player)
             for tris in potential_tris_upd:
@@ -51,7 +46,6 @@ class BurracoJudge:
                 legal_actions.append(UpdateMeldAction(meld[1][5],meld[0][1],len(legal_actions)))
             
             # Aggiunge l'azione di chiusura del gioco
-            #if(len(legal_actions) == 0):
             card = csp_resolver.can_end_game_csp(player)
             if card != []:
                 legal_actions.append(CloseGameAction(card[0][0][1],len(legal_actions)))
@@ -64,8 +58,8 @@ class BurracoJudge:
         return legal_actions
     
 
-    def decode_action(self, action_id):
-        return self.action_map[action_id]
+    #def decode_action(self, action_id):
+    #    return self.action_map[action_id]
 
     def clean_map(self):
         self.action_map = []
