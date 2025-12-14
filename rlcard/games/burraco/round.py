@@ -51,7 +51,7 @@ class BurracoRound:
        #self.log.info(f"-------------------------------------------------------------------------------------")
        #self.log.info(f"-----------------------------------------NUOVO TURNO---------------------------------")
        #self.log.info(f"{current_player.player1.nomeGiocatore} ")
-       #self.log.info(f"---- carta pescata ----> {current_player.player1.playerHand.mazzo[-1].name}")
+        self.log.info(f"---- carta pescata ----> {current_player.player1.playerHand.mazzo[-1].name}")
        #self.log.info(f"---- CARTE IN MANO: ")
        #self.log.info(f"{[card.name for card in current_player.player1.playerHand.mazzo]}")
        #self.log.info(f"-------------------------------------------------------------------------------------")
@@ -67,7 +67,7 @@ class BurracoRound:
        #self.log.info(f"{current_player.player1.nomeGiocatore} ")
        #self.log.info(f"---- carta pescata ----> {cards}")
        #self.log.info(f"---- CARTE IN MANO: ")
-       #self.log.info(f"{[card.name for card in current_player.player1.playerHand.mazzo]}")
+        self.log.info(f"---- carte pescata ----> {[card.name for card in current_player.player1.playerHand.mazzo]}")
        #self.log.info(f"-------------------------------------------------------------------------------------")
 
     def open_meld(self, action: OpenMeldAction):
@@ -75,14 +75,14 @@ class BurracoRound:
         cards = action.cards
         accumulatedScore = player_onto_util.apre_scala(current_player.player1, cards)
         self.move_sheet.append(OpenMeldMove(current_player, action, cards, accumulatedScore))
-        #self.log.info(f"{current_player.player1.nomeGiocatore} ----> {cards}")
+        self.log.info(f"{current_player.player1.nomeGiocatore} ----> {cards}")
     
     def open_tris(self, action: OpenTrisAction):
         current_player = self.players[self.current_player_id]
         cards = action.cards
         accumulatedScore = player_onto_util.apre_tris(current_player.player1, cards)
         self.move_sheet.append(OpenTrisMove(current_player, action, cards, accumulatedScore))
-        #self.log.info(f"{current_player.player1.nomeGiocatore} ----> {cards}")
+        self.log.info(f"{current_player.player1.nomeGiocatore} ----> {cards}")
 
     def update_meld(self, action: UpdateMeldAction):
         current_player = self.players[self.current_player_id]
@@ -90,7 +90,7 @@ class BurracoRound:
         meld_id = action.meld_id
         accumulatedScore = player_onto_util.aggiunge_carta_scala(current_player.player1, meld_id, card_id)
         self.move_sheet.append(UpdateMeldMove(current_player, action, meld_id, card_id, accumulatedScore))
-        #self.log.info(f"{current_player.player1.nomeGiocatore} ----> {onto_access_util.get_meld_from_id(meld_id).name} --> {onto_access_util.get_card_from_id(action.card_id).name}")
+        self.log.info(f"{current_player.player1.nomeGiocatore} ----> {onto_access_util.get_meld_from_id(meld_id).name} --> {onto_access_util.get_card_from_id(action.card_id).name}")
     
     def update_tris(self, action: UpdateTrisAction):
         current_player = self.players[self.current_player_id]
@@ -98,7 +98,7 @@ class BurracoRound:
         tris_id = action.tris_id
         accumulatedScore = player_onto_util.aggiunge_carta_tris(current_player.player1, tris_id, card_id)
         self.move_sheet.append(UpdateTrisMove(current_player, action, tris_id, card_id, accumulatedScore))
-        #self.log.info(f"{current_player.player1.nomeGiocatore} ----> {onto_access_util.get_tris_from_id(tris_id).trisValue} -->{onto_access_util.get_card_from_id(action.card_id).name}")
+        self.log.info(f"{current_player.player1.nomeGiocatore} ----> {onto_access_util.get_tris_from_id(tris_id).trisValue} -->{onto_access_util.get_card_from_id(action.card_id).name}")
     
     def discard(self, action: DiscardAction):
         current_player = self.players[self.current_player_id]
@@ -109,7 +109,7 @@ class BurracoRound:
         onto_access_util.set_turnOf_by_id_player(self.current_player_id)
         self.game_judge.clean_map()
        # self.log.info(f"-------------------------------------------------------------------------------------")
-       # self.log.info(f"{current_player.player1.nomeGiocatore} ----> {onto_access_util.get_card_from_id(action.card_id).name}")
+        self.log.info(f"{current_player.player1.nomeGiocatore} ----> {onto_access_util.get_card_from_id(action.card_id).name}")
        # self.log.info(f"-----------------------------------------FINE---------------------------------")
        # self.log.info(f"-------------------------------------------------------------------------------------")
 
@@ -118,9 +118,11 @@ class BurracoRound:
         current_player = self.players[self.current_player_id]
         player_onto_util.chiudi_gioco(current_player.player1,action.card_id)
         self.is_over = True
-        #self.log.info(f"{current_player.player1.nomeGiocatore} ----> {onto_access_util.get_card_from_id(action.card_id).name}")
+        self.log.info(f"{current_player.player1.nomeGiocatore} ----> {onto_access_util.get_card_from_id(action.card_id).name}")
+        self.log.info(f"-------------------------------------------------------------------------------------")
+
 
     def close_game_by_judge(self):
         self.is_over = True
-        #self.log.info(f" ---------------- [CLOSED GAME BY JUDGE] ----------------")
+        self.log.info(f" ---------------- [CLOSED GAME BY JUDGE] ----------------")
 
