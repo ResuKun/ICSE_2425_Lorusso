@@ -282,8 +282,8 @@ if __name__ == "__main__":
     #default 32
     parser.add_argument("--train_every", type=int, default=1000)
     parser.add_argument("--num_workers", type=int, default=5)
-    parser.add_argument("--num_ep_worker", type=int, default=10000)
-    parser.add_argument("--num_eval_games", type=int, default=15)
+    parser.add_argument("--num_ep_worker", type=int, default=5900)
+    parser.add_argument("--num_eval_games", type=int, default=5)
     parser.add_argument("--eval_every", type=int, default=1000)
 
     args = parser.parse_args()
