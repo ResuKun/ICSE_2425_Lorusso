@@ -4,13 +4,12 @@ from threading import Lock
 from datetime import datetime
 from pathlib import Path
 
-#TODO rendere i path relativi
 class OntologyResource(Enum):
     ONTO_FOLDER = str(Path("Ontologia").absolute())
-    CARD = ONTO_FOLDER + "/Cards_Ontology.owl"
-    INIT_GAME =  "/Init_Game_Ontology"
-    UPDATED_GAME = "/Updated_Game_Ontology"
-    UPDATED_GAME_TEST = "/Updated_Game_Ontology"
+    CARD = ONTO_FOLDER + "\\Cards_Ontology.owl"
+    INIT_GAME =  "\\Init_Game_Ontology"
+    UPDATED_GAME = "\\Updated_Game_Ontology"
+    UPDATED_GAME_TEST = "\\Updated_Game_Ontology"
     FILE_EXTENSION = ".owl"
 
 

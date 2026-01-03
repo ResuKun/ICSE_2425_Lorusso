@@ -3,10 +3,9 @@ import numpy as np
 from .player import BurracoPlayer
 from .round import BurracoRound
 from .judge import BurracoJudge
-from .action_event_dyn import *
+from .action_event_static import *
 from Player.player_onto_manager import get_player_known_cards, get_player_unknown_cards, get_player_melds, get_player_tris,get_player_cards
 from Ontologia.onto_access_util import get_monte, get_scarti
-from action_event_static import ActionEvent
 
 import Ontologia.initGame as initGame
 
@@ -43,8 +42,8 @@ class BurracoGame:
 			self.round.pick_up_card(action)
 		elif isinstance(action, PickUpDiscardAction):
 			self.round.pick_up_discard(action)
-		elif isinstance(action, AddDiscardToPickupAction):
-			self.round.add_discarded_to_pickup()
+		#elif isinstance(action, AddDiscardToPickupAction):
+		#	self.round.add_discarded_to_pickup()
 
 		elif isinstance(action, OpenMeldAction):
 			self.round.open_meld(action)
@@ -137,6 +136,6 @@ class BurracoGame:
 		return state
 
 
-	@staticmethod
+	#@staticmethod
 	def decode_action(self, action_id) -> ActionEvent:
-		return ActionEvent.decode_action(action_id=action_id)
+		return self.judge.decode_action(action_id=action_id)

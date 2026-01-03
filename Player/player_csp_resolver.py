@@ -132,9 +132,10 @@ def can_update_csp_scala(player, lista_carte, scala):
 
 def get_possible_meld_to_update(player):
     list_meld = []
-    #TODO da debuggare
     for meld in player.scala:
-        list_meld += can_update_csp_scala(player, player.playerHand.mazzo, meld)
+        result = can_update_csp_scala(player, player.playerHand.mazzo, meld)
+        if result != []:
+            list_meld.append((result, len(meld.hasCards)))
     return list_meld
     
 ## TRIS  ##
@@ -209,7 +210,9 @@ def can_update_csp_tris(player, lista_carte, tris):
 def get_possible_tris_to_update(player):
     list_meld = []
     for meld in player.tris:
-        list_meld.extend(can_update_csp_tris(player, player.playerHand.mazzo, meld))
+        result = can_update_csp_tris(player, player.playerHand.mazzo, meld)
+        if result != []:
+            list_meld.append((result, len(meld.hasCards)))
     return list_meld
 
 # effettua i check per verificare se il giocatore può chiudere la partita
@@ -222,7 +225,8 @@ def can_end_game_csp(player):
         [var1], 
         [
             Constraint([var1], checks.only_one_card, "solo una carta"),
-            Constraint([var1], regole_di_gioco,"regole_di_gioco")]
+            Constraint([var1], regole_di_gioco,"regole_di_gioco")
+        ]
     )
     
     #searcher = Searcher(Search_from_CSP(end_game_csp))

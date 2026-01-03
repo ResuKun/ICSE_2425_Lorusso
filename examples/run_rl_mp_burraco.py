@@ -276,15 +276,15 @@ if __name__ == "__main__":
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--log_dir", default=path)
     parser.add_argument("--save_every", type=int, default=-1)
-    #parser.add_argument("--load_checkpoint_path", default="Checkpoint/checkpoint_dqn.pt")
-    parser.add_argument("--load_checkpoint_path", default="")
+    parser.add_argument("--load_checkpoint_path", default="Checkpoint/checkpoint_dqn.pt")
+    #parser.add_argument("--load_checkpoint_path", default="")
 
     #default 32
-    parser.add_argument("--train_every", type=int, default=100)
+    parser.add_argument("--train_every", type=int, default=1000)
     parser.add_argument("--num_workers", type=int, default=5)
     parser.add_argument("--num_ep_worker", type=int, default=10000)
-    parser.add_argument("--num_eval_games", type=int, default=10)
-    parser.add_argument("--eval_every", type=int, default=100)
+    parser.add_argument("--num_eval_games", type=int, default=15)
+    parser.add_argument("--eval_every", type=int, default=1000)
 
     args = parser.parse_args()
     main(args)

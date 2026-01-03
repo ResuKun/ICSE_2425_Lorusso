@@ -1,6 +1,6 @@
 from typing import List
 from .player import BurracoPlayer
-from .action_event_dyn import *
+from .action_event_static import *
 from Ontologia.MyCards import Card, Scala, Tris
 from .burraco_error import BurracoProgramError
 

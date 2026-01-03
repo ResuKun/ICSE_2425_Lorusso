@@ -106,7 +106,8 @@ def doppio_jolly_lista(*lista_carte):
 
 #scala normalizzata (has_jolly, seme, min, max)
 def stesso_seme_scala(carta, scala):
-	return scala[1] == carta[2] if not is_jolly_or_pinella(carta[0]) else True
+	value =  scala[1] == carta[2] if not is_jolly_or_pinella(carta[0]) else True
+	return value
 
 def stesso_seme_lista(*lista_carte):
 	lista_carte = list(lista_carte)
@@ -182,6 +183,8 @@ def lista_contigua(*lista_carte):
 		lista_carte = [x for x in lista_carte if not is_jolly_or_pinella(x[0])]
 
 	#ordino le carte per numeroCarta e controllo che siano contigue
+	lista_ordinata = sorted(lista_carte)
+	lista_carte = tuple(lista_ordinata)
 	#se presente un jolly concedo un "buco" nella lista
 	old_num = lista_carte[0][0]
 	jolly_used = False

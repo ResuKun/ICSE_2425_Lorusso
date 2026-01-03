@@ -112,19 +112,28 @@ def apre_scala(player, cards):
 	nScala = len(player.scala)
 	nuovaScala = get_onto().Scala("Scala_" + str(nScala)+ "_" + player.name)
 	nuovaScala.scalaId = len(get_onto().Scala.instances())
-	nuovaScala.minValueScala = min(c[0] for c in cards if c[0] != -1)
-	nuovaScala.maxValueScala = max(c[0] for c in cards if c[0] != -1)
-	nuovaScala.isBurracoClosed = False
 
 	#ignoro i jolly/pinelle per il seme della scala
-	#sono sicuro della coerenza per i c
 	for card in cards:
-		if card[0] != CONST.CardValues.JOLLY_VALUE.value and card[0] != CONST.CardValues.PINELLA_VALUE.value:
-			nuovaScala.semeScala = next(s for s in get_onto().Seme.instances() if s.name == card[2])
+		if card.valoreCarta != CONST.CardValues.JOLLY_VALUE.value and card.valoreCarta != CONST.CardValues.PINELLA_VALUE.value:
+			nuovaScala.semeScala = card.seme
 			break
 
+	nuovaScala.minValueScala = min(c.valoreCarta for c in cards if c.valoreCarta != -1)
+	if(nuovaScala.minValueScala == 2):
+		# Estraggo i valori delle carte che non sono Pinelle/Jolly (-1) e li ordino
+		valori_reali = sorted([c.valoreCarta for c in cards if c.valoreCarta != -1])
+		# Controllo se le carte successive al 2 formano la sequenza naturale 3 e 4
+		# (valori_reali[0] è il 2, controlliamo se ci sono almeno 3 carte e se sono 3 e 4)
+		if not(len(valori_reali) >= 3 and valori_reali[1] == 3 and valori_reali[2] == 4):
+			# Prendo il valore minimo tra le carte rimanenti (escluso il 2)
+			nuovaScala.minValueScala = min(c.valoreCarta for c in cards if c.valoreCarta != -1 and c.valoreCarta != 2)
+		
+	nuovaScala.maxValueScala = max(c.valoreCarta for c in cards if c.valoreCarta != -1)
+	nuovaScala.isBurracoClosed = False
+
 	partialScore = 0
-	onto_cards = onto_access_util.get_cards_from_id_list([c[1] for c in cards])
+	onto_cards = cards
 	for card in onto_cards:
 		nuovaScala.hasCards.append(card)
 		#aggiorna il punteggio del giocatore
@@ -148,15 +157,14 @@ def apre_scala(player, cards):
 	return partialScore
 
 #crea una nuovo Tris e la aggiunge al giocatore
-from Utils.logger import SingletonLogger 
-def apre_tris(player, tuple_cards):
-	log = SingletonLogger().get_logger()
+def apre_tris(player, tuple_cards, debug = False):
 	nTris = len(player.tris)
 	nuovoTris = get_onto().Tris(f"Tris_" + str(nTris) + "_" + player.name)
 	nuovoTris.trisId = len(get_onto().Tris.instances())
 	trisValue = None
 	
-	cards = onto_access_util.get_cards_from_id_list([x[1] for x in tuple_cards])
+	#cards = onto_access_util.get_cards_from_id_list([x[1] for x in tuple_cards])
+	cards = tuple_cards
 
 	partialScore = 0
 	for card in cards:
@@ -182,11 +190,11 @@ def apre_tris(player, tuple_cards):
 	#commentati in quanto per ora non è possibile 
 	#scendere con una sola azione più di 5 carte 
 	# per questioni di performance
-	get_manager().salva_ontologia_update_game()
+	get_manager().salva_ontologia_update_game(debug)
 	return partialScore
 
 #permette al giocatore di aggiungere carte a un suo tris esistente sul tavolo, aggiornando il Tris.
-def aggiunge_carta_tris(player, tris_id, card_id):
+def aggiunge_carta_tris(player, tris_id, card_id, debug = False):
 	tris = onto_access_util.get_tris_from_id(tris_id)
 	card = onto_access_util.get_card_from_id(card_id)
 	partialScore = card.valoreCarta
@@ -200,7 +208,8 @@ def aggiunge_carta_tris(player, tris_id, card_id):
 	#aggiungo i punti per il burraco se c'è
 	partialScore += add_points_tris(tris, player)
 	tris.punteggioTris += partialScore
-	get_manager().salva_ontologia_update_game()
+
+	get_manager().salva_ontologia_update_game(debug)
 	return partialScore
 
 
