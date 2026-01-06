@@ -45,7 +45,9 @@ class DQNAgent(object):
     '''
     def __init__(self,
                  replay_memory_size=200000,
-                 replay_memory_init_size=100,
+                 #replay_memory_init_size=10000,
+                 #per test TODO, da ripristinare
+                 replay_memory_init_size=10000,
                  update_target_estimator_every=1000,
                  discount_factor=0.99,
                  epsilon_start=1.0,
@@ -358,6 +360,9 @@ class DQNAgent(object):
         os.makedirs(path, exist_ok=True)
         checkpoint_path = os.path.join(path, filename)
         checkpoint_path = os.path.normpath(checkpoint_path)
+        import shutil
+        if os.path.exists(checkpoint_path):
+            shutil.copy2(checkpoint_path, checkpoint_path + '.bak')
         print(f"Saving checkpoint to: {checkpoint_path}")
         torch.save(self.checkpoint_attributes(), checkpoint_path)
 

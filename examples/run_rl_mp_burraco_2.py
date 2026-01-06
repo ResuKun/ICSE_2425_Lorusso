@@ -129,7 +129,7 @@ def learner_process(traj_queue, param_queues, args):
                 learner_log.info("END tournament")
 
                 # invio checkpoint aggiornato
-                ckpt = agent.checkpoint_attributes()
+                #ckpt = agent.checkpoint_attributes()
                 step = episode_count * args.train_every
                 for wid, q in enumerate(param_queues):
                     if not q.full():
@@ -159,7 +159,6 @@ def main(args):
     main_log = ProcessLogger.get_logger(role="main")
     main_log.info(f" num_workers            : {args.num_workers}")
     main_log.info(f" num_ep_worker          : {args.num_ep_worker}")
-    main_log.info(f" train_every            : {args.train_every}")
     main_log.info(f" num_eval_games         : {args.num_eval_games}")
     main_log.info(f" load_checkpoint_path   : {args.load_checkpoint_path}")
 
@@ -199,17 +198,21 @@ def get_agent(env, device, args, logger):
         
         return DQNAgent(
             replay_memory_size=200000,
-            replay_memory_init_size=10000,
+            #replay_memory_init_size=10000,
+            #per test
+            replay_memory_init_size=1000,
             update_target_estimator_every=2500,
             discount_factor=0.99,
             epsilon_start=1.0,
             epsilon_end=0.1,
-            epsilon_decay_steps=400000,
+            #epsilon_decay_steps=400000,
+            epsilon_decay_steps=200000,
             batch_size=256,
             num_actions=env.num_actions,
             state_shape=env.state_shape[0],
-            mlp_layers=[128, 128],
-            learning_rate=0.00005,
+            #mlp_layers=[128, 128],
+            mlp_layers=[512, 512, 256],
+            learning_rate=0.0003,
             device=device,
             save_path=args.log_dir,
             save_every=args.save_every,
@@ -228,13 +231,13 @@ if __name__ == "__main__":
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--log_dir", default=path)
     parser.add_argument("--save_every", type=int, default=-1)
-    parser.add_argument("--num_workers", type=int, default=5)
+    parser.add_argument("--num_workers", type=int, default=10)
     parser.add_argument("--num_ep_worker", type=int, default=2)
-    parser.add_argument("--train_every", type=int, default=100)
+    parser.add_argument("--train_every", type=int, default=5000)
     parser.add_argument("--eval_every", type=int, default=10)
     parser.add_argument("--num_eval_games", type=int, default=1)
-    parser.add_argument("--load_checkpoint_path", default="Checkpoint/checkpoint_dqn.pt")
-    #parser.add_argument("--load_checkpoint_path", default="")
+    #parser.add_argument("--load_checkpoint_path", default="Checkpoint/checkpoint_dqn.pt")
+    parser.add_argument("--load_checkpoint_path", default="")
 
     args = parser.parse_args()
     main(args)
