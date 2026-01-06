@@ -34,7 +34,6 @@ from collections import namedtuple
 from copy import deepcopy
 
 from rlcard.utils.utils import remove_illegal
-from Utils.logger import SingletonLogger 
 
 Transition = namedtuple('Transition', ['state', 'action', 'reward', 'next_state', 'done', 'legal_actions'])
 
@@ -164,9 +163,7 @@ class DQNAgent(object):
         self.feed_memory(state['obs'], action, reward, next_state['obs'], list(next_state['legal_actions'].keys()), done)
         self.total_t += 1
         tmp = self.total_t - self.replay_memory_init_size
-        main_log = SingletonLogger().get_logger()
         if tmp>=0 and tmp%self.train_every == 0:
-            main_log.info(f"[DQNAgent --> tmp>=0 and tmp%self.train_every --> ] {tmp} % {self.train_every}")
             self.train()
 
     def step(self, state):

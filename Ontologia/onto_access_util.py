@@ -2,8 +2,6 @@ import random
 from datetime import datetime
 from typing import Iterable
 from Ontologia.onto_save_manager import OntologyManager
-from Utils.logger import SingletonLogger 
-
 
 #carica l'ontologia (singleton)
 def get_onto():
@@ -176,16 +174,12 @@ def reset_deck():
     scarti.append(primo_scarto)
     monte.remove(primo_scarto)
     get_manager().salva_ontologia_update_game()
-    get_manager().salva_ontologia_init_game()
+    #get_manager().salva_ontologia_init_game()
 
 
 def add_discarded_cards_to_pickup():
     onto = get_onto()
     scarti = onto.Game.instances()[0].scarto.mazzo
-    log = SingletonLogger().get_logger()
-    #log.info(f"  [add_discarded_to_pickup PRE - [SCARTI] ------> {onto.Game.instances()[0].scarto.mazzo}]")
-    #log.info(f"  [add_discarded_to_pickup PRE - [MONTE]  ------> {onto.Game.instances()[0].monte.mazzo}]")
-
     onto.Game.instances()[0].monte.mazzo = scarti[:len(scarti) - 1]
     set_da_rimuovere = set(onto.Game.instances()[0].monte.mazzo)
     lista_risultato = [
@@ -194,9 +188,6 @@ def add_discarded_cards_to_pickup():
         if elemento not in set_da_rimuovere
     ]
     onto.Game.instances()[0].scarto.mazzo = lista_risultato
-    #log.info(f"  [add_discarded_to_pickup POST - [SCARTI] ------> {onto.Game.instances()[0].scarto.mazzo}]")
-    #log.info(f"  [add_discarded_to_pickup POST - [MONTE]  ------> {onto.Game.instances()[0].monte.mazzo}]")
-
     get_manager().salva_ontologia_update_game()
     
 def scarica_ontologia():

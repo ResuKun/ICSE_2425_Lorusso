@@ -3,7 +3,6 @@ from .map_actions_ids import ActionIndexes, get_map_actions, create_mapping
 def get_mapping():
     return create_mapping()
 
-#TODO da testare
 #mappatura
 #['update_tris_action_id', (0, 6, 5, 30)],
 #(matta, tris_len, tris_value, card_value)
@@ -38,7 +37,6 @@ def get_tris_update_action_id(csp_len_updates):
         
     return actions_ids
 
-#TODO da testare
 #mappatura
 #  ['update_meld_action_id', (0, 'Picche', 7, 30)],
 #(matta, seme, meld_len, card_value)

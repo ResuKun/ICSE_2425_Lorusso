@@ -98,13 +98,3 @@ class CloseGameJudgeAction(ActionEvent):
 
     def __str__(self):
         return "CloseGameJudge"
-    
-    
-# TODO ???
-class AddDiscardToPickupAction(ActionEvent):
-    def __init__(self, action_id):
-        super().__init__(action_id)
-        self.action_id = action_id
-
-    def __str__(self):
-        return "add_discard_to_pickup_action"

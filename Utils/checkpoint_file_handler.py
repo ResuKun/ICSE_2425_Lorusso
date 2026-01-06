@@ -1,35 +1,6 @@
 import os
 import torch
 
-#def save_and_send_ckpt_to_worker(central_agent, wid, q, step, args):
-#    # salva lo state_dict su file (leggero e sicuro)
-#    ckpt_path = os.path.join(args.log_dir, f"ckpt_step{step}_w{wid}.pth")
-#    os.makedirs(args.log_dir, exist_ok=True)
-#    # Preferisci salvare uno state_dict o un dict serializzabile
-#    try:
-#        # if central_agent has checkpoint_attributes that returns serializable dict use that:
-#        ckpt_obj = central_agent.checkpoint_attributes()
-#        torch.save(ckpt_obj, ckpt_path)
-#    except Exception:
-#        # fallback generic
-#        ckpt_obj = central_agent.checkpoint_attributes()
-#        torch.save(ckpt_obj, ckpt_path)
-#
-#    # Ora proviamo a mettere il path nella queue: prima rimuoviamo il vecchio se presente
-#    try:
-#        # svuota eventuale vecchio messaggio (non blocca)
-#        try:
-#            _ = q.get_nowait()
-#        except Exception:
-#            pass
-#        # metti il path (se per qualche motivo fallisce, lo logghiamo)
-#        q.put(ckpt_path, block=True, timeout=2)
-#        return True
-#    except Exception as e:
-#        print(f"Could not send ckpt to worker queue: {e}")
-#        return False
-#
-
 def save_and_send_ckpt_to_worker(central_agent, wid, q, step, args):
     """
     Salva il checkpoint per il worker wid e rimuove il precedente.

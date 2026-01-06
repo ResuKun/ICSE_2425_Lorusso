@@ -2,7 +2,7 @@ import Utils.CONST as CONST
 import Ontologia.onto_access_util as onto_access_util
 import Player.player_onto_manager as player_onto_util
 from .move import *
-from Utils.logger import SingletonLogger 
+#from Utils.logger import ProcessLogger 
 from .player import BurracoPlayer
 
 
@@ -29,7 +29,7 @@ class BurracoRound:
         self.going_out_player_id = None 
         self.move_sheet = [] 
         self.game_judge = judge
-        self.log = SingletonLogger().get_logger()
+        #self.log = ProcessLogger.get_logger()
 
 
     def init_round_cards(self):

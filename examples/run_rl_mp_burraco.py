@@ -3,7 +3,7 @@ import argparse
 import os
 import multiprocessing as mp
 from datetime import datetime
-from Utils.logger import SingletonLogger 
+from Utils.logger import ProcessLogger 
 import time
 import torch
 import rlcard
@@ -89,7 +89,7 @@ def main(args):
     param_queues = [mp.Queue(maxsize=1) for _ in range(args.num_workers)]
     traj_queue = mp.Queue()
 
-    main_log = SingletonLogger().get_logger()
+    main_log = ProcessLogger().get_logger()
 
     main_log.info(f" num_workers            : {args.num_workers}")
     main_log.info(f" num_ep_worker          : {args.num_ep_worker}")
@@ -134,7 +134,6 @@ def main(args):
     worker_done = [False] * args.num_workers
 
     with Logger(args.log_dir) as logger:
-
         while finished_workers < args.num_workers:
             try:
                 item = traj_queue.get(timeout=10)
@@ -155,20 +154,11 @@ def main(args):
             trajs, pays = item
             episode_count += 1
 
+            # --- training ---
             reorganized = reorganize(trajs, pays)
             for ts in reorganized[0]:
                 central_agent.feed(ts)
-                buffer_count += 1
 
-            # --- train ---
-            if buffer_count >= args.train_every:
-                if len(central_agent.memory.memory) >= central_agent.batch_size:
-                    main_log.info(f"TRAIN: buffer_count={buffer_count}, memory={len(central_agent.memory.memory)}")
-                    central_agent.train()
-                else:
-                    main_log.info(f"SKIP TRAIN: memory too small ({len(central_agent.memory.memory)}/{central_agent.batch_size})")
-
-                buffer_count = 0
 
             # --- valutazione periodica ---
             if episode_count % args.eval_every == 0:
@@ -239,7 +229,7 @@ def get_agent(env, device, args, checkpoint_arg = None):
                     device=device,
                     save_path=args.log_dir,
                     save_every=args.save_every,
-                    train_every = 100
+                    train_every = args.train_every
                 )
 
             #agent = DQNAgent(
@@ -280,11 +270,12 @@ if __name__ == "__main__":
     #parser.add_argument("--load_checkpoint_path", default="")
 
     #default 32
-    parser.add_argument("--train_every", type=int, default=1000)
+    # numero di step, non partite
+    parser.add_argument("--train_every", type=int, default=2000)
     parser.add_argument("--num_workers", type=int, default=5)
     parser.add_argument("--num_ep_worker", type=int, default=5900)
-    parser.add_argument("--num_eval_games", type=int, default=5)
-    parser.add_argument("--eval_every", type=int, default=1000)
+    parser.add_argument("--num_eval_games", type=int, default=1)
+    parser.add_argument("--eval_every", type=int, default=3000)
 
     args = parser.parse_args()
     main(args)

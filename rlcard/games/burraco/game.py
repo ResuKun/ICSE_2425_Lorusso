@@ -42,8 +42,6 @@ class BurracoGame:
 			self.round.pick_up_card(action)
 		elif isinstance(action, PickUpDiscardAction):
 			self.round.pick_up_discard(action)
-		#elif isinstance(action, AddDiscardToPickupAction):
-		#	self.round.add_discarded_to_pickup()
 
 		elif isinstance(action, OpenMeldAction):
 			self.round.open_meld(action)

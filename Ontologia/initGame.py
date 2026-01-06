@@ -1,7 +1,6 @@
 #initGame
 from Ontologia.onto_save_manager import OntologyManager, OntologyResource
 import Utils.CONST as CONST
-from Utils.logger import SingletonLogger 
 from datetime import datetime
 
 def init_game_files(debug_mode):
@@ -29,7 +28,6 @@ def init_game(players_names = ["Alessio", "MariaGrazia"],  debug_mode = False):
     OntologyManager().scarica_ontologia()
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
     gamename = "Partita_" + timestamp
-    SingletonLogger.init(name="gioco", partita = gamename)
     init_game_files(debug_mode)
 
     if len(players_names) > CONST.CardValues.MAX_PLAYER.value:
@@ -49,10 +47,10 @@ def init_game(players_names = ["Alessio", "MariaGrazia"],  debug_mode = False):
     for i in range(1, len(players_names)):
         createPlayer(i, players_names[i], partita)
 
-    print(f"\nIl giocatore di turno all'inizio della partita è: {partita.turnOf.nomeGiocatore}")
+    #print(f"\nIl giocatore di turno all'inizio della partita è: {partita.turnOf.nomeGiocatore}")
 
     # Salva le modifiche all'ontologia
-    manager.salva_ontologia_init_game()
+    #manager.salva_ontologia_init_game()
     manager.salva_ontologia_update_game()
     return partita
 

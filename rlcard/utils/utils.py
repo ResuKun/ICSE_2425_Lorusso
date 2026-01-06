@@ -1,5 +1,4 @@
 import numpy as np
-from Utils.logger import SingletonLogger 
 
 from rlcard.games.base import Card
 

@@ -4,8 +4,6 @@ import itertools
 from functools import lru_cache
 from enum import Enum
 
-from Utils.logger import SingletonLogger 
-
 # VEDERE tabella excel per i dettagli
 # # https://docs.google.com/spreadsheets/d/1DjnS8H3UblTrA0DteEcYRw28aSgxtK5EV7Ahtghl_rc/edit?gid=405700369#gid=405700369
 
@@ -53,7 +51,6 @@ def get_map_actions():
 # in cache senza doverlo leggere da file o ricalcolare
 @lru_cache(maxsize=1)
 def create_mapping():
-    #log = SingletonLogger().get_logger()
     #res = OntologyResource.CARD
     #manager = OntologyManager()
     #manager.reload_file_name()

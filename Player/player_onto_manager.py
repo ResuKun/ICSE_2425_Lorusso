@@ -53,7 +53,7 @@ def reset_players_hands():
 		player.playerHand.mazzo.extend(mano)
 
 	get_manager().salva_ontologia_update_game()
-	get_manager().salva_ontologia_init_game()
+	#get_manager().salva_ontologia_init_game()
 
 #restitusce le tuple della mano del giocatore
 def get_players_card(player):
