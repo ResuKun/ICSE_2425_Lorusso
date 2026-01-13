@@ -69,7 +69,8 @@ class BurracoEnv(Env):
         Returns:
             payoffs (list): a list of payoffs for each player
         '''
-        payoffs = [self.game.round.players[0].get_player_score(), self.game.round.players[1].get_player_score()]
+        # il / 500 è per la normalizzazione dei punteggi (-1 , 1)
+        payoffs = [self.game.round.players[0].get_player_score() / 500, self.game.round.players[1].get_player_score() / 500]
         return np.array(payoffs)
 
     def _decode_action(self, action_id):

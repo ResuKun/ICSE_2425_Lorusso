@@ -7,14 +7,14 @@ def init_game_files(debug_mode):
     if debug_mode:
         #debug mode per tester.py
         manager = OntologyManager()
-        manager.create_init_file_test()
+        #manager.create_init_file_test()
         manager.create_update_file_test()
     else:
         manager = OntologyManager()
         # Salva le modifiche all'ontologia
-        manager.create_init_file(True)
+        #manager.create_init_file(True)
         # Creo una copia da aggiornare e una con lo start della partita
-        manager.create_update_file()
+        manager.create_update_file(True)
 
 def get_onto(debug_mode = False):
     manager = OntologyManager()

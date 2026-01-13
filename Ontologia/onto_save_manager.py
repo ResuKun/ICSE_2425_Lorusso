@@ -7,7 +7,7 @@ from pathlib import Path
 class OntologyResource(Enum):
     ONTO_FOLDER = str(Path("Ontologia").absolute())
     CARD = ONTO_FOLDER + "\\Cards_Ontology.owl"
-    INIT_GAME =  "\\Init_Game_Ontology"
+    #INIT_GAME =  "\\Init_Game_Ontology"
     UPDATED_GAME = "\\Updated_Game_Ontology"
     UPDATED_GAME_TEST = "\\Updated_Game_Ontology"
     FILE_EXTENSION = ".owl"
@@ -40,8 +40,8 @@ class OntologyManager:
             onto_pre_load = None
             if ontology_type == OntologyResource.CARD:
                 onto_pre_load = get_ontology(self.card )
-            elif ontology_type == OntologyResource.INIT_GAME:
-                onto_pre_load = get_ontology(self.init_game)
+            #elif ontology_type == OntologyResource.INIT_GAME:
+            #    onto_pre_load = get_ontology(self.init_game)
             elif ontology_type == OntologyResource.UPDATED_GAME:
                 onto_pre_load = get_ontology(self.updated_game )
             elif ontology_type == OntologyResource.UPDATED_GAME_TEST:
@@ -70,12 +70,12 @@ class OntologyManager:
         self.onto.save(file=self.card , format="rdfxml")
         #print(f"UPDATE::  Ontologia aggiornata in {self.card}")
 
-    def salva_ontologia_init_game(self ):
-        """Salva l'ontologia nel file INIT_GAME.owl"""
-        if self.onto is None:
-            raise ValueError("Nessuna ontologia caricata.")
-        self.onto.save(file=self.init_game, format="rdfxml")
-        #print(f"UPDATE::  Ontologia aggiornata in {self.init_game}")
+    #def salva_ontologia_init_game(self ):
+    #    """Salva l'ontologia nel file INIT_GAME.owl"""
+    #    if self.onto is None:
+    #        raise ValueError("Nessuna ontologia caricata.")
+    #    self.onto.save(file=self.init_game, format="rdfxml")
+    #    #print(f"UPDATE::  Ontologia aggiornata in {self.init_game}")
 
     def salva_ontologia_update_game(self, debuge_mode = False):
         """Salva l'ontologia nel file UPDATED_GAME.owl"""
@@ -137,8 +137,8 @@ class OntologyManager:
         date = datetime.now().strftime("%Y_%m_%d")
         self.card = OntologyResource.CARD.value
         self.bk_dir = OntologyResource.ONTO_FOLDER.value + f"/BK/{date}"
-        self.init_game = self.bk_dir + OntologyResource.INIT_GAME.value + str(self.timestamp) + OntologyResource.FILE_EXTENSION.value
-        self.init_game_test = OntologyResource.ONTO_FOLDER.value + OntologyResource.INIT_GAME.value + OntologyResource.FILE_EXTENSION.value
+        #self.init_game = self.bk_dir + OntologyResource.INIT_GAME.value + str(self.timestamp) + OntologyResource.FILE_EXTENSION.value
+        #self.init_game_test = OntologyResource.ONTO_FOLDER.value + OntologyResource.INIT_GAME.value + OntologyResource.FILE_EXTENSION.value
         self.updated_game = self.bk_dir + OntologyResource.UPDATED_GAME.value + str(self.timestamp) + OntologyResource.FILE_EXTENSION.value
         self.updated_game_test = OntologyResource.ONTO_FOLDER.value + OntologyResource.UPDATED_GAME.value + OntologyResource.FILE_EXTENSION.value
         #print(f"reload_file_name --> {self.updated_game}")

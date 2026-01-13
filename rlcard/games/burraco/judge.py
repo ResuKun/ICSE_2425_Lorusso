@@ -2,7 +2,7 @@ import Player.player_csp_resolver as csp_resolver
 import Player.player_onto_manager as play_onto
 import Ontologia.onto_access_util as onto_access_util
 from .action_event_static import *
-from .action_event_utils import (ActionIndexes,\
+from .action_event_utils import (ActionIndexes,
                                 get_open_tris_action_id,
                                 get_open_meld_action_id,
                                 get_tris_update_action_id,
@@ -64,15 +64,13 @@ class BurracoJudge:
                     legal_actions.append(UpdateMeldAction(single_mel_up[1][5], single_mel_up[0][1], action_ids[count]))
                     count += 1
             
-            # TODO PER DEBUG, DA DISATTIVARE
-            if len(legal_actions) < 5:
-                # Aggiunge l'azione di chiusura del gioco
-                card = csp_resolver.can_end_game_csp(player)
-                if card != []:
-                    legal_actions.append(CloseGameAction(ActionIndexes.CLOSE_GAME_ACTION_ID.value[1] + card[0][0][1]))
-                else:
-                    for card in play_onto.get_players_card(player):
-                        legal_actions.append(DiscardAction(ActionIndexes.DISCARD_ACTION_ID.value[1] + card[1]))
+            # Aggiunge l'azione di chiusura del gioco
+            card = csp_resolver.can_end_game_csp(player)
+            if card != []:
+                legal_actions.append(CloseGameAction(ActionIndexes.CLOSE_GAME_ACTION_ID.value[1] + card[0][0][1]))
+            else:
+                for card in play_onto.get_players_card(player):
+                    legal_actions.append(DiscardAction(ActionIndexes.DISCARD_ACTION_ID.value[1] + card[1]))
 
 
         self.action_map = legal_actions

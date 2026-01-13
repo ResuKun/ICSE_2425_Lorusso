@@ -16,9 +16,6 @@ def get_manager():
 def get_game():
     return get_onto().Game.instances()[0]
 
-def get_player_score(player):
-	return player.punteggioGiocatore
-
 def get_card_number(card):
 	if hasattr(card, 'numeroCarta') and card.numeroCarta is not None:
 		return card.numeroCarta

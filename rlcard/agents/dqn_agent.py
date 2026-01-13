@@ -153,7 +153,7 @@ class DQNAgent(object):
         self.save_path = save_path
         self.save_every = save_every
 
-    def feed(self, ts):
+    def feed(self, ts, logger=None):
         ''' Store data in to replay buffer and train the agent. There are two stages.
             In stage 1, populate the memory without training
             In stage 2, train the agent every several timesteps
@@ -166,7 +166,8 @@ class DQNAgent(object):
         self.total_t += 1
         tmp = self.total_t - self.replay_memory_init_size
         if tmp>=0 and tmp%self.train_every == 0:
-            self.train()
+            logger.info(f"Start Training [{self.total_t} - {self.replay_memory_init_size} = {tmp} ==> {tmp} % {self.train_every} == 0]")
+            self.train(logger)
 
     def step(self, state):
         ''' Predict the action for genrating training data but
@@ -223,7 +224,7 @@ class DQNAgent(object):
 
         return masked_q_values
 
-    def train(self):
+    def train(self, logger):
         ''' Train the network
 
         Returns:
@@ -250,12 +251,12 @@ class DQNAgent(object):
         state_batch = np.array(state_batch)
 
         loss = self.q_estimator.update(state_batch, action_batch, target_batch)
-        print('\rINFO - Step {}, rl-loss: {}'.format(self.total_t, loss), end='')
+        logger.info(f"INFO - Step {self.total_t}, rl-loss: {loss}, end=''")
 
         # Update the target estimator
         if self.train_t % self.update_target_estimator_every == 0:
             self.target_estimator = deepcopy(self.q_estimator)
-            print("\nINFO - Copied model parameters to target network.")
+            logger.info("INFO - Copied model parameters to target network.")
 
         self.train_t += 1
 
@@ -263,7 +264,7 @@ class DQNAgent(object):
             # To preserve every checkpoint separately, 
             # add another argument to the function call parameterized by self.train_t
             self.save_checkpoint(self.save_path)
-            print("\nINFO - Saved model checkpoint.")
+            logger.info("INFO - Saved model checkpoint.")
 
 
     def feed_memory(self, state, action, reward, next_state, legal_actions, done):
