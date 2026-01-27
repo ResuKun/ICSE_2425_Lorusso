@@ -147,20 +147,29 @@ def learner_process(traj_queue, param_queues, args):
                 # transition = [state, action_id, reward, next_state, done]
                 action_id = transition[1]
 
-                # bonus vittoria (transition[4]=endOfGame)
-                if transition[4] and has_won:
+                if transition[4]:  # end of game
+                    if has_won:
+                        transition[2] += 0.5
+                    else:
+                        transition[2] -= 0.5
+                        
+                # --- penalità discard ---
+                # --- possibile miglioramento con la selezione delle carte speciali per un reward ancor più peggiorativo
+                # relativamente alta cosi che l'agente preferisca le altre azioni
+                if ActionIndexes.DISCARD_ACTION_ID.value[1] <= action_id < ActionIndexes.CLOSE_GAME_ACTION_ID.value[1]:
+                    transition[2] -= 0.03
+
+                # --- chiusura corretta ---
+                elif ActionIndexes.CLOSE_GAME_ACTION_ID.value[1] <= action_id < ActionIndexes.OPEN_TRIS_ACTION_ID.value[1]:
+                    transition[2] += 0.25
+
+                # --- open meld / tris ---
+                elif ActionIndexes.OPEN_TRIS_ACTION_ID.value[1] <= action_id < ActionIndexes.UPDATE_TRIS_ACTION_ID.value[1]:
                     transition[2] += 0.05
-                # se chiudo il gioco
-                if action_id >= ActionIndexes.DISCARD_ACTION_ID.value[1] and action_id < ActionIndexes.CLOSE_GAME_ACTION_ID.value[1]:
-                    transition[2] -= 0.005
-                elif action_id >= ActionIndexes.CLOSE_GAME_ACTION_ID.value[1] and action_id < ActionIndexes.OPEN_TRIS_ACTION_ID.value[1]:
-                    transition[2] += 0.02
-                # open tris / open meld
-                elif (action_id >= ActionIndexes.OPEN_TRIS_ACTION_ID.value[1] and action_id and action_id < ActionIndexes.UPDATE_TRIS_ACTION_ID.value[1]):
-                    transition[2] += 0.01
-                # update
-                elif (action_id >= ActionIndexes.UPDATE_TRIS_ACTION_ID.value[1] and action_id and action_id < ActionIndexes.CLOSE_GAME_JUDGE_ACTION_ID.value[1]):
-                    transition[2] += 0.015
+
+                # --- update meld ---
+                elif ActionIndexes.UPDATE_TRIS_ACTION_ID.value[1] <= action_id < ActionIndexes.CLOSE_GAME_JUDGE_ACTION_ID.value[1]:
+                    transition[2] += 0.1
            
             for ts in trajectory:
                 agent.feed(ts, learner_log)
@@ -291,13 +300,16 @@ if __name__ == "__main__":
     parser.add_argument("--num_workers", type=int, default=6)
     # 100k episodi totali
     # 16667 * 6 = 100k episodi totali + tornei
-    parser.add_argument("--num_ep_worker", type=int, default=16667)
-    parser.add_argument("--train_every", type=int, default=1000)
+    #parser.add_argument("--num_ep_worker", type=int, default=16667)
+    # 8333 * 6 circa 50.000 episodi worker + tornei
+    # [nel caso riprendo dal checkpoint per altre 50000 partite]
+    parser.add_argument("--num_ep_worker", type=int, default=8333)
+    parser.add_argument("--train_every", type=int, default=2000)
     parser.add_argument("--eval_every", type=int, default=10000)
     parser.add_argument("--num_eval_games", type=int, default=25)
-    # 3 partite di torneo ogni 5000 partite giocate
+    # 25 partite di torneo ogni 10000 partite giocate dai worker
     parser.add_argument("--load_checkpoint_path", default="")
-    #parser.add_argument("--load_checkpoint_path", default="Checkpoint/checkpoint_dqn.pt")
+    #parser.add_argument("--load_checkpoint_path", default="experiments/burraco_dqn_result/2026_01_16_135238/checkpoint_dqn.pt")
 
     args = parser.parse_args()
     main(args)
