@@ -153,7 +153,7 @@ class DQNAgent(object):
         self.save_path = save_path
         self.save_every = save_every
 
-    def feed(self, ts, logger=None):
+    def feed(self, ts, episode_count, logger=None):
         ''' Store data in to replay buffer and train the agent. There are two stages.
             In stage 1, populate the memory without training
             In stage 2, train the agent every several timesteps
@@ -166,7 +166,7 @@ class DQNAgent(object):
         self.total_t += 1
         tmp = self.total_t - self.replay_memory_init_size
         if tmp>=0 and tmp%self.train_every == 0:
-            logger.info(f"Start Training [{self.total_t} - {self.replay_memory_init_size} = {tmp} ==> {tmp} % {self.train_every} == 0]")
+            logger.info(f"Start Training [[Episode Count : {episode_count}] - [total_t : {self.total_t}] - [replay_memory_init_size : {self.replay_memory_init_size}] = {tmp} ==> {tmp} % [train_every : {self.train_every}] == 0]")
             self.train(logger)
 
     def step(self, state):

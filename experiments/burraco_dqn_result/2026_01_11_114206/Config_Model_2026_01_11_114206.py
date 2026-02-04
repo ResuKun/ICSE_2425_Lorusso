@@ -1,4 +1,4 @@
-
+# parallel_run_rl_cpu_workers.py
 import argparse
 import os
 import multiprocessing as mp
@@ -92,9 +92,13 @@ def learner_process(traj_queue, param_queues, args):
     env = rlcard.make(args.env, config={'seed': args.seed})
     agent = get_agent(env, device, args, learner_log, True)
 
-    opponents = [RandomAgent(num_actions=env.num_actions) for _ in range(env.num_players - 1)]
+    opponents = [
+        RandomAgent(num_actions=env.num_actions)
+        for _ in range(env.num_players - 1)
+    ]
     env.set_agents([agent] + opponents)
 
+    # invio primo checkpoint a ogni worker
     for wid, q in enumerate(param_queues):
         save_and_send_ckpt_to_worker(agent, wid, q, step=0, args=args)
 
@@ -114,109 +118,110 @@ def learner_process(traj_queue, param_queues, args):
             # --- traiettoria ---
             trajs, pays = item
             episode_count += 1
-            
+
             # --- training ---
             reorganized = reorganize(trajs, pays)
+            
+            # per il bonus partita
             has_won = pays[0] > pays[1]
 
-            trajectory = reorganized[0]
-
-            if episode_count % 100 == 0:
-                learner_log.info(f"step totali [ogni 100 partite]: {len(trajectory)} ")
-
+            # gestione intermedia delle ricompense
+            trajectory = reorganized[0] # Traiettoria del tuo agente
             for transition in trajectory:
+                # transition = [state, action_id, reward, next_state, done]
                 action_id = transition[1]
-                is_done = transition[4]
 
-                # Bonus Vittoria (Sommato al payoff finale)
-                if is_done and has_won:
+                # bonus vittoria (transition[4]=endOfGame)
+                if transition[4] and has_won:
+                    # Aggiungiamo un bonus secco (es. +0.5 che su scala /500 è molto forte)
                     transition[2] += 0.5
-
-                # Bonus Intermedi (Sostituiscono lo 0.0)
-                # Scarto
+                # se chiudo il gioco
                 if action_id >= ActionIndexes.DISCARD_ACTION_ID.value[1] and action_id < ActionIndexes.CLOSE_GAME_ACTION_ID.value[1]:
                     transition[2] = -0.01
-                # Chiusura
                 elif action_id >= ActionIndexes.CLOSE_GAME_ACTION_ID.value[1] and action_id < ActionIndexes.OPEN_TRIS_ACTION_ID.value[1]:
                     transition[2] = 0.2
-                # Apertura
-                elif (action_id >= ActionIndexes.OPEN_TRIS_ACTION_ID.value[1] and action_id < ActionIndexes.UPDATE_TRIS_ACTION_ID.value[1]):
+                # open tris / open meld
+                elif (action_id >= ActionIndexes.OPEN_TRIS_ACTION_ID.value[1] and action_id and action_id < ActionIndexes.UPDATE_TRIS_ACTION_ID.value[1]):
                     transition[2] = 0.1
-                # Update
-                elif (action_id >= ActionIndexes.UPDATE_TRIS_ACTION_ID.value[1] and action_id < ActionIndexes.CLOSE_GAME_JUDGE_ACTION_ID.value[1]):
+                # update
+                elif (action_id >= ActionIndexes.UPDATE_TRIS_ACTION_ID.value[1] and action_id and action_id < ActionIndexes.CLOSE_GAME_JUDGE_ACTION_ID.value[1]):
                     transition[2] = 0.15
            
+            learner_log.info(f"Start Feed - Episodes ended: {episode_count}")
             for ts in trajectory:
                 agent.feed(ts, learner_log)
+            learner_log.info(f"End   Feed")
 
+            # valutazione periodica (bloccante)
             if episode_count % args.eval_every == 0:
+                learner_log.info(f"Tournament - episode_count:{episode_count}")
                 result = tournament(env, args.num_eval_games)[0]
-                logger.log_performance(episode_count, result)
-                learner_log.info(f"Eval @ {episode_count} ep - Avg Payoff: {result:.3f} - Eps: {agent.eps:.3f}")
+                logger.log_performance(
+                    episode_count, result
+                )
+                learner_log.info(f"Tournament end -- average pay: {result}")
 
+                # invio checkpoint aggiornato
+                step = episode_count * args.train_every
                 for wid, q in enumerate(param_queues):
                     if not q.full():
-                        save_and_send_ckpt_to_worker(agent, wid, q, episode_count, args)
+                        save_and_send_ckpt_to_worker(agent, wid, q, step, args)
 
+        # Get the paths
         csv_path, fig_path = logger.csv_path, logger.fig_path
     
+    # Plot the learning curve
+    learner_log.info("Saving Statistics")
     plot_curve(csv_path, fig_path, args.algorithm)
-    torch.save(agent, os.path.join(args.log_dir, "model_final.pth"))
-    # Salvataggio anche del formato checkpoint completo
-    checkpoint = agent.get_checkpoint()
-    torch.save(checkpoint, os.path.join(args.log_dir, "checkpoint_dqn.pt"))
+
+    torch.save(agent, os.path.join(args.log_dir, "final_model.pth"))
 
 
-# -------------------------
+# =========================
 # Agent factory
-# -------------------------
+# =========================
 def get_agent(env, device, args, logger, is_learner = False):
+
+
     if args.algorithm == 'dqn':
         from rlcard.agents import DQNAgent
-        
-        # Parametri base
-        current_mem_size = 1000000 if is_learner else 1000 # Aumentato a 1M per stabilità
-        current_init_size = 10000 if is_learner else 100
-        
         if args.load_checkpoint_path != "":
-            logger.info(f"CARICAMENTO CHECKPOINT: {args.load_checkpoint_path}")
-            ckpt = torch.load(args.load_checkpoint_path, map_location=device, weights_only=False)
-            
-            # Creiamo l'agente dal checkpoint
+            logger.info(f"Loading from: {args.load_checkpoint_path}")
+            ckpt = torch.load(args.load_checkpoint_path,weights_only=False)
             agent = DQNAgent.from_checkpoint(checkpoint=ckpt)
             agent.device = device
-            
-            # SOVRASCRIVIAMO i parametri per la fase specifica
-            agent.learning_rate = args.learning_rate
-            agent.eps_start = args.eps_start
-            agent.eps_end = args.eps_end
-            agent.eps_decay_steps = args.epsilon_decay_steps
-            
-            # Aggiorniamo l'optimizer con il nuovo LR
-            for param_group in agent.q_estimator.optimizer.param_groups:
-                param_group['lr'] = args.learning_rate
-            
             return agent
         
-        # Inizializzazione nuova (Fase 1)
+        current_mem_size = 500000 if is_learner else 1000
+        current_init_size = 10000 if is_learner else 100
         return DQNAgent(
             replay_memory_size=current_mem_size,
             replay_memory_init_size=current_init_size,
+            #per test
+            #replay_memory_init_size=1000,
+            # OLD -- update_target_estimator_every=2500,
             update_target_estimator_every=10000,
             discount_factor=0.99,
-            epsilon_start=args.eps_start,
-            epsilon_end=args.eps_end,
-            epsilon_decay_steps=args.epsilon_decay_steps,
+            epsilon_start=1.0,
+            epsilon_end=0.1,
+            # OLD -- epsilon_decay_steps=200000,
+            # OLD -- epsilon_decay_steps=400000,
+            epsilon_decay_steps=2000000,
             batch_size=128,
             num_actions=env.num_actions,
             state_shape=env.state_shape[0],
+            # OLD -- mlp_layers=[128, 128],
             mlp_layers=[512, 512, 256],
-            learning_rate=args.learning_rate,
+            # ---OLD learning_rate=0.0003,
+            # ---OLD learning_rate=0.0001,
+            learning_rate=0.00025,
             device=device,
             save_path=args.log_dir,
             save_every=args.save_every,
             train_every=args.train_every
         )
+
+
 
 # -------------------------
 # Main: orchestration
@@ -256,21 +261,20 @@ def main(args):
     learner.join()
 
 
-
 if __name__ == "__main__":
     path = f"experiments/burraco_dqn_result/{datetime.now().strftime('%Y_%m_%d_%H%M%S')}"
     parser = argparse.ArgumentParser()
     parser.add_argument("--env", default="burraco")
     parser.add_argument("--algorithm", default="dqn")
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--log_dir")
+    parser.add_argument("--log_dir", default=path)
     parser.add_argument("--save_every", type=int, default=-1)
     parser.add_argument("--num_workers", type=int, default=8)
     parser.add_argument("--num_ep_worker", type=int, default=6250)
     # 6250 * 8 = 50.000 episodi totali + tornei
     parser.add_argument("--train_every", type=int, default=5000)
     parser.add_argument("--eval_every", type=int, default=5000)
-    parser.add_argument("--num_eval_games", type=int, default=3)
+    parser.add_argument("--num_eval_games", type=int, default=25)
     # 3 partite di torneo ogni 5000 partite giocate
     parser.add_argument("--load_checkpoint_path", default="")
     #parser.add_argument("--load_checkpoint_path", default="Checkpoint/checkpoint_dqn.pt")

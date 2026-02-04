@@ -2,16 +2,20 @@
 '''
 import os
 import argparse
+from datetime import datetime
 
+from Utils.logger import ProcessLogger
 import rlcard
 from rlcard.agents import (
     DQNAgent,
     RandomAgent,
 )
 from rlcard.utils import (
+    Logger,
     get_device,
     set_seed,
-    tournament,
+    simple_tournament,
+    plot_curve
 )
 
 def load_model(model_path, env=None, position=None, device=None):
@@ -33,6 +37,8 @@ def load_model(model_path, env=None, position=None, device=None):
     return agent
 
 def evaluate(args):
+    worker_log = ProcessLogger.get_logger(role=f"Evaluation")
+    worker_log.info(f" num_games          : {args.num_games}")
 
     # Check whether gpu is available
     device = get_device()
@@ -49,17 +55,25 @@ def evaluate(args):
         agents.append(load_model(model_path, env, position, device))
     env.set_agents(agents)
 
-    # Evaluate
-    rewards = tournament(env, args.num_games)
-    for position, reward in enumerate(rewards):
-        print(position, args.models[position], reward)
+    with Logger(args.log_dir) as logger:
+        rewards = simple_tournament(env, args.num_games, worker_log)
+        p0_rewards = [r[0] * 500 for r in rewards]
+        p1_rewards = [r[1] * 500 for r in rewards]
+        for episode, val in enumerate(p0_rewards):
+            logger.log_performance(episode + 1, val)
+            
+        fig_path = logger.fig_path
+        
+    plot_curve(p0_rewards, p1_rewards, fig_path, "DQN Model", "Random Model")
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser("Evaluation example in RLCard")
+    path = f"experiments/burraco_dqn_TOURNAMENTS/{datetime.now().strftime('%Y_%m_%d_%H%M%S')}"
     parser.add_argument(
         '--env',
         type=str,
-        default='leduc-holdem',
+        default='burraco',
         choices=[
             'blackjack',
             'leduc-holdem',
@@ -69,15 +83,20 @@ if __name__ == '__main__':
             'no-limit-holdem',
             'uno',
             'gin-rummy',
+            'burraco',
         ],
     )
     parser.add_argument(
         '--models',
         nargs='*',
         default=[
-            'experiments/leduc_holdem_dqn_result/model.pth',
+            'experiments/burraco_dqn_result/2026_02_02_221348/final_model.pth',
             'random',
         ],
+    )
+    parser.add_argument(
+        "--log_dir", 
+        default=path
     )
     parser.add_argument(
         '--cuda',
@@ -92,11 +111,14 @@ if __name__ == '__main__':
     parser.add_argument(
         '--num_games',
         type=int,
-        default=10000,
+        default=100,
+    )
+
+    parser.add_argument(
+        "--algorithm", 
+        default="dqn"
     )
 
     args = parser.parse_args()
-
-    os.environ["CUDA_VISIBLE_DEVICES"] = args.cuda
     evaluate(args)
 

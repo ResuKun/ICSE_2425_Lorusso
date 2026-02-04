@@ -225,28 +225,115 @@ def tournament(env, num):
 
     return payoffs
 
-def plot_curve(csv_path, save_path, algorithm):
-    ''' Read data from csv file and plot the results
+def simple_tournament(env, num, logger):
+    ''' Evaluate he performance of the agents in the environment
+
+    Args:
+        env (Env class): The environment to be evaluated.
+        num (int): The number of games to play.
+
+    Returns:
+        A list of list of all payoffs for each player
     '''
+    payoffs = []
+    counter = 0
+    wins = 0
+    while counter < num:
+        _, single_pays = env.run(is_training=False)
+        payoffs.append(single_pays)
+        if single_pays[0] > single_pays[1]:
+            wins += 1
+        logger.info(f"Partita: {counter+1} [{single_pays[0] * 500} {single_pays[1] * 500}]")
+        logger.info(f"[{wins}/{counter+1}]")
+        counter += 1
+
+    return payoffs
+
+def plot_curve(data1, data2, save_path, label1, label2, title = "Evaluation Tournament", info_text = ""):
     import os
-    import csv
     import matplotlib.pyplot as plt
-    with open(csv_path) as csvfile:
-        reader = csv.DictReader(csvfile)
-        xs = []
-        ys = []
-        for row in reader:
-            xs.append(int(row['episode']))
-            ys.append(float(row['reward']))
-        fig, ax = plt.subplots()
-        ax.plot(xs, ys, label=algorithm)
-        ax.set(xlabel='episode', ylabel='reward')
-        ax.legend()
-        ax.grid()
+    from matplotlib.patches import Patch
+    
+    xs = list(range(1, len(data1) + 1))
+    fig, ax = plt.subplots(figsize=(15, 7))
+    
+    ax.plot(xs, data1, label=label1, marker='o')
+    ax.plot(xs, data2, label=label2, alpha=0.7, linestyle='--', marker='s')
+    
+    y_min, y_max = int(min(data1)), int(max(data1))
+    y_mean1, y_mean2 = int(sum(data1)/len(data1)), int(sum(data2)/len(data2))
+    
+    ax.axhline(y_mean1, color='r', linestyle=':', alpha=0.4, label=f'Mean {label1}')
+    ax.axhline(y_mean2, color='orange', linestyle=':', alpha=0.6, label=f'Mean {label2}')
+    
+    ax.set_xticks(xs[::10])
+    fig.tight_layout()
 
-        save_dir = os.path.dirname(save_path)
-        if not os.path.exists(save_dir):
-            os.makedirs(save_dir)
+    # Logica anti-sovrapposizione Y
+    priority_ticks = [y_min, y_max, y_mean1, y_mean2]
+    standard_ticks = ax.get_yticks()
+    data_range = y_max - y_min
+    min_distance = data_range * 0.05
+    filtered_ticks = [t for t in standard_ticks if all(abs(t - p) >= min_distance for p in priority_ticks)]
+    ax.set_yticks(sorted(list(set(priority_ticks + filtered_ticks))))
+    
+    ax.set(xlabel='Game', ylabel='Reward')
+    ax.set_title(title, fontsize=16, fontweight='bold', pad=20)
+    
+    # --- GESTIONE TESTO EXTRA ---
+    handles, _ = ax.get_legend_handles_labels()
+    extra_note = Patch(color='none', label=f'{info_text}')
+    handles.append(extra_note)
+    
+    ax.legend(handles=handles, loc='upper left') # loc specifica dove mettere la legenda
+    ax.grid(True)
 
-        fig.savefig(save_path)
+    save_dir = os.path.dirname(save_path)
+    if not os.path.exists(save_dir): os.makedirs(save_dir)
+    fig.savefig(save_path, dpi=200, bbox_inches='tight')
 
+
+def plot_curve_OLD(data1, data2, save_path, label1, label2):
+    import os
+    import matplotlib.pyplot as plt
+    
+    xs = list(range(1, len(data1) + 1))
+    fig, ax = plt.subplots(figsize=(15, 7))
+    
+    ax.plot(xs, data1, label=label1, marker='o')
+    ax.plot(xs, data2, label=label2, alpha=0.7, linestyle='--', marker='s')
+    
+    y_min, y_max = int(min(data1)), int(max(data1))
+    y_mean = int(sum(data1) / len(data1))
+    
+    ax.axhline(y_mean, color='r', linestyle=':', alpha=0.4, label=f'Mean {label1}')
+    
+    ax.set_xticks(xs[::10])
+
+    fig.tight_layout()
+    priority_ticks = [y_min, y_max, y_mean]
+    standard_ticks = ax.get_yticks()
+    data_range = y_max - y_min
+    min_distance = data_range * 0.05
+    filtered_standard_ticks = []
+    for t in standard_ticks:
+        is_too_close = False
+        for p in priority_ticks:
+            if abs(t - p) < min_distance:
+                is_too_close = True
+                break
+        if not is_too_close:
+            filtered_standard_ticks.append(t)
+
+    final_ticks = sorted(list(set(priority_ticks + filtered_standard_ticks)))
+    ax.set_yticks(final_ticks)
+    
+    ax.set(xlabel='Game', ylabel='Reward')
+    ax.legend()
+    ax.grid(True)
+
+    save_dir = os.path.dirname(save_path)
+    if not os.path.exists(save_dir):
+        os.makedirs(save_dir)
+
+    fig.savefig(save_path, dpi=200, bbox_inches='tight')
