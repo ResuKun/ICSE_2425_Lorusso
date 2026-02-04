@@ -27,11 +27,10 @@
 /.venv312/Lib
 /.venv312
 /Ontologia/BK
-/Checkpoint
 /rlcard/games/doudizhu
 /rlcard/games/gin_rummy
 /rlcard/models/__pycache__
 *.log
-*.rar
+/experiments/burraco_dqn_result/*/*.rar
 *.pt
 *.pth
