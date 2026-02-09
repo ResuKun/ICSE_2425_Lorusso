@@ -52,6 +52,7 @@ def evaluate(args):
     # Load models
     agents = []
     for position, model_path in enumerate(args.models):
+        worker_log.info(f" model_path          : {model_path}")
         agents.append(load_model(model_path, env, position, device))
     env.set_agents(agents)
 
@@ -90,8 +91,8 @@ if __name__ == '__main__':
         '--models',
         nargs='*',
         default=[
-            'experiments/burraco_dqn_result/2026_02_02_221348/final_model.pth',
-            'random',
+            'experiments/burraco_dqn_result/2026_01_23_111839/final_model.pth',
+            'experiments/burraco_dqn_result/2026_02_04_200258/final_model.pth',
         ],
     )
     parser.add_argument(
@@ -111,7 +112,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--num_games',
         type=int,
-        default=100,
+        default=10,
     )
 
     parser.add_argument(

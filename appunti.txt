@@ -1,0 +1,14 @@
+------------------------------------------------------------------------
+c) Self-play senza rumore
+Quando gioca contro sé stesso:
+stessa policy
+stessi stati
+stesse azioni
+Il sistema entra in un punto fisso della dinamica di Bellman.
+Questo è textbook
+------------------------------------------------------------------------
+Il comportamento che osservi è reale ed è grave (ma spiegabile)
+l’agente tende a pescare dallo scarto → contro random vince contro sé stesso entra in loop pesca–scarto
+Questo non è un bug di implementazione, è una policy degenerata stabile.
+In RL questo fenomeno ha un nome preciso:
+    "policy exploiting a non-penalized absorbing loop"

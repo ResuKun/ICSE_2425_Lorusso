@@ -239,7 +239,7 @@ def simple_tournament(env, num, logger):
     counter = 0
     wins = 0
     while counter < num:
-        _, single_pays = env.run(is_training=False)
+        trajs, single_pays = env.run(is_training=False)
         payoffs.append(single_pays)
         if single_pays[0] > single_pays[1]:
             wins += 1

@@ -34,3 +34,6 @@
 /experiments/burraco_dqn_result/*/*.rar
 *.pt
 *.pth
+*.pyc
+rlcard/games/burraco/__pycache__/game.cpython-313.pyc
+/rlcard/games/burraco/__pycache__

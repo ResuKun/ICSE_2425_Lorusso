@@ -123,7 +123,7 @@ def learner_process(traj_queue, param_queues, args):
             # -------------------------
             # Warmup scheduling
             # -------------------------
-            if episode_count == 20000:
+            if episode_count == 25000:
                 learner_log.info("Switching to fine training phase")
                 # train_every: 2000 -> 500
                 agent.train_every = 500
