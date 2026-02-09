@@ -112,7 +112,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--num_games',
         type=int,
-        default=10,
+        default=100,
     )
 
     parser.add_argument(
