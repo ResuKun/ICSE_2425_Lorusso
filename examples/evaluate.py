@@ -91,8 +91,10 @@ if __name__ == '__main__':
         '--models',
         nargs='*',
         default=[
-            'experiments/burraco_dqn_result/2026_01_23_111839/final_model.pth',
-            'experiments/burraco_dqn_result/2026_02_04_200258/final_model.pth',
+            #'experiments/burraco_dqn_result/2026_02_12_183630/final_model.pth',
+            'random',
+            'random',
+            #'experiments/burraco_dqn_result/2026_02_04_200258/final_model.pth',
         ],
     )
     parser.add_argument(
