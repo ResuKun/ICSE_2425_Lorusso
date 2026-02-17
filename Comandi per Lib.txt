@@ -1,0 +1,66 @@
+#per creare venv con python 3.12
+& "C:\Users\alexl\AppData\Local\Programs\Python\Python312\python.exe" -m venv .venv312
+#per girare su GPU (USARE Python 3.12 max, 3.13 non supportato per GPU)
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --extra-index-url https://download.pytorch.org/whl/cu121
+#in caso di errore
+pip uninstall torch torchvision torchaudio -y
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --extra-index-url https://download.pytorch.org/whl/cu121
+#verifica l'installazione
+python -c "import torch; print(torch.cuda.is_available())"
+
+
+
+
+cd C:\Users\alexl\Documents\Facolta\ICSE\Progetto\Burraco\ICSE_2425_Lorusso
+#installazione venv
+python -m venv .venv
+#attivazione
+.\.venv312\Scripts\Activate.ps1
+#se errore Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+pip install matplotlib
+pip install owlready2 
+pip install termcolor
+pip install setuptools
+#installazione rlcard da locale editabile(-e)
+pip install -e . 
+
+
+------------------------------------------------------
+python examples/run_rl.py --env burraco --algorithm dqn --log_dir experiments/burraco_dqn_result/
+
+------------------------------------------------------------------------------------------------
+$env:PYTHONPATH="C:\Users\alexl\Documents\Facolta\ICSE\Progetto\Burraco\ICSE_2425_Lorusso\aipython"
+$env:PYTHONPATH="C:\Users\alexl\Documents\Facolta\ICSE\Progetto\Burraco\ICSE_2425_Lorusso"
+
+sys.path.append(os.path.join(os.path.dirname(__file__), "aipython"))
+
+
+
+
+---------------------------------------------------
+librerie necessarie
+
+
+---------------------------------------------------
+
+Comandi alias:
+
+Set-Alias XX YYY
+(XX alias to, YYY original command)
+
+// funziona meglio
+function pippo {    python -m pip @Args }
+function pippo {    python install -m pip @Args }
+---------------------------------------------------
+
+
+Crea un ambiente virtuale chiamato .venv (puoi chiamarlo anche diversamente):
+python -m venv .venv
+
+Ora devi attivarlo — (usa il Python di .venv, non quello globale).
+    Su Windows PowerShell: .venv\Scripts\Activate.ps1
+    Su Windows CMD: .venv\Scripts\activate.bat
+
+Potresti ricevere un errore tipo: "ExecutionPolicy prohibits running this script".
+In tal caso, abilita temporaneamente gli script: Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+e poi riprova ad attivare: .venv\Scripts\Activate.ps1

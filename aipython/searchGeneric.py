@@ -8,7 +8,7 @@
 # Attribution-NonCommercial-ShareAlike 4.0 International License.
 # See: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en
 
-from display import Displayable
+from .display import Displayable
 
 class Searcher(Displayable):
     """returns a searcher for a problem.
@@ -43,20 +43,20 @@ class Searcher(Displayable):
             self.num_expanded += 1
             if self.problem.is_goal(self.path.end()):    # solution found
                 self.solution = self.path   # store the solution found
-                self.display(1, f"Solution: {self.path} (cost: {self.path.cost})\n",
-                    self.num_expanded, "paths have been expanded and",
-                            len(self.frontier), "paths remain in the frontier")
+                #self.display(1, f"Solution: {self.path} (cost: {self.path.cost})\n",
+                #    self.num_expanded, "paths have been expanded and",
+                #            len(self.frontier), "paths remain in the frontier")
                 return self.path
             else:
-                self.display(4,f"Expanding: {self.path} (cost: {self.path.cost})")
+                #self.display(4,f"Expanding: {self.path} (cost: {self.path.cost})")
                 neighs = self.problem.neighbors(self.path.end())
-                self.display(2,f"Expanding: {self.path} with neighbors {neighs}")
+                #self.display(2,f"Expanding: {self.path} with neighbors {neighs}")
                 for arc in reversed(list(neighs)):
                     self.add_to_frontier(Path(self.path,arc))
-                self.display(3, f"New frontier: {[p.end() for p in self.frontier]}")
+                #self.display(3, f"New frontier: {[p.end() for p in self.frontier]}")
 
-        self.display(0,"No (more) solutions. Total of",
-                     self.num_expanded,"paths expanded.")
+        #self.display(0,"No (more) solutions. Total of",
+        #             self.num_expanded,"paths expanded.")
  
     #versione modificata che taglia la ricerca per
     #
@@ -87,12 +87,12 @@ class Searcher(Displayable):
                             len(self.frontier), "paths remain in the frontier")
                 return self.path, visited_nodes
             else:
-                self.display(4,f"Expanding: {self.path} (cost: {self.path.cost})")
+               # self.display(4,f"Expanding: {self.path} (cost: {self.path.cost})")
                 neighs = self.problem.neighbors(self.path.end())
-                self.display(2,f"Expanding: {self.path} with neighbors {neighs}")
+                #self.display(2,f"Expanding: {self.path} with neighbors {neighs}")
                 for arc in reversed(list(neighs)):
                     self.add_to_frontier(Path(self.path,arc))
-                self.display(3, f"New frontier: {[p.end() for p in self.frontier]}")
+                #self.display(3, f"New frontier: {[p.end() for p in self.frontier]}")
 
         self.display(0,"No (more) solutions. Total of",
                      self.num_expanded,"paths expanded.")
@@ -110,7 +110,7 @@ class Searcher(Displayable):
 # searcher_sdg.search()  # find first or next solution
 
 import heapq        # part of the Python standard library
-from searchProblem import Path
+from .searchProblem import Path
 
 class FrontierPQ(object):
     """A frontier consists of a priority queue (heap), frontierpq, of
@@ -179,9 +179,9 @@ class AStarSearcher(Searcher):
         value = path.cost+self.problem.heuristic(path.end())
         self.frontier.add(path, value)
 
-import searchExample
+from .searchExample import problem1
 
-def test(SearchClass, problem=searchExample.problem1, solutions=[['G','D','B','C','A']] ):
+def test(SearchClass, problem=problem1, solutions=[['G','D','B','C','A']] ):
     """Unit test for aipython searching algorithms.
     SearchClass is a class that takes a problem and implements search()
     problem is a search problem

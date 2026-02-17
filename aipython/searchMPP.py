@@ -36,14 +36,13 @@ class SearcherMPP(AStarSearcher):
                             len(self.frontier), "paths remain in the frontier")
                     return self.path
                 else:
-                    self.display(4,f"Expanding: {self.path} (cost: {self.path.cost})")
+                    #self.display(4,f"Expanding: {self.path} (cost: {self.path.cost})")
                     neighs = self.problem.neighbors(self.path.end())
-                    self.display(2,f"Expanding: {self.path} with neighbors {neighs}")
+                    #self.display(2,f"Expanding: {self.path} with neighbors {neighs}")
                     for arc in neighs:
                         self.add_to_frontier(Path(self.path,arc))
                     self.display(3, f"New frontier: {[p.end() for p in self.frontier]}")
-        self.display(0,"No (more) solutions. Total of",
-                     self.num_expanded,"paths expanded.")
+        #self.display(0,"No (more) solutions. Total of",self.num_expanded,"paths expanded.")
 
 from searchGeneric import test
 if __name__ == "__main__":

@@ -3,8 +3,14 @@ from owlready2 import *
 import random
 from Player.player_csp_resolver import can_create_csp_scala, can_update_csp_scala
 from Player.player_onto_manager import apre_canasta
-import Ontologia.onto_save_manager as onto_save_manager
+from Ontologia.onto_save_manager import OntologyManager
 
+
+#carica l'ontologia (singleton)
+def get_manager():
+    if not hasattr(get_manager, "_manager"):
+        get_manager._manager = OntologyManager()
+    return get_manager._manager
 def get_card_value_sum(lista_carte):
     sum = 0
     for carta in lista_carte:
@@ -23,7 +29,7 @@ def passa_turno(partita):
         if player != current_player:
             partita.turnOf = player
             break
-    onto_save_manager.salva_ontologia_update_game()
+    get_manager().salva_ontologia_update_game()
 
 
 #restituisce una rappresentazione compatta e descrittiva 
@@ -62,7 +68,8 @@ def stato_della_partita(player, game):
     return stato_partita
 
 #simula una azione
-def simulate_action(game, player, action, cards = None):
+# TODO Eventuale Monte Carlo
+""" def simulate_action(game, player, action, cards = None):
     stato = copy.deepcopy(stato_della_partita(player, game))
 
     if action.name == "scarta":
@@ -95,3 +102,4 @@ def simulate_action(game, player, action, cards = None):
             #stato.scale_in_gioco.append(nuovoTris)
 
 
+ """

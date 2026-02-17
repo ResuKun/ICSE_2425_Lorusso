@@ -8,8 +8,8 @@
 # Attribution-NonCommercial-ShareAlike 4.0 International License.
 # See: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en
 
-from cspProblem import CSP, Constraint
-from searchProblem import Arc, Search_problem
+from .cspProblem import CSP, Constraint
+from .searchProblem import Arc, Search_problem
 
 class Search_from_CSP(Search_problem):
     """A search problem directly from the CSP.

@@ -1,0 +1,47 @@
+
+
+CORREGGERE le doppie pinelle
+    def can_update_csp_scala(player, lista_carte, scala):
+    def has_jolly_or_pinella_clean(canasta):
+    <owl:NamedIndividual rdf:about="#Scala_0_Giocatore1">
+    <owl:NamedIndividual rdf:about="#Partita_20251103_221009_907630">
+
+
+
+
+DA IMPLEMENTARE:
+
+- migliorare la gestione del 2 come pinella
+- inserire regole di chiusura:
+    -- non posso raccogliere 1 sola carta e riscartarla per chiudere
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+✅Testare i metodi CSP di update scala e update tris
+
+
+IMPLEMENTARE IL POZZO
+ATTULAMENTE NON è IMPLEMENTATO PER NULLA
+!!!!!!!
+
+
+Totale delle azioni
+✅❌
+
+✅Pescare dal monte
+✅pescare dagli scarti
+creare una scala
+    ✅trovare la scala
+    ✅scendere la scala
+creare un tris
+    ✅trovare 
+    ✅scendere
+aggiornare una scala
+aggiornare un tris
+scartare una carta per passare il turno
