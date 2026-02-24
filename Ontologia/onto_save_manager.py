@@ -9,7 +9,7 @@ class OntologyResource(Enum):
     CARD = ONTO_FOLDER + "\\Cards_Ontology.owl"
     #INIT_GAME =  "\\Init_Game_Ontology"
     UPDATED_GAME = "\\Updated_Game_Ontology"
-    UPDATED_GAME_TEST = "\\Updated_Game_Ontology"
+    UPDATED_GAME_TEST = "\\GAME_TEST"
     FILE_EXTENSION = ".owl"
 
 
@@ -33,28 +33,25 @@ class OntologyManager:
                 cls._instance.updated_game_test = None
         return cls._instance
 
-    def get_ontology_from_manager(self, ontology_type=OntologyResource.UPDATED_GAME):
+    def get_ontology_from_manager(self, ontology_type=OntologyResource.UPDATED_GAME.value):
         """Carica un'ontologia dal tipo specificato, come nella versione originale."""
         self.onto_type = ontology_type
-        if isinstance(ontology_type, OntologyResource):
-            onto_pre_load = None
-            if ontology_type == OntologyResource.CARD:
-                onto_pre_load = get_ontology(self.card )
-            #elif ontology_type == OntologyResource.INIT_GAME:
-            #    onto_pre_load = get_ontology(self.init_game)
-            elif ontology_type == OntologyResource.UPDATED_GAME:
-                onto_pre_load = get_ontology(self.updated_game )
-            elif ontology_type == OntologyResource.UPDATED_GAME_TEST:
-                onto_pre_load = get_ontology(self.updated_game_test)
-            else:
-                raise ValueError("Caso Invalido e non gestito")
-
-            if onto_pre_load is None:
-                raise ValueError(f"Il File Ontologia {ontology_type.name} non è stato trovato")
-
-            self.onto = onto_pre_load.load()
+        onto_pre_load = None
+        if ontology_type == OntologyResource.CARD.value:
+            onto_pre_load = get_ontology(self.card )
+        #elif ontology_type == OntologyResource.INIT_GAME:
+        #    onto_pre_load = get_ontology(self.init_game)
+        elif ontology_type == OntologyResource.UPDATED_GAME.value:
+            onto_pre_load = get_ontology(self.updated_game )
+        elif ontology_type == OntologyResource.UPDATED_GAME_TEST.value:
+            onto_pre_load = get_ontology(self.updated_game_test)
         else:
-            raise ValueError("Errore: Tipo di ontologia non valido. Usa l'enum OntologyResource.")
+            raise ValueError("Caso Invalido e non gestito")
+
+        if onto_pre_load is None:
+            raise ValueError(f"Il File Ontologia {ontology_type.name} non è stato trovato")
+
+        self.onto = onto_pre_load.load()
 
         return self.onto
     
@@ -181,17 +178,20 @@ class OntologyManager:
 
     def create_update_file_test(self):
         """Crea un nuovo file UPDATED_GAME aggiornando l’IRI."""
+        self.reload_file_name()
+        if not os.path.exists(self.bk_dir):
+            os.makedirs(self.bk_dir)
         file = open(self.card , "r")
         content = file.read()
         file.close()
         content = content.replace(
             "http://www.semanticweb.org/les/ontologies/2025/Cards",
-            "http://www.semanticweb.org/les/ontologies/2025/Updated_Game_Ontology"
+            f"http://www.semanticweb.org/les/ontologies/2025/Updated_Game_Ontology{self.timestamp}"
         )
-        f = open(self.updated_game_test, "w")
+        f = open(self.updated_game_test , "w")
         f.write(content)
         f.close()
-        #print("ONTO - INFO:: Creato file UPDATED_GAME aggiornato")
+        print(f"ONTO - INFO:: Creato file {self.updated_game_test} ")
 
     def create_init_file_test(self):
         """Crea un nuovo file UPDATED_GAME aggiornando l’IRI."""

@@ -37,3 +37,5 @@
 *.pyc
 rlcard/games/burraco/__pycache__/game.cpython-313.pyc
 /rlcard/games/burraco/__pycache__
+/rlcard.egg-info
+/rlcard.egg-info

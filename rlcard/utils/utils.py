@@ -239,15 +239,7 @@ def simple_tournament(env, num, logger):
     counter = 0
     wins = 0
     while counter < num:
-        trajs, single_pays = env.run(is_training=False)
-
-        #test - start
-        reorganized = reorganize(trajs, single_pays)
-        trajectory = reorganized[0] # Traiettoria del tuo agente
-        for transition in trajectory:
-            # transition = [state, action_id, reward, next_state, done]
-            action_id = transition[1]
-        #test - end
+        _, single_pays = env.run(is_training=False)
         payoffs.append(single_pays)
         if single_pays[0] > single_pays[1]:
             wins += 1

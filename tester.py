@@ -12,8 +12,8 @@ def test_resolver():
     print("--------------------------------------------------")
     print("PYTHONPATH:", sys.path)
     print("--------------------------------------------------")
-   # initGame.init_game(players_names = ["Alessio", "MariaGrazia"],  debug_mode = True)
-    res = OntologyResource.UPDATED_GAME_TEST
+    partita = initGame.init_game(players_names = ["Alessio", "MariaGrazia"],  debug_mode = True)
+    res = OntologyResource.UPDATED_GAME_TEST.value
     manager = OntologyManager()
     manager.reload_file_name()
     onto = manager.get_ontology_from_manager(res)
@@ -31,7 +31,7 @@ def test_resolver():
    # else:
         #print(f"Mazzo Giocatore: {[card.name for card in player1.playerHand.mazzo]}")
 
-    #add_card_tris(player1, onto)
+    add_card_tris(player1, onto)
     add_card_scala(player1, onto)
     result_1 = CSPResolver.find_csp_tris(player1)
 
@@ -78,12 +78,12 @@ def create_scala_test(player1, onto):
     OntoModifier.apre_scala(player1,checks.get_tuple_from_cards(lista_carte, True, True), True)
 
 def add_card_tris(player1, onto):
-    terza_carta = onto["10_Fiori_Rosso"]
-    prima_carta = onto["8_Cuori_Rosso"]
+    prima_carta = onto["10_Cuori_Blu"]
+    seconda_carta = onto["10_Cuori_Rosso"]
+    terza_carta = onto["10_Picche_Rosso"]
     player1.playerHand.mazzo.append(prima_carta)
     player1.playerHand.mazzo.append(terza_carta)
-    terza_carta = onto["Jolly_Jolly_R_Rosso"]
-    player1.playerHand.mazzo.append(terza_carta)
+    player1.playerHand.mazzo.append(seconda_carta)
 
 def add_card_scala(player1, onto):
     seconda_carta = onto["6_Quadri_Blu"]

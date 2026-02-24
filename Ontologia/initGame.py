@@ -19,7 +19,7 @@ def init_game_files(debug_mode):
 def get_onto(debug_mode = False):
     manager = OntologyManager()
     if debug_mode:
-        onto = manager.get_ontology_from_manager(OntologyResource.UPDATED_GAME_TEST)
+        onto = manager.get_ontology_from_manager(OntologyResource.UPDATED_GAME_TEST.value)
     else:
         onto = manager.get_ontology_from_manager()
     return onto, manager
@@ -43,9 +43,9 @@ def init_game(players_names = ["Alessio", "MariaGrazia"],  debug_mode = False):
     if len(players_names) % 2 != 0:
         raise TypeError("Il numero di giocatori deve essere pari.")
     
-    partita.turnOf = createPlayer(0,players_names[0], partita)
+    partita.turnOf = createPlayer(0,players_names[0], partita, debug_mode)
     for i in range(1, len(players_names)):
-        createPlayer(i, players_names[i], partita)
+        createPlayer(i, players_names[i], partita, debug_mode)
 
     #print(f"\nIl giocatore di turno all'inizio della partita è: {partita.turnOf.nomeGiocatore}")
 
@@ -55,9 +55,9 @@ def init_game(players_names = ["Alessio", "MariaGrazia"],  debug_mode = False):
     return partita
 
 
-def createPlayer(number,name, partita):
+def createPlayer(number,name, partita, debug_mode ):
     #creo i giocatori
-    onto,_ = get_onto()
+    onto,_ = get_onto(debug_mode)
     player1 = onto.Player("Giocatore" + str(number))
     player1.idGiocatore = number
     player1.nomeGiocatore = name
