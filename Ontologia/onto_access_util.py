@@ -100,24 +100,28 @@ def has_jolly_or_pinella_clean(canasta):
         return True
 
     # Caso: una sola pinella
-    if len(pinellas) == 1 and is_continous(cards):
+    if len(pinellas) == 1 :
         p = pinellas[0]
         # se dello stesso seme
         if getattr(p, "numeroCarta", None) == 2 and getattr(p, "seme", None) == seme_scala:
-            # Deve esserci il 3 dello stesso seme
-            has_three_same_suit = any(
-                getattr(c, "numeroCarta", None) == 3 and getattr(c, "seme", None) == seme_scala
-                for c in cards
-            )
-            if has_three_same_suit:
+            nums = [getattr(c,"numeroCarta",None) for c in cards]
+            # asso + 3
+            if 1 in nums and 3 in nums:
                 return False
+            # 3 + 4 + altre contigue compresi 3 e 4
+            if 3 in nums and 4 in nums and is_continous(cards):
+                return False
+            return True
+        else: 
+            return True
 
-    # In tutti gli altri casi basta la presenza di un Jolly
-    return True
+    return False
 
 
-def is_continous(canasta):
-    lista_carte = sorted(canasta, key=lambda x: x.numeroCarta)
+def is_continous_OLD(canasta):
+    onto = get_onto()
+    lista_carte = [card for card in canasta if not isinstance(card, (onto.Jolly, onto.Pinella))]
+    lista_carte = sorted(lista_carte, key=lambda x: x.numeroCarta)
     # Controlla che ogni carta successiva abbia numero consecutivo
     old_num = lista_carte[0].numeroCarta
     jolly_used = False
@@ -131,11 +135,20 @@ def is_continous(canasta):
         else:
             return False
     return True
-""" 
-    for prev, curr in zip(lista_carte, lista_carte[1:]):
-        if curr.numeroCarta != prev.numeroCarta + 1:
+
+def is_continous(canasta):
+    onto = get_onto()
+    lista_carte = [card for card in canasta if not isinstance(card, (onto.Pinella))]
+    lista_carte = sorted(lista_carte, key=lambda x: x.numeroCarta)
+    # Controlla che ogni carta successiva abbia numero consecutivo
+    old_num = lista_carte[0].numeroCarta
+    for card in lista_carte[1:]:
+        gap = card.numeroCarta - old_num
+        if gap == 1:
+            old_num = card.numeroCarta
+        else:
             return False
-    return True """
+    return True
 
 def isBurracoPulito(canasta):
     return isBurraco(canasta) and not has_jolly_or_pinella_clean(canasta)

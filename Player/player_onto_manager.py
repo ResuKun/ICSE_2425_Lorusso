@@ -105,7 +105,7 @@ def chiudi_gioco(player, card_id):
 
 #crea una nuova scala e la aggiunge al giocatore
 #restituisce il punteggio 
-def apre_scala(player, cards):
+def apre_scala(player, cards, debug = False):
 	nScala = len(player.scala)
 	nuovaScala = get_onto().Scala("Scala_" + str(nScala)+ "_" + player.name)
 	nuovaScala.scalaId = len(get_onto().Scala.instances())
@@ -150,7 +150,7 @@ def apre_scala(player, cards):
 	#scendere con una sola azione più di 5 carte 
 	# per questioni di performance
 
-	get_manager().salva_ontologia_update_game()
+	get_manager().salva_ontologia_update_game(debug)
 	return partialScore
 
 #crea una nuovo Tris e la aggiunge al giocatore

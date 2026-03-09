@@ -5,6 +5,7 @@ from .round import BurracoRound
 from .judge import BurracoJudge
 from .action_event_static import *
 from Player.player_onto_manager import get_player_known_cards, get_player_unknown_cards, get_player_melds, get_player_tris,get_player_cards
+from Player.player_csp_resolver import SolverType
 from Ontologia.onto_access_util import get_monte, get_scarti
 
 import Ontologia.initGame as initGame
@@ -13,15 +14,17 @@ class BurracoGame:
 	''' Game class. This class will interact with outer environment.
 	'''
 
-	def __init__(self, allow_step_back=False):
+	def __init__(self, allow_step_back=False, csp_solver = SolverType.DEFAULT.value):
 		'''Initialize the class BurracoGame
 		'''
+
+		print("csp_solver:" + csp_solver)
 		self.allow_step_back = allow_step_back
 		self.np_random = np.random.RandomState()
 		self.actions = None  # type: List[ActionEvent] or None # must reset in init_game
 		self.round = None  # round: BurracoRound or None, must reset in init_game
 		self.num_players = 2
-		self.judge = BurracoJudge()
+		self.judge = BurracoJudge(csp_solver)
 		self.game = None
 
 

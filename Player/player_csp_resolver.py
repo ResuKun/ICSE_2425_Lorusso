@@ -1,3 +1,4 @@
+from enum import Enum
 import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), "aipython"))
@@ -14,6 +15,31 @@ import Utils.checks as checks
 from Ontologia.onto_save_manager import OntologyManager, OntologyResource
 from Utils.CONST import CardValues
 
+from typing import Callable, List, Any
+
+# solver type alias used for global configuration
+Solver = Callable[[CSP, List[Any], bool], List[Any]]
+
+class SolverType(Enum):
+    DEFAULT = "solve_csp"
+    CUT = "solve_csp_cut"
+
+# module-level solver variable, set to default implementation later
+_csp_solver: Solver
+
+def set_csp_solver(solver: Solver) -> None:
+    global _csp_solver
+    _csp_solver = solver
+
+
+def get_csp_solver() -> Solver:
+    return _csp_solver
+
+
+def reset_csp_solver() -> None:
+    global _csp_solver
+    _csp_solver = solve_csp
+
 #carica l'ontologia (singleton)
 def get_manager():
     return OntologyManager()
@@ -27,7 +53,7 @@ MELD_DEFAULT_DEPTH = 3
 
 ## -------------- START PROBLEMI CSP -------------- ##
 
-
+# n!
 def solve_csp(csp, vars, is_update = False):
     searcher = Searcher(Search_from_CSP(csp))
     unique_combinations = set()
@@ -57,6 +83,35 @@ def solve_csp(csp, vars, is_update = False):
 
     return solutions_list
 
+# C(n,k)
+def solve_csp_cut(csp, vars, is_update=False):
+    searcher = Searcher(Search_from_CSP(csp))
+    solutions_list = []
+    visited_nodes = set()
+
+    while searcher.frontier:
+        result, visited_nodes = searcher.search_cut_order(visited_nodes)
+
+        if result is None:
+            break
+
+        tuple_res = checks.get_tuple_from_csp_results(vars, result)
+
+        if tuple_res is not None:
+            tuple_res_no_dupes = list(dict.fromkeys(tuple_res))
+            partial_solution = list(tuple_res_no_dupes)
+            if not is_update:
+                partial_solution.sort(key=lambda x: x[0])
+            else:
+                partial_solution.sort(key=lambda x: len(x))
+            solutions_list.append(partial_solution)
+
+    return solutions_list
+
+# usa il solver normale di default
+_csp_solver = solve_csp
+
+
 
 ## SCALE  ##
 #Creazione di una scala
@@ -84,14 +139,14 @@ def find_csp_scala(player):
               [
                 Constraint(vars_tris, checks.has_no_duplicate, "has_no_duplicate"),
                 #Constraint(vars_tris, checks.same_number_card, "same_number_card"),
-                Constraint(vars_tris, checks.three_or_more_cards, "minimo 3 carte"),
+                #Constraint(vars_tris, checks.three_or_more_cards, "minimo 3 carte"),
                 Constraint(vars_tris, checks.doppio_jolly_lista,"doppio_jolly_lista"),
                 Constraint(vars_tris, checks.stesso_seme_lista,"stesso_seme_lista"),
                 Constraint(vars_tris, checks.lista_contigua,"lista_contigua"),
                 Constraint(vars_tris, regole_di_gioco,"regole_di_gioco"),
               ])
 
-    solutions_list = solve_csp(csp, vars_tris)
+    solutions_list = _csp_solver(csp, vars_tris)
    # print(f"\n\n\n [ find_csp_scala ] SOLUZIONI TROVATE-->")
    # print(f"------------------------------------------------------------------------\n\n\n")
    # print(*solutions_list, sep="\n")
@@ -103,32 +158,35 @@ def find_csp_scala(player):
 def can_update_csp_scala(player, lista_carte, scala):
 
     lista_tuple = checks.get_tuple_from_cards(lista_carte)
-    lista_scala = [ checks.get_scala_normalized(scala)]
+    lista_scala = checks.get_scala_normalized(scala)
+    carte_scala = checks.get_tuple_from_cards(scala.hasCards)
 
-    carte_scala = [checks.get_tuple_from_cards(scala.hasCards)]
-
-    #versione closure delle regole di gioco
-    regole_di_gioco = checks.closure_player_regole_di_gioco(player)
+    #versione closure dei metodi per velocizzare il DFS
+    stesso_seme_scala = checks.closure_stesso_seme_scala(lista_scala)
+    lista_contigua_with_card = checks.closure_lista_contigua_with_card(carte_scala)
+    doppio_jolly_combinazione = checks.closure_doppio_jolly_combinazione(lista_scala)
+    regole_di_gioco = checks.closure_player_regole_di_gioco_update_meld(player, lista_scala)
 
     var = Variable("c1", lista_tuple)
-    var2 = Variable("c2", lista_scala)
-    var3 = Variable("c3", carte_scala)
     update_scala_CSP = CSP("update_scala_CSP",
-         [var, var2, var3],
+         [var],
         [
-            Constraint( [var, var2], checks.stesso_seme_scala,"stesso_seme_scala"),
-            Constraint( [var, var2], checks.doppio_jolly_combinazione,"doppio_jolly_combinazione"),
-            #Constraint( [var, var2], checks.in_scala,"in_scala")
-            Constraint( [var3, var] , checks.lista_contigua_with_card,"lista_contigua"),
-            Constraint(  [var], regole_di_gioco,"regole_di_gioco"),
+            #start
+            Constraint( [var], stesso_seme_scala,"stesso_seme_scala"),
+            Constraint( [var], doppio_jolly_combinazione,"doppio_jolly_combinazione"),
+            Constraint( [var], lista_contigua_with_card,"lista_contigua_with_card"),
+            Constraint( [var], regole_di_gioco,"regole_di_gioco"),
         ])
     
-    solutions_list = solve_csp(update_scala_CSP,  [var, var2], True)
+    solutions_list = _csp_solver(update_scala_CSP,  [var], True)
+    results = []
+    for elem in solutions_list:
+        results.append([elem[0], lista_scala])
 
     #print(f"\n\n\n[ can_update_csp_scala ] SOLUZIONI TROVATE-->")
-    #print(f"{[sol for sol in solutions_list]}")
+    #print(f"{[sol for sol in results]}")
     #print(f"------------------------------------------------------------------------\n\n\n")
-    return solutions_list
+    return results
 
 def get_possible_meld_to_update(player):
     list_meld = []
@@ -161,13 +219,13 @@ def find_csp_tris(player):
               vars_tris,
               [
                 Constraint(vars_tris, checks.has_no_duplicate, "has_no_duplicate"),
-                Constraint(vars_tris, checks.three_or_more_cards, "minimo 3 carte"),
+                #Constraint(vars_tris, checks.three_or_more_cards, "minimo 3 carte"),
                 Constraint(vars_tris, checks.doppio_jolly_lista, "doppio_jolly_lista"),
                 Constraint(vars_tris, checks.stesso_numero_lista, "stesso_numero_lista"),
                 Constraint(vars_tris, regole_di_gioco,"regole_di_gioco"),
               ])
     
-    solutions_list = solve_csp(csp, vars_tris)
+    solutions_list = _csp_solver(csp, vars_tris)
 
    #print(f"\n\n\n [ find_csp_tris ] SOLUZIONI TROVATE-->")
    #print(f"{[sol for sol in solutions_list]}")
@@ -180,32 +238,33 @@ def can_update_csp_tris(player, lista_carte, tris):
     # def __init__(self, title, variables, constraints):
     lista_numeri = checks.get_tuple_from_cards(lista_carte, True)
 
-    trisValue_list = []
     contain_jolly = any(isinstance(card, (get_onto().Jolly, get_onto().Pinella)) for card in tris.hasCards)
     tupla = (contain_jolly, tris.trisValue, tris.trisId)
-    trisValue_list.append(tupla)
 
-    #versione closure delle regole di gioco
-    regole_di_gioco = checks.closure_player_regole_di_gioco(player)
+    #versione closure dei metodi per velocizzare il DFS
+    stesso_numero_tris = checks.closure_stesso_numero_tris(tupla)
+    doppio_jolly_combinazione = checks.closure_doppio_jolly_combinazione(tupla)
+    regole_di_gioco = checks.closure_player_regole_di_gioco_update_meld(player, tupla)
 
     var1 = Variable("c1", lista_numeri)
-    var2 = Variable("c2", trisValue_list)
-    vars_jolly_single = [var1, var2]
+    vars_jolly_single = [var1]
 
     update_scala_CSP = CSP("update_scala_CSP",
         vars_jolly_single, #mettere le variabili
         [
-            Constraint(vars_jolly_single, checks.stesso_numero_tris,"stesso_numero_tris"),
-            Constraint(vars_jolly_single, checks.doppio_jolly_combinazione,"doppio_jolly_combinazione"),
-            Constraint(vars_jolly_single, regole_di_gioco,"regole_di_gioco"),
+            Constraint([var1], stesso_numero_tris,"stesso_numero_tris"),
+            Constraint([var1], doppio_jolly_combinazione,"doppio_jolly_combinazione"),
+            Constraint([var1], regole_di_gioco,"regole_di_gioco"),
         ])
     
-    solutions_list = solve_csp(update_scala_CSP, vars_jolly_single, True)
-
+    solutions_list = _csp_solver(update_scala_CSP, vars_jolly_single, True)
+    results = []
+    for elem in solutions_list:
+        results.append([tupla, elem[0]])
     #print(f"\n\n\n [ can_update_csp_tris ] SOLUZIONI TROVATE-->")
-    #print(f"{[sol for sol in solutions_list]}")
+    #print(f"{[sol for sol in results]}")
     #print(f"------------------------------------------------------------------------\n\n\n")
-    return solutions_list
+    return results
 
 def get_possible_tris_to_update(player):
     list_meld = []
@@ -231,7 +290,7 @@ def can_end_game_csp(player):
     
     #searcher = Searcher(Search_from_CSP(end_game_csp))
     #result = searcher.search()
-    result = solve_csp(end_game_csp, [var1], True)
+    result = _csp_solver(end_game_csp, [var1], True)
     return result
 
 #ordina la lista di combinazioni in base al loro valore (somma dei valori delle singole carte)

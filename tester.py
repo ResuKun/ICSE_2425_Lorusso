@@ -26,23 +26,27 @@ def test_resolver():
     #player1.playerHand.mazzo.clear()
 
     #if create_tris:
-    #create_tris_test(player1, onto)
-    #create_scala_test(player1)
+    create_tris_test(player1, onto)
+    create_scala_test(player1, onto)
    # else:
         #print(f"Mazzo Giocatore: {[card.name for card in player1.playerHand.mazzo]}")
 
-    add_card_tris(player1, onto)
     add_card_scala(player1, onto)
-    result_1 = CSPResolver.find_csp_tris(player1)
+    scala_0 = onto["Scala_0_Giocatore0"]
+    #result_2 = CSPResolver.can_update_csp_scala(player1, player1.playerHand.mazzo,scala_0)
 
-    tris_0 = onto["Scala_0_Giocatore0"]
+    add_card_tris(player1, onto)
+    tris_0 = onto["Tris_0_Giocatore0"]
+    #result_1 = CSPResolver.find_csp_tris(player1)
+    result_2 = CSPResolver.can_update_csp_tris(player1, player1.playerHand.mazzo,tris_0)
+
     result = CSPResolver.get_possible_meld_to_update(player1)
     #result_2 = CSPResolver.find_csp_scala(player1)
         #find_csp_tris(player1.playerHand.mazzo)
         #create_scala_test(player1)
     print(result)
     add_card(player1, onto)
-    scala = onto["Scala_0_Giocatore0"]
+    scala = onto["Tris_0_Giocatore0"]
     #result = CSPResolver.can_update_csp_scala(player1, player1.playerHand.mazzo, scala, True)
 
         #player1 = all_players[1]
@@ -65,28 +69,28 @@ def create_tris_test(player1, onto):
     player1.playerHand.mazzo.append(prima_carta)
     player1.playerHand.mazzo.append(seconda_carta)
     player1.playerHand.mazzo.append(terza_carta)
-    OntoModifier.apre_tris(player1,checks.get_tuple_from_cards(lista_carte), True)
+    OntoModifier.apre_tris(player1,lista_carte, True)
 
 def create_scala_test(player1, onto):
-    prima_carta = onto["8_Cuori_Rosso"]
-    seconda_carta = onto["7_Cuori_Blu"]
-    terza_carta = onto["2_Picche_Blu"]
+    prima_carta = onto["K_Cuori_Rosso"]
+    seconda_carta = onto["J_Cuori_Blu"]
+    terza_carta = onto["Q_Cuori_Blu"]
     lista_carte = [prima_carta, seconda_carta, terza_carta]
     player1.playerHand.mazzo.append(prima_carta)
     player1.playerHand.mazzo.append(seconda_carta)
     player1.playerHand.mazzo.append(terza_carta)
-    OntoModifier.apre_scala(player1,checks.get_tuple_from_cards(lista_carte, True, True), True)
+    OntoModifier.apre_scala(player1,lista_carte, True)
 
 def add_card_tris(player1, onto):
-    prima_carta = onto["10_Cuori_Blu"]
-    seconda_carta = onto["10_Cuori_Rosso"]
-    terza_carta = onto["10_Picche_Rosso"]
+    prima_carta = onto["10_Cuori_Rosso"]
+    seconda_carta = onto["5_Cuori_Rosso"]
+    terza_carta = onto["10_Picche_Blu"]
     player1.playerHand.mazzo.append(prima_carta)
     player1.playerHand.mazzo.append(terza_carta)
     player1.playerHand.mazzo.append(seconda_carta)
 
 def add_card_scala(player1, onto):
-    seconda_carta = onto["6_Quadri_Blu"]
+    seconda_carta = onto["6_Cuori_Blu"]
     player1.playerHand.mazzo.append(seconda_carta)
     terza_carta = onto["J_Picche_Blu"]
     player1.playerHand.mazzo.append(terza_carta)

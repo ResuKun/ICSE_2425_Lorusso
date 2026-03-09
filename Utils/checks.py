@@ -96,8 +96,7 @@ def doppio_jolly_combinazione(carta, contain_jolly):
 	#se la scala contiene un Jolly o Pinella e provo ad aggiungerne un altro ritorna Falso
 	if contain_jolly[0]:
 		return not (is_jolly_or_pinella(carta[0]))
-	else:
-		return True
+	return True
 
 	
 def doppio_jolly_lista(*lista_carte):
@@ -105,7 +104,7 @@ def doppio_jolly_lista(*lista_carte):
 	return len(lista_carte) < 2
 
 #scala normalizzata (has_jolly, seme, min, max)
-def stesso_seme_scala(carta, scala):
+def stesso_seme_scala(scala, carta):
 	value =  scala[1] == carta[2] if not is_jolly_or_pinella(carta[0]) else True
 	return value
 
@@ -216,7 +215,7 @@ def get_player_normalized(player):
 #	   la mia squadra deve avere almeno una canasta (pura/impura)
 #	   e l'ultima carta che scarto non deve essere una pinella/jolly
 
-def regole_di_gioco(player, is_closing_game, *cards_to_play):
+def regole_di_gioco(player, is_closing_game, *cards_to_play, meld = None):
 	#cards_to_play = clean_from_placeholder(cards_to_play)
 	mano_player = get_tuple_from_cards(player.playerHand.mazzo)
 	result = False
@@ -227,15 +226,30 @@ def regole_di_gioco(player, is_closing_game, *cards_to_play):
 		result = not is_closing_game
 	if( len(mano_player) == 1 
 		and (any(onto_access_util.isBurraco(scala) for scala in player.scala)
-			or any(onto_access_util.isBurraco(tris) for tris in player.tris))
+			or any(onto_access_util.isBurraco(tris) for tris in player.tris)
+			or (meld != None and check_sum_len(meld) ))
 		and not has_jolly_or_pinella_tuple(mano_player)
 		):
 		result = True
 	return result
 
+def check_sum_len(meld):
+	onto_meld = None
+	if len(meld) > 3:
+		onto_meld = onto_access_util.get_meld_from_id(meld[5])
+	else:
+		onto_meld = onto_access_util.get_tris_from_id(meld[2])
+	return len(onto_meld.hasCards) + 1 >= 7
+
+
 def closure_player_regole_di_gioco(player):
 	def constraint(*carte):
 		return regole_di_gioco(player, False, *carte)
+	return constraint
+
+def closure_player_regole_di_gioco_update_meld(player, meld):
+	def constraint(carta):
+		return regole_di_gioco(player, False, carta, meld=meld)
 	return constraint
 
 def closure_player_close_game(player):
@@ -245,3 +259,27 @@ def closure_player_close_game(player):
 
 def is_jolly_or_pinella(num):
 	return num == CardValues.JOLLY_VALUE.value or num == CardValues.PINELLA_VALUE.value
+
+
+
+
+
+def closure_stesso_seme_scala(scala):
+	def constraint(carta):
+		return stesso_seme_scala(scala, carta)
+	return constraint
+
+def closure_lista_contigua_with_card(lista_carte):
+	def constraint(carta):
+		return lista_contigua_with_card(lista_carte, carta)
+	return constraint
+
+def closure_doppio_jolly_combinazione(contain_jolly):
+	def constraint(carta):
+		return doppio_jolly_combinazione(carta, contain_jolly)
+	return constraint
+
+def closure_stesso_numero_tris(tris):
+	def constraint(carta):
+		return stesso_numero_tris(carta, tris)
+	return constraint

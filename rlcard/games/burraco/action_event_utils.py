@@ -14,8 +14,8 @@ def get_tris_update_action_id(csp_len_updates):
     actions_ids = []
     #da migliorare A/K:
     values = [15, 20, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 10]
-    csp_updates = csp_len_updates[0]
     tris_len = csp_len_updates[1] if csp_len_updates[1] < 7 else 7
+    csp_updates = csp_len_updates[0]
     tris_rank = csp_updates[0][0][1] -1
 
     for single_csp in csp_updates:
@@ -49,8 +49,8 @@ def get_meld_update_action_id(csp_len_updates):
     # Recupera il dizionario pre-calcolato tramite get_map_actions()
 
     actions_ids = []
-    csp_updates = csp_len_updates[0]
     meld_len = csp_len_updates[1] if csp_len_updates[1] < 7 else 7
+    csp_updates = csp_len_updates[0]
     # Il seme è costante per questo gruppo di update
     meld_seme = csp_updates[0][1][1]
 

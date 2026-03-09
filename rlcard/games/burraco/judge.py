@@ -11,13 +11,19 @@ from .action_event_utils import (ActionIndexes,
 
 class BurracoJudge:
 
-    def __init__(self):
+    def __init__(self, csp_solver_type = csp_resolver.SolverType.DEFAULT.value):
         self.action_map = []
+        self.csp_solver_type = csp_solver_type
 
     # TODO Possibile implementazione di Monte Carlo Tree Search
     # per la previsione delle mosse a più lungo termine
     def get_legal_actions(self, player):
         legal_actions = []
+        
+        #imposto l'algoritmo di risoluzione con 
+        if self.csp_solver_type == csp_resolver.SolverType.CUT.value:
+            csp_resolver.set_csp_solver(csp_resolver.solve_csp_cut)
+
 
         # Aggiunge le azioni di base (pescare dal mazzo, prendere dagli scarti, scartare)
         if len(self.action_map) == 0:

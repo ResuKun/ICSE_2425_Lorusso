@@ -5,16 +5,17 @@ from rlcard.envs import Env
 from rlcard.games.burraco.game import BurracoGame as Game
 import rlcard.games.burraco.utils as utils
 import Utils.CONST as CONST
+from Player.player_csp_resolver import SolverType
 
 class BurracoEnv(Env):
     ''' Burraco Environment
     '''
     def __init__(self, config):
-
+        csp_solver = config.get('csp_solver', SolverType.DEFAULT.value)
+        print("env - solver:"+ csp_solver )
         self._utils = utils
-
         self.name = 'burraco'
-        self.game = Game()
+        self.game = Game(csp_solver = csp_solver)
         super().__init__(config=config)
         self.state_shape = [[5, CONST.CardValues.TOTAL_CARDS.value] for _ in range(self.num_players)]
         self.action_shape = [None for _ in range(self.num_players)]

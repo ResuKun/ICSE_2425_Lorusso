@@ -24,7 +24,11 @@ def worker_process(worker_id, traj_queue, param_queue, args, seed_offset=0):
         set_seed(seed)
 
         device = torch.device("cpu")
-        env = rlcard.make(args.env, config={'seed': seed})
+
+        config = {'seed': seed}
+        if hasattr(args, 'csp_solver') and args.csp_solver:
+            config['csp_solver'] = args.csp_solver
+        env = rlcard.make(args.env, config=config)
         local_agent = get_agent(env, device, args, worker_log, False)
 
         opponents = [
@@ -88,7 +92,10 @@ def learner_process(traj_queue, param_queues, args):
     set_seed(args.seed)
     learner_log = ProcessLogger.get_logger(role="learner")
 
-    env = rlcard.make(args.env, config={'seed': args.seed})
+    cfg = {'seed': args.seed}
+    if hasattr(args, 'csp_solver') and args.csp_solver:
+        cfg['csp_solver'] = args.csp_solver
+    env = rlcard.make(args.env, config=cfg)
     agent = get_agent(env, device, args, learner_log, True)
 
     opponents = [

@@ -82,21 +82,12 @@ class Searcher(Displayable):
             
             if self.problem.is_goal(self.path.end()):    # solution found
                 self.solution = self.path   # store the solution found
-                self.display(1, f"Solution: {self.path} (cost: {self.path.cost})\n",
-                    self.num_expanded, "paths have been expanded and",
-                            len(self.frontier), "paths remain in the frontier")
                 return self.path, visited_nodes
             else:
-               # self.display(4,f"Expanding: {self.path} (cost: {self.path.cost})")
                 neighs = self.problem.neighbors(self.path.end())
-                #self.display(2,f"Expanding: {self.path} with neighbors {neighs}")
                 for arc in reversed(list(neighs)):
                     self.add_to_frontier(Path(self.path,arc))
-                #self.display(3, f"New frontier: {[p.end() for p in self.frontier]}")
 
-        self.display(0,"No (more) solutions. Total of",
-                     self.num_expanded,"paths expanded.")
-        
         return None, visited_nodes
     
 
