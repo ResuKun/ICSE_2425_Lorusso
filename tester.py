@@ -27,13 +27,17 @@ def test_resolver():
 
     #if create_tris:
     create_tris_test(player1, onto)
-    create_scala_test(player1, onto)
+    create_scala_test(player1, onto, "Cuori")
+    create_scala_test(player1, onto, "Picche")
+   # create_scala_test(player1, onto, "Cuori", "Blu")
+   # create_scala_test(player1, onto, "Fiori")
    # else:
         #print(f"Mazzo Giocatore: {[card.name for card in player1.playerHand.mazzo]}")
 
-    add_card_scala(player1, onto)
+    add_card_scala(player1, onto, "Cuori")
+    add_card_scala(player1, onto, "Picche", False)
     scala_0 = onto["Scala_0_Giocatore0"]
-    #result_2 = CSPResolver.can_update_csp_scala(player1, player1.playerHand.mazzo,scala_0)
+    result_2 = CSPResolver.get_possible_meld_to_update(player1)
 
     add_card_tris(player1, onto)
     tris_0 = onto["Tris_0_Giocatore0"]
@@ -71,10 +75,10 @@ def create_tris_test(player1, onto):
     player1.playerHand.mazzo.append(terza_carta)
     OntoModifier.apre_tris(player1,lista_carte, True)
 
-def create_scala_test(player1, onto):
-    prima_carta = onto["K_Cuori_Rosso"]
-    seconda_carta = onto["J_Cuori_Blu"]
-    terza_carta = onto["Q_Cuori_Blu"]
+def create_scala_test(player1, onto, seme, colore = "Rosso"):
+    prima_carta = onto[f"10_{seme}_{colore}"]
+    seconda_carta = onto[f"J_{seme}_{colore}"]
+    terza_carta = onto[f"Q_{seme}_{colore}"]
     lista_carte = [prima_carta, seconda_carta, terza_carta]
     player1.playerHand.mazzo.append(prima_carta)
     player1.playerHand.mazzo.append(seconda_carta)
@@ -89,13 +93,14 @@ def add_card_tris(player1, onto):
     player1.playerHand.mazzo.append(terza_carta)
     player1.playerHand.mazzo.append(seconda_carta)
 
-def add_card_scala(player1, onto):
-    seconda_carta = onto["6_Cuori_Blu"]
+def add_card_scala(player1, onto, seme, flag = True, colore = "Rosso"):
+    seconda_carta = onto[f"9_{seme}_{colore}"]
     player1.playerHand.mazzo.append(seconda_carta)
-    terza_carta = onto["J_Picche_Blu"]
+    terza_carta = onto[f"K_{seme}_{colore}"]
     player1.playerHand.mazzo.append(terza_carta)
-    terza_carta = onto["Jolly_Jolly_R_Rosso"]
-    player1.playerHand.mazzo.append(terza_carta)
+    if flag:
+        terza_carta = onto[f"Jolly_Jolly_R_{colore}"]
+        player1.playerHand.mazzo.append(terza_carta)
 
 
 
