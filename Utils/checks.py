@@ -5,22 +5,25 @@ from Utils.CONST import CardValues
 
 
 def get_tuple_from_cards(lista_carte, include_seme=True):
-	lista_tuple = []
+	# build a sequence of card tuples; we return a tuple so that callers
+	# can use the result as a domain value without worrying about
+	# mutability/hashability. previously this returned a list, which
+	# caused errors when the tuple was embedded in a state set.
+	seq = []
 	for card in lista_carte:
 		if not isinstance(card, (OntologyManager().get_onto().Jolly)):
 			if include_seme:
 				mia_tupla = (card.numeroCarta, card.idCarta, card.seme.name, card.valoreCarta)
 			else:
 				mia_tupla = (card.numeroCarta, card.idCarta, card.valoreCarta)
-			lista_tuple.append(mia_tupla)
 		else:
 			if include_seme:
 				mia_tupla = (CardValues.JOLLY_VALUE.value, card.idCarta, "Jolly", card.valoreCarta)
 			else:
 				mia_tupla = (CardValues.JOLLY_VALUE.value, card.idCarta, card.valoreCarta)
-			lista_tuple.append(mia_tupla)
-		
-	return lista_tuple
+		seq.append(mia_tupla)
+	# return an immutable tuple from the list
+	return tuple(seq)
 
 def get_tuple_from_csp_results(lista_variabili, result):
 	if result is None:
@@ -92,9 +95,9 @@ def get_card_number(card):
 
 
 #condizioni per creazione delle scale / aggiunta delle carte a scala
-def doppio_jolly_combinazione(carta, contain_jolly):
+def doppio_jolly_combinazione(carta, scala):
 	#se la scala contiene un Jolly o Pinella e provo ad aggiungerne un altro ritorna Falso
-	if contain_jolly[0]:
+	if scala[0][0]:
 		return not (is_jolly_or_pinella(carta[0]))
 	return True
 
@@ -104,8 +107,8 @@ def doppio_jolly_lista(*lista_carte):
 	return len(lista_carte) < 2
 
 #scala normalizzata (has_jolly, seme, min, max)
-def stesso_seme_scala(scala, carta):
-	value =  scala[1] == carta[2] if not is_jolly_or_pinella(carta[0]) else True
+def stesso_seme_scala(carta, scala):
+	value =  scala[0][1] == carta[2] if not is_jolly_or_pinella(carta[0]) else True
 	return value
 
 def stesso_seme_lista(*lista_carte):
@@ -165,7 +168,8 @@ def in_scala(carta, scala):
 		 	or carta[0] == scala[3] +1 
 			or (scala[3] > carta[0] > scala[2]))
 
-def lista_contigua_with_card(lista_carte, card = None):
+def lista_contigua_with_card(card = None, lista_carte = None):
+	lista_carte = list(lista_carte[1])
 	lista_carte.append(card)
 	test = tuple(lista_carte)
 	return lista_contigua((test))
@@ -247,9 +251,9 @@ def closure_player_regole_di_gioco(player):
 		return regole_di_gioco(player, False, *carte)
 	return constraint
 
-def closure_player_regole_di_gioco_update_meld(player, meld):
-	def constraint(carta):
-		return regole_di_gioco(player, False, carta, meld=meld)
+def closure_player_regole_di_gioco_update_meld(player):
+	def constraint(carta, meld):
+		return regole_di_gioco(player, False, carta, meld=meld[0])
 	return constraint
 
 def closure_player_close_game(player):
@@ -259,10 +263,6 @@ def closure_player_close_game(player):
 
 def is_jolly_or_pinella(num):
 	return num == CardValues.JOLLY_VALUE.value or num == CardValues.PINELLA_VALUE.value
-
-
-
-
 
 def closure_stesso_seme_scala(scala):
 	def constraint(carta):

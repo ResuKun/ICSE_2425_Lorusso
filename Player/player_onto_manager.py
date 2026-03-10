@@ -124,9 +124,9 @@ def apre_scala(player, cards, debug = False):
 		# (valori_reali[0] è il 2, controlliamo se ci sono almeno 3 carte e se sono 3 e 4)
 		if not(len(valori_reali) >= 3 and valori_reali[1] == 3 and valori_reali[2] == 4):
 			# Prendo il valore minimo tra le carte rimanenti (escluso il 2)
-			nuovaScala.minValueScala = min(c.valoreCarta for c in cards if c.valoreCarta != -1 and c.valoreCarta != 2)
+			nuovaScala.minValueScala = min(c.numeroCarta for c in cards if c.numeroCarta != -1 and c.valoreCarta != 2)
 		
-	nuovaScala.maxValueScala = max(c.valoreCarta for c in cards if c.valoreCarta != -1)
+	nuovaScala.maxValueScala = max(c.numeroCarta for c in cards if c.numeroCarta != -1)
 	nuovaScala.isBurracoClosed = False
 
 	partialScore = 0
