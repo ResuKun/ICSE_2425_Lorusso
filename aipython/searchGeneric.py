@@ -74,7 +74,6 @@ class Searcher(Displayable):
             # Identifica lo stato corrente (es. dizionario ordinato -> frozenset)
             if self.problem.is_goal(self.path.end()):    # solution found
 
-                #RICOTNROLLARE QUI!!!!!
                 current_state = frozenset([single_item[1] 
                                            for single_item in self.path.end().items()])
                 # Se già visitato, lo salti
