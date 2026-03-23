@@ -4,15 +4,18 @@ Argomenti toccati nel progetto:
 
 3 - Ragionamento con Vincoli
     -- CSP
+        -- DFS
 6 - Knowledge Graph e Ontologie
     --Ontologia
         -- Divisioni in classi
         -- Proprietà delle classi
 8 - Reti Neurali
-    -- DQN
-    -- + Ripetere argomento
+    -- CNN Reti Convolutive (cenno per) --> DQN  
 9 - Ragionamento su Modelli di Conoscenza Incerta
     -- Modelli di Markov nascosti
-    -- MDP e POMPD
-10 - Extra
-    -- RL e interazione con le reti neurali
+11 - Extra
+    -- RL
+    -- DQN
+        -- MDP e POMPD
+        -- Off-Policy
+        -- Q* Policy

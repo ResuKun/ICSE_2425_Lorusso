@@ -53,22 +53,16 @@ class BurracoJudge:
             for tris_up_info in potential_tris_upd:
                 #restituisce un array di action_ids perchè divisi per tris
                 action_ids = get_tris_update_action_id(tris_up_info)
-                count = 0
-                for single_tris_up in tris_up_info[0]:
-                    #    def __init__(self, tris_id, card_id, action_id):
-                    legal_actions.append(UpdateTrisAction(single_tris_up[0][2], single_tris_up[1][1], action_ids[count]))
-                    count += 1
-
+                #def __init__(self, tris_id, card_id, action_id)
+                legal_actions.append(UpdateTrisAction(tris_up_info[1][2], tris_up_info[0][1], action_ids))
+            
             #  ['update_meld_action_id', (0, 'Picche', 7, 30)],
             #(matta, seme, meld_len, card_value)
             potential_melds_upd = csp_resolver.get_possible_meld_to_update(player)
             for meld_up_info in potential_melds_upd:
                 action_ids = get_meld_update_action_id(meld_up_info)
-                count = 0
-                for single_mel_up in meld_up_info[0]:
-                    #__init__(self, meld_id, card_id, action_id)
-                    legal_actions.append(UpdateMeldAction(single_mel_up[1][5], single_mel_up[0][1], action_ids[count]))
-                    count += 1
+                #__init__(self, meld_id, card_id, action_id)
+                legal_actions.append(UpdateMeldAction(meld_up_info[1][0][5], meld_up_info[0][1], action_ids))
             
             # Aggiunge l'azione di chiusura del gioco
             card = csp_resolver.can_end_game_csp(player)

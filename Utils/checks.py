@@ -97,7 +97,7 @@ def get_card_number(card):
 #condizioni per creazione delle scale / aggiunta delle carte a scala
 def doppio_jolly_combinazione(carta, scala):
 	#se la scala contiene un Jolly o Pinella e provo ad aggiungerne un altro ritorna Falso
-	if scala[0][0]:
+	if scala[0]:
 		return not (is_jolly_or_pinella(carta[0]))
 	return True
 
@@ -238,13 +238,16 @@ def regole_di_gioco(player, is_closing_game, *cards_to_play, meld = None):
 	return result
 
 def check_sum_len(meld):
-	onto_meld = None
-	if len(meld) > 3:
-		onto_meld = onto_access_util.get_meld_from_id(meld[5])
-	else:
-		onto_meld = onto_access_util.get_tris_from_id(meld[2])
-	return len(onto_meld.hasCards) + 1 >= 7
-
+	try:
+		onto_meld = None
+		if len(meld) > 4:
+			onto_meld = onto_access_util.get_meld_from_id(meld[5])
+		else:
+			onto_meld = onto_access_util.get_tris_from_id(meld[2])
+		return len(onto_meld.hasCards) + 1 >= 7
+	except:
+		print(f"ERRORE check_sum_len {meld}")
+		raise Exception(f"ERRORE check_sum_len {meld}")
 
 def closure_player_regole_di_gioco(player):
 	def constraint(*carte):
@@ -256,6 +259,11 @@ def closure_player_regole_di_gioco_update_meld(player):
 		return regole_di_gioco(player, False, carta, meld=meld[0])
 	return constraint
 
+def closure_player_regole_di_gioco_update_tris(player):
+	def constraint(carta, tris):
+		return regole_di_gioco(player, False, carta, meld=tris)
+	return constraint
+
 def closure_player_close_game(player):
 	def constraint(*carte):
 		return regole_di_gioco(player, True, *carte)
@@ -263,23 +271,3 @@ def closure_player_close_game(player):
 
 def is_jolly_or_pinella(num):
 	return num == CardValues.JOLLY_VALUE.value or num == CardValues.PINELLA_VALUE.value
-
-def closure_stesso_seme_scala(scala):
-	def constraint(carta):
-		return stesso_seme_scala(scala, carta)
-	return constraint
-
-def closure_lista_contigua_with_card(lista_carte):
-	def constraint(carta):
-		return lista_contigua_with_card(lista_carte, carta)
-	return constraint
-
-def closure_doppio_jolly_combinazione(contain_jolly):
-	def constraint(carta):
-		return doppio_jolly_combinazione(carta, contain_jolly)
-	return constraint
-
-def closure_stesso_numero_tris(tris):
-	def constraint(carta):
-		return stesso_numero_tris(carta, tris)
-	return constraint

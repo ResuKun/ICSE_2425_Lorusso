@@ -112,21 +112,21 @@ def apre_scala(player, cards, debug = False):
 
 	#ignoro i jolly/pinelle per il seme della scala
 	for card in cards:
-		if card.valoreCarta != CONST.CardValues.JOLLY_VALUE.value and card.valoreCarta != CONST.CardValues.PINELLA_VALUE.value:
+		if card.valoreCarta != 30 and card.valoreCarta != 20:
 			nuovaScala.semeScala = card.seme
 			break
 
-	nuovaScala.minValueScala = min(c.valoreCarta for c in cards if c.valoreCarta != -1)
+	nuovaScala.minValueScala = min(c.numeroCarta for c in cards if c.valoreCarta != 30 and c.valoreCarta != 20)
 	if(nuovaScala.minValueScala == 2):
 		# Estraggo i valori delle carte che non sono Pinelle/Jolly (-1) e li ordino
-		valori_reali = sorted([c.valoreCarta for c in cards if c.valoreCarta != -1])
+		valori_reali = sorted([c.numeroCarta for c in cards if c.valoreCarta != -1])
 		# Controllo se le carte successive al 2 formano la sequenza naturale 3 e 4
 		# (valori_reali[0] è il 2, controlliamo se ci sono almeno 3 carte e se sono 3 e 4)
 		if not(len(valori_reali) >= 3 and valori_reali[1] == 3 and valori_reali[2] == 4):
 			# Prendo il valore minimo tra le carte rimanenti (escluso il 2)
-			nuovaScala.minValueScala = min(c.numeroCarta for c in cards if c.numeroCarta != -1 and c.valoreCarta != 2)
+			nuovaScala.minValueScala = min(c.numeroCarta for c in cards if c.valoreCarta != 30 and c.valoreCarta != 20)
 		
-	nuovaScala.maxValueScala = max(c.numeroCarta for c in cards if c.numeroCarta != -1)
+	nuovaScala.maxValueScala = max(c.numeroCarta for c in cards if c.valoreCarta != 30 and c.valoreCarta != 20)
 	nuovaScala.isBurracoClosed = False
 
 	partialScore = 0

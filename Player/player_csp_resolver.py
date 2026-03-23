@@ -105,7 +105,7 @@ def solve_csp_cut(csp, vars):
     return solutions_list
 
 # usa il solver normale di default
-_csp_solver = solve_csp
+_csp_solver = solve_csp_cut
 
 
 ## -------------- START PROBLEMI CSP -------------- ##
@@ -168,20 +168,12 @@ def can_update_csp_scala(player, lista_carte, scala):
             Constraint( [var, var2], regole_di_gioco,"regole_di_gioco"),
         ])
     
-    solutions_list = solve_csp_cut(update_scala_CSP,  [var, var2])
+    solutions_list = _csp_solver(update_scala_CSP,  [var, var2])
 
     #print(f"\n\n\n[ can_update_csp_scala ] SOLUZIONI TROVATE-->")
     #print(f"{[sol for sol in solutions_list]}")
     #print(f"------------------------------------------------------------------------\n\n\n")
     return solutions_list
-""" 
-def get_possible_meld_to_update(player):
-    list_meld = []
-    for meld in player.scala:
-        result = can_update_csp_scala(player, player.playerHand.mazzo, meld)
-        if result != []:
-            list_meld.append((result, len(meld.hasCards)))
-    return list_meld """
 
 def get_possible_meld_to_update(player):
     result = can_update_csp_scala(player, player.playerHand.mazzo,  player.scala)
@@ -220,45 +212,36 @@ def find_csp_tris(player):
 
 
 #Update di un TRIS
-def can_update_csp_tris(player, lista_carte, tris):
+def can_update_csp_tris(player, lista_carte, lista_tris):
     # def __init__(self, title, variables, constraints):
     lista_numeri = checks.get_tuple_from_cards(lista_carte, True)
 
-    contain_jolly = any(isinstance(card, (get_onto().Jolly, get_onto().Pinella)) for card in tris.hasCards)
-    tupla = (contain_jolly, tris.trisValue, tris.trisId)
+    lista_tuple = []
+    for tris in lista_tris:
+        contain_jolly = any(isinstance(card, (get_onto().Jolly, get_onto().Pinella)) for card in tris.hasCards)
+        lista_tuple.append( (contain_jolly, tris.trisValue, tris.trisId, len(tris.hasCards)))
 
     #versione closure dei metodi per velocizzare il DFS
-    stesso_numero_tris = checks.closure_stesso_numero_tris(tupla)
-    doppio_jolly_combinazione = checks.closure_doppio_jolly_combinazione(tupla)
-    regole_di_gioco = checks.closure_player_regole_di_gioco_update_meld(player, tupla)
+    regole_di_gioco = checks.closure_player_regole_di_gioco_update_tris(player)
 
     var1 = Variable("c1", lista_numeri)
-    vars_jolly_single = [var1]
+    var2 = Variable("c2", lista_tuple)
+    var_list = [var1, var2]
 
     update_scala_CSP = CSP("update_scala_CSP",
-        vars_jolly_single, #mettere le variabili
+        var_list, #mettere le variabili
         [
-            Constraint([var1], stesso_numero_tris,"stesso_numero_tris"),
-            Constraint([var1], doppio_jolly_combinazione,"doppio_jolly_combinazione"),
-            Constraint([var1], regole_di_gioco,"regole_di_gioco"),
+            Constraint(var_list, checks.stesso_numero_tris,"stesso_numero_tris"),
+            Constraint(var_list, checks.doppio_jolly_combinazione,"doppio_jolly_combinazione"),
+            Constraint(var_list, regole_di_gioco,"regole_di_gioco"),
         ])
     
-    solutions_list = _csp_solver(update_scala_CSP, vars_jolly_single, True)
-    results = []
-    for elem in solutions_list:
-        results.append([tupla, elem[0]])
-    #print(f"\n\n\n [ can_update_csp_tris ] SOLUZIONI TROVATE-->")
-    #print(f"{[sol for sol in results]}")
-    #print(f"------------------------------------------------------------------------\n\n\n")
-    return results
+    solutions_list = _csp_solver(update_scala_CSP, var_list)
+    return solutions_list
 
 def get_possible_tris_to_update(player):
-    list_meld = []
-    for meld in player.tris:
-        result = can_update_csp_tris(player, player.playerHand.mazzo, meld)
-        if result != []:
-            list_meld.append((result, len(meld.hasCards)))
-    return list_meld
+    result = can_update_csp_tris(player, player.playerHand.mazzo, player.tris)
+    return result
 
 # effettua i check per verificare se il giocatore può chiudere la partita
 # restituisce l'unica carta da scartare nel caso di chiusura
@@ -276,7 +259,7 @@ def can_end_game_csp(player):
     
     #searcher = Searcher(Search_from_CSP(end_game_csp))
     #result = searcher.search()
-    result = _csp_solver(end_game_csp, [var1], True)
+    result = _csp_solver(end_game_csp, [var1])
     return result
 
 #ordina la lista di combinazioni in base al loro valore (somma dei valori delle singole carte)
