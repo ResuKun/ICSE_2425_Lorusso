@@ -60,10 +60,6 @@ class Searcher(Displayable):
  
     #versione modificata della ricerca che taglia le permutazioni
     def search_cut_order(self, visited_nodes = None):
-        """returns (next) path from the problem's start node
-        to a goal node. 
-        Returns None if no path exists.
-        """
         if visited_nodes is None:
             visited_nodes = set()
 
@@ -81,7 +77,7 @@ class Searcher(Displayable):
                     continue
                 visited_nodes.add(current_state)
             
-                self.solution = self.path   # store the solution found
+                self.solution = self.path  
                 return self.path, visited_nodes
             else:
                 neighs = self.problem.neighbors(self.path.end())
