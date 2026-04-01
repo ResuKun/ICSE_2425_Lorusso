@@ -17,6 +17,7 @@ class BurracoEnv(Env):
         self.name = 'burraco'
         self.game = Game(csp_solver = csp_solver)
         super().__init__(config=config)
+        #numero di informazioni
         self.state_shape = [[5, CONST.CardValues.TOTAL_CARDS.value] for _ in range(self.num_players)]
         self.action_shape = [None for _ in range(self.num_players)]
 
@@ -32,10 +33,10 @@ class BurracoEnv(Env):
             basato su 1 hot encoding (_utils.encode_cards)
             numpy array: 5 * 108 array
                          5 : hand (carte nella mano del giocatore)
+                             player_melds_cards (carte giocate dal giocatore)
                              top_discard (scarti)
-                             dead_cards (monte)
                              opponent_known_cards (carte già viste dell'avversario (avversario raccoglie gli scarti))
-                             opponent_unknown_cards (carte non viste dell'avversario)
+                             unknown_cards (carte non viste dell'avversario e del monte)
         '''
         legal_actions = self._get_legal_actions()
         if self.game.is_over():
@@ -47,16 +48,16 @@ class BurracoEnv(Env):
 
             player_hand = state['hand']
             top_discard = state['top_discard']
-            dead_cards = state['dead_cards']
+            player_melds_cards = state['player_melds_cards']
             known_cards = state['opponent_known_cards']
-            unknown_cards = state['opponent_unknown_cards']
+            unknown_cards = state['unknown_cards']
 
             hand_rep = self._utils.encode_cards(player_hand)
             top_discard_rep = self._utils.encode_cards(top_discard)
-            dead_cards_rep = self._utils.encode_cards(dead_cards)
+            player_melds_cards_rep = self._utils.encode_cards(player_melds_cards)
             known_cards_rep = self._utils.encode_cards(known_cards)
             unknown_cards_rep = self._utils.encode_cards(unknown_cards)
-            rep = [hand_rep, top_discard_rep, dead_cards_rep, known_cards_rep, unknown_cards_rep]
+            rep = [hand_rep, top_discard_rep, player_melds_cards_rep, known_cards_rep, unknown_cards_rep]
             obs = np.array(rep)
            
            # come nell' Uno, costruisce e restituisce un extracted_state

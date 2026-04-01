@@ -115,25 +115,31 @@ class BurracoGame:
 			last_action = self.get_last_action()
 			opponent_id = (player_id + 1) % 2
 			opponent = self.round.players[opponent_id]
+			player = self.round.players[player_id]
 			opponent_known_cards = None
-			opponent_unknown_cards = None
+			unknown_cards = None
 
+			hand = get_player_known_cards(player.player1) + get_player_unknown_cards(player.player1)
+			pl_meld_cards = [card for meld in get_player_melds(player.player1) for card in meld.hasCards]
+			pl_tris_cards = [card for meld in get_player_tris(player.player1) for card in meld.hasCards]
+			pl_meld_cards.extend(pl_tris_cards)
+			
 			#se il gioco è chiuso le carte dell'avversario diventano visibili
 			if isinstance(last_action, CloseGameAction):
 				opponent_known_cards = get_player_cards(opponent.player1) + get_player_melds(opponent.player1) + get_player_tris(opponent.player1)
-				opponent_unknown_cards = []
+				unknown_cards = []
 			else:
-				opponent_known_cards = get_player_known_cards(opponent.player1) + get_player_melds(opponent.player1) + get_player_tris(opponent.player1)
-				opponent_unknown_cards = get_player_unknown_cards(opponent.player1)
-
-			opponent_known_cards.extend( get_player_melds(opponent.player1) + get_player_tris(opponent.player1))
+				meld_cards = [card for meld in get_player_melds(opponent.player1) for card in meld.hasCards]
+				tris_cards = [card for meld in get_player_tris(opponent.player1) for card in meld.hasCards]
+				opponent_known_cards = meld_cards + tris_cards + get_player_known_cards(opponent.player1)
+				unknown_cards =  get_player_unknown_cards(opponent.player1) + get_monte()
 
 			state['player_id'] = player_id
-			state['hand'] = [card.idCarta for card in get_player_cards(self.round.players[player_id].player1)]
+			state['hand'] = [card.idCarta for card in hand]
+			state['player_melds_cards'] = [card.idCarta for card in pl_meld_cards ]
 			state['top_discard'] =[card.idCarta for card in get_scarti()]
-			state['dead_cards'] = [card.idCarta for card in get_monte() ]
 			state['opponent_known_cards'] = [card.idCarta for card in opponent_known_cards]
-			state['opponent_unknown_cards'] = [card.idCarta for card in opponent_unknown_cards]
+			state['unknown_cards'] = [card.idCarta for card in unknown_cards]
 		return state
 
 

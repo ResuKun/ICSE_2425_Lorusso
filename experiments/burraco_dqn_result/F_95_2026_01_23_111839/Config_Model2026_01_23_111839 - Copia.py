@@ -3,6 +3,7 @@ import argparse
 import os
 import multiprocessing as mp
 from datetime import datetime
+from Utils.logger import ProcessLogger 
 import time
 import torch
 import rlcard
@@ -24,11 +25,7 @@ def worker_process(worker_id, traj_queue, param_queue, args, seed_offset=0):
         set_seed(seed)
 
         device = torch.device("cpu")
-
-        config = {'seed': seed}
-        if hasattr(args, 'csp_solver') and args.csp_solver:
-            config['csp_solver'] = args.csp_solver
-        env = rlcard.make(args.env, config=config)
+        env = rlcard.make(args.env, config={'seed': seed})
         local_agent = get_agent(env, device, args, worker_log, False)
 
         opponents = [
@@ -92,10 +89,7 @@ def learner_process(traj_queue, param_queues, args):
     set_seed(args.seed)
     learner_log = ProcessLogger.get_logger(role="learner")
 
-    cfg = {'seed': args.seed}
-    if hasattr(args, 'csp_solver') and args.csp_solver:
-        cfg['csp_solver'] = args.csp_solver
-    env = rlcard.make(args.env, config=cfg)
+    env = rlcard.make(args.env, config={'seed': args.seed})
     agent = get_agent(env, device, args, learner_log, True)
 
     opponents = [
@@ -110,7 +104,6 @@ def learner_process(traj_queue, param_queues, args):
 
     finished_workers = 0
     episode_count = 0
-    fig_rewards = []
 
     with Logger(args.log_dir) as logger:
         while finished_workers < args.num_workers:
@@ -130,11 +123,11 @@ def learner_process(traj_queue, param_queues, args):
             # -------------------------
             # Warmup scheduling
             # -------------------------
-            if episode_count == 25000:
+            if episode_count == 30000:
                 learner_log.info("Switching to fine training phase")
-                # train_every: 2000 -> 500
+                # train_every: 1000 -> 500
                 agent.train_every = 500
-                # learning rate: 0.00015 -> 0.0001
+                # learning rate: 0.00025 -> 0.0001
                 for param_group in agent.q_estimator.optimizer.param_groups:
                     param_group['lr'] = 0.0001
             # -------------------------
@@ -179,32 +172,31 @@ def learner_process(traj_queue, param_queues, args):
                     transition[2] += 0.1
            
             for ts in trajectory:
-                agent.feed(ts, episode_count, learner_log)
+                agent.feed(ts, learner_log)
+            learner_log.info(f"End   Feed")
 
             # valutazione periodica (bloccante)
             if episode_count % args.eval_every == 0:
                 learner_log.info(f"Tournament - episode_count:{episode_count}")
-                result = tournament(env, args.num_eval_games)
-                logger.log_performance(episode_count, result[0])
-                learner_log.info(f"Tournament end -- average pay: {result[0]}")
-                fig_rewards.append(result)
+                result = tournament(env, args.num_eval_games)[0]
+                logger.log_performance(
+                    episode_count, result
+                )
+                learner_log.info(f"Tournament end -- average pay: {result}")
+
+                # invio checkpoint aggiornato
+                #step = episode_count * args.train_every
                 step = agent.total_t
                 for wid, q in enumerate(param_queues):
                     if not q.full():
                         save_and_send_ckpt_to_worker(agent, wid, q, step, args)
 
         # Get the paths
-        _, fig_path = logger.csv_path, logger.fig_path
+        csv_path, fig_path = logger.csv_path, logger.fig_path
     
     # Plot the learning curve
     learner_log.info("Saving Statistics")
-    if fig_rewards:
-        data1 = [r[0] * 500 for r in fig_rewards]
-        data2 = [r[1] * 500 for r in fig_rewards]
-        plot_curve(data1, data2, fig_path, "DQN Model", "Random Model", "Training's Tournaments Means", f"Mean of {args.num_eval_games} games every {args.eval_every} games")
-    else:
-        learner_log.warning("No evaluation data collected. Skipping plot generation.")
-
+    plot_curve(csv_path, fig_path, args.algorithm)
 
     torch.save(agent, os.path.join(args.log_dir, "final_model.pth"))
 
@@ -213,52 +205,49 @@ def learner_process(traj_queue, param_queues, args):
 # Agent factory
 # =========================
 def get_agent(env, device, args, logger, is_learner = False):
-    from rlcard.agents import DQNAgent
-    if args.load_checkpoint_path != "":
-        logger.info(f"Loading from: {args.load_checkpoint_path}")
-        ckpt = torch.load(args.load_checkpoint_path,weights_only=False)
-        agent = DQNAgent.from_checkpoint(checkpoint=ckpt)
-        agent.device = device
-        return agent
-    
-    current_mem_size = 500000 if is_learner else 1000
-    current_init_size = 50000 if is_learner else 100
-    logger.info(f" Loading from          : {args.load_checkpoint_path}")
-    logger.info(f" replay_memory_size    : {current_mem_size}")
-    logger.info(f" replay_mem_init_size  : {current_init_size}")
-    logger.info(f" update_target_every   : 3000")
-    logger.info(f" discount_factor       : 0.99")
-    logger.info(f" epsilon_start         : 1.0")
-    logger.info(f" epsilon_end           : 0.05")
-    logger.info(f" epsilon_decay_steps   : 3000000")
-    logger.info(f" batch_size            : 256")
-    logger.info(f" num_actions           : {env.num_actions}")
-    logger.info(f" state_shape           : {env.state_shape[0]}")
-    logger.info(f" mlp_layers            : [256, 256]")
-    logger.info(f" learning_rate         : 0.0001")
-    logger.info(f" device                : {device}")
-    logger.info(f" save_path             : {args.log_dir}")
-    logger.info(f" save_every            : {args.save_every}")
-    logger.info(f" train_every           : {args.train_every}")
-    
-    return DQNAgent(
-        replay_memory_size=current_mem_size,
-        replay_memory_init_size=current_init_size,
-        update_target_estimator_every=3000,
-        discount_factor=0.99,
-        epsilon_start=1.0,
-        epsilon_end=0.05,
-        epsilon_decay_steps=3000000,
-        batch_size=256,
-        num_actions=env.num_actions,
-        state_shape=env.state_shape[0],
-        mlp_layers=[256, 256],
-        learning_rate=0.00015,
-        device=device,
-        save_path=args.log_dir,
-        save_every=args.save_every,
-        train_every=args.train_every
-    )
+
+
+    if args.algorithm == 'dqn':
+        from rlcard.agents import DQNAgent
+        if args.load_checkpoint_path != "":
+            logger.info(f"Loading from: {args.load_checkpoint_path}")
+            ckpt = torch.load(args.load_checkpoint_path,weights_only=False)
+            agent = DQNAgent.from_checkpoint(checkpoint=ckpt)
+            agent.device = device
+            return agent
+        
+        current_mem_size = 500000 if is_learner else 1000
+        current_init_size = 50000 if is_learner else 100
+        return DQNAgent(
+            replay_memory_size=current_mem_size,
+            replay_memory_init_size=current_init_size,
+            #per test
+            #replay_memory_init_size=1000,
+            # OLD -- update_target_estimator_every=2500,
+            # OLD -- update_target_estimator_every=10000,
+            # multi-worker asincrono - replay rumoroso - riduce oscillazioni forti nei tornei
+            update_target_estimator_every=3000,
+            discount_factor=0.99,
+            epsilon_start=1.0,
+            # OLD -- epsilon_end=0.1,
+            epsilon_end=0.05,
+            # OLD -- epsilon_decay_steps=200000,
+            # OLD -- epsilon_decay_steps=400000,
+            epsilon_decay_steps=300000,
+            batch_size=256,
+            num_actions=env.num_actions,
+            state_shape=env.state_shape[0],
+            # OLD -- mlp_layers=[128, 128],
+            # OLD -- mlp_layers=[512, 512, 256],
+            mlp_layers=[256, 256],
+            # ---OLD learning_rate=0.0003,
+            # ---OLD learning_rate=0.0001,
+            learning_rate=0.0001,
+            device=device,
+            save_path=args.log_dir,
+            save_every=args.save_every,
+            train_every=args.train_every
+        )
 
 
 
@@ -274,17 +263,10 @@ def main(args):
     param_queues = [mp.Queue(maxsize=1) for _ in range(args.num_workers)]
 
     main_log = ProcessLogger.get_logger(role="main")
-    main_log.info(f" env                   : {args.env}")
-    main_log.info(f" algorithm             : {args.algorithm}")
-    main_log.info(f" seed                  : {args.seed}")
-    main_log.info(f" log_dir               : {args.log_dir}")
-    main_log.info(f" save_every            : {args.save_every}")
-    main_log.info(f" num_workers           : {args.num_workers}")
-    main_log.info(f" num_ep_worker         : {args.num_ep_worker}")
-    main_log.info(f" train_every           : {args.train_every}")
-    main_log.info(f" eval_every            : {args.eval_every}")
-    main_log.info(f" num_eval_games        : {args.num_eval_games}")
-    main_log.info(f" load_checkpoint_path  : {args.load_checkpoint_path}")
+    main_log.info(f" num_workers            : {args.num_workers}")
+    main_log.info(f" num_ep_worker          : {args.num_ep_worker}")
+    main_log.info(f" num_eval_games         : {args.num_eval_games}")
+    main_log.info(f" load_checkpoint_path   : {args.load_checkpoint_path}")
 
     learner = mp.Process(
         target=learner_process,
@@ -323,9 +305,11 @@ if __name__ == "__main__":
     # [nel caso riprendo dal checkpoint per altre 50000 partite]
     parser.add_argument("--num_ep_worker", type=int, default=8333)
     parser.add_argument("--train_every", type=int, default=2000)
-    parser.add_argument("--eval_every", type=int, default=5000)
+    parser.add_argument("--eval_every", type=int, default=10000)
     parser.add_argument("--num_eval_games", type=int, default=25)
+    # 25 partite di torneo ogni 10000 partite giocate dai worker
     parser.add_argument("--load_checkpoint_path", default="")
+    #parser.add_argument("--load_checkpoint_path", default="experiments/burraco_dqn_result/2026_01_16_135238/checkpoint_dqn.pt")
 
     args = parser.parse_args()
     main(args)

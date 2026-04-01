@@ -24,11 +24,7 @@ def worker_process(worker_id, traj_queue, param_queue, args, seed_offset=0):
         set_seed(seed)
 
         device = torch.device("cpu")
-
-        config = {'seed': seed}
-        if hasattr(args, 'csp_solver') and args.csp_solver:
-            config['csp_solver'] = args.csp_solver
-        env = rlcard.make(args.env, config=config)
+        env = rlcard.make(args.env, config={'seed': seed})
         local_agent = get_agent(env, device, args, worker_log, False)
 
         opponents = [
@@ -92,10 +88,7 @@ def learner_process(traj_queue, param_queues, args):
     set_seed(args.seed)
     learner_log = ProcessLogger.get_logger(role="learner")
 
-    cfg = {'seed': args.seed}
-    if hasattr(args, 'csp_solver') and args.csp_solver:
-        cfg['csp_solver'] = args.csp_solver
-    env = rlcard.make(args.env, config=cfg)
+    env = rlcard.make(args.env, config={'seed': args.seed})
     agent = get_agent(env, device, args, learner_log, True)
 
     opponents = [
@@ -198,12 +191,9 @@ def learner_process(traj_queue, param_queues, args):
     
     # Plot the learning curve
     learner_log.info("Saving Statistics")
-    if fig_rewards:
-        data1 = [r[0] * 500 for r in fig_rewards]
-        data2 = [r[1] * 500 for r in fig_rewards]
-        plot_curve(data1, data2, fig_path, "DQN Model", "Random Model", "Training's Tournaments Means", f"Mean of {args.num_eval_games} games every {args.eval_every} games")
-    else:
-        learner_log.warning("No evaluation data collected. Skipping plot generation.")
+    data1 = [r[0] * 500 for r in fig_rewards]
+    data2 = [r[1] * 500 for r in fig_rewards]
+    plot_curve(data1, data2, fig_path, "DQN Model", "Random Model", "Training's Tournaments Means", f"Mean of {args.num_eval_games} games every {args.eval_every} games")
 
 
     torch.save(agent, os.path.join(args.log_dir, "final_model.pth"))
@@ -235,7 +225,7 @@ def get_agent(env, device, args, logger, is_learner = False):
     logger.info(f" num_actions           : {env.num_actions}")
     logger.info(f" state_shape           : {env.state_shape[0]}")
     logger.info(f" mlp_layers            : [256, 256]")
-    logger.info(f" learning_rate         : 0.0001")
+    logger.info(f" learning_rate         : 0.00015 --> 0.0001")
     logger.info(f" device                : {device}")
     logger.info(f" save_path             : {args.log_dir}")
     logger.info(f" save_every            : {args.save_every}")
@@ -248,7 +238,8 @@ def get_agent(env, device, args, logger, is_learner = False):
         discount_factor=0.99,
         epsilon_start=1.0,
         epsilon_end=0.05,
-        epsilon_decay_steps=3000000,
+        # quintuplicato rispetto a burraco_2(95)
+        epsilon_decay_steps=1500000,
         batch_size=256,
         num_actions=env.num_actions,
         state_shape=env.state_shape[0],
@@ -325,7 +316,9 @@ if __name__ == "__main__":
     parser.add_argument("--train_every", type=int, default=2000)
     parser.add_argument("--eval_every", type=int, default=5000)
     parser.add_argument("--num_eval_games", type=int, default=25)
+    # 25 partite di torneo ogni 5000 partite giocate dai worker
     parser.add_argument("--load_checkpoint_path", default="")
+    #parser.add_argument("--load_checkpoint_path", default="experiments/burraco_dqn_result/2026_01_16_135238/checkpoint_dqn.pt")
 
     args = parser.parse_args()
     main(args)

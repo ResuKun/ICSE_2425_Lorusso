@@ -24,7 +24,11 @@ def worker_process(worker_id, traj_queue, param_queue, args, seed_offset=0):
         set_seed(seed)
 
         device = torch.device("cpu")
-        env = rlcard.make(args.env, config={'seed': seed})
+
+        config = {'seed': seed}
+        if hasattr(args, 'csp_solver') and args.csp_solver:
+            config['csp_solver'] = args.csp_solver
+        env = rlcard.make(args.env, config=config)
         local_agent = get_agent(env, device, args, worker_log, False)
 
         opponents = [
@@ -88,7 +92,10 @@ def learner_process(traj_queue, param_queues, args):
     set_seed(args.seed)
     learner_log = ProcessLogger.get_logger(role="learner")
 
-    env = rlcard.make(args.env, config={'seed': args.seed})
+    cfg = {'seed': args.seed}
+    if hasattr(args, 'csp_solver') and args.csp_solver:
+        cfg['csp_solver'] = args.csp_solver
+    env = rlcard.make(args.env, config=cfg)
     agent = get_agent(env, device, args, learner_log, True)
 
     opponents = [
@@ -125,7 +132,7 @@ def learner_process(traj_queue, param_queues, args):
             # -------------------------
             if episode_count == 25000:
                 learner_log.info("Switching to fine training phase")
-                # train_every: 2000 -> 500
+                # train_every: 1000 -> 500
                 agent.train_every = 500
                 # learning rate: 0.00015 -> 0.0001
                 for param_group in agent.q_estimator.optimizer.param_groups:
@@ -143,28 +150,9 @@ def learner_process(traj_queue, param_queues, args):
 
             # gestione intermedia delle ricompense
             trajectory = reorganized[0] # Traiettoria del tuo agente
-            prev_action_id = -1
-            action_id = -1
-            punish_counter = 0
             for transition in trajectory:
-                # per evitare turni sterili (pesca --> scarta)
-                prev_action_id = action_id
                 # transition = [state, action_id, reward, next_state, done]
                 action_id = transition[1]
-
-                  # se azione sterile, la punisco
-                if ActionIndexes.DISCARD_ACTION_ID.value[1] <= action_id < ActionIndexes.CLOSE_GAME_ACTION_ID.value[1]:
-                    if (prev_action_id in (
-                            ActionIndexes.PICK_UP_ACTION_ID.value[1],
-                            ActionIndexes.PICK_UP_DISCARD_ACTION_ID.value[1])):
-                        # se ho azioni disponibili --> punizione media
-                        if any((c >= ActionIndexes.CLOSE_GAME_ACTION_ID.value[1]) for c in transition[0]['raw_legal_actions']):
-                            transition[2] -= 0.05
-                        # se NON ho azioni disponibili --> punizione progressiva (parte da n=0)
-                        else:
-                            transition[2] -= max((0.01 * pow(2, punish_counter)), 0.1 )
-                            punish_counter += 1
-                    else: punish_counter = 0
 
                 if transition[4]:  # end of game
                     if has_won:
@@ -210,9 +198,12 @@ def learner_process(traj_queue, param_queues, args):
     
     # Plot the learning curve
     learner_log.info("Saving Statistics")
-    data1 = [r[0] * 500 for r in fig_rewards]
-    data2 = [r[1] * 500 for r in fig_rewards]
-    plot_curve(data1, data2, fig_path, "DQN Model", "Random Model", "Training's Tournaments Means", f"Mean of {args.num_eval_games} games every {args.eval_every} games")
+    if fig_rewards:
+        data1 = [r[0] * 500 for r in fig_rewards]
+        data2 = [r[1] * 500 for r in fig_rewards]
+        plot_curve(data1, data2, fig_path, "DQN Model", "Random Model", "Training's Tournaments Means", f"Mean of {args.num_eval_games} games every {args.eval_every} games")
+    else:
+        learner_log.warning("No evaluation data collected. Skipping plot generation.")
 
 
     torch.save(agent, os.path.join(args.log_dir, "final_model.pth"))
@@ -222,6 +213,7 @@ def learner_process(traj_queue, param_queues, args):
 # Agent factory
 # =========================
 def get_agent(env, device, args, logger, is_learner = False):
+    # NEW
     from rlcard.agents import DQNAgent
     if args.load_checkpoint_path != "":
         logger.info(f"Loading from: {args.load_checkpoint_path}")
@@ -229,9 +221,7 @@ def get_agent(env, device, args, logger, is_learner = False):
         agent = DQNAgent.from_checkpoint(checkpoint=ckpt)
         agent.device = device
         return agent
-    
-    current_mem_size = 500000 if is_learner else 1000
-    current_init_size = 50000 if is_learner else 100
+
     logger.info(f" Loading from          : {args.load_checkpoint_path}")
     logger.info(f" replay_memory_size    : {current_mem_size}")
     logger.info(f" replay_mem_init_size  : {current_init_size}")
@@ -250,6 +240,8 @@ def get_agent(env, device, args, logger, is_learner = False):
     logger.info(f" save_every            : {args.save_every}")
     logger.info(f" train_every           : {args.train_every}")
     
+    current_mem_size = 500000 if is_learner else 1000
+    current_init_size = 50000 if is_learner else 100
     return DQNAgent(
         replay_memory_size=current_mem_size,
         replay_memory_init_size=current_init_size,
@@ -257,7 +249,6 @@ def get_agent(env, device, args, logger, is_learner = False):
         discount_factor=0.99,
         epsilon_start=1.0,
         epsilon_end=0.05,
-        # decuplicato rispetto all'ultima esecuzione
         epsilon_decay_steps=3000000,
         batch_size=256,
         num_actions=env.num_actions,
@@ -270,6 +261,49 @@ def get_agent(env, device, args, logger, is_learner = False):
         train_every=args.train_every
     )
 
+
+## OLD
+    if args.algorithm == 'dqn':
+        from rlcard.agents import DQNAgent
+        if args.load_checkpoint_path != "":
+            logger.info(f"Loading from: {args.load_checkpoint_path}")
+            ckpt = torch.load(args.load_checkpoint_path,weights_only=False)
+            agent = DQNAgent.from_checkpoint(checkpoint=ckpt)
+            agent.device = device
+            return agent
+        
+        current_mem_size = 500000 if is_learner else 1000
+        current_init_size = 50000 if is_learner else 100
+        return DQNAgent(
+            replay_memory_size=current_mem_size,
+            replay_memory_init_size=current_init_size,
+            #per test
+            #replay_memory_init_size=1000,
+            # OLD -- update_target_estimator_every=2500,
+            # OLD -- update_target_estimator_every=10000,
+            # multi-worker asincrono - replay rumoroso - riduce oscillazioni forti nei tornei
+            update_target_estimator_every=3000,
+            discount_factor=0.99,
+            epsilon_start=1.0,
+            # OLD -- epsilon_end=0.1,
+            epsilon_end=0.05,
+            # OLD -- epsilon_decay_steps=200000,
+            # OLD -- epsilon_decay_steps=400000,
+            epsilon_decay_steps=300000,
+            batch_size=256,
+            num_actions=env.num_actions,
+            state_shape=env.state_shape[0],
+            # OLD -- mlp_layers=[128, 128],
+            # OLD -- mlp_layers=[512, 512, 256],
+            mlp_layers=[256, 256],
+            # ---OLD learning_rate=0.0003,
+            # ---OLD learning_rate=0.0001,
+            learning_rate=0.0001,
+            device=device,
+            save_path=args.log_dir,
+            save_every=args.save_every,
+            train_every=args.train_every
+        )
 
 
 # -------------------------
@@ -333,9 +367,9 @@ if __name__ == "__main__":
     # [nel caso riprendo dal checkpoint per altre 50000 partite]
     parser.add_argument("--num_ep_worker", type=int, default=8333)
     parser.add_argument("--train_every", type=int, default=2000)
-    parser.add_argument("--eval_every", type=int, default=5000)
+    parser.add_argument("--eval_every", type=int, default=10000)
     parser.add_argument("--num_eval_games", type=int, default=25)
-    # 25 partite di torneo ogni 5000 partite giocate dai worker
+    # 25 partite di torneo ogni 10000 partite giocate dai worker
     parser.add_argument("--load_checkpoint_path", default="")
     #parser.add_argument("--load_checkpoint_path", default="experiments/burraco_dqn_result/2026_01_16_135238/checkpoint_dqn.pt")
 
