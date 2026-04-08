@@ -91,10 +91,8 @@ if __name__ == '__main__':
         '--models',
         nargs='*',
         default=[
-            #'experiments/burraco_dqn_result/2026_02_12_183630/final_model.pth',
-            'random',
-            'random',
-            #'experiments/burraco_dqn_result/2026_02_04_200258/final_model.pth',
+            'experiments/burraco_dqn_result/2026_03_30_224000/final_model_95.pth',
+            'experiments/burraco_dqn_result/2026_03_30_224000/final_model_95.pth',
         ],
     )
     parser.add_argument(
@@ -114,7 +112,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--num_games',
         type=int,
-        default=10,
+        default=100,
     )
 
     parser.add_argument(
